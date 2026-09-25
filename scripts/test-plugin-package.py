@@ -610,6 +610,8 @@ def test_version_history() -> None:
         base = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=root, text=True
         ).strip()
+        if VERSION_HISTORY.last_version_bump(root, base) != base:
+            raise AssertionError("root commit was not treated as the version baseline")
         BUMP.bump(root)
         release = commit_all(root, "release 1.2.4")
 

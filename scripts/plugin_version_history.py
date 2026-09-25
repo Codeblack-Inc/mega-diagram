@@ -86,7 +86,8 @@ def last_version_bump(root: Path, source: str) -> str:
     ).splitlines()
     for commit in commits:
         parent = first_parent(root, commit)
-        if parent is not None and versions_changed(root, parent, commit):
+        # mega: the root commit introduces the first version, so it is the baseline.
+        if parent is None or versions_changed(root, parent, commit):
             return commit
     raise VersionHistoryError(
         f"no synchronized plugin version bump found at {source}"
