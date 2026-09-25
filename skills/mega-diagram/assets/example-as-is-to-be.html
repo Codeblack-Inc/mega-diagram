@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복지급여 신청 업무 AS-IS / TO-BE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;
+      --color-ink:     #17152b;
+      --color-muted:   #68657b;
+      --color-accent:  #2f6fdb;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">AS-IS / TO-BE · mega-diagram</p>
+    <h1>복지급여 신청 업무 개선 전후 비교</h1>
+
+    <svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="as-is-to-be-title as-is-to-be-desc">
+      <title id="as-is-to-be-title">복지급여 신청 업무 AS-IS / TO-BE</title>
+      <desc id="as-is-to-be-desc">복지급여 신청의 신청 채널·자격 확인·심사·결과 안내 네 단계에서 현행 방문·서류·수기 방식의 문제를 온라인 신청·행정정보 자동 조회·자동 심사·알림톡 안내로 바꿔 처리 기간을 14일에서 3일로 줄이는 개선 전후 비교.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+      </defs>
+
+      <!-- Column headers -->
+      <rect x="40" y="40" width="320" height="40" rx="6" fill="rgba(23,21,43,0.05)"/>
+      <text x="56" y="64" fill="#8a879c" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.14em">AS-IS</text>
+      <text x="112" y="65" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현행 업무</text>
+      <text x="344" y="65" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">문제 수치</text>
+      <text x="500" y="65" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">핵심 전환</text>
+      <rect x="640" y="40" width="320" height="40" rx="6" fill="#ffffff"/>
+      <rect x="640" y="40" width="320" height="40" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="656" y="64" fill="#2f6fdb" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.14em">TO-BE</text>
+      <text x="712" y="65" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선 업무</text>
+      <text x="944" y="65" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">개선 효과</text>
+
+      <!-- Transition band: one chevron per paired row, no separate connectors -->
+      <polygon points="376,108 604,108 624,132 604,156 376,156 392,132" fill="rgba(23,21,43,0.05)"/>
+      <text x="500" y="129" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">채널 전환</text>
+      <text x="500" y="147" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">온라인 창구 개설</text>
+      <polygon points="376,196 604,196 624,220 604,244 376,244 392,220" fill="rgba(23,21,43,0.05)"/>
+      <text x="500" y="217" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 연계</text>
+      <text x="500" y="235" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">행정정보 공동이용</text>
+      <polygon points="376,284 604,284 624,308 604,332 376,332 392,308" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="500" y="305" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">심사 자동화</text>
+      <text x="500" y="323" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">심사 규칙 엔진 도입</text>
+      <polygon points="376,372 604,372 624,396 604,420 376,420 392,396" fill="rgba(23,21,43,0.05)"/>
+      <text x="500" y="393" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">안내 디지털화</text>
+      <text x="500" y="411" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">알림톡 연동</text>
+
+      <!-- Paired rows: dashed 현행 (limit) on the left, solid 개선 on the right -->
+      <rect x="40" y="96" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="40" y="96" width="320" height="72" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="56" y="122" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">신청 채널</text>
+      <text x="56" y="148" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">방문·서면 신청</text>
+      <text x="344" y="122" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">방문 횟수</text>
+      <text x="344" y="148" fill="#68657b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">평균 2회</text>
+      <rect x="640" y="96" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="640" y="96" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="656" y="122" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">신청 채널</text>
+      <text x="656" y="148" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">온라인·모바일 신청</text>
+      <text x="944" y="122" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">방문 횟수</text>
+      <text x="944" y="148" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">0회</text>
+      <rect x="40" y="184" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="40" y="184" width="320" height="72" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="56" y="210" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자격 확인</text>
+      <text x="56" y="236" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기관별 서류 발급·제출</text>
+      <text x="344" y="210" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">구비서류</text>
+      <text x="344" y="236" fill="#68657b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">7종</text>
+      <rect x="640" y="184" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="640" y="184" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="656" y="210" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자격 확인</text>
+      <text x="656" y="236" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">행정정보 자동 조회</text>
+      <text x="944" y="210" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">구비서류</text>
+      <text x="944" y="236" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">0종</text>
+      <rect x="40" y="272" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="40" y="272" width="320" height="72" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="56" y="298" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">심사</text>
+      <text x="56" y="324" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">담당자 수기 심사</text>
+      <text x="344" y="298" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">처리 기간</text>
+      <text x="344" y="324" fill="#68657b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">14일</text>
+      <rect x="640" y="272" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="640" y="272" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="656" y="298" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">심사</text>
+      <text x="656" y="324" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">규칙 기반 자동 심사</text>
+      <text x="944" y="298" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">처리 기간</text>
+      <text x="944" y="324" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">3일</text>
+      <rect x="40" y="360" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="40" y="360" width="320" height="72" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="56" y="386" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">결과 안내</text>
+      <text x="56" y="412" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">우편 통지</text>
+      <text x="344" y="386" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">안내 누락률</text>
+      <text x="344" y="412" fill="#68657b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">6.2%</text>
+      <rect x="640" y="360" width="320" height="72" rx="6" fill="#ffffff"/>
+      <rect x="640" y="360" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="656" y="386" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">결과 안내</text>
+      <text x="656" y="412" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">알림톡 실시간 안내</text>
+      <text x="944" y="386" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">안내 누락률</text>
+      <text x="944" y="412" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">0.4%</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="40" y="488" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="476" width="16" height="12" rx="2" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="112" y="488" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현행(문제)</text>
+      <rect x="200" y="476" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="224" y="488" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선</text>
+      <polygon points="272,476 284,476 288,482 284,488 272,488" fill="rgba(23,21,43,0.05)" stroke="none" stroke-width="1"/>
+      <text x="296" y="488" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 전환</text>
+      <polygon points="376,476 388,476 392,482 388,488 376,488" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="400" y="488" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">중점 전환</text>
+    </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>민원 서비스 품질 관리 PDCA 순환</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+
+    .card .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">PDCA cycle · 2026.09</p>
+      <h1>민원 서비스 품질 관리 PDCA 순환</h1>
+      <p class="subtitle">계획·실행·점검·개선 4단계가 공통 품질 목표를 둘러싸고 시계 방향으로 도는 PDCA 품질 관리 체계입니다. 개선 결과는 다음 주기 계획으로 이어집니다.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 628" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cycle-full-title cycle-full-desc">
+        <title id="cycle-full-title">민원 서비스 품질 관리 PDCA 순환</title>
+        <desc id="cycle-full-desc">품질 목표 ‘민원 처리 품질 향상’을 가운데 두고 계획·실행·점검·개선 4단계가 시계 방향으로 순환하며, 개선 단계의 결과가 다음 주기의 계획으로 이어지는 PDCA 품질 관리 체계.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+        </defs>
+
+        <!-- 1. Ring arcs (before boxes): one circle, C=(500,288) R=216, clockwise sweep -->
+        <path d="M 612.0,103.306 A 216 216 0 0 1 712.038,246.821" fill="none" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 712.264,328.0 A 216 216 0 0 1 613.024,472.069" fill="none" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 388.0,472.694 A 216 216 0 0 1 287.962,329.179" fill="none" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 287.736,248.0 A 216 216 0 0 1 386.976,103.931" fill="none" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+        <!-- 2. Return label on the 개선 → 계획 arc, outside the ring, clear of the stroke -->
+        <rect x="280" y="108" width="64" height="16" rx="2" fill="#ffffff"/>
+        <text x="312.0" y="120" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">다음 주기</text>
+
+        <!-- 3. Hub: the shared goal (focal) -->
+        <rect x="412" y="240" width="176" height="96" rx="8" fill="#ffffff"/>
+        <rect x="412" y="240" width="176" height="96" rx="8" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.2"/>
+        <text x="500" y="268" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">품질 목표</text>
+        <text x="500" y="292" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">민원 처리 품질 향상</text>
+        <text x="500" y="314" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">만족도 90점 이상</text>
+
+        <!-- 4. Stations: tag, name, divider, 2 bullets -->
+        <!-- 계획 PLAN -->
+        <rect x="388" y="32" width="224" height="80" rx="6" fill="#ffffff"/>
+        <rect x="388" y="32" width="224" height="80" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <rect x="404" y="44" width="28" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="418.0" y="53" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PLAN</text>
+        <text x="440" y="55" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">계획</text>
+        <circle cx="408" cy="78" r="1.5" fill="#68657b"/>
+        <text x="416" y="82" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">품질 목표·지표 설정</text>
+        <circle cx="408" cy="96" r="1.5" fill="#68657b"/>
+        <text x="416" y="100" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선 과제 선정</text>
+        <!-- 실행 DO -->
+        <rect x="604" y="248" width="224" height="80" rx="6" fill="#ffffff"/>
+        <rect x="604" y="248" width="224" height="80" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <rect x="620" y="260" width="20" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="630.0" y="269" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DO</text>
+        <text x="648" y="271" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">실행</text>
+        <circle cx="624" cy="294" r="1.5" fill="#68657b"/>
+        <text x="632" y="298" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표준 처리 절차 적용</text>
+        <circle cx="624" cy="312" r="1.5" fill="#68657b"/>
+        <text x="632" y="316" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">담당자 교육·시행</text>
+        <!-- 점검 CHECK -->
+        <rect x="388" y="464" width="224" height="80" rx="6" fill="#ffffff"/>
+        <rect x="388" y="464" width="224" height="80" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <rect x="404" y="476" width="36" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="422.0" y="485" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CHECK</text>
+        <text x="448" y="487" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">점검</text>
+        <circle cx="408" cy="510" r="1.5" fill="#68657b"/>
+        <text x="416" y="514" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지표 측정·분석</text>
+        <circle cx="408" cy="528" r="1.5" fill="#68657b"/>
+        <text x="416" y="532" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">내부 품질 감사</text>
+        <!-- 개선 ACT -->
+        <rect x="172" y="248" width="224" height="80" rx="6" fill="#ffffff"/>
+        <rect x="172" y="248" width="224" height="80" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <rect x="188" y="260" width="24" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="200.0" y="269" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ACT</text>
+        <text x="220" y="271" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선</text>
+        <circle cx="192" cy="294" r="1.5" fill="#68657b"/>
+        <text x="200" y="298" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">원인 분석·조치</text>
+        <circle cx="192" cy="312" r="1.5" fill="#68657b"/>
+        <text x="200" y="316" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표준 개정·확산</text>
+
+        <!-- 5. Legend -->
+        <line x1="40" y1="576" x2="960" y2="576" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="40" y="604" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+        <rect x="88" y="594" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="112" y="604" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">공통 목표</text>
+        <rect x="192" y="594" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <text x="216" y="604" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단계</text>
+        <line x1="264" y1="600" x2="284" y2="600" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <text x="292" y="604" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">순환 방향</text>
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <p class="eyebrow">CYCLE · QUARTERLY</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>한 주기 = 한 분기</h3></div>
+        <p>분기마다 계획에서 개선까지 한 바퀴를 돕니다. 개선 단계에서 고친 표준은 다음 분기 계획의 기준선이 되므로 목표는 매 주기 조금씩 올라갑니다.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot ink"></span><h3>점검 지표</h3></div>
+        <ul><li>민원 만족도 (현재 84점 → 목표 90점)</li><li>처리 기한 준수율 97%</li><li>재민원 비율 3% 이하</li></ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot muted"></span><h3>단계별 책임</h3></div>
+        <ul><li>계획·개선: 품질관리 TF</li><li>실행: 민원 처리 부서 12곳</li><li>점검: 감사담당관실</li></ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>민원 서비스 품질 관리 · PDCA 순환</span>
+      <span>2026.09 · 예시</span>
+    </div>
+
+  </div>
+</body>
+</html>

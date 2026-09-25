@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 비전 검사 시장 규모 추정</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Market sizing · 2026.09</p>
+      <h1>AI 비전 검사 시장 규모 추정</h1>
+      <p class="subtitle">국내 제조업 품질 검사 시장에서 비전 검사 자동화가 가능한 시장, 3년 안에 확보할 시장까지 좁혀 가며 규모와 산출 근거를 함께 정리했습니다.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tam-sam-som-full-title tam-sam-som-full-desc">
+        <title id="tam-sam-som-full-title">AI 비전 검사 시장 규모 추정</title>
+        <desc id="tam-sam-som-full-desc">국내 제조업 품질 검사 시장(TAM) 24,000억 원 안에서 중소 전자·자동차 부품사 비전 검사 자동화 시장(SAM) 3,600억 원, 3년 내 확보 목표 시장(SOM) 180억 원을 동심원으로 겹쳐 보이고, 오른쪽에 각 규모의 산출 근거를 적은 시장 규모도.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+        </defs>
+
+        <!-- Rings: outer → inner so the focal SOM paints last -->
+        <circle cx="288" cy="264" r="216" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+        <circle cx="288" cy="264" r="144" fill="rgba(23,21,43,0.04)" stroke="#68657b" stroke-width="1"/>
+        <circle cx="288" cy="264" r="72" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+
+        <!-- In-ring labels: tag + size at the top of each exposed band -->
+        <text x="288" y="76" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">TAM</text>
+        <text x="288" y="96" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">24,000억 원</text>
+        <text x="288" y="148" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">SAM</text>
+        <text x="288" y="168" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">3,600억 원</text>
+        <text x="288" y="260" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">SOM</text>
+        <text x="288" y="280" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">180억 원</text>
+
+        <!-- Leaders: horizontal, from a dot inside each ring's own band to its callout -->
+        <circle cx="388" cy="108" r="2.5" fill="#68657b"/>
+        <line x1="388" y1="108" x2="568" y2="108" stroke="#68657b" stroke-width="0.8"/>
+        <circle cx="388" cy="212" r="2.5" fill="#68657b"/>
+        <line x1="388" y1="212" x2="568" y2="212" stroke="#68657b" stroke-width="0.8"/>
+        <circle cx="312" cy="316" r="2.5" fill="#2f6fdb"/>
+        <line x1="312" y1="316" x2="568" y2="316" stroke="#2f6fdb" stroke-width="0.8"/>
+
+        <!-- Callouts: name + size, 산출 근거, scope -->
+        <text x="584" y="112" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">TAM</text>
+        <text x="616" y="112" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전체 시장</text>
+        <text x="960" y="112" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">24,000억 원</text>
+        <line x1="584" y1="124" x2="960" y2="124" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="584" y="146" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">제조 사업체 6만 곳 × 연 검사비 4,000만 원</text>
+        <text x="584" y="166" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">국내 제조업 품질 검사 비용 전체</text>
+        <text x="584" y="216" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">SAM</text>
+        <text x="616" y="216" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">유효 시장</text>
+        <text x="960" y="216" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">3,600억 원</text>
+        <line x1="584" y1="228" x2="960" y2="228" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="584" y="250" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">중소 부품사 1만 2,000곳 × 3,000만 원</text>
+        <text x="584" y="270" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전자·자동차 부품, 비전 검사 대상 공정</text>
+        <text x="584" y="320" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">SOM</text>
+        <text x="616" y="320" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">목표 시장</text>
+        <text x="960" y="320" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">180억 원</text>
+        <line x1="584" y1="332" x2="960" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="584" y="354" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">SAM 사업장의 5%, 600곳 × 3,000만 원</text>
+        <text x="584" y="374" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">2029년까지 파트너 채널 확보 기준</text>
+
+        <!-- Source line (bottom strip) -->
+        <line x1="40" y1="508" x2="960" y2="508" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+        <text x="40" y="536" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">출처</text>
+        <text x="88" y="536" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">통계청 광업·제조업조사(2024), 중소벤처기업부 중소기업 실태조사(2024), 자사 추정</text>
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>SOM 180억 원의 근거</h3>
+        </div>
+        <p>SAM 1만 2,000곳 중 5%인 600곳을 2029년까지 확보한다는 가정이다. 파트너 SI 8곳이 연 25곳씩 설치하는 판매 역량으로 역산했다.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>산출 방식</h3>
+        </div>
+        <ul>
+          <li>상향식: 사업장 수 × 연 검사 비용</li>
+          <li>사업장 수: 통계청 광업·제조업조사</li>
+          <li>검사 비용: 고객 인터뷰 32곳 중앙값</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot muted"></span>
+          <h3>읽는 법</h3>
+        </div>
+        <p>원의 넓이가 아니라 적힌 숫자가 규모다. 세 원은 포함 관계만 보여 준다.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">AI 비전 검사 사업계획 · 시장 규모</span>
+      <span>2026.09 · 예시</span>
+    </div>
+
+  </div>
+</body>
+</html>

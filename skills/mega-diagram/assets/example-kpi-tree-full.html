@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트 대중교통 혁신사업 성과지표 체계</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">KPI tree · 2026.09</p>
+      <h1>스마트 대중교통 혁신사업 성과지표 체계</h1>
+      <p class="subtitle">최종 목표를 세 가지 성과 목표와 여섯 개 성과 지표로 나누고, 지표마다 현재값·목표값·측정 방법을 정리.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kpi-tree-full-title kpi-tree-full-desc">
+      <title id="kpi-tree-full-title">스마트 대중교통 혁신사업 성과지표 체계</title>
+      <desc id="kpi-tree-full-desc">최종 목표인 대중교통 이용 편의 향상을 이동 시간 단축·서비스 신뢰도 향상·이용 만족도 제고의 세 성과 목표로 나누고, 목표마다 두 개의 성과 지표와 현재값·목표값·측정 방법을 제시한 성과지표 체계.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+      </defs>
+
+      <!-- Column headings -->
+      <text x="40" y="64" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">최종 목표</text>
+      <text x="296" y="64" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 목표</text>
+      <text x="568" y="64" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 지표 · 측정 방법</text>
+      <text x="820" y="64" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">현재</text>
+      <text x="868" y="64" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">목표</text>
+
+      <!-- Tree connectors: stem, bus, r=8 corners; drawn before boxes -->
+      <line x1="240" y1="304" x2="268" y2="304" stroke="#68657b" stroke-width="1"/>
+      <path d="M 268,304 V 152 Q 268,144 276,144 H 296" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 268,304 H 296" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 268,304 V 456 Q 268,464 276,464 H 296" fill="none" stroke="#68657b" stroke-width="1"/>
+      <line x1="496" y1="144" x2="524" y2="144" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,144 V 116 Q 524,108 532,108 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,144 V 172 Q 524,180 532,180 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+      <line x1="496" y1="304" x2="524" y2="304" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,304 V 276 Q 524,268 532,268 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,304 V 332 Q 524,340 532,340 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+      <line x1="496" y1="464" x2="524" y2="464" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,464 V 436 Q 524,428 532,428 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 524,464 V 492 Q 524,500 532,500 H 552" fill="none" stroke="#68657b" stroke-width="1"/>
+
+      <!-- 최종 목표 (focal root) -->
+      <rect x="40" y="240" width="200" height="128" rx="6" fill="#ffffff"/>
+      <rect x="40" y="240" width="200" height="128" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.2"/>
+      <text x="56" y="264" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace">2026~2028</text>
+      <text x="56" y="290" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">대중교통</text>
+      <text x="56" y="312" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이용 편의 향상</text>
+      <line x1="56" y1="328" x2="224" y2="328" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="56" y="350" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수단분담률 35% 달성</text>
+
+      <!-- 성과 목표 -->
+      <rect x="296" y="108" width="200" height="72" rx="6" fill="#ffffff"/>
+      <rect x="296" y="108" width="200" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="312" y="134" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 목표 1</text>
+      <text x="480" y="134" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">가중치 40%</text>
+      <text x="312" y="160" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이동 시간 단축</text>
+      <rect x="296" y="268" width="200" height="72" rx="6" fill="#ffffff"/>
+      <rect x="296" y="268" width="200" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="312" y="294" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 목표 2</text>
+      <text x="480" y="294" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">가중치 35%</text>
+      <text x="312" y="320" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">서비스 신뢰도 향상</text>
+      <rect x="296" y="428" width="200" height="72" rx="6" fill="#ffffff"/>
+      <rect x="296" y="428" width="200" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="312" y="454" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 목표 3</text>
+      <text x="480" y="454" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">가중치 25%</text>
+      <text x="312" y="480" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이용 만족도 제고</text>
+
+      <!-- 성과 지표: name + method left, current -> target right -->
+      <rect x="552" y="80" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="80" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">평균 배차 간격</text>
+      <text x="568" y="124" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">BIS 운행 기록 분석</text>
+      <text x="820" y="113" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">12분</text>
+      <line x1="832" y1="108" x2="856" y2="108" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="114" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">8분</text>
+      <rect x="552" y="152" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="152" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="176" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">환승 대기 시간</text>
+      <text x="568" y="196" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">교통카드 환승 데이터</text>
+      <text x="820" y="185" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">9분</text>
+      <line x1="832" y1="180" x2="856" y2="180" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="186" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">5분</text>
+      <rect x="552" y="240" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="240" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="264" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">도착 정보 정확도</text>
+      <text x="568" y="284" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">BIS 예측·실제 도착 비교</text>
+      <text x="820" y="273" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">82%</text>
+      <line x1="832" y1="268" x2="856" y2="268" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="274" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">95%</text>
+      <rect x="552" y="312" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="312" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="336" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">정시 운행률</text>
+      <text x="568" y="356" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">정류장 통과 시각 집계</text>
+      <text x="820" y="345" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">76%</text>
+      <line x1="832" y1="340" x2="856" y2="340" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="346" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">90%</text>
+      <rect x="552" y="400" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="400" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="424" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이용자 만족도</text>
+      <text x="568" y="444" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">연 1회 설문 (n=2,000)</text>
+      <text x="820" y="433" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">68점</text>
+      <line x1="832" y1="428" x2="856" y2="428" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="434" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">80점</text>
+      <rect x="552" y="472" width="408" height="56" rx="6" fill="#ffffff"/>
+      <rect x="552" y="472" width="408" height="56" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="568" y="496" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">교통 민원 건수</text>
+      <text x="568" y="516" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">민원 시스템 월별 집계</text>
+      <text x="820" y="505" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">월 420건</text>
+      <line x1="832" y1="500" x2="856" y2="500" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="868" y="506" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">월 250건</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="560" x2="960" y2="560" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="40" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="580" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="112" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">최종 목표</text>
+      <rect x="192" y="580" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="216" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 목표</text>
+      <rect x="296" y="580" width="16" height="12" rx="2" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="320" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성과 지표</text>
+      <line x1="400" y1="586" x2="416" y2="586" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="424" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현재값에서 목표값</text>
+    </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>최종 목표</h3>
+        </div>
+        <ul>
+          <li>대중교통 수단분담률 28%에서 35%로</li>
+          <li>2028년 말 달성 기준</li>
+          <li>가온시 교통 통계 연보로 확인</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>측정 원칙</h3>
+        </div>
+        <ul>
+          <li>기준값은 2025년 실적</li>
+          <li>연 2회(6월·12월) 측정</li>
+          <li>외부 기관 검증 1회</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot soft"></span>
+          <h3>가중치</h3>
+        </div>
+        <ul>
+          <li>이동 시간 40% · 신뢰도 35%</li>
+          <li>만족도 25%</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">가온시 스마트 대중교통 혁신사업 · 성과지표 체계</span>
+      <span>2026.09</span>
+    </div>
+
+  </div>
+</body>
+</html>

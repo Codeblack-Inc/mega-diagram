@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(주)누리핏 유료 전환율 하락 원인 이슈 트리</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Issue tree · 2026.09</p>
+      <h1>유료 전환율 하락 원인 이슈 트리</h1>
+      <p class="subtitle">피트니스 앱 (주)누리핏의 2026년 3분기 유료 전환율이 4.8%에서 3.1%로 떨어진 원인을 MECE 하위 이슈 세 개와 검증 가능한 가설 아홉 개로 분해.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 624" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="issue-tree-full-title issue-tree-full-desc">
+      <title id="issue-tree-full-title">(주)누리핏 유료 전환율 하락 원인 이슈 트리</title>
+      <desc id="issue-tree-full-desc">유료 전환율이 4.8%에서 3.1%로 떨어진 원인을 유입 고객의 질, 무료 체험 경험, 가격·결제 장벽 세 하위 이슈로 나누고 각각 가설 세 개와 분석 항목을 연결한 이슈 트리이며, 무료 체험 경험 악화를 우선 검증 이슈로 강조.</desc>
+
+      <!-- Column captions -->
+      <text x="40" y="36" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 질문</text>
+      <text x="320" y="36" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">하위 이슈 · MECE</text>
+      <text x="600" y="36" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가설</text>
+      <text x="944" y="36" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">분석 항목</text>
+
+      <!-- Connectors first: stem + bus + branches, r=8, no arrowheads -->
+      <path d="M 280,296 V 136 Q 280,128 288,128 H 320" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 560,128 V 84 Q 560,76 568,76 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 520,128 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 560,128 V 172 Q 560,180 568,180 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 240,296 H 320" fill="none" stroke="#2f6fdb" stroke-width="1.4"/>
+      <path d="M 560,296 V 252 Q 560,244 568,244 H 600" fill="none" stroke="#2f6fdb" stroke-width="1.4"/>
+      <path d="M 520,296 H 600" fill="none" stroke="#2f6fdb" stroke-width="1.4"/>
+      <path d="M 560,296 V 340 Q 560,348 568,348 H 600" fill="none" stroke="#2f6fdb" stroke-width="1.4"/>
+      <path d="M 280,296 V 456 Q 280,464 288,464 H 320" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 560,464 V 420 Q 560,412 568,412 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 520,464 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+      <path d="M 560,464 V 508 Q 560,516 568,516 H 600" fill="none" stroke="#68657b" stroke-width="1"/>
+
+      <!-- Root question -->
+      <rect x="40" y="248" width="200" height="96" rx="6" fill="#ffffff"/>
+      <rect x="40" y="248" width="200" height="96" rx="6" fill="rgba(23,21,43,0.04)" stroke="#17152b" stroke-width="1.2"/>
+      <text x="56" y="290" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">유료 전환율은 왜</text>
+      <text x="56" y="312" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">4.8%→3.1%로 떨어졌나</text>
+
+      <!-- Sub-issues and leaves -->
+      <!-- 이슈 A · 유입 -->
+      <rect x="320" y="100" width="200" height="56" rx="6" fill="#ffffff"/>
+      <rect x="320" y="100" width="200" height="56" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="336" y="122" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이슈 A · 유입</text>
+      <text x="336" y="142" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">유입 고객의 질 저하</text>
+      <rect x="600" y="56" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="81" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">숏폼 광고 비중 확대로 저의향 유입</text>
+      <text x="944" y="81" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">채널별 전환율</text>
+      <rect x="600" y="108" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="133" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">무료 체험 쿠폰 과다 배포</text>
+      <text x="944" y="133" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">쿠폰 코호트</text>
+      <rect x="600" y="160" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="185" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">검색 유입 감소</text>
+      <text x="944" y="185" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">키워드 순위</text>
+      <!-- 이슈 B · 체험 -->
+      <rect x="320" y="268" width="200" height="56" rx="6" fill="#ffffff"/>
+      <rect x="320" y="268" width="200" height="56" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="336" y="290" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이슈 B · 체험</text>
+      <text x="336" y="310" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">무료 체험 경험 악화</text>
+      <rect x="600" y="224" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="249" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">체험 7일 내 첫 운동 완료율 하락</text>
+      <text x="944" y="249" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">온보딩 퍼널</text>
+      <rect x="600" y="276" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="301" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">8월 개편 후 루틴 추천 오류</text>
+      <text x="944" y="301" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">오류 로그·리뷰</text>
+      <rect x="600" y="328" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="353" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">코치 피드백 응답 지연</text>
+      <text x="944" y="353" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">응답 시간 분포</text>
+      <!-- 이슈 C · 가격 -->
+      <rect x="320" y="436" width="200" height="56" rx="6" fill="#ffffff"/>
+      <rect x="320" y="436" width="200" height="56" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="336" y="458" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이슈 C · 가격</text>
+      <text x="336" y="478" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가격·결제 장벽</text>
+      <rect x="600" y="392" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="417" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">연간권 9.9만→12.9만 원 인상</text>
+      <text x="944" y="417" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">가격 탄력성</text>
+      <rect x="600" y="444" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="469" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">간편결제 수단 부족</text>
+      <text x="944" y="469" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">결제 이탈률</text>
+      <rect x="600" y="496" width="360" height="40" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="616" y="521" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">경쟁 앱 할인 공세</text>
+      <text x="944" y="521" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">경쟁사 가격 조사</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="568" x2="960" y2="568" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="40" y="600" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="588" width="16" height="12" rx="2" fill="rgba(23,21,43,0.04)" stroke="#17152b" stroke-width="1.2"/>
+      <text x="112" y="600" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 질문</text>
+      <rect x="192" y="588" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="216" y="600" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">하위 이슈</text>
+      <rect x="296" y="588" width="16" height="12" rx="2" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="0.8"/>
+      <text x="320" y="600" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가설·분석 항목</text>
+      <rect x="432" y="588" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="456" y="600" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">우선 검증 이슈</text>
+    </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>우선 검증 · 이슈 B</h3>
+        </div>
+        <ul>
+          <li>첫 운동 완료율: 62% → 41%</li>
+          <li>8월 개편 이후 추천 오류 신고 3.4배</li>
+          <li>2주 내 온보딩 퍼널 분석 완료</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>분석 계획</h3>
+        </div>
+        <ul>
+          <li>이슈 A: 채널별 코호트 비교</li>
+          <li>이슈 C: 가격 A/B 시험 2주</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot soft"></span>
+          <h3>분석 원칙</h3>
+        </div>
+        <ul>
+          <li>가설마다 데이터 한 가지로 검증</li>
+          <li>기각된 가설은 트리에서 회색 처리</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">(주)누리핏 · 유료 전환율 이슈 트리</span>
+      <span>2026.09</span>
+    </div>
+
+  </div>
+</body>
+</html>

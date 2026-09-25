@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 비전 검사 산업 5 Forces 분석</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Five forces · 2026.09</p>
+      <h1>AI 비전 검사 산업 5 Forces 분석</h1>
+      <p class="subtitle">기존 경쟁을 가운데 두고 네 방향에서 들어오는 압력의 강도와 근거를 정리했습니다. 선 굵기가 강도, 파란색이 가장 큰 위협입니다.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="five-forces-full-title five-forces-full-desc">
+        <title id="five-forces-full-title">AI 비전 검사 산업 5 Forces 분석</title>
+        <desc id="five-forces-full-desc">국내 중소 제조업 AI 비전 검사 산업의 기존 경쟁(강도 상)을 가운데 두고 신규 진입 위협(중), 공급자 교섭력(하), 구매자 교섭력(상), 대체재 위협(중)을 강도와 근거 두 줄씩 정리한 산업 구조 분석으로, 구매자 교섭력을 가장 큰 위협으로 강조한다.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+        </defs>
+
+        <!-- Forces press inward on 기존 경쟁. All four arrows are on-axis; stroke weight = 강도 (상 1.6 · 중 1.2 · 하 1 dashed). -->
+        <line x1="500" y1="152" x2="500" y2="228" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="500" y1="416" x2="500" y2="340" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="280" y1="284" x2="380" y2="284" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+        <line x1="720" y1="284" x2="620" y2="284" stroke="#2f6fdb" stroke-width="1.6" marker-end="url(#arrow-accent)"/>
+
+        <!-- Force boxes: name, 강도 chip (inside the box), divider, two bullets -->
+        <!-- 신규 진입 위협 -->
+        <rect x="380" y="40" width="240" height="112" rx="6" fill="#ffffff"/>
+        <rect x="380" y="40" width="240" height="112" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+        <text x="396" y="68" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">신규 진입 위협</text>
+        <rect x="544" y="52" width="60" height="24" rx="4" fill="none" stroke="#68657b" stroke-width="0.8"/>
+        <text x="574" y="68" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">강도 중</text>
+        <line x1="396" y1="84" x2="604" y2="84" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <circle cx="400" cy="106" r="1.5" fill="#68657b"/>
+        <text x="408" y="110" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">오픈소스 모델로 진입 장벽 하락</text>
+        <circle cx="400" cy="126" r="1.5" fill="#68657b"/>
+        <text x="408" y="130" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현장 불량 데이터 확보가 관건</text>
+        <!-- 공급자 교섭력 -->
+        <rect x="40" y="228" width="240" height="112" rx="6" fill="#ffffff"/>
+        <rect x="40" y="228" width="240" height="112" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+        <text x="56" y="256" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">공급자 교섭력</text>
+        <rect x="204" y="240" width="60" height="24" rx="4" fill="none" stroke="#68657b" stroke-width="0.8"/>
+        <text x="234" y="256" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">강도 하</text>
+        <line x1="56" y1="272" x2="264" y2="272" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <circle cx="60" cy="294" r="1.5" fill="#68657b"/>
+        <text x="68" y="298" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">산업용 카메라 공급사 다수</text>
+        <circle cx="60" cy="314" r="1.5" fill="#68657b"/>
+        <text x="68" y="318" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">클라우드 단가 연 5% 하락</text>
+        <!-- 기존 경쟁 -->
+        <rect x="380" y="228" width="240" height="112" rx="6" fill="#ffffff"/>
+        <rect x="380" y="228" width="240" height="112" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.2"/>
+        <text x="396" y="256" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기존 경쟁</text>
+        <rect x="544" y="240" width="60" height="24" rx="4" fill="none" stroke="#17152b" stroke-width="1.2"/>
+        <text x="574" y="256" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">강도 상</text>
+        <line x1="396" y1="272" x2="604" y2="272" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <circle cx="400" cy="294" r="1.5" fill="#68657b"/>
+        <text x="408" y="298" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">국내외 12개사 경쟁</text>
+        <circle cx="400" cy="314" r="1.5" fill="#68657b"/>
+        <text x="408" y="318" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가격 경쟁으로 단가 연 8% 하락</text>
+        <!-- 구매자 교섭력 (FOCAL) -->
+        <rect x="720" y="228" width="240" height="112" rx="6" fill="#ffffff"/>
+        <rect x="720" y="228" width="240" height="112" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="736" y="256" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">구매자 교섭력</text>
+        <rect x="884" y="240" width="60" height="24" rx="4" fill="none" stroke="#2f6fdb" stroke-width="1.2"/>
+        <text x="914" y="256" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">강도 상</text>
+        <line x1="736" y1="272" x2="944" y2="272" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <circle cx="740" cy="294" r="1.5" fill="#68657b"/>
+        <text x="748" y="298" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">무상 PoC 요구가 관행</text>
+        <circle cx="740" cy="314" r="1.5" fill="#68657b"/>
+        <text x="748" y="318" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">3곳 이상 비교 견적 일반화</text>
+        <!-- 대체재 위협 -->
+        <rect x="380" y="416" width="240" height="112" rx="6" fill="#ffffff"/>
+        <rect x="380" y="416" width="240" height="112" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+        <text x="396" y="444" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">대체재 위협</text>
+        <rect x="544" y="428" width="60" height="24" rx="4" fill="none" stroke="#68657b" stroke-width="0.8"/>
+        <text x="574" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">강도 중</text>
+        <line x1="396" y1="460" x2="604" y2="460" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <circle cx="400" cy="482" r="1.5" fill="#68657b"/>
+        <text x="408" y="486" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">육안·샘플링 검사 유지 성향</text>
+        <circle cx="400" cy="502" r="1.5" fill="#68657b"/>
+        <text x="408" y="506" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">설비사 내장 검사 기능 확대</text>
+
+        <!-- Legend strip -->
+        <line x1="40" y1="560" x2="960" y2="560" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+        <text x="40" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+        <line x1="96" y1="586" x2="120" y2="586" stroke="#68657b" stroke-width="1.6" marker-end="url(#arrow)"/>
+        <text x="128" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">강도 상</text>
+        <line x1="204" y1="586" x2="228" y2="586" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <text x="236" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">강도 중</text>
+        <line x1="312" y1="586" x2="336" y2="586" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+        <text x="344" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">강도 하</text>
+        <rect x="420" y="580" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="444" y="592" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가장 큰 위협</text>
+        <text x="960" y="592" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">2026년 3분기 · 고객 32곳·업계 전문가 6인 인터뷰</text>
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>가장 큰 위협: 구매자</h3>
+        </div>
+        <p>중소 부품사는 무상 PoC와 비교 견적으로 가격을 누른다. 대응은 PoC 기간을 4주로 표준화하고, 재학습 성과를 계약 조건에 넣어 가격 대신 성과로 비교되게 하는 것.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>산업 매력도</h3>
+        </div>
+        <ul>
+          <li>경쟁·구매자 강도 상: 수익성 압박</li>
+          <li>공급자 강도 하: 원가는 안정</li>
+          <li>종합: 중 — 차별화 없이는 저수익</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot muted"></span>
+          <h3>강도 판정 기준</h3>
+        </div>
+        <p>상은 가격·이익에 직접 영향, 중은 조건부 영향, 하는 영향 미미. 인터뷰 응답 과반 기준.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">AI 비전 검사 사업계획 · 산업 구조 분석</span>
+      <span>2026.09 · 예시</span>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>청년 AI 인재 양성 사업 로직 모델</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;
+      --color-ink:     #17152b;
+      --color-muted:   #68657b;
+      --color-accent:  #2f6fdb;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Logic model · mega-diagram</p>
+    <h1>청년 AI 인재 양성 사업 로직 모델</h1>
+
+    <svg viewBox="0 0 1000 472" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logic-model-title logic-model-desc">
+      <title id="logic-model-title">청년 AI 인재 양성 사업 로직 모델</title>
+      <desc id="logic-model-desc">사업비 24억 원과 전담 인력·협력 기업을 투입해 AI 실무 교육·기업 연계 프로젝트·멘토링을 수행하고, 수료생 300명 등의 산출을 거쳐 단기 역량 향상과 중기 취업률 70%를 달성하며 청년 고용률 상승으로 이어지는 로직 모델과 그 전제·외부요인.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+      </defs>
+
+      <!-- Stage chevrons: the sequence is carried by shape, so cells need no arrows -->
+      <polygon points="48,40 216,40 232,68 216,96 48,96" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="132" y="62" fill="#8a879c" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">INPUTS</text>
+      <text x="132" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">투입</text>
+      <polygon points="232,40 400,40 416,68 400,96 232,96 248,68" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="324" y="62" fill="#8a879c" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">ACTIVITIES</text>
+      <text x="324" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">활동</text>
+      <polygon points="416,40 584,40 600,68 584,96 416,96 432,68" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="508" y="62" fill="#8a879c" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">OUTPUTS</text>
+      <text x="508" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">산출</text>
+      <polygon points="600,40 768,40 784,68 768,96 600,96 616,68" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="692" y="62" fill="#2f6fdb" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">OUTCOMES</text>
+      <text x="692" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">성과</text>
+      <polygon points="784,40 952,40 952,96 784,96 800,68" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="876" y="62" fill="#8a879c" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">IMPACT</text>
+      <text x="876" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">영향</text>
+
+      <!-- Cells -->
+      <rect x="48" y="112" width="168" height="168" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <rect x="60" y="141" width="4" height="4" fill="#68657b"/>
+      <text x="72" y="148" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">사업비 24억 원</text>
+      <rect x="60" y="173" width="4" height="4" fill="#68657b"/>
+      <text x="72" y="180" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전담 인력 12명</text>
+      <rect x="60" y="205" width="4" height="4" fill="#68657b"/>
+      <text x="72" y="212" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">협력 기업 40곳</text>
+      <rect x="60" y="237" width="4" height="4" fill="#68657b"/>
+      <text x="72" y="244" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">교육장 3곳</text>
+      <rect x="232" y="112" width="168" height="168" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <rect x="244" y="141" width="4" height="4" fill="#68657b"/>
+      <text x="256" y="148" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">AI 실무 교육</text>
+      <rect x="244" y="173" width="4" height="4" fill="#68657b"/>
+      <text x="256" y="180" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기업 연계 프로젝트</text>
+      <rect x="244" y="205" width="4" height="4" fill="#68657b"/>
+      <text x="256" y="212" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현업 멘토링</text>
+      <rect x="244" y="237" width="4" height="4" fill="#68657b"/>
+      <text x="256" y="244" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">채용 매칭 행사</text>
+      <rect x="416" y="112" width="168" height="168" rx="6" fill="#ffffff" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <rect x="428" y="141" width="4" height="4" fill="#68657b"/>
+      <text x="440" y="148" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수료생 300명</text>
+      <rect x="428" y="173" width="4" height="4" fill="#68657b"/>
+      <text x="440" y="180" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현장 프로젝트 60건</text>
+      <rect x="428" y="205" width="4" height="4" fill="#68657b"/>
+      <text x="440" y="212" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">멘토링 1,800시간</text>
+      <rect x="428" y="237" width="4" height="4" fill="#68657b"/>
+      <text x="440" y="244" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">매칭 행사 4회</text>
+      <rect x="600" y="112" width="168" height="76" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="612" y="136" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단기 · 1년</text>
+      <rect x="612" y="151" width="4" height="4" fill="#68657b"/>
+      <text x="624" y="158" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">역량 평가 25% 향상</text>
+      <rect x="612" y="171" width="4" height="4" fill="#68657b"/>
+      <text x="624" y="178" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자격 취득 180명</text>
+      <rect x="600" y="204" width="168" height="76" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="612" y="228" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">중기 · 3년</text>
+      <rect x="612" y="243" width="4" height="4" fill="#68657b"/>
+      <text x="624" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">취업률 70%</text>
+      <rect x="612" y="263" width="4" height="4" fill="#68657b"/>
+      <text x="624" y="270" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">1년 고용 유지 85%</text>
+      <rect x="784" y="112" width="168" height="168" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <rect x="796" y="141" width="4" height="4" fill="#68657b"/>
+      <text x="808" y="148" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">청년 고용률 +2.1%p</text>
+      <rect x="796" y="173" width="4" height="4" fill="#68657b"/>
+      <text x="808" y="180" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지역 AI 인력 확충</text>
+      <rect x="796" y="205" width="4" height="4" fill="#68657b"/>
+      <text x="808" y="212" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">청년 순유출 감소</text>
+
+      <!-- 전제·외부요인: one band under every stage, dashed because it is outside the programme's control -->
+      <rect x="48" y="304" width="904" height="64" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="500" y1="316" x2="500" y2="356" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="64" y="341" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전제</text>
+      <text x="136" y="341" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">협력 기업 채용 수요 유지 · 중도 탈락 10% 이내</text>
+      <text x="516" y="341" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">외부요인</text>
+      <text x="588" y="341" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지역 경기 둔화 · 정부 일자리 정책 변화</text>
+
+      <!-- Legend -->
+      <line x1="48" y1="400" x2="952" y2="400" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="48" y="432" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <polygon points="96,420 108,420 112,426 108,432 96,432" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="120" y="432" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단계</text>
+      <polygon points="168,420 180,420 184,426 180,432 168,432" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="192" y="432" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 단계(성과)</text>
+      <rect x="312" y="420" width="16" height="12" rx="2" fill="#ffffff" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <text x="336" y="432" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단계별 내용</text>
+      <rect x="428" y="420" width="16" height="12" rx="2" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="452" y="432" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전제·외부요인</text>
+    </svg>
+  </div>
+</body>
+</html>

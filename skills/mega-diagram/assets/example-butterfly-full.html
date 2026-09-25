@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공공자전거 회원 연령·성별 분포</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist','Pretendard','Noto Sans KR',system-ui,sans-serif; --font-serif:'Instrument Serif','Noto Serif','Noto Serif KR',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .header { margin-bottom: 2.5rem; }
+    .header-eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.75rem; }
+    h1 { font-family: var(--font-sans); font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 1rem; line-height: 1.6; color: var(--color-muted); max-width: 58ch; }
+    .diagram-container { background: var(--color-paper-2); border-radius: 8px; border: 1px solid var(--color-rule); padding: 1.5rem; overflow-x: auto; }
+    svg { width: 100%; min-width: 800px; display: block; }
+    .cards { display: grid; grid-template-columns: 1.1fr 1fr 0.9fr; gap: 1rem; margin-top: 1.5rem; }
+    @media (max-width: 980px) { .cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+    .card { background: #fff; border-radius: 6px; border: 1px solid var(--color-rule); padding: 1.25rem; }
+    .card .eyebrow { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; color: var(--color-muted); margin-bottom: 0.5rem; }
+    .card-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.875rem; padding-bottom: 0.875rem; border-bottom: 1px solid rgba(23,21,43,0.08); }
+    .card-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .card-dot.coral { background: var(--color-accent); }
+    .card-dot.ink   { background: var(--color-ink); }
+    .card-dot.muted { background: var(--color-muted); }
+    .card h3 { font-size: 0.875rem; font-weight: 600; }
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.6; }
+    .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <p class="header-eyebrow">Butterfly chart · mega-diagram</p>
+      <h1>공공자전거 회원 연령·성별 분포</h1>
+      <p class="subtitle">가운데 연령대 축을 두고 남성은 왼쪽, 여성은 오른쪽으로 막대를 뻗었다. 양쪽은 같은 척도라 막대 길이를 그대로 비교할 수 있다.</p>
+    </div>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 448" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="butterfly-full-title butterfly-full-desc">
+        <title id="butterfly-full-title">공공자전거 회원 연령·성별 분포</title>
+        <desc id="butterfly-full-desc">한울시 공공자전거 한울바이크의 2025년 말 회원을 연령대별로 남성은 왼쪽, 여성은 오른쪽으로 뻗은 양방향 막대로 나타낸 것으로, 남성 56,890명과 여성 53,400명 가운데 20대 여성 21,380명이 가장 큰 집단임을 강조한다.</desc>
+
+        <!-- Side headers -->
+        <text x="32" y="36" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단위: 명</text>
+        <text x="272" y="60" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">남성</text>
+        <text x="272" y="78" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">합계 56,890명</text>
+        <text x="728" y="60" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">여성</text>
+        <text x="728" y="78" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">합계 53,400명</text>
+        <text x="500" y="78" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">연령대</text>
+
+        <!-- Gridlines: one shared scale on both sides -->
+        <line x1="325.33" y1="88" x2="325.33" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="674.67" y1="88" x2="674.67" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="218.67" y1="88" x2="218.67" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="781.33" y1="88" x2="781.33" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="112" y1="88" x2="112" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="888" y1="88" x2="888" y2="352" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="432" y1="88" x2="432" y2="352" stroke="rgba(23,21,43,0.25)" stroke-width="1"/>
+        <line x1="568" y1="88" x2="568" y2="352" stroke="rgba(23,21,43,0.25)" stroke-width="1"/>
+        <text x="432" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">0</text>
+        <text x="568" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">0</text>
+        <text x="325.33" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">8,000</text>
+        <text x="674.67" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">8,000</text>
+        <text x="218.67" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">16,000</text>
+        <text x="781.33" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">16,000</text>
+        <text x="112" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">24,000</text>
+        <text x="888" y="368" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">24,000</text>
+
+        <!-- Rows -->
+        <rect x="367.73" y="96" width="64.27" height="28" fill="#ffffff"/>
+        <rect x="367.73" y="96" width="64.27" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="359.73" y="114" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">4,820명</text>
+        <rect x="568" y="96" width="52.8" height="28" fill="#ffffff"/>
+        <rect x="568" y="96" width="52.8" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="628.8" y="114" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">3,960명</text>
+        <text x="500" y="114" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">10대</text>
+        <rect x="183.47" y="140" width="248.53" height="28" fill="#ffffff"/>
+        <rect x="183.47" y="140" width="248.53" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="175.47" y="158" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">18,640명</text>
+        <!-- Focal bar: accent element 1 -->
+        <rect x="568" y="140" width="285.07" height="28" fill="#ffffff"/>
+        <rect x="568" y="140" width="285.07" height="28" fill="rgba(47,111,219,0.12)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="861.07" y="158" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">21,380명</text>
+        <text x="500" y="158" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">20대</text>
+        <rect x="242.53" y="184" width="189.47" height="28" fill="#ffffff"/>
+        <rect x="242.53" y="184" width="189.47" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="234.53" y="202" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">14,210명</text>
+        <rect x="568" y="184" width="166" height="28" fill="#ffffff"/>
+        <rect x="568" y="184" width="166" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="742" y="202" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">12,450명</text>
+        <text x="500" y="202" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">30대</text>
+        <rect x="300.53" y="228" width="131.47" height="28" fill="#ffffff"/>
+        <rect x="300.53" y="228" width="131.47" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="292.53" y="246" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">9,860명</text>
+        <rect x="568" y="228" width="106.93" height="28" fill="#ffffff"/>
+        <rect x="568" y="228" width="106.93" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="682.93" y="246" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">8,020명</text>
+        <text x="500" y="246" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">40대</text>
+        <rect x="350.4" y="272" width="81.6" height="28" fill="#ffffff"/>
+        <rect x="350.4" y="272" width="81.6" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="342.4" y="290" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">6,120명</text>
+        <rect x="568" y="272" width="73.07" height="28" fill="#ffffff"/>
+        <rect x="568" y="272" width="73.07" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="649.07" y="290" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">5,480명</text>
+        <text x="500" y="290" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">50대</text>
+        <rect x="388.8" y="316" width="43.2" height="28" fill="#ffffff"/>
+        <rect x="388.8" y="316" width="43.2" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="380.8" y="334" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">3,240명</text>
+        <rect x="568" y="316" width="28.13" height="28" fill="#ffffff"/>
+        <rect x="568" y="316" width="28.13" height="28" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="604.13" y="334" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">2,110명</text>
+        <text x="500" y="334" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">60대 이상</text>
+
+        <!-- Legend -->
+        <line x1="32" y1="384" x2="968" y2="384" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+        <text x="32" y="402" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <rect x="32" y="416" width="16" height="8" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="56" y="424" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">연령대별 회원 수</text>
+        <rect x="200" y="416" width="16" height="8" fill="rgba(47,111,219,0.12)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="224" y="424" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">최대 집단 (20대 여성)</text>
+        <text x="968" y="424" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">좌우 같은 척도 · 2025년 말 기준</text>
+      </svg>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <p class="eyebrow">최대 집단</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>20대 여성 · 21,380명</h3></div>
+        <p>전체 회원의 19.4%로 가장 큰 집단이다. 대학가 대여소 확충 이후 2년 연속 가장 많이 늘었다.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot ink"></span><h3>20대만 여성 우위</h3></div>
+        <p>20대를 뺀 모든 연령대에서 남성이 더 많다. 격차는 60대 이상에서 1.5배로 가장 크다.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot muted"></span><h3>전체 · 110,290명</h3></div>
+        <p>남성 56,890명, 여성 53,400명.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>한울시 · 공공자전거 한울바이크 회원 현황 (2025년 말)</span>
+      <span>예시 · mega-diagram</span>
+    </div>
+  </div>
+</body>
+</html>

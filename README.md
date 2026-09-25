@@ -19,7 +19,7 @@ mega-diagram은 [Cathryn Lavery](https://github.com/cathrynlavery)의 [diagram-d
 | **배경** | SVG 안에 종이색 사각형 | **배경 없음** — 내보낸 SVG/PNG가 투명해서 HWP·Word·PPT 위에 그대로 얹힌다 |
 | **종이색** | 따뜻한 회색 `#F5F5F5` | 흰색 `#FFFFFF` — 라벨 마스크가 흰 문서에서 보이지 않는다 |
 | **문서 프리셋** | 블로그·슬라이드 크기 | A4 본문, 흑백 인쇄, mega-ppt 패널 프리셋과 배율 |
-| **형식** | 41가지 | **44가지** — 전략 체계도·추진 체계도·추진 로드맵 추가 |
+| **형식** | 41가지 | **44가지** — 전략 체계도·추진 체계도·추진 로드맵 추가, 그리고 **보고서 도식 30종** |
 | **예시** | 영어 | 모든 예시 한국어 (민원·결재·공공 데이터·사업계획서 상황) |
 | **갤러리** | 원본 디자인 | [mega-ui](https://github.com/Codeblack-Inc/mega-ui)로 새로 만든 한국어 갤러리 |
 | **연동** | — | mega-ppt `image` 패널, HWP·Word 삽입 방법 |
@@ -105,6 +105,65 @@ mega-diagram은 [Cathryn Lavery](https://github.com/cathrynlavery)의 [diagram-d
   <td align="center" width="33%"><a href="docs/screenshots/waterfall.png"><img src="docs/screenshots/thumbs/waterfall.webp" alt="폭포 차트"></a><br><b>폭포 차트</b> <sub>Waterfall</sub><br><sub>누계와 증감</sub></td>
   <td align="center" width="33%"><a href="docs/screenshots/heatmap.png"><img src="docs/screenshots/thumbs/heatmap.webp" alt="히트맵"></a><br><b>히트맵</b> <sub>Heatmap</sub><br><sub>칸 색으로 본 교차 값</sub></td>
   <td align="center" width="33%"></td>
+</tr>
+</table>
+
+## 한국 보고서 도식 30종
+
+사업계획서·제안서·공공 보고서·회사소개서에서 반복해서 쓰는 도식. 44가지 형식 위에 한국 보고서 관례를 더한 패턴이라, 연결선·격자·한글 규칙을 그대로 따른다. 목록과 고르는 법은 [`references/korean-figures.md`](skills/mega-diagram/references/korean-figures.md), 각 도식의 규칙은 `references/ko-*.md`에 있다.
+
+> SWOT 분석 그려줘 · 우리 사업 로직 모델 만들어줘 · 망분리 구성도 PNG로 줘 · 예산 비목 도넛 차트
+
+<table>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/problem-solution.png"><img src="docs/screenshots/thumbs/problem-solution.webp" alt="추진 배경·필요성"></a><br><b>추진 배경·필요성</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/as-is-to-be.png"><img src="docs/screenshots/thumbs/as-is-to-be.webp" alt="AS-IS / TO-BE"></a><br><b>AS-IS / TO-BE</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/concept-map.png"><img src="docs/screenshots/thumbs/concept-map.webp" alt="서비스 개념도"></a><br><b>서비스 개념도</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/logic-model.png"><img src="docs/screenshots/thumbs/logic-model.webp" alt="로직 모델"></a><br><b>로직 모델</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/kpi-tree.png"><img src="docs/screenshots/thumbs/kpi-tree.webp" alt="성과지표 체계"></a><br><b>성과지표 체계</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/issue-tree.png"><img src="docs/screenshots/thumbs/issue-tree.webp" alt="이슈 트리"></a><br><b>이슈 트리</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/swot.png"><img src="docs/screenshots/thumbs/swot.webp" alt="SWOT 분석"></a><br><b>SWOT 분석</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/stakeholder-map.png"><img src="docs/screenshots/thumbs/stakeholder-map.webp" alt="이해관계자 맵"></a><br><b>이해관계자 맵</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/risk-matrix.png"><img src="docs/screenshots/thumbs/risk-matrix.webp" alt="위험 관리 매트릭스"></a><br><b>위험 관리 매트릭스</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/raci-matrix.png"><img src="docs/screenshots/thumbs/raci-matrix.webp" alt="역할 분담표 (RACI)"></a><br><b>역할 분담표 (RACI)</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/expected-effects.png"><img src="docs/screenshots/thumbs/expected-effects.webp" alt="기대효과"></a><br><b>기대효과</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/staffing-plan.png"><img src="docs/screenshots/thumbs/staffing-plan.webp" alt="인력 투입 계획"></a><br><b>인력 투입 계획</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/schedule-table.png"><img src="docs/screenshots/thumbs/schedule-table.webp" alt="세부 추진 일정표"></a><br><b>세부 추진 일정표</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/procedure-steps.png"><img src="docs/screenshots/thumbs/procedure-steps.webp" alt="추진 절차"></a><br><b>추진 절차</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/company-history.png"><img src="docs/screenshots/thumbs/company-history.webp" alt="연혁"></a><br><b>연혁</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/tam-sam-som.png"><img src="docs/screenshots/thumbs/tam-sam-som.webp" alt="시장 규모 (TAM·SAM·SOM)"></a><br><b>시장 규모 (TAM·SAM·SOM)</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/competitor-matrix.png"><img src="docs/screenshots/thumbs/competitor-matrix.webp" alt="경쟁사 비교표"></a><br><b>경쟁사 비교표</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/business-model.png"><img src="docs/screenshots/thumbs/business-model.webp" alt="비즈니스 모델"></a><br><b>비즈니스 모델</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/five-forces.png"><img src="docs/screenshots/thumbs/five-forces.webp" alt="5 Forces 분석"></a><br><b>5 Forces 분석</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/value-chain.png"><img src="docs/screenshots/thumbs/value-chain.webp" alt="가치사슬"></a><br><b>가치사슬</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/network-zones.png"><img src="docs/screenshots/thumbs/network-zones.webp" alt="망 구성도"></a><br><b>망 구성도</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/security-framework.png"><img src="docs/screenshots/thumbs/security-framework.webp" alt="보안 체계도"></a><br><b>보안 체계도</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/ia-sitemap.png"><img src="docs/screenshots/thumbs/ia-sitemap.webp" alt="정보구조도 (IA)"></a><br><b>정보구조도 (IA)</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/service-blueprint.png"><img src="docs/screenshots/thumbs/service-blueprint.webp" alt="서비스 블루프린트"></a><br><b>서비스 블루프린트</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/cycle.png"><img src="docs/screenshots/thumbs/cycle.webp" alt="PDCA 순환"></a><br><b>PDCA 순환</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/donut.png"><img src="docs/screenshots/thumbs/donut.webp" alt="도넛 차트"></a><br><b>도넛 차트</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/stacked-bar.png"><img src="docs/screenshots/thumbs/stacked-bar.webp" alt="누적 막대"></a><br><b>누적 막대</b></td>
+</tr>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/combo.png"><img src="docs/screenshots/thumbs/combo.webp" alt="콤보 차트"></a><br><b>콤보 차트</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/bullet.png"><img src="docs/screenshots/thumbs/bullet.webp" alt="목표 달성률"></a><br><b>목표 달성률</b></td>
+  <td align="center" width="33%"><a href="docs/screenshots/butterfly.png"><img src="docs/screenshots/thumbs/butterfly.webp" alt="양방향 막대"></a><br><b>양방향 막대</b></td>
 </tr>
 </table>
 
@@ -196,6 +255,7 @@ mega-diagram/
 │       ├── references/              — loaded only when a type or primitive is chosen
 │       │   ├── style-guide.md       — single source of truth for colors + fonts
 │       │   ├── mega.md              — 한국어 라벨·문서 프리셋·mega 연동 규칙
+│       │   ├── korean-figures.md    — 한국 보고서 도식 30종 목록 (ko-*.md)
 │       │   ├── semantic-patterns.md — behavior patterns independent of layout
 │       │   ├── animation.md         — optional motion + accessibility contract
 │       │   ├── onboarding.md        — the URL-to-tokens flow

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가온시 정보보호 체계도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;   /* paper */
+      --color-ink:     #17152b;   /* mega ink */
+      --color-muted:   #68657b;   /* mega muted */
+      --color-accent:  #2f6fdb;   /* mega-diagram blue */
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Security framework · mega-diagram</p>
+    <h1>가온시 정보보호 체계도</h1>
+
+    <svg viewBox="0 0 1000 484" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="security-framework-title security-framework-desc">
+      <title id="security-framework-title">가온시 정보보호 체계도</title>
+      <desc id="security-framework-desc">보안 목표 ‘시민 정보 유출 0건’ 아래 관리적·물리적·기술적 보안 영역별 통제 항목 4개씩을 두고, 개인정보 보호법·전자정부법·ISMS-P 인증 기준을 준거로 삼는 보안 체계로, 이번 사업 중점인 기술적 보안을 강조한다.</desc>
+      <!-- No connectors: tier order carries the hierarchy (목표 → 보안 영역 → 통제 항목 → 준거). -->
+
+      <!-- Tier labels (left margin) -->
+      <text x="32" y="72" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보안 목표</text>
+      <text x="32" y="148" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보안 영역</text>
+      <text x="32" y="244" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">통제 항목</text>
+      <text x="32" y="372" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">법·제도 준거</text>
+
+      <!-- 보안 정책·목표 banner (FOCAL 1) -->
+      <rect x="120" y="40" width="840" height="56" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="540" y="74" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">시민 정보 유출 0건, 신뢰받는 디지털 행정</text>
+      <text x="944" y="72" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">ISMS-P 2026</text>
+
+      <!-- 보안 영역: 3 pillars × 264, gap 24; header 48 + 4 control rows × 36 -->
+      <!-- 관리적 보안 -->
+      <rect x="120" y="120" width="264" height="192" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+      <rect x="132" y="138" width="28" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="146" y="147" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ADM</text>
+      <text x="168" y="149" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">관리적 보안</text>
+      <text x="368" y="148" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">4 controls</text>
+      <line x1="120" y1="168" x2="384" y2="168" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <text x="136" y="190" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">1-1</text>
+      <text x="168" y="190" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보안 정책·지침 수립</text>
+      <line x1="132" y1="204" x2="372" y2="204" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="136" y="226" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">1-2</text>
+      <text x="168" y="226" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보안 조직·책임자 지정</text>
+      <line x1="132" y1="240" x2="372" y2="240" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="136" y="262" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">1-3</text>
+      <text x="168" y="262" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">임직원 보안 교육</text>
+      <line x1="132" y1="276" x2="372" y2="276" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="136" y="298" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">1-4</text>
+      <text x="168" y="298" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">위탁업체 보안 관리</text>
+      <!-- 물리적 보안 -->
+      <rect x="408" y="120" width="264" height="192" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+      <rect x="420" y="138" width="28" height="12" rx="2" fill="transparent" stroke="#68657b" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="434" y="147" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PHY</text>
+      <text x="456" y="149" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">물리적 보안</text>
+      <text x="656" y="148" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">4 controls</text>
+      <line x1="408" y1="168" x2="672" y2="168" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <text x="424" y="190" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">2-1</text>
+      <text x="456" y="190" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전산실 출입 통제</text>
+      <line x1="420" y1="204" x2="660" y2="204" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="424" y="226" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">2-2</text>
+      <text x="456" y="226" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">CCTV·출입 기록 보관</text>
+      <line x1="420" y1="240" x2="660" y2="240" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="424" y="262" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">2-3</text>
+      <text x="456" y="262" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">저장매체 반출입 통제</text>
+      <line x1="420" y1="276" x2="660" y2="276" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="424" y="298" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">2-4</text>
+      <text x="456" y="298" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전원·항온항습 이중화</text>
+      <!-- 기술적 보안 (FOCAL 2) -->
+      <rect x="696" y="120" width="264" height="192" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <rect x="708" y="138" width="28" height="12" rx="2" fill="transparent" stroke="#2f6fdb" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="722" y="147" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">TEC</text>
+      <text x="744" y="149" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기술적 보안</text>
+      <text x="944" y="148" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">4 controls</text>
+      <line x1="696" y1="168" x2="960" y2="168" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="712" y="190" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">3-1</text>
+      <text x="744" y="190" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">망분리·접근 통제</text>
+      <line x1="708" y1="204" x2="948" y2="204" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="712" y="226" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">3-2</text>
+      <text x="744" y="226" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개인정보 암호화</text>
+      <line x1="708" y1="240" x2="948" y2="240" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="712" y="262" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">3-3</text>
+      <text x="744" y="262" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">통합 로그·이상 탐지</text>
+      <line x1="708" y1="276" x2="948" y2="276" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="712" y="298" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">3-4</text>
+      <text x="744" y="298" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">취약점 점검·조치</text>
+
+      <!-- 법·제도 준거: full-width store band, dividers in the pillar gutters -->
+      <rect x="120" y="336" width="840" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <line x1="396" y1="348" x2="396" y2="388" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <line x1="684" y1="348" x2="684" y2="388" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
+      <text x="252" y="364" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">개인정보 보호법</text>
+      <text x="252" y="384" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">제29조 안전조치의무</text>
+      <text x="540" y="364" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">전자정부법</text>
+      <text x="540" y="384" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">제56조 정보통신망 보안</text>
+      <text x="828" y="364" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">ISMS-P 인증 기준</text>
+      <text x="828" y="384" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">관리체계·보호대책 요구사항</text>
+
+      <!-- Legend -->
+      <line x1="32" y1="432" x2="960" y2="432" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="32" y="460" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="80" y="450" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="104" y="460" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">목표·중점 영역</text>
+      <rect x="216" y="450" width="16" height="12" rx="2" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+      <text x="240" y="460" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보안 영역</text>
+      <rect x="320" y="450" width="16" height="12" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="344" y="460" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">법·제도 준거</text>
+    </svg>
+  </div>
+</body>
+</html>

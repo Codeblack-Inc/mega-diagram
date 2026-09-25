@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차세대 학사정보시스템 구축 인력 투입 계획</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Staffing plan · 2026.09</p>
+      <h1>차세대 학사정보시스템 구축 인력 투입 계획</h1>
+      <p class="subtitle">행은 투입 역할, 열은 2026년 1~12월이다. 막대는 투입 기간과 투입률을, 오른쪽 열은 역할별 M/M을, 맨 아래 행은 월별 합계를 보여 준다.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 504" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="staffing-plan-full-title staffing-plan-full-desc">
+        <title id="staffing-plan-full-title">차세대 학사정보시스템 구축 인력 투입 계획</title>
+        <desc id="staffing-plan-full-desc">한빛대학교 차세대 학사정보시스템 구축 사업(2026.01~12)에 투입하는 PM·업무 분석·설계·개발·품질·인프라 8개 역할의 월별 투입 기간과 투입률, 역할별 M/M과 월별 합계를 보여 주며, 총 59.0 M/M 중 14.0 M/M을 차지하는 백엔드 개발을 강조한 표.</desc>
+        <!-- Table figure: no connectors. Bars are drawn after every structural rect. -->
+
+        <!-- Header row -->
+        <rect x="32" y="24" width="936" height="40" rx="6" fill="rgba(23,21,43,0.05)"/>
+        <text x="44" y="49" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">투입 인력</text>
+        <text x="196" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">등급</text>
+        <text x="236" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">1월</text>
+        <text x="292" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2월</text>
+        <text x="348" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">3월</text>
+        <text x="404" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">4월</text>
+        <text x="460" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5월</text>
+        <text x="516" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6월</text>
+        <text x="572" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">7월</text>
+        <text x="628" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">8월</text>
+        <text x="684" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">9월</text>
+        <text x="740" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">10월</text>
+        <text x="796" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">11월</text>
+        <text x="852" y="49" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">12월</text>
+        <text x="956" y="49" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">M/M</text>
+
+        <!-- Total row (drawn before bars so no later rect covers a bar) -->
+        <rect x="32" y="384" width="936" height="40" rx="6" fill="rgba(23,21,43,0.05)"/>
+
+        <!-- Grid: month hairlines, row hairlines -->
+        <line x1="208" y1="64" x2="208" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="264" y1="64" x2="264" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="320" y1="64" x2="320" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="376" y1="64" x2="376" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="432" y1="64" x2="432" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="488" y1="64" x2="488" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="544" y1="64" x2="544" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="600" y1="64" x2="600" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="656" y1="64" x2="656" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="712" y1="64" x2="712" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="768" y1="64" x2="768" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="824" y1="64" x2="824" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="880" y1="64" x2="880" y2="384" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="880" y1="24" x2="880" y2="424" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <line x1="32" y1="104" x2="968" y2="104" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="144" x2="968" y2="144" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="184" x2="968" y2="184" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="224" x2="968" y2="224" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="264" x2="968" y2="264" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="304" x2="968" y2="304" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+        <line x1="32" y1="344" x2="968" y2="344" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
+
+        <!-- Role rows: name, grade, bars (fte label inside), M/M -->
+        <text x="44" y="89" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">PM 총괄</text>
+        <text x="196" y="89" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">특급</text>
+        <rect x="212" y="76" width="664" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="956" y="89" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">12.0</text>
+        <text x="44" y="129" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">업무 분석</text>
+        <text x="196" y="129" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">고급</text>
+        <rect x="212" y="116" width="216" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <rect x="436" y="116" width="440" height="16" rx="4" fill="rgba(23,21,43,0.03)" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="656" y="127" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">50%</text>
+        <text x="956" y="129" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">8.0</text>
+        <text x="44" y="169" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">UI·UX 설계</text>
+        <text x="196" y="169" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">중급</text>
+        <rect x="268" y="156" width="216" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="956" y="169" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">4.0</text>
+        <text x="44" y="209" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">아키텍처 설계</text>
+        <text x="196" y="209" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">고급</text>
+        <rect x="268" y="196" width="160" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <rect x="436" y="196" width="328" height="16" rx="4" fill="rgba(23,21,43,0.03)" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="600" y="207" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">50%</text>
+        <text x="956" y="209" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">6.0</text>
+        <text x="44" y="249" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">백엔드 개발</text>
+        <text x="196" y="249" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">중급</text>
+        <!-- Focal bar (accent 1): the largest single input -->
+        <rect x="380" y="236" width="384" height="16" rx="4" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="572" y="247" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">×2</text>
+        <text x="956" y="249" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">14.0</text>
+        <text x="44" y="289" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">프론트엔드 개발</text>
+        <text x="196" y="289" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">중급</text>
+        <rect x="436" y="276" width="328" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="956" y="289" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">6.0</text>
+        <text x="44" y="329" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">품질 관리</text>
+        <text x="196" y="329" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">고급</text>
+        <rect x="604" y="316" width="272" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="956" y="329" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">5.0</text>
+        <text x="44" y="369" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">인프라·보안</text>
+        <text x="196" y="369" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">중급</text>
+        <rect x="660" y="356" width="216" height="16" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="956" y="369" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">4.0</text>
+
+        <!-- Total row values: monthly M/M and grand total -->
+        <text x="44" y="409" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">합계</text>
+        <text x="196" y="409" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">8개 역할</text>
+        <text x="236" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2.0</text>
+        <text x="292" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">4.0</text>
+        <text x="348" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">4.0</text>
+        <text x="404" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6.0</text>
+        <text x="460" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6.0</text>
+        <text x="516" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5.0</text>
+        <text x="572" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5.0</text>
+        <text x="628" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6.0</text>
+        <text x="684" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">7.0</text>
+        <text x="740" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">7.0</text>
+        <text x="796" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">3.5</text>
+        <text x="852" y="409" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">3.5</text>
+        <text x="956" y="409" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">59.0</text>
+
+        <!-- Legend strip -->
+        <line x1="32" y1="448" x2="968" y2="448" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+        <text x="32" y="476" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+        <rect x="88" y="466" width="16" height="12" rx="2" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
+        <text x="112" y="476" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전담 투입 100%</text>
+        <rect x="244" y="466" width="16" height="12" rx="2" fill="rgba(23,21,43,0.03)" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="268" y="476" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">부분 투입 50%</text>
+        <rect x="392" y="466" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="416" y="476" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">최대 투입 역할</text>
+        <text x="552" y="476" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">×2</text>
+        <text x="568" y="476" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">동시 투입 인원</text>
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header"><span class="card-dot coral"></span><h3>최대 투입 · 백엔드 개발 14.0 M/M</h3></div>
+        <p>중급 개발자 2명이 4~10월 7개월간 전담한다. 전체 59.0 M/M의 24%로, 이 인력의 채용·투입 시점이 사업 일정 전체를 좌우한다.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot ink"></span><h3>월별 합계로 피크 확인</h3></div>
+        <p>9~10월 7.0 M/M이 최대다. 개발 막바지에 품질 관리와 인프라·보안이 합류하는 구간이므로 사무 공간과 장비를 미리 확보한다.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-dot muted"></span><h3>M/M 산식</h3></div>
+        <p>역할별 M/M = 투입 개월 × 투입률 × 인원. 부분 투입 50%는 점선 막대로 구분해 겸직 인력을 한눈에 보이게 한다.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">한빛대학교 · 차세대 학사정보시스템 구축 인력 투입 계획</span>
+      <span class="ko">2026.09 · 예시</span>
+    </div>
+
+  </div>
+</body>
+</html>

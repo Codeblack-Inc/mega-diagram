@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 비전 검사 사업 가치사슬</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;   /* paper */
+      --color-ink:     #17152b;   /* mega ink */
+      --color-muted:   #68657b;   /* mega muted */
+      --color-accent:  #2f6fdb;   /* mega-diagram blue */
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Value chain · mega-diagram</p>
+    <h1>AI 비전 검사 사업 가치사슬</h1>
+
+    <svg viewBox="0 0 1000 488" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="value-chain-title value-chain-desc">
+      <title id="value-chain-title">AI 비전 검사 사업 가치사슬</title>
+      <desc id="value-chain-desc">지원 활동 네 줄(기업 인프라·인적 자원 관리·기술 개발·조달) 아래 본원 활동 다섯 단계(구매·운영·출고 물류·마케팅·판매·서비스)가 이윤으로 이어지는 가치사슬로, 자사 강점인 기술 개발과 서비스를 강조한다.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+      </defs>
+
+      <!-- No connectors: left-to-right order of the chevrons is the flow; the wedge is the margin. -->
+      <text x="40" y="152" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지원 활동</text>
+      <text x="40" y="344" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">본원 활동</text>
+
+      <!-- 이윤 wedge: spans both blocks -->
+      <polygon points="880,40 916,40 960,220 916,400 880,400" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1" stroke-linejoin="round"/>
+      <text x="912" y="216" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">이윤</text>
+      <text x="912" y="240" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">18%</text>
+
+      <!-- 지원 활동: full-width rows over every primary activity -->
+      <rect x="120" y="40" width="756" height="48" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="136" y="69" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기업 인프라</text>
+      <text x="288" y="69" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">재무·법무 · ISO 9001 품질경영 · ISMS 보안 인증</text>
+      <rect x="120" y="96" width="756" height="48" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="136" y="125" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">인적 자원 관리</text>
+      <text x="288" y="125" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">비전 AI 연구 인력 14명 · 현장 엔지니어 22명 · 성과 연동 스톡옵션</text>
+      <rect x="120" y="152" width="756" height="48" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="136" y="181" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기술 개발</text>
+      <text x="288" y="181" fill="#17152b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">소량 학습 모델 특허 3건 · 불량 이미지 38만 장 데이터셋</text>
+      <rect x="120" y="208" width="756" height="48" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="136" y="237" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">조달</text>
+      <text x="288" y="237" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">부품 공동 구매 · 클라우드 연간 약정으로 단가 12% 절감</text>
+
+      <!-- 본원 활동: chevrons, 4px apart, last one flat against the wedge -->
+      <polygon points="120,280 268,280 284,340 268,400 120,400" fill="#ffffff" stroke="#17152b" stroke-width="1" stroke-linejoin="round"/>
+      <text x="198" y="316" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">구매</text>
+      <line x1="158" y1="332" x2="238" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="198" y="356" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">카메라·조명 부품</text>
+      <text x="198" y="376" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공급사 3곳 이원화</text>
+      <polygon points="272,280 420,280 436,340 420,400 272,400 288,340" fill="#ffffff" stroke="#17152b" stroke-width="1" stroke-linejoin="round"/>
+      <text x="358" y="316" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">운영</text>
+      <line x1="318" y1="332" x2="398" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="358" y="356" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">키트 조립·검수</text>
+      <text x="358" y="376" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">검사 모델 학습</text>
+      <polygon points="424,280 572,280 588,340 572,400 424,400 440,340" fill="#ffffff" stroke="#17152b" stroke-width="1" stroke-linejoin="round"/>
+      <text x="510" y="316" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">출고 물류</text>
+      <line x1="470" y1="332" x2="550" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="510" y="356" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">현장 설치 2일</text>
+      <text x="510" y="376" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">원격 초기 세팅</text>
+      <polygon points="576,280 724,280 740,340 724,400 576,400 592,340" fill="#ffffff" stroke="#17152b" stroke-width="1" stroke-linejoin="round"/>
+      <text x="662" y="316" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">마케팅·판매</text>
+      <line x1="622" y1="332" x2="702" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="662" y="356" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">SI 파트너 8곳</text>
+      <text x="662" y="376" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">무상 PoC 4주</text>
+      <polygon points="728,280 876,280 876,400 728,400 744,340" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/>
+      <text x="810" y="316" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">서비스</text>
+      <line x1="770" y1="332" x2="850" y2="332" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="810" y="356" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">원격 모니터링</text>
+      <text x="810" y="376" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">월 1회 재학습</text>
+
+      <!-- Legend strip -->
+      <line x1="40" y1="432" x2="960" y2="432" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+      <text x="40" y="464" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="96" y="452" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="120" y="464" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자사 강점</text>
+      <rect x="208" y="452" width="16" height="12" rx="2" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="232" y="464" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지원 활동</text>
+      <rect x="320" y="452" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="344" y="464" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">본원 활동</text>
+      <rect x="432" y="452" width="16" height="12" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+      <text x="456" y="464" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이윤(2028년 영업이익률 목표)</text>
+    </svg>
+  </div>
+</body>
+</html>

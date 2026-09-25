@@ -18,6 +18,8 @@ mega-diagram은 [diagram-design](https://github.com/cathrynlavery/diagram-design
 
 "보고서에 넣을 그림"을 요청받으면 이 세 가지와 조직도·간트·타임라인을 먼저 후보로 둔다.
 
+이 밖에 SWOT·로직 모델·AS-IS/TO-BE·망 구성도·RACI·세부 일정표·도넛 차트 같은 **보고서 도식 30종**은 [korean-figures.md](korean-figures.md)에 모았다.
+
 이 문서는 SKILL.md와 [style-guide.md](style-guide.md)를 덮어쓰지 않고 보탠다. 충돌하면 연결선 규칙(SKILL.md §6)과 복잡도 예산(§7)이 이긴다.
 
 ---

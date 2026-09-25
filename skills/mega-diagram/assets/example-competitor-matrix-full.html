@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 비전 검사 경쟁사 비교</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Competitor matrix · 2026.09</p>
+      <h1>AI 비전 검사 경쟁사 비교</h1>
+      <p class="subtitle">자사와 경쟁 대안 네 가지를 같은 기준 여섯 개로 비교했습니다. 가장 강한 경쟁은 다른 제품이 아니라 현행 육안 검사입니다.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 472" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="competitor-matrix-full-title competitor-matrix-full-desc">
+        <title id="competitor-matrix-full-title">AI 비전 검사 경쟁사 비교</title>
+        <desc id="competitor-matrix-full-desc">자사 비전라인과 글로벌 장비사 K사, 대기업 SI H정보통신, 스타트업 딥체크, 현행 육안 검사를 도입 비용·구축 기간·검출률·소량 학습·현장 재학습·기술 지원 6개 기준으로 비교한 표로, 자사가 6점 만점에 5.5점으로 가장 높다.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+        </defs>
+
+        <!-- Focal column band (자사): painted first, spans header to summary -->
+        <rect x="256" y="40" width="128" height="360" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+
+        <!-- Header row: 구분 caption + company name -->
+        <text x="56" y="74" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">비교 기준</text>
+        <text x="320" y="62" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">자사</text>
+        <text x="320" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">비전라인</text>
+        <text x="464" y="62" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">글로벌 장비사</text>
+        <text x="464" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">K사</text>
+        <text x="608" y="62" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">대기업 SI</text>
+        <text x="608" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">H정보통신</text>
+        <text x="752" y="62" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">스타트업</text>
+        <text x="752" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">딥체크</text>
+        <text x="896" y="62" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">현행 방식</text>
+        <text x="896" y="82" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">육안 검사</text>
+        <line x1="40" y1="112" x2="960" y2="112" stroke="#d4d2de" stroke-width="1"/>
+
+        <!-- Body rows: criterion + note, Harvey ball per company, hairline between rows -->
+        <text x="56" y="137" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">도입 비용</text>
+        <text x="224" y="137" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">라인당</text>
+        <circle cx="320" cy="132" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="320" cy="132" r="8" fill="#17152b"/>
+        <circle cx="464" cy="132" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="608" cy="132" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="752" cy="132" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 752,124 A 8,8 0 0,1 752,140 Z" fill="#17152b"/>
+        <circle cx="896" cy="132" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="896" cy="132" r="8" fill="#17152b"/>
+        <line x1="40" y1="152" x2="960" y2="152" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="56" y="177" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">구축 기간</text>
+        <text x="224" y="177" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">계약~가동</text>
+        <circle cx="320" cy="172" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="320" cy="172" r="8" fill="#17152b"/>
+        <circle cx="464" cy="172" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 464,164 A 8,8 0 0,1 464,180 Z" fill="#17152b"/>
+        <circle cx="608" cy="172" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="752" cy="172" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 752,164 A 8,8 0 0,1 752,180 Z" fill="#17152b"/>
+        <circle cx="896" cy="172" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="896" cy="172" r="8" fill="#17152b"/>
+        <line x1="40" y1="192" x2="960" y2="192" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="56" y="217" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">불량 검출률</text>
+        <text x="224" y="217" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">실측 평균</text>
+        <circle cx="320" cy="212" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 320,204 A 8,8 0 0,1 320,220 Z" fill="#17152b"/>
+        <circle cx="464" cy="212" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="464" cy="212" r="8" fill="#17152b"/>
+        <circle cx="608" cy="212" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="608" cy="212" r="8" fill="#17152b"/>
+        <circle cx="752" cy="212" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 752,204 A 8,8 0 0,1 752,220 Z" fill="#17152b"/>
+        <circle cx="896" cy="212" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <line x1="40" y1="232" x2="960" y2="232" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="56" y="257" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">소량 샘플 학습</text>
+        <text x="224" y="257" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">50장 기준</text>
+        <circle cx="320" cy="252" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="320" cy="252" r="8" fill="#17152b"/>
+        <circle cx="464" cy="252" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="608" cy="252" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 608,244 A 8,8 0 0,1 608,260 Z" fill="#17152b"/>
+        <circle cx="752" cy="252" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 752,244 A 8,8 0 0,1 752,260 Z" fill="#17152b"/>
+        <circle cx="896" cy="252" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <line x1="40" y1="272" x2="960" y2="272" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="56" y="297" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현장 재학습</text>
+        <text x="224" y="297" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">고객 직접</text>
+        <circle cx="320" cy="292" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="320" cy="292" r="8" fill="#17152b"/>
+        <circle cx="464" cy="292" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 464,284 A 8,8 0 0,1 464,300 Z" fill="#17152b"/>
+        <circle cx="608" cy="292" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="752" cy="292" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="896" cy="292" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <line x1="40" y1="312" x2="960" y2="312" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+        <text x="56" y="337" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">국내 기술 지원</text>
+        <text x="224" y="337" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">24시간 내</text>
+        <circle cx="320" cy="332" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="320" cy="332" r="8" fill="#17152b"/>
+        <circle cx="464" cy="332" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="608" cy="332" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="608" cy="332" r="8" fill="#17152b"/>
+        <circle cx="752" cy="332" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 752,324 A 8,8 0 0,1 752,340 Z" fill="#17152b"/>
+        <circle cx="896" cy="332" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+
+        <!-- Summary row: ● 1점, ◐ 0.5점, ○ 0점 -->
+        <line x1="40" y1="352" x2="960" y2="352" stroke="#d4d2de" stroke-width="1"/>
+        <text x="56" y="382" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">종합 점수</text>
+        <text x="224" y="382" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">6점 만점</text>
+        <text x="320" y="383" fill="#2f6fdb" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5.5</text>
+        <text x="464" y="383" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2.0</text>
+        <text x="608" y="383" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2.5</text>
+        <text x="752" y="383" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2.5</text>
+        <text x="896" y="383" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2.0</text>
+
+        <!-- Legend strip -->
+        <line x1="40" y1="416" x2="960" y2="416" stroke="rgba(23,21,43,0.1)" stroke-width="0.8"/>
+        <text x="40" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+        <circle cx="104" cy="440" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <circle cx="104" cy="440" r="8" fill="#17152b"/>
+        <text x="120" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">우수 1점</text>
+        <circle cx="206" cy="440" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <path d="M 206,432 A 8,8 0 0,1 206,448 Z" fill="#17152b"/>
+        <text x="222" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보통 0.5점</text>
+        <circle cx="322" cy="440" r="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <text x="338" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">미흡 0점</text>
+        <rect x="416" y="434" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+        <text x="440" y="444" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자사</text>
+        <text x="960" y="444" fill="#8a879c" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">자사 조사 2026.08 · 고객 인터뷰 32곳, 공개 자료</text>
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>자사 우위: 소량 학습·재학습</h3>
+        </div>
+        <p>불량 샘플 50장으로 모델을 만들고 고객이 현장에서 직접 재학습한다. 품종이 자주 바뀌는 중소 부품사에 K사·H정보통신은 이 조건을 맞추지 못한다.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>자사 약점</h3>
+        </div>
+        <ul>
+          <li>불량 검출률 ◐: 실측 97.2%, K사 99.1%</li>
+          <li>고정밀 반도체 공정은 목표 시장에서 제외</li>
+          <li>2027년 모델 고도화로 99% 목표</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot muted"></span>
+          <h3>평가 방법</h3>
+        </div>
+        <p>기준마다 ● 1점, ◐ 0.5점, ○ 0점으로 더했다. 가중치는 두지 않았다.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">AI 비전 검사 사업계획 · 경쟁사 비교</span>
+      <span>2026.09 · 예시</span>
+    </div>
+
+  </div>
+</body>
+</html>

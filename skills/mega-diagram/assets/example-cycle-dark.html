@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>민원 서비스 품질 관리 PDCA 순환</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #17152b;   /* deep warm charcoal */
+      --color-ink:     #f6f5fa;   /* warm off-white */
+      --color-muted:   #d4d2de;
+      --color-accent:  #6e9bea;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">PDCA cycle · mega-diagram</p>
+    <h1>민원 서비스 품질 관리 PDCA 순환</h1>
+
+    <svg viewBox="0 0 1000 628" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cycle-dark-title cycle-dark-desc">
+      <title id="cycle-dark-title">민원 서비스 품질 관리 PDCA 순환</title>
+      <desc id="cycle-dark-desc">품질 목표 ‘민원 처리 품질 향상’을 가운데 두고 계획·실행·점검·개선 4단계가 시계 방향으로 순환하며, 개선 단계의 결과가 다음 주기의 계획으로 이어지는 PDCA 품질 관리 체계.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#d4d2de"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6e9bea"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#9a86ec"/></marker>
+      </defs>
+
+      <!-- 1. Ring arcs (before boxes): one circle, C=(500,288) R=216, clockwise sweep -->
+      <path d="M 612.0,103.306 A 216 216 0 0 1 712.038,246.821" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 712.264,328.0 A 216 216 0 0 1 613.024,472.069" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 388.0,472.694 A 216 216 0 0 1 287.962,329.179" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 287.736,248.0 A 216 216 0 0 1 386.976,103.931" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- 2. Return label on the 개선 → 계획 arc, outside the ring, clear of the stroke -->
+      <rect x="280" y="108" width="64" height="16" rx="2" fill="#17152b"/>
+      <text x="312.0" y="120" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">다음 주기</text>
+
+      <!-- 3. Hub: the shared goal (focal) -->
+      <rect x="412" y="240" width="176" height="96" rx="8" fill="#17152b"/>
+      <rect x="412" y="240" width="176" height="96" rx="8" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1.2"/>
+      <text x="500" y="268" fill="#6e9bea" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">품질 목표</text>
+      <text x="500" y="292" fill="#f6f5fa" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">민원 처리 품질 향상</text>
+      <text x="500" y="314" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">만족도 90점 이상</text>
+
+      <!-- 4. Stations: tag, name, divider, 2 bullets -->
+      <!-- 계획 PLAN -->
+      <rect x="388" y="32" width="224" height="80" rx="6" fill="#17152b"/>
+      <rect x="388" y="32" width="224" height="80" rx="6" fill="#17152b" stroke="#f6f5fa" stroke-width="1"/>
+      <rect x="404" y="44" width="28" height="12" rx="2" fill="transparent" stroke="#d4d2de" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="418.0" y="53" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PLAN</text>
+      <text x="440" y="55" fill="#f6f5fa" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">계획</text>
+      <circle cx="408" cy="78" r="1.5" fill="#d4d2de"/>
+      <text x="416" y="82" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">품질 목표·지표 설정</text>
+      <circle cx="408" cy="96" r="1.5" fill="#d4d2de"/>
+      <text x="416" y="100" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선 과제 선정</text>
+      <!-- 실행 DO -->
+      <rect x="604" y="248" width="224" height="80" rx="6" fill="#17152b"/>
+      <rect x="604" y="248" width="224" height="80" rx="6" fill="#17152b" stroke="#f6f5fa" stroke-width="1"/>
+      <rect x="620" y="260" width="20" height="12" rx="2" fill="transparent" stroke="#d4d2de" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="630.0" y="269" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DO</text>
+      <text x="648" y="271" fill="#f6f5fa" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">실행</text>
+      <circle cx="624" cy="294" r="1.5" fill="#d4d2de"/>
+      <text x="632" y="298" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표준 처리 절차 적용</text>
+      <circle cx="624" cy="312" r="1.5" fill="#d4d2de"/>
+      <text x="632" y="316" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">담당자 교육·시행</text>
+      <!-- 점검 CHECK -->
+      <rect x="388" y="464" width="224" height="80" rx="6" fill="#17152b"/>
+      <rect x="388" y="464" width="224" height="80" rx="6" fill="#17152b" stroke="#f6f5fa" stroke-width="1"/>
+      <rect x="404" y="476" width="36" height="12" rx="2" fill="transparent" stroke="#d4d2de" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="422.0" y="485" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CHECK</text>
+      <text x="448" y="487" fill="#f6f5fa" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">점검</text>
+      <circle cx="408" cy="510" r="1.5" fill="#d4d2de"/>
+      <text x="416" y="514" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">지표 측정·분석</text>
+      <circle cx="408" cy="528" r="1.5" fill="#d4d2de"/>
+      <text x="416" y="532" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">내부 품질 감사</text>
+      <!-- 개선 ACT -->
+      <rect x="172" y="248" width="224" height="80" rx="6" fill="#17152b"/>
+      <rect x="172" y="248" width="224" height="80" rx="6" fill="#17152b" stroke="#f6f5fa" stroke-width="1"/>
+      <rect x="188" y="260" width="24" height="12" rx="2" fill="transparent" stroke="#d4d2de" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="200.0" y="269" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ACT</text>
+      <text x="220" y="271" fill="#f6f5fa" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">개선</text>
+      <circle cx="192" cy="294" r="1.5" fill="#d4d2de"/>
+      <text x="200" y="298" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">원인 분석·조치</text>
+      <circle cx="192" cy="312" r="1.5" fill="#d4d2de"/>
+      <text x="200" y="316" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표준 개정·확산</text>
+
+      <!-- 5. Legend -->
+      <line x1="40" y1="576" x2="960" y2="576" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <text x="40" y="604" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="594" width="16" height="12" rx="2" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1"/>
+      <text x="112" y="604" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">공통 목표</text>
+      <rect x="192" y="594" width="16" height="12" rx="2" fill="#17152b" stroke="#f6f5fa" stroke-width="1"/>
+      <text x="216" y="604" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">단계</text>
+      <line x1="264" y1="600" x2="284" y2="600" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="292" y="604" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">순환 방향</text>
+    </svg>
+  </div>
+</body>
+</html>

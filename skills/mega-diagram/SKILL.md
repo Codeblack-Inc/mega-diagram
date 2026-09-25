@@ -1,6 +1,6 @@
 ---
 name: mega-diagram
-description: 한국어 문서용 다이어그램(전략 체계도·추진 체계도·로드맵·구성도·흐름도·조직도·간트·차트)을 투명 배경 SVG/PNG로 만든다. Create branded strategy house, governance, roadmap, architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, heatmap, bar, waterfall, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, or database schema diagrams as HTML/SVG/PNG, with .drawio and .excalidraw import support, plus lifecycle phase maps and onboarding guidance.
+description: 한국어 문서용 다이어그램(전략 체계도·추진 체계도·로드맵·구성도·흐름도·조직도·간트·차트)과 보고서 도식 30종(SWOT·로직 모델·망 구성도·RACI·도넛 등)을 투명 배경 SVG/PNG로 만든다. Create branded strategy house, governance, roadmap, architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, heatmap, bar, waterfall, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, or database schema diagrams as HTML/SVG/PNG, with .drawio and .excalidraw import support, plus lifecycle phase maps and onboarding guidance.
 license: MIT
 metadata:
   version: "0.1"
@@ -128,6 +128,8 @@ Rules of thumb:
 - If you're past the complexity budget (§7), split into an overview + detail.
 
 **Always load the chosen type reference linked in the guide before drawing.** When routed above, also load `semantic-patterns.md`; when animation is chosen, load `animation.md`.
+
+**Korean report figures (30)** (SWOT, AS-IS/TO-BE, 망 구성도, RACI, 도넛 …): pick from [`references/korean-figures.md`](references/korean-figures.md), then load its `ko-*.md` and base type.
 
 ### Confirm before drawing
 
@@ -540,7 +542,7 @@ The size preset sets the `viewBox` **and** the type ramp; `faithful` is the only
 
 Always produce a single self-contained `.html` file:
 
-- Embedded CSS (no external except Google Fonts)
+- Embedded CSS (no external except Google Fonts and the pinned Pretendard sheet)
 - Inline SVG (no external images)
 - Static by default; minimal inline JavaScript only for explicit animation controls/state
 
@@ -561,4 +563,4 @@ Every diagram is an accessible figure by default:
 
 When the user asks to export, save, rasterize, or convert a generated diagram to `.png` or `.svg`, load [`references/export.md`](references/export.md) and follow the procedure there. Both formats deliver the diagram only (the `<svg>` node) — editorial wrappers like cards and headers are dropped by design. Export is **manual** — never produce export files unprompted.
 
-For an imported diagram, pixel dimensions come from the `viewBox` × scale factor, so its size decision belongs to §11, not to export. For any diagram that needs an exact frame (an OG card or a slide image), see [`export.md` § Sizing the export](references/export.md).
+Pixel size is `viewBox` × scale, so size is decided when drawing (§11); for exact frames (OG card, slide) see [`export.md` § Sizing the export](references/export.md).

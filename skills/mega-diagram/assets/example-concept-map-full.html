@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가온 통합 충전 플랫폼 서비스 개념도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --color-paper:       #ffffff;
+      --color-paper-2:     #f6f5fa;
+      --color-ink:         #17152b;
+      --color-muted:       #68657b;
+      --color-soft:        #8a879c;
+      --color-rule:        rgba(23,21,43,0.12);
+      --color-rule-solid:  rgba(104,101,123,0.25);
+      --color-accent:      #2f6fdb;
+      --color-accent-tint: rgba(47,111,219,0.08);
+      --color-link:        #6043d5;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:  'Instrument Serif', 'Noto Serif', 'Noto Serif KR', 'Times New Roman', serif;
+      --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: var(--color-ink);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .header { margin-bottom: 2.5rem; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    /* ── Diagram container ────────────────────────────────────────── */
+    /* Default: clean, borderless — diagram sits directly on the page paper.
+       For the framed/boxed variant, uncomment the background/border/padding below. */
+    .diagram-container {
+      background: transparent;
+      border: none;
+      padding: 0;
+      overflow-x: auto;
+      /* background: var(--color-paper-2); */
+      /* border: 1px solid var(--color-rule); */
+      /* border-radius: 8px; */
+      /* padding: 1.5rem; */
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+
+    /* ── Info cards ───────────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid var(--color-rule);
+      padding: 1.25rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(23,21,43,0.08);
+    }
+
+    .card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-dot.ink    { background: var(--color-ink); }
+    .card-dot.muted  { background: var(--color-muted); }
+    .card-dot.coral  { background: var(--color-accent); }
+    .card-dot.link   { background: var(--color-link); }
+    .card-dot.soft   { background: var(--color-soft); }
+
+    .card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: -0.005em;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--color-muted);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+      padding-left: 0.875rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(23,21,43,0.25);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+    .footer .ko { font-family: var(--font-sans); letter-spacing: 0; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(23,21,43,0.10);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--color-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-eyebrow">Concept map · 2026.09</p>
+      <h1>가온 통합 충전 플랫폼 서비스 개념도</h1>
+      <p class="subtitle">플랫폼을 중심에 두고 국민·기관·운영사·외부 시스템이 주고받는 가치 흐름을 한 장에 정리.</p>
+    </div>
+
+    <!-- Main Diagram -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="concept-map-full-title concept-map-full-desc">
+      <title id="concept-map-full-title">가온 통합 충전 플랫폼 서비스 개념도</title>
+      <desc id="concept-map-full-desc">가온 통합 충전 플랫폼을 중심으로 전기차 이용자는 예약·결제를 하고 빈 충전기 안내를 받으며, 가온시·환경공단은 보조금·정책을 주고 이용 통계를 받고, 충전 사업자는 충전기 상태를 보내고 정산금을 받으며, 외부 결제·지도·차량 시스템과 승인 요청과 정보를 주고받는 서비스 개념도.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6043d5"/></marker>
+      </defs>
+
+      <!-- Value flows first. Each actor pair gets two parallel one-way lines, 32-48px apart. -->
+      <line x1="240" y1="284" x2="360" y2="284" stroke="#2f6fdb" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <line x1="360" y1="316" x2="240" y2="316" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="476" y1="120" x2="476" y2="216" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="524" y1="216" x2="524" y2="120" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <line x1="640" y1="284" x2="760" y2="284" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="760" y1="316" x2="640" y2="316" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <line x1="476" y1="384" x2="476" y2="480" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <line x1="524" y1="480" x2="524" y2="384" stroke="#6043d5" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-link)"/>
+
+      <!-- Flow labels: 16px masks, 8px clear of their stroke, on open canvas -->
+      <rect x="268" y="260" width="64" height="16" rx="2" fill="#ffffff"/>
+      <text x="300" y="272" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">예약·결제</text>
+      <rect x="252" y="324" width="96" height="16" rx="2" fill="#ffffff"/>
+      <text x="300" y="336" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">빈 충전기 안내</text>
+      <rect x="392" y="160" width="76" height="16" rx="2" fill="#ffffff"/>
+      <text x="430" y="172" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">보조금·정책</text>
+      <rect x="532" y="160" width="64" height="16" rx="2" fill="#ffffff"/>
+      <text x="564" y="172" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">이용 통계</text>
+      <rect x="676" y="260" width="44" height="16" rx="2" fill="#ffffff"/>
+      <text x="698" y="272" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">정산금</text>
+      <rect x="660" y="324" width="76" height="16" rx="2" fill="#ffffff"/>
+      <text x="698" y="336" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">충전기 상태</text>
+      <rect x="372" y="424" width="96" height="16" rx="2" fill="#ffffff"/>
+      <text x="420" y="436" fill="#6043d5" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">결제 승인 요청</text>
+      <rect x="532" y="424" width="96" height="16" rx="2" fill="#ffffff"/>
+      <text x="580" y="436" fill="#6043d5" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">지도·차량 정보</text>
+
+      <!-- Actors -->
+      <!-- 기관 · 가온시 · 환경공단 -->
+      <rect x="380" y="40" width="240" height="80" rx="6" fill="#ffffff"/>
+      <rect x="380" y="40" width="240" height="80" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="396" y="62" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기관</text>
+      <text x="396" y="84" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가온시 · 환경공단</text>
+      <text x="396" y="106" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">충전 인프라 정책·보조금</text>
+      <!-- 국민 · 전기차 이용자 -->
+      <rect x="40" y="260" width="200" height="80" rx="6" fill="#ffffff"/>
+      <rect x="40" y="260" width="200" height="80" rx="6" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
+      <text x="56" y="282" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">국민</text>
+      <text x="56" y="304" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전기차 이용자</text>
+      <text x="56" y="326" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">등록 전기차 42,000대</text>
+      <!-- 운영사 · 충전 사업자 12개사 -->
+      <rect x="760" y="260" width="200" height="80" rx="6" fill="#ffffff"/>
+      <rect x="760" y="260" width="200" height="80" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="776" y="282" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">운영사</text>
+      <text x="776" y="304" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">충전 사업자 12개사</text>
+      <text x="776" y="326" fill="#68657b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">충전기 1,860기 운영</text>
+      <!-- 외부 시스템 · 결제·지도·차량 연계 -->
+      <rect x="380" y="480" width="240" height="80" rx="6" fill="#ffffff"/>
+      <rect x="380" y="480" width="240" height="80" rx="6" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="396" y="502" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">외부 시스템</text>
+      <text x="396" y="524" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">결제·지도·차량 연계</text>
+      <text x="396" y="544" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace">PG · MAP · OEM API</text>
+
+      <!-- Service platform hub (focal) -->
+      <rect x="360" y="216" width="280" height="168" rx="6" fill="#ffffff"/>
+      <rect x="360" y="216" width="280" height="168" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.2"/>
+      <text x="376" y="238" fill="#2f6fdb" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">서비스 플랫폼</text>
+      <text x="376" y="262" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가온 통합 충전 플랫폼</text>
+      <line x1="376" y1="276" x2="624" y2="276" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <circle cx="380" cy="296" r="1.5" fill="#68657b"/>
+      <text x="388" y="300" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">충전소 검색·예약</text>
+      <circle cx="380" cy="316" r="1.5" fill="#68657b"/>
+      <text x="388" y="320" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">통합 결제·정산</text>
+      <circle cx="380" cy="336" r="1.5" fill="#68657b"/>
+      <text x="388" y="340" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">충전기 원격 관제</text>
+      <circle cx="380" cy="356" r="1.5" fill="#68657b"/>
+      <text x="388" y="360" fill="#17152b" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이용 데이터 분석</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="584" x2="960" y2="584" stroke="rgba(23,21,43,0.12)" stroke-width="0.8"/>
+      <text x="40" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="604" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
+      <text x="112" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">서비스 플랫폼</text>
+      <rect x="216" y="604" width="16" height="12" rx="2" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
+      <text x="240" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이용자</text>
+      <rect x="300" y="604" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+      <text x="324" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">운영 주체</text>
+      <rect x="404" y="604" width="16" height="12" rx="2" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.3)" stroke-width="1"/>
+      <text x="428" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기관·외부</text>
+      <line x1="508" y1="610" x2="524" y2="610" stroke="#68657b" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="532" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">서비스·재원</text>
+      <line x1="624" y1="610" x2="640" y2="610" stroke="#68657b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <text x="648" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">정보 환류</text>
+      <line x1="728" y1="610" x2="744" y2="610" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <text x="752" y="616" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">시스템 연계</text>
+    </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot coral"></span>
+          <h3>이용자 가치</h3>
+        </div>
+        <ul>
+          <li>충전소 검색·예약·결제 한 번에</li>
+          <li>빈 충전기 실시간 안내</li>
+          <li>대기 시간 평균 18분 단축 목표</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot ink"></span>
+          <h3>운영사·기관 가치</h3>
+        </div>
+        <ul>
+          <li>충전 수요 기반 정산 자동화</li>
+          <li>충전기 고장 원격 감지</li>
+          <li>보조금 집행 근거 통계 제공</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-dot link"></span>
+          <h3>외부 연계</h3>
+        </div>
+        <ul>
+          <li>PG 결제 승인 API</li>
+          <li>지도·차량 제조사 OEM API</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="ko">가온 통합 충전 플랫폼 · 서비스 개념도</span>
+      <span>2026.09</span>
+    </div>
+
+  </div>
+</body>
+</html>
