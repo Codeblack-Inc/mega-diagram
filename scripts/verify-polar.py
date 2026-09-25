@@ -157,7 +157,13 @@ def _stylesheet_can_target_chart(css: str) -> bool:
     return False
 
 
+# mega: the pinned Pretendard stylesheet self_check.py also approves.
+PRETENDARD_STYLESHEET = "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+
+
 def _allowed_stylesheet(href: str) -> bool:
+    if href.strip() == PRETENDARD_STYLESHEET:
+        return True
     parsed = urlsplit(href.strip())
     return (
         parsed.scheme == "https"

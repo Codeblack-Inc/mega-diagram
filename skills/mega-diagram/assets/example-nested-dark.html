@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The CLAUDE.md Hierarchy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>클라우드 계정·VPC·서브넷 구조</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #f6f5fa;
       --color-muted:   #d4d2de;
       --color-accent:  #6e9bea;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -41,10 +42,10 @@
     }
 
     h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.15;
       color: var(--color-ink);
       margin-bottom: 1.5rem;
@@ -56,11 +57,11 @@
 <body>
   <div class="frame">
     <p class="eyebrow">Nested · mega-diagram</p>
-    <h1>The CLAUDE.md Hierarchy</h1>
+    <h1>클라우드 계정·VPC·서브넷 구조</h1>
 
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nested-dark-title nested-dark-desc">
-      <title id="nested-dark-title">The CLAUDE.md Hierarchy</title>
-      <desc id="nested-dark-desc">Nested diagram showing how project CLAUDE.md instructions inherit broader scopes from the global, vault, business, and marketing levels.</desc>
+      <title id="nested-dark-title">클라우드 계정·VPC·서브넷 구조</title>
+      <desc id="nested-dark-desc">전사 클라우드 조직부터 운영 계정, VPC, 가용 영역을 거쳐 프라이빗 서브넷의 주문 API 서버까지 상위 정책이 차례로 상속되는 중첩 구조.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(246,245,250,0.10)"/>
@@ -80,20 +81,20 @@
         <rect x="168" y="204" width="664" height="92" rx="8" fill="rgba(110,155,234,0.08)" stroke="#6e9bea" stroke-width="1"/>
 
         <!-- Level labels on paper-colored masks -->
-        <rect x="56" y="52" width="188" height="16" fill="#17152b"/>
-        <text x="64" y="64" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">~/.claude/ (global)</text>
+        <rect x="56" y="52" width="128" height="16" fill="#17152b"/>
+        <text x="64" y="64" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">전사 클라우드 조직</text>
 
-        <rect x="88" y="88" width="148" height="16" fill="#17152b"/>
-        <text x="96" y="100" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">~/vault/ (notes)</text>
+        <rect x="88" y="88" width="124" height="16" fill="#17152b"/>
+        <text x="96" y="100" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">운영 계정 (prod)</text>
 
-        <rect x="120" y="124" width="96" height="16" fill="#17152b"/>
-        <text x="128" y="136" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">/business</text>
+        <rect x="120" y="124" width="124" height="16" fill="#17152b"/>
+        <text x="128" y="136" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">VPC 10.0.0.0/16</text>
 
-        <rect x="152" y="160" width="108" height="16" fill="#17152b"/>
-        <text x="160" y="172" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">/marketing</text>
+        <rect x="152" y="160" width="204" height="16" fill="#17152b"/>
+        <text x="160" y="172" fill="#f6f5fa" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">가용 영역 ap-northeast-2a</text>
 
-        <rect x="184" y="196" width="88" height="16" fill="#17152b"/>
-        <text x="192" y="208" fill="#6e9bea" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em" font-weight="600">/project</text>
+        <rect x="184" y="196" width="108" height="16" fill="#17152b"/>
+        <text x="192" y="208" fill="#6e9bea" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="600">프라이빗 서브넷</text>
 
         <!-- File-icon glyphs (simple rect with folded corner) inside each level -->
         <g transform="translate(908, 408)">
@@ -114,16 +115,16 @@
         </g>
 
         <!-- Innermost label — human readable -->
-        <text x="500" y="248" fill="#f6f5fa" font-size="16" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">CLAUDE.md</text>
-        <text x="500" y="272" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">inherits every level above</text>
+        <text x="500" y="248" fill="#f6f5fa" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">주문 API 서버</text>
+        <text x="500" y="272" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">상위 정책 모두 상속</text>
 
         <!-- Annotation top-right: italic callout with curved arrow -->
-        <text x="904" y="36" fill="#f6f5fa" font-size="14" font-style="italic" font-family="'Instrument Serif', serif" text-anchor="end">no imports, no configuration</text>
+        <text x="904" y="36" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">별도 연결 없이 자동 상속</text>
         <path d="M 820 44 Q 700 84 520 216" fill="none" stroke="rgba(246,245,250,0.40)" stroke-width="1" stroke-dasharray="4,3"/>
         <circle cx="520" cy="216" r="2" fill="#f6f5fa"/>
 
         <!-- Annotation bottom-left: italic callout -->
-        <text x="40" y="484" fill="#d4d2de" font-size="14" font-style="italic" font-family="'Instrument Serif', serif">structure IS the index</text>
+        <text x="40" y="484" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">구조가 곧 권한 범위</text>
       </svg>
   </div>
 </body>

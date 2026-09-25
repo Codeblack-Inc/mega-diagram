@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product milestones · Timeline</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>사업 추진 경과 · 타임라인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Timeline · mega-diagram</p>
-      <h1>Product launch · fourteen months</h1>
-      <p class="subtitle">Five design moments from the first post to the current schematic overhaul. Spacing is proportional to calendar time — the five-month gap between v1 and v2 is genuinely wider on the page.</p>
+      <h1>사업 추진 경과 · 14개월</h1>
+      <p class="subtitle">사업 착수부터 본사업 전환까지 다섯 개 추진 단계. 간격은 실제 경과 기간에 비례하므로 기본계획 수립과 시범 서비스 사이의 5개월은 화면에서도 그만큼 넓다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="timeline-full-title timeline-full-desc">
-        <title id="timeline-full-title">Product launch · fourteen months</title>
-        <desc id="timeline-full-desc">Timeline showing product milestones from the first post in February 2025 through three design versions and the schematic skill in April 2026.</desc>
+        <title id="timeline-full-title">사업 추진 경과 · 14개월</title>
+        <desc id="timeline-full-desc">2025년 2월 사업 착수부터 기본계획 수립, 시범 서비스, 중간 평가를 거쳐 2026년 4월 본사업 전환까지 사업 추진 경과를 보여 주는 타임라인.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -58,7 +61,7 @@
 
         <!-- Year boundary tick (between 2025 and 2026) -->
         <line x1="680" y1="232" x2="680" y2="248" stroke="rgba(23,21,43,0.20)" stroke-width="1"/>
-        <text x="680" y="260" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">JAN '26</text>
+        <text x="680" y="260" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2026.01</text>
 
         <!-- Start / end caps -->
         <line x1="80" y1="232" x2="80" y2="248" stroke="rgba(23,21,43,0.20)" stroke-width="1"/>
@@ -67,69 +70,69 @@
         <!-- Event 1: FEB 2025 · First post (below) -->
         <line x1="100" y1="240" x2="100" y2="296" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <circle cx="100" cy="240" r="4" fill="#17152b"/>
-        <text x="100" y="312" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">FEB 2025</text>
-        <text x="100" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">First post</text>
+        <text x="100" y="312" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2025.02</text>
+        <text x="100" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">사업 착수</text>
 
         <!-- Event 2: APR 2025 · Design v1 (above) -->
         <line x1="240" y1="184" x2="240" y2="240" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <circle cx="240" cy="240" r="4" fill="#17152b"/>
-        <text x="240" y="156" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">APR 2025</text>
-        <text x="240" y="172" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Design v1</text>
+        <text x="240" y="156" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2025.04</text>
+        <text x="240" y="172" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기본계획 수립</text>
 
         <!-- Event 3: SEP 2025 · Design v2 (below) -->
         <line x1="500" y1="240" x2="500" y2="296" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <circle cx="500" cy="240" r="4" fill="#17152b"/>
-        <text x="500" y="312" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">SEP 2025</text>
-        <text x="500" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Design v2</text>
-        <text x="500" y="344" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">typography pass</text>
+        <text x="500" y="312" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2025.09</text>
+        <text x="500" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">시범 서비스 개시</text>
+        <text x="500" y="346" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">3개 기관 참여</text>
 
         <!-- Event 4: JAN 2026 · Design v3 (above, coral major) -->
         <line x1="740" y1="160" x2="740" y2="240" stroke="#2f6fdb" stroke-width="1"/>
         <circle cx="740" cy="240" r="6" fill="#2f6fdb"/>
-        <text x="740" y="128" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">JAN 2026</text>
-        <text x="740" y="148" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Design v3</text>
-        <text x="740" y="164" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">complexity budget</text>
+        <text x="740" y="112" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2026.01</text>
+        <text x="740" y="132" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">중간 평가 통과</text>
+        <text x="740" y="150" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">예산 12억 원 확보</text>
 
         <!-- Event 5: APR 2026 · now · mega-diagram skill (below, coral) -->
         <line x1="900" y1="240" x2="900" y2="296" stroke="#2f6fdb" stroke-width="1"/>
         <circle cx="900" cy="240" r="6" fill="#2f6fdb"/>
-        <text x="900" y="312" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">APR 2026 · NOW</text>
-        <text x="900" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Schematic skill</text>
-        <text x="900" y="344" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">eight diagram types</text>
+        <text x="900" y="312" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">2026.04</text>
+        <text x="900" y="328" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">본사업 전환</text>
+        <text x="900" y="346" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">17개 시도 확산</text>
 
         <!-- Legend -->
         <line x1="40" y1="376" x2="960" y2="376" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="392" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="392" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <circle cx="52" cy="408" r="4" fill="#17152b"/>
-        <text x="68" y="412" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Event</text>
+        <text x="68" y="412" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">추진 사항</text>
 
         <circle cx="148" cy="408" r="6" fill="#2f6fdb"/>
-        <text x="164" y="412" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Major milestone</text>
+        <text x="164" y="412" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심 이정표</text>
 
-        <text x="296" y="412" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Spacing is proportional to real elapsed time.</text>
+        <text x="296" y="412" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">간격은 실제 경과 기간에 비례</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>v3 set the complexity budget</h3></div>
-        <p>January's design overhaul is the pivot — the rule that no diagram exceeds nine components comes from there, and it's why this skill exists in the form it does.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>중간 평가가 전환점</h3></div>
+        <p>2026년 1월 중간 평가 통과로 예산 12억 원이 확보됐다. 본사업 전환 일정과 확산 범위가 모두 이때 정해졌다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Honest spacing</h3></div>
-        <ul><li>5 months between v1 and v2</li><li>4 months between v2 and v3</li><li>3 months between v3 and now</li><li>Cadence is tightening, not gaming the axis</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>정직한 간격</h3></div>
+        <ul><li>기본계획~시범 서비스 5개월</li><li>시범 서비스~중간 평가 4개월</li><li>중간 평가~본사업 전환 3개월</li><li>축을 조작하지 않아도 추진 속도가 빨라지는 게 보인다</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Alternate label placement</h3></div>
-        <p>Above / below flipping prevents label collision without forcing a second row. Five events on one baseline stays legible.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>위아래 교차 배치</h3></div>
+        <p>라벨을 기준선 위아래로 번갈아 두면 두 번째 줄 없이도 겹치지 않는다. 기준선 하나에 다섯 단계가 읽기 좋게 들어간다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>product · design lineage</span>
-      <span>example · schematic skill</span>
+      <span>타임라인 · 사업 추진 경과</span>
+      <span>예제 · 공공 사업</span>
     </div>
   </div>
 </body>

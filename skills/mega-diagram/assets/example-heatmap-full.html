@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CI failure rate by service and sprint · Heatmap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>서비스·스프린트별 CI 실패율 · 히트맵</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Heatmap · mega-diagram</p>
-      <h1>The week payments went dark</h1>
-      <p class="subtitle">CI failure rate (%) by service and sprint, six sprints. payments spiked to 47% in S4 — a deploy regression that slipped through the gate — and had recovered to 4% by S6. billing carries the highest structural rate; notifications is the quietest service throughout.</p>
+      <h1>결제 서비스가 멈춘 스프린트</h1>
+      <p class="subtitle">서비스·스프린트별 CI 실패율(%), 6개 스프린트. 결제 서비스는 게이트를 통과한 배포 회귀로 4차에 47%까지 치솟았고 6차에 4%로 회복했다. 정산은 구조적 실패율이 가장 높고, 알림은 전 기간 가장 안정적이다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heatmap-full-title heatmap-full-desc">
-        <title id="heatmap-full-title">The week payments went dark</title>
-        <desc id="heatmap-full-desc">Heatmap of CI failure rate by service and sprint; payments service spiked to 47% in sprint 4 due to a deploy regression, recovered to 4% by sprint 6; billing carries the highest baseline failure rate at 9% in sprint 3.</desc>
+        <title id="heatmap-full-title">결제 서비스가 멈춘 스프린트</title>
+        <desc id="heatmap-full-desc">서비스·스프린트별 CI 실패율 히트맵으로, 결제 서비스가 4차 스프린트에 배포 회귀로 47%까지 치솟았다가 6차에 4%로 회복했고 정산 서비스는 3차에 9%로 기본 실패율이 가장 높다.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -54,25 +57,25 @@
              scripts/verify-heatmap.py enforces monotone opacity, complete grid, ≤1 focal. -->
 
         <!-- SERVICE axis label (rotated) -->
-        <text transform="rotate(-90 24 212)" x="24" y="212" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SERVICE</text>
+        <text transform="rotate(-90 24 212)" x="24" y="212" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">서비스</text>
 
         <!-- SPRINT axis label -->
-        <text x="518" y="36" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SPRINT</text>
+        <text x="518" y="24" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">스프린트</text>
 
         <!-- Column headers -->
-        <text data-axis="0" data-col="S1" x="218" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S1</text>
-        <text data-axis="1" data-col="S2" x="338" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S2</text>
-        <text data-axis="2" data-col="S3" x="458" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S3</text>
-        <text data-axis="3" data-col="S4" x="578" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S4</text>
-        <text data-axis="4" data-col="S5" x="698" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S5</text>
-        <text data-axis="5" data-col="S6" x="818" y="52" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">S6</text>
+        <text data-axis="0" data-col="S1" x="218" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">1차</text>
+        <text data-axis="1" data-col="S2" x="338" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">2차</text>
+        <text data-axis="2" data-col="S3" x="458" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">3차</text>
+        <text data-axis="3" data-col="S4" x="578" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">4차</text>
+        <text data-axis="4" data-col="S5" x="698" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">5차</text>
+        <text data-axis="5" data-col="S6" x="818" y="44" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">6차</text>
 
         <!-- Row labels -->
-        <text data-row-label="auth" x="148" y="96" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">auth</text>
-        <text data-row-label="payments" x="148" y="156" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">payments</text>
-        <text data-row-label="api-gateway" x="148" y="216" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">api-gateway</text>
-        <text data-row-label="billing" x="148" y="276" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">billing</text>
-        <text data-row-label="notifications" x="148" y="336" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">notifications</text>
+        <text data-row-label="auth" x="148" y="96" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">인증</text>
+        <text data-row-label="payments" x="148" y="156" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">결제</text>
+        <text data-row-label="api-gateway" x="148" y="216" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">API 게이트웨이</text>
+        <text data-row-label="billing" x="148" y="276" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">정산</text>
+        <text data-row-label="notifications" x="148" y="336" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">알림</text>
 
         <!-- Row: auth (y=64) -->
         <rect x="160" y="64" width="116" height="56" fill="#ffffff"/>
@@ -115,8 +118,8 @@
         <!-- FOCAL CELL: payments·S4 = 47% deploy regression -->
         <rect x="520" y="124" width="116" height="56" fill="#ffffff"/>
         <rect data-row="payments" data-col="S4" data-value="47" data-focal="true" x="520" y="124" width="116" height="56" fill="rgba(47,111,219,0.85)" stroke="#2f6fdb" stroke-width="1.2"/>
-        <text x="578" y="149" fill="#111111" font-size="10" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">47%</text>
-        <text x="578" y="163" fill="#111111" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">REGRESSION</text>
+        <text x="578" y="148" fill="#111111" font-size="10" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">47%</text>
+        <text x="578" y="167" fill="#111111" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">배포 회귀</text>
 
         <rect x="640" y="124" width="116" height="56" fill="#ffffff"/>
         <rect data-row="payments" data-col="S5" data-value="6" x="640" y="124" width="116" height="56" fill="rgba(23,21,43,0.43)"/>
@@ -203,16 +206,16 @@
 
         <!-- Annotation: callout for focal column -->
         <line x1="520" y1="60" x2="636" y2="60" stroke="#2f6fdb" stroke-width="1" stroke-dasharray="3,2"/>
-        <text x="578" y="58" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="middle">DEPLOY REGRESSION</text>
+        <text x="578" y="58" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">배포 회귀</text>
 
         <!-- Annotation: callout for billing row high baseline -->
         <line x1="880" y1="244" x2="880" y2="300" stroke="rgba(23,21,43,0.30)" stroke-width="1" stroke-dasharray="3,2"/>
-        <text x="884" y="272" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.04em">HIGH BASELINE</text>
+        <text x="884" y="272" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">높은 기준선</text>
 
         <!-- Legend -->
         <line x1="40" y1="382" x2="960" y2="382" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="398" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
-        <text x="960" y="398" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="end">ILLUSTRATIVE CI FAILURE RATES · NOT A MEASURED REGISTRY</text>
+        <text x="40" y="398" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
+        <text x="960" y="398" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">예시 CI 실패율 · 실측 기록 아님</text>
 
         <rect x="120" y="386" width="20" height="12" fill="#ffffff"/><rect x="120" y="386" width="20" height="12" fill="rgba(23,21,43,0.07)"/>
         <rect x="142" y="386" width="20" height="12" fill="#ffffff"/><rect x="142" y="386" width="20" height="12" fill="rgba(23,21,43,0.14)"/>
@@ -222,46 +225,46 @@
         <rect x="230" y="386" width="20" height="12" fill="#ffffff"/><rect x="230" y="386" width="20" height="12" fill="rgba(23,21,43,0.43)"/>
         <rect x="252" y="386" width="20" height="12" fill="#ffffff"/><rect x="252" y="386" width="20" height="12" fill="rgba(23,21,43,0.51)"/>
         <rect x="274" y="386" width="20" height="12" fill="#ffffff"/><rect x="274" y="386" width="20" height="12" fill="rgba(23,21,43,0.65)"/>
-        <text x="116" y="396" fill="#68657b" font-size="7.5" font-family="'Geist Mono', monospace" text-anchor="end">LOW</text>
-        <text x="298" y="396" fill="#68657b" font-size="7.5" font-family="'Geist Mono', monospace">HIGH</text>
+        <text x="116" y="396" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">낮음</text>
+        <text x="298" y="396" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">높음</text>
 
         <rect x="360" y="386" width="20" height="12" fill="#ffffff"/><rect x="360" y="386" width="20" height="12" fill="rgba(47,111,219,0.85)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="388" y="396" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">payments · S4 · 47% — deploy regression (now fixed)</text>
+        <text x="388" y="396" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">결제 · 4차 · 47% · 배포 회귀(수정 완료)</text>
 
-        <text x="40" y="418" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">NON-FOCAL SCALE: 1–9% · SINGLE INK RAMP · ACCENT IS EDITORIAL, NOT A DATA RANGE</text>
+        <text x="40" y="418" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">비강조 칸 척도 1–9% · 단일 잉크 램프 · 강조색은 편집상 표시이며 값 구간이 아님</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">Focal · payments · S4</p>
+        <p class="eyebrow">강조 · 결제 · 4차</p>
         <div class="card-header">
           <div class="card-swatch focal"></div>
-          <h3>Deploy regression — 47%</h3>
+          <h3>배포 회귀 · 47%</h3>
         </div>
-        <p>A CI gate misconfiguration during the payments S4 deploy let a breaking change through. The spike resolved by S6 after the rollback and a gate fix, returning to a 4% baseline.</p>
+        <p>결제 서비스 4차 배포 때 CI 게이트 설정 오류로 호환성을 깨는 변경이 통과했다. 롤백과 게이트 수정 후 6차에 4% 기준선으로 돌아왔다.</p>
       </div>
       <div class="card">
-        <p class="eyebrow">Structural issue · billing</p>
+        <p class="eyebrow">구조적 문제 · 정산</p>
         <div class="card-header">
           <div class="card-swatch high"></div>
-          <h3>Highest baseline — peaks 9%</h3>
+          <h3>가장 높은 기준선 · 최고 9%</h3>
         </div>
-        <p>billing shows the highest non-focal failure rates across all six sprints, peaking at 9% in S3. This is a persistent structural issue unrelated to the payments regression.</p>
+        <p>정산은 6개 스프린트 내내 비강조 칸 중 실패율이 가장 높고, 3차에 9%로 정점을 찍었다. 결제 회귀와 무관한 지속적 구조 문제다.</p>
       </div>
       <div class="card">
-        <p class="eyebrow">Quietest service · notifications</p>
+        <p class="eyebrow">가장 안정적 · 알림</p>
         <div class="card-header">
           <div class="card-swatch low"></div>
-          <h3>Most stable — never above 2%</h3>
+          <h3>최고 안정 · 2% 이하 유지</h3>
         </div>
-        <p>notifications stayed at or below 2% every sprint. This is the contrast the heatmap makes visible: same period, same team, dramatically different structural rates.</p>
+        <p>알림은 모든 스프린트에서 2% 이하를 유지했다. 같은 기간, 같은 팀인데도 구조적 실패율이 크게 다르다는 점이 히트맵으로 드러난다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>Heatmap · mega-diagram</span>
-      <span>Illustrative CI failure rates · not a measured registry</span>
+      <span>예제 · CI 실패율</span>
+      <span>예시 수치 · 실측 기록 아님</span>
     </div>
   </div>
 </body>

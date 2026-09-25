@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request demand by UTC window · Polar chart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>UTC 시간대별 요청 수요 · 극좌표 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     html, body, div, main, header, footer, section, article, p, h1, h2, h3, h4, h5, h6 { box-sizing:border-box; margin:0; padding:0; }
-    :root { --color-paper:#ffffff; --color-ink:#17152b; --color-muted:#68657b; --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-ink:#17152b; --color-muted:#68657b; --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family:var(--font-sans); background:var(--color-paper); color:var(--color-ink); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:3rem 2rem; }
     .frame { max-width:1200px; width:100%; }
     .eyebrow { font-family:var(--font-mono); font-size:0.66rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--color-muted); margin-bottom:0.5rem; }
@@ -19,12 +20,14 @@
       .eyebrow { margin-bottom:0.25rem; }
       h1 { margin-bottom:0.5rem; }
     }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Polar · mega-diagram</p>
-    <h1>Request demand by UTC window</h1>
+    <h1>UTC 시간대별 요청 수요</h1>
 
     <svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg"
          role="img" aria-labelledby="polar-title polar-desc"
@@ -32,11 +35,11 @@
          data-polar-radius="160" data-polar-min="0" data-polar-max="100"
          data-polar-start-angle="-90" data-polar-clockwise="true"
          data-polar-radius-encoding="linear" data-polar-inner-radius="0">
-      <title id="polar-title">Request demand by UTC window</title>
-      <desc id="polar-desc">Polar chart on a 0–100% scale identifying 12–15 UTC as the 100% peak, with the other seven UTC windows proceeding clockwise.</desc>
+      <title id="polar-title">UTC 시간대별 요청 수요</title>
+      <desc id="polar-desc">0~100% 척도에서 12–15 UTC 구간을 100% 최대치로 표시하고 나머지 7개 UTC 구간을 시계 방향으로 배치한 극좌표 차트.</desc>
 
       <rect data-polar-background width="100%" height="100%" fill="#ffffff"/>
-      <text x="40" y="28" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">% OF DAILY PEAK · 0–100</text>
+      <text x="40" y="28" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">일 최대 대비(%) · 0–100</text>
 
       <circle data-polar-ring cx="500" cy="230" r="32" fill="none" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
       <circle data-polar-ring cx="500" cy="230" r="64" fill="none" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
@@ -109,7 +112,7 @@
         <text data-polar-value-label x="355.75" y="85.75" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">45</text>
       </g>
       <line data-polar-rule x1="40" y1="468" x2="960" y2="468" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="488" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.08em">Illustrative normalized workload profile</text>
+      <text x="40" y="488" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">예시용 정규화 부하 패턴</text>
     </svg>
   </div>
 </body>

@@ -113,11 +113,17 @@ def main() -> int:
         0,
     )
     # Wide-but-tall rects are container header bars or row stripes, not masks —
-    # the height cap stays at 14 so they are never reported.
+    # 15-16px rects count as masks only up to 160px wide, so header bars are never reported.
     check(
         "container header bar is not a mask",
         document('<rect x="80" y="80" width="188" height="16" rx="2" fill="#eee"/>' + node),
         0,
+    )
+
+    check(
+        "16px Korean label mask clipped by a later node is reported",
+        document('<rect x="80" y="80" width="48" height="16" rx="2" fill="#ffffff"/>' + node),
+        1,
     )
 
     check_file("shipped architecture example", ARCHITECTURE, 0)

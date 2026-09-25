@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request latency by service · Ridgeline</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>서비스별 요청 지연 분포 · 릿지라인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,19 +29,21 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Ridgeline · mega-diagram</p>
-      <h1>Checkout is slow in two different ways</h1>
-      <p class="subtitle">Five services, one week of request latency, one amplitude scale. Each ridge is the share of that service's own requests in each 40&nbsp;ms bin — so the ridges compare shape, not traffic. Four of them have a single hump and a thinning tail; checkout-api has a second, smaller peak past 300&nbsp;ms, which is a different failure from simply being slow.</p>
+      <h1>결제 API는 두 가지 방식으로 느리다</h1>
+      <p class="subtitle">서비스 다섯 개, 1주일간 요청 지연, 하나의 높이 척도. 각 능선은 해당 서비스 자체 요청 중 40&nbsp;ms 구간별 비중이므로 트래픽이 아니라 모양을 비교한다. 넷은 봉우리 하나에 꼬리가 가늘어지지만, checkout-api는 300&nbsp;ms 뒤에 작은 두 번째 봉우리가 있다. 단순히 느린 것과는 다른 문제다.</p>
     </div>
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ridgeline-full-title ridgeline-full-desc">
-        <title id="ridgeline-full-title">Checkout is slow in two different ways</title>
-        <desc id="ridgeline-full-desc">Ridgeline chart of request-latency distributions for five services over one week; each ridge is the share of that service's requests falling in 40-millisecond bins, drawn on one shared amplitude scale, and checkout-api carries a second peak past 300 milliseconds that none of the other four show.</desc>
+        <title id="ridgeline-full-title">결제 API는 두 가지 방식으로 느리다</title>
+        <desc id="ridgeline-full-desc">다섯 서비스의 1주일간 요청 지연 분포를 40ms 구간별 요청 비중으로 그리고 모든 능선에 같은 높이 척도를 쓴 릿지라인 차트로, checkout-api만 300ms 이후에 두 번째 봉우리가 있다.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -53,7 +56,7 @@
              as a tight one, which is the single lie this type is built to tell.
              scripts/verify-ridgeline.py derives the amplitude from the figure and then
              holds every vertex of every ridge to it. -->
-        <text transform="rotate(-90 24 264)" x="24" y="264" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SHARE OF REQUESTS · 1% = 2.4PX ON EVERY RIDGE</text>
+        <text transform="rotate(-90 24 264)" x="24" y="264" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">요청 비중 · 1% = 2.4px, 전 능선 동일</text>
 
         <!-- One baseline per ridge, 56px pitch. The baseline is where a bin of zero
              requests sits, so it can never be moved to give a ridge more room. -->
@@ -93,39 +96,39 @@
         <text data-tick="2" data-bin="240" x="500" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">240</text>
         <text data-tick="3" data-bin="360" x="590" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">360</text>
         <text data-tick="4" data-bin="480" x="680" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">480</text>
-        <text x="500" y="424" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.18em" text-anchor="middle">REQUEST LATENCY (MS), BIN LOWER EDGE</text>
+        <text x="500" y="424" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">요청 지연 시간(ms), 구간 하한</text>
 
         <!-- Legend -->
         <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
-        <text x="960" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="end">SHARE OF EACH SERVICE'S OWN REQUESTS PER 40 MS BIN · 1% = 2.4PX ON EVERY RIDGE · UNSMOOTHED · ILLUSTRATIVE FIGURES</text>
+        <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
+        <text x="960" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">서비스별 자체 요청 대비 40ms 구간 비중 · 평활화 없음 · 예시 수치</text>
 
         <rect x="40" y="486" width="24" height="10" fill="rgba(47,111,219,0.16)"/>
         <line x1="40" y1="486" x2="64" y2="486" stroke="#2f6fdb" stroke-width="2.4"/>
-        <text x="72" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">checkout-api · focal, second peak past 300 ms</text>
+        <text x="72" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">checkout-api · 초점, 300ms 뒤 2차 봉우리</text>
         <rect x="360" y="486" width="24" height="10" fill="rgba(23,21,43,0.12)"/>
         <line x1="360" y1="486" x2="384" y2="486" stroke="rgba(23,21,43,0.80)" stroke-width="1.2"/>
-        <text x="392" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Other services · strongest tone is the fastest median</text>
+        <text x="392" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">기타 서비스 · 진할수록 중앙값 빠름</text>
       </svg>
     </div>
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">FOCAL · CHECKOUT-API</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>A second peak is not a long tail</h3></div>
-        <p>About a third of checkout's requests land past 280&nbsp;ms, and they arrive as a distinct bump peaking near 360&nbsp;ms rather than as a thinning tail. A tail says "sometimes slower"; a second peak says there are two paths through the code and one of them is always slow. Its p50 is 160&nbsp;ms and its p99 is 400&nbsp;ms — both true, and neither says the requests between them arrive in two clusters instead of one spread.</p>
+        <p class="eyebrow">초점 · CHECKOUT-API</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>두 번째 봉우리는 긴 꼬리가 아니다</h3></div>
+        <p>결제 요청의 약 3분의 1이 280&nbsp;ms를 넘고, 가늘어지는 꼬리가 아니라 360&nbsp;ms 부근에서 별도 봉우리를 이룬다. 꼬리는 '가끔 느림'을, 두 번째 봉우리는 코드 경로가 둘이고 그중 하나는 늘 느리다는 뜻이다. p50 160&nbsp;ms, p99 400&nbsp;ms 모두 사실이지만, 그 사이 요청이 한 덩어리가 아니라 두 무리로 온다는 점은 어느 쪽도 말해 주지 않는다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink-strong"></span><h3>Height is share, so the ridges compare shape</h3></div>
-        <p>static-cdn is the tallest ridge because its requests are concentrated in three bins, not because it serves the most traffic. Each ridge is normalised to its own service's request count and then drawn on one shared amplitude — that is what makes the silhouettes comparable, and it is the one thing a ridgeline must never fudge.</p>
+        <div class="card-header"><span class="card-dot ink-strong"></span><h3>높이는 비중, 능선은 모양을 비교</h3></div>
+        <p>static-cdn이 가장 높은 것은 트래픽이 많아서가 아니라 요청이 세 구간에 몰려 있어서다. 각 능선은 자기 서비스 요청 수로 정규화한 뒤 하나의 공통 높이 척도로 그린다. 그래서 윤곽을 비교할 수 있고, 릿지라인이 절대 속이면 안 되는 부분이 바로 이것이다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink-light"></span><h3>Overlap is deliberate; occlusion would not be</h3></div>
-        <p>Ridges sit 56&nbsp;px apart and the tallest rises 86&nbsp;px, so peaks cross the row above and the stack reads as depth. The rule is that no peak may reach the row two above it — past that a peak hides behind a peak, and the fix is more pitch, never a smaller amplitude on one ridge.</p>
+        <div class="card-header"><span class="card-dot ink-light"></span><h3>겹침은 의도, 가림은 아님</h3></div>
+        <p>능선 간격은 56&nbsp;px, 가장 높은 봉우리는 86&nbsp;px이라 봉우리가 윗줄을 넘으며 깊이감이 생긴다. 규칙은 두 줄 위까지 닿지 않는 것. 그 이상이면 봉우리가 봉우리 뒤에 숨으므로 간격을 늘려야 하며, 한 능선만 높이를 줄여서는 안 된다.</p>
       </div>
     </div>
     <div class="footer">
-      <span>share of requests per 40 ms bin · one week · illustrative</span>
-      <span>example · diagram design</span>
+      <span>40ms 구간별 요청 비중 · 1주일 · 예시 수치</span>
+      <span>예제 · 서비스 응답 지연</span>
     </div>
   </div>
 </body>

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter publication lifecycle · State machine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>사내 소식지 발행 상태</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --color-paper:#17152b; --color-ink:#f6f5fa; --color-muted:#d4d2de; --color-accent:#6e9bea; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#17152b; --color-ink:#f6f5fa; --color-muted:#d4d2de; --color-accent:#6e9bea; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family:var(--font-sans); background:var(--color-paper); color:var(--color-ink); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:3rem 2rem; }
     .frame { max-width:1200px; width:100%; overflow-x:auto; }
     .eyebrow { font-family:var(--font-mono); font-size:0.66rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--color-muted); margin-bottom:0.5rem; }
     h1 { font-family:var(--font-serif); font-size:clamp(1.5rem,2.4vw + 0.75rem,2rem); font-weight:400; letter-spacing:-0.02em; line-height:1.15; margin-bottom:1.5rem; }
     svg { width:100%; min-width:900px; display:block; }
-    svg text { font-family:'Geist',sans-serif; }
+    svg text { font-family:'Geist','Pretendard','Noto Sans KR',sans-serif; }
     .band { fill:rgba(246,245,250,0.035); stroke:rgba(246,245,250,0.14); }
     .flow { fill:none; stroke:#d4d2de; stroke-width:1.2; }
     .flow.retry { stroke-dasharray:5 4; }
@@ -23,15 +24,17 @@
     .support { fill:#17152b; stroke:#d4d2de; stroke-dasharray:5 4; }
     .terminal { fill:rgba(246,245,250,0.04); stroke:#d4d2de; }
     .terminal.failed { stroke-width:1.5; stroke-dasharray:3 3; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">State · Lifecycle phase map</p>
-    <h1>Newsletter publication lifecycle</h1>
+    <h1>사내 소식지 발행 상태</h1>
     <svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="state-lifecycle-dark-title state-lifecycle-dark-desc">
-      <title id="state-lifecycle-dark-title">Newsletter publication lifecycle</title>
-      <desc id="state-lifecycle-dark-desc">A dark lifecycle phase map with Draft, Editing, Scheduled, Sending, and Sent on the primary rail; Approval and Delivery Retry in a recovery band; and Cancelled and Failed terminal outcomes.</desc>
+      <title id="state-lifecycle-dark-title">사내 소식지 발행 상태</title>
+      <desc id="state-lifecycle-dark-desc">사내 소식지가 초안, 편집, 발송 예약, 발송 중, 발송 완료로 이어지고 승인 대기와 재발송은 복구 구간에, 취소와 실패는 종료 결과로 표시한 상태 단계도.</desc>
       <defs>
         <pattern id="lifecycle-dark-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(246,245,250,0.10)"/></pattern>
         <marker id="lifecycle-dark-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#d4d2de"/></marker>
@@ -39,7 +42,7 @@
       </defs>
       <rect class="band" x="24" y="44" width="952" height="120" rx="8"/>
       <rect class="band" x="24" y="400" width="952" height="104" rx="8"/>
-      <g fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.14em"><text x="40" y="64">WAIT / RECOVERY</text><text x="40" y="208">PRIMARY PHASES</text><text x="40" y="420">TERMINAL OUTCOMES</text></g>
+      <g fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.14em"><text x="40" y="64" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">대기·복구</text><text x="40" y="208" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">주요 단계</text><text x="40" y="420" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">종료 결과</text></g>
 
       <line class="flow" x1="40" y1="256" x2="64" y2="256" marker-end="url(#lifecycle-dark-arrow)"/>
       <line class="flow" x1="214" y1="256" x2="244" y2="256" marker-end="url(#lifecycle-dark-arrow)"/>
@@ -53,32 +56,32 @@
       <path class="flow" d="M604 104 H584 V380 H749 V416" marker-end="url(#lifecycle-dark-arrow)"/>
 
       <g font-family="'Geist Mono',monospace" font-size="7" text-anchor="middle" letter-spacing="0.08em" fill="#d4d2de">
-        <rect class="mask" x="27" y="238" width="32" height="12" rx="2"/><text x="43" y="247">NEW</text>
-        <rect class="mask" x="215" y="238" width="28" height="12" rx="2"/><text x="229" y="247">WRITE</text>
-        <rect class="mask" x="326" y="158" width="48" height="12" rx="2"/><text x="350" y="167">SUBMIT</text>
-        <rect class="mask" x="448" y="158" width="56" height="12" rx="2"/><text x="476" y="167">APPROVE</text>
-        <rect class="mask" x="575" y="238" width="28" height="12" rx="2"/><text x="589" y="247">START</text>
-        <rect class="mask" x="760" y="238" width="34" height="12" rx="2"/><text x="777" y="247" fill="#6e9bea">DELIVER</text>
-        <rect class="mask" x="620" y="158" width="46" height="12" rx="2"/><text x="643" y="167">ERROR</text>
-        <rect class="mask" x="700" y="180" width="42" height="12" rx="2"/><text x="721" y="189">RETRY</text>
-        <rect class="mask" x="474" y="350" width="52" height="12" rx="2"/><text x="500" y="359">CANCEL</text>
-        <rect class="mask" x="588" y="362" width="66" height="12" rx="2"/><text x="621" y="371">EXHAUSTED</text>
+        <rect class="mask" x="30" y="232" width="32" height="16" rx="2"/><text x="46" y="244" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">생성</text>
+        <rect class="mask" x="215" y="236" width="28" height="16" rx="2"/><text x="229" y="248" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">작성</text>
+        <rect class="mask" x="334" y="156" width="32" height="16" rx="2"/><text x="350" y="168" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">상신</text>
+        <rect class="mask" x="460" y="156" width="32" height="16" rx="2"/><text x="476" y="168" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">승인</text>
+        <rect class="mask" x="575" y="236" width="28" height="16" rx="2"/><text x="589" y="248" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">시작</text>
+        <rect class="mask" x="761" y="236" width="32" height="16" rx="2"/><text x="777" y="248" fill="#6e9bea" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">전달</text>
+        <rect class="mask" x="627" y="156" width="32" height="16" rx="2"/><text x="643" y="168" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">오류</text>
+        <rect class="mask" x="699" y="178" width="44" height="16" rx="2"/><text x="721" y="190" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">재시도</text>
+        <rect class="mask" x="484" y="348" width="32" height="16" rx="2"/><text x="500" y="360" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">취소</text>
+        <rect class="mask" x="605" y="360" width="32" height="16" rx="2"/><text x="621" y="372" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">소진</text>
       </g>
       <circle cx="34" cy="256" r="6" fill="#f6f5fa"/>
 
       <g text-anchor="middle" font-family="'Geist',sans-serif">
-        <g><rect class="phase" x="64" y="220" width="150" height="72" rx="8"/><text x="139" y="251" fill="#f6f5fa" font-size="12" font-weight="600">Draft</text><text x="139" y="270" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">content exists</text></g>
-        <g><rect class="phase" x="244" y="220" width="150" height="72" rx="8"/><text x="319" y="251" fill="#f6f5fa" font-size="12" font-weight="600">Editing</text><text x="319" y="270" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">owner revises</text></g>
-        <g><rect class="phase" x="424" y="220" width="150" height="72" rx="8"/><text x="499" y="251" fill="#f6f5fa" font-size="12" font-weight="600">Scheduled</text><text x="499" y="270" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">send time set</text></g>
-        <g><rect class="phase" x="604" y="220" width="150" height="72" rx="8"/><text x="679" y="251" fill="#f6f5fa" font-size="12" font-weight="600">Sending</text><text x="679" y="270" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">provider active</text></g>
-        <g><rect x="800" y="220" width="150" height="72" rx="8" fill="rgba(110,155,234,0.08)" stroke="#6e9bea"/><circle cx="824" cy="244" r="7" fill="none" stroke="#6e9bea"/><circle cx="824" cy="244" r="4" fill="#6e9bea"/><text x="875" y="251" fill="#f6f5fa" font-size="12" font-weight="600">Sent</text><text x="875" y="270" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">delivery complete</text></g>
+        <g><rect class="phase" x="64" y="220" width="150" height="72" rx="8"/><text x="139" y="251" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">초안</text><text x="139" y="270" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">원고 작성됨</text></g>
+        <g><rect class="phase" x="244" y="220" width="150" height="72" rx="8"/><text x="319" y="251" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">편집</text><text x="319" y="270" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">담당자 수정</text></g>
+        <g><rect class="phase" x="424" y="220" width="150" height="72" rx="8"/><text x="499" y="251" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">발송 예약</text><text x="499" y="270" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">발송 시각 확정</text></g>
+        <g><rect class="phase" x="604" y="220" width="150" height="72" rx="8"/><text x="679" y="251" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">발송 중</text><text x="679" y="270" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">대행사 처리 중</text></g>
+        <g><rect x="800" y="220" width="150" height="72" rx="8" fill="rgba(110,155,234,0.08)" stroke="#6e9bea"/><circle cx="824" cy="244" r="7" fill="none" stroke="#6e9bea"/><circle cx="824" cy="244" r="4" fill="#6e9bea"/><text x="875" y="251" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">발송 완료</text><text x="875" y="270" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">전달 완료</text></g>
       </g>
 
       <g text-anchor="middle">
-        <g><rect class="support" x="334" y="68" width="150" height="72" rx="8"/><rect x="344" y="78" width="34" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="361" y="87" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">WAIT</text><text x="409" y="111" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist',sans-serif">Approval</text><text x="409" y="126" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">editor decision</text></g>
-        <g><rect class="support" x="604" y="68" width="150" height="72" rx="8"/><rect x="614" y="78" width="52" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="640" y="87" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">RECOVERY</text><text x="679" y="111" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist',sans-serif">Delivery Retry</text><text x="679" y="126" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">attempt 1 of 3</text></g>
-        <g><rect class="terminal" x="424" y="416" width="150" height="72" rx="8"/><rect x="434" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="461" y="435" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">TERMINAL</text><text x="499" y="459" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist',sans-serif">Cancelled</text><text x="499" y="474" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">stopped by owner</text></g>
-        <g><rect class="terminal failed" x="674" y="416" width="150" height="72" rx="8"/><rect x="684" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="711" y="435" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">TERMINAL</text><text x="749" y="459" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist',sans-serif">Failed</text><text x="749" y="474" fill="#d4d2de" font-size="8" font-family="'Geist Mono',monospace">retries exhausted</text></g>
+        <g><rect class="support" x="334" y="68" width="150" height="72" rx="8"/><rect x="344" y="78" width="34" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="361" y="87" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">WAIT</text><text x="409" y="111" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">승인 대기</text><text x="409" y="126" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">편집장 결정</text></g>
+        <g><rect class="support" x="604" y="68" width="150" height="72" rx="8"/><rect x="614" y="78" width="52" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="640" y="87" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">RECOVERY</text><text x="679" y="111" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">재발송</text><text x="679" y="126" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">3회 중 1회차</text></g>
+        <g><rect class="terminal" x="424" y="416" width="150" height="72" rx="8"/><rect x="434" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="461" y="435" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">TERMINAL</text><text x="499" y="459" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">취소</text><text x="499" y="474" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">담당자 중단</text></g>
+        <g><rect class="terminal failed" x="674" y="416" width="150" height="72" rx="8"/><rect x="684" y="426" width="54" height="12" rx="2" fill="none" stroke="rgba(212,210,222,0.50)"/><text x="711" y="435" fill="#d4d2de" font-size="7" font-family="'Geist Mono',monospace">TERMINAL</text><text x="749" y="459" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">실패</text><text x="749" y="474" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">재시도 소진</text></g>
       </g>
     </svg>
   </div>

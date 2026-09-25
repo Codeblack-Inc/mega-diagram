@@ -56,7 +56,7 @@ ONBOARDING_REFERENCE = ROOT / "skills/mega-diagram/references/onboarding.md"
 LINE_DARK_EXAMPLE = ROOT / "skills/mega-diagram/assets/example-line-dark.html"
 OUTPUT_SPEC_REFERENCE = ROOT / "skills/mega-diagram/references/output-spec.md"
 VARIANTS = ("", "-dark", "-full")
-VISUAL_TYPE_COUNT = 41
+VISUAL_TYPE_COUNT = 44
 AGENT_SKILLS_DESCRIPTION_MAX = 1024
 PLUGIN_DESCRIPTION_MAX = 500
 # Types whose selection-table name differs from its description vocabulary.

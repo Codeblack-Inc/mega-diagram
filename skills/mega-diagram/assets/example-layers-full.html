@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI app stack · Layer hierarchy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>사내 AI 결재 도우미 · 계층 구조 (해설)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
+    .footer { font-family: var(--font-sans); letter-spacing: 0; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Layer stack · mega-diagram</p>
-      <h1>AI app stack · Where the work actually happens</h1>
-      <p class="subtitle">Five layers between silicon and the user. Most teams over-invest in the model and under-invest in the harness — which is the layer that decides whether the app feels magical or flaky.</p>
+      <h1>사내 AI 결재 도우미 · 계층 구조</h1>
+      <p class="subtitle">하드웨어와 사용자 사이의 5개 계층. 대부분의 팀이 모델에는 과하게, 하네스에는 부족하게 투자한다. 앱이 똑똑하게 느껴질지 불안하게 느껴질지는 하네스가 정한다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="layers-full-title layers-full-desc">
-        <title id="layers-full-title">AI app stack · Where the work actually happens</title>
-        <desc id="layers-full-desc">Layer stack showing model weights, SDK, prompts, agent harness, and UI surface, with the agent harness highlighted as the focal layer.</desc>
+        <title id="layers-full-title">사내 AI 결재 도우미 · 계층 구조</title>
+        <desc id="layers-full-desc">모델 가중치, SDK, 프롬프트, 에이전트 하네스, 사용자 화면의 5계층 스택이며 에이전트 하네스를 핵심 계층으로 강조한 그림.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -50,10 +53,10 @@
 
 
         <!-- Direction column (left margin) -->
-        <text x="60" y="68" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">ABSTRACTION</text>
+        <text x="60" y="68" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">추상화</text>
         <line x1="80" y1="80" x2="80" y2="400" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <polygon points="76,80 84,80 80,72" fill="#68657b"/>
-        <text x="60" y="416" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">SILICON</text>
+        <text x="60" fill="#68657b" y="420" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">하드웨어</text>
 
         <!-- Stack container hairlines (top + bottom edges) -->
         <line x1="120" y1="80" x2="960" y2="80" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
@@ -63,61 +66,61 @@
         <rect x="120" y="80" width="840" height="64" fill="#ffffff"/>
         <line x1="120" y1="144" x2="960" y2="144" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
         <text x="140" y="116" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">L5</text>
-        <text x="260" y="118" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">UI surface</text>
-        <text x="940" y="118" fill="#68657b" font-size="10" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">chat, editor, canvas</text>
+        <text x="260" y="118" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">사용자 화면</text>
+        <text x="940" y="118" fill="#68657b" text-anchor="end" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">메신저 · 그룹웨어 · 모바일</text>
 
         <!-- L4 — Agent harness (FOCAL, coral tint + coral stroke) -->
         <rect x="120" y="144" width="840" height="64" fill="rgba(47,111,219,0.08)"/>
         <rect x="120" y="144" width="840" height="64" fill="none" stroke="#2f6fdb" stroke-width="1"/>
         <text x="140" y="180" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em" font-weight="600">L4</text>
-        <text x="260" y="182" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Agent harness</text>
-        <text x="940" y="182" fill="#2f6fdb" font-size="10" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">tools, memory, loop</text>
+        <text x="260" y="182" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">에이전트 하네스</text>
+        <text x="940" y="182" fill="#2f6fdb" text-anchor="end" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">도구 · 메모리 · 실행 루프</text>
 
         <!-- L3 — Prompt layer -->
         <rect x="120" y="208" width="840" height="64" fill="#ffffff"/>
         <line x1="120" y1="272" x2="960" y2="272" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
         <text x="140" y="244" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">L3</text>
-        <text x="260" y="246" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Prompt layer</text>
-        <text x="940" y="246" fill="#68657b" font-size="10" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">system, few-shot, caching</text>
+        <text x="260" y="246" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">프롬프트 계층</text>
+        <text x="940" y="246" fill="#68657b" text-anchor="end" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">시스템 지시 · 예시 · 캐싱</text>
 
         <!-- L2 — SDK -->
         <rect x="120" y="272" width="840" height="64" fill="#f6f5fa"/>
         <line x1="120" y1="336" x2="960" y2="336" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
         <text x="140" y="308" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">L2</text>
-        <text x="260" y="310" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">SDK / client</text>
-        <text x="940" y="310" fill="#68657b" font-size="10" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">auth, retries, streaming</text>
+        <text x="260" y="310" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">SDK · 클라이언트</text>
+        <text x="940" y="310" fill="#68657b" text-anchor="end" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">인증 · 재시도 · 스트리밍</text>
 
         <!-- L1 — Model -->
         <rect x="120" y="336" width="840" height="64" fill="#f6f5fa"/>
         <text x="140" y="372" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">L1</text>
-        <text x="260" y="374" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Model weights</text>
+        <text x="260" y="374" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">모델 가중치</text>
         <text x="940" y="374" fill="#68657b" font-size="10" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.08em">opus, sonnet, haiku</text>
 
         <!-- Caption -->
-        <text x="120" y="456" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">FOCAL LAYER</text>
-        <text x="240" y="456" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">The harness is where most product differentiation actually lives — tools, memory, and the loop that stitches model calls into useful work.</text>
+        <text x="120" y="456" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 계층</text>
+        <text x="240" y="456" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">제품 차별화의 대부분은 하네스에서 결정 — 도구·메모리, 모델 호출을 실제 결재 업무로 엮는 실행 루프</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Coral marks the layer that pays rent</h3></div>
-        <p>Swapping models is a knob. Rewriting the harness is a product decision. The coral band says: this is the layer where you out-execute the competition, not the one where you chase leaderboards.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>강조색은 값을 하는 계층에만</h3></div>
+        <p>모델 교체는 설정값 하나, 하네스 재작성은 제품 결정. 강조 띠는 순위표 경쟁이 아니라 실행력으로 앞서는 계층을 표시.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Reading the stack</h3></div>
-        <ul><li>Abstraction rises up the left column</li><li>L-index on the left, note on the right</li><li>Hairlines between layers, no shadows</li><li>Fill shade shifts from paper-2 to white</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>스택 읽는 법</h3></div>
+        <ul><li>왼쪽 축을 따라 위로 갈수록 추상화</li><li>왼쪽에 계층 번호, 오른쪽에 구성 요소</li><li>계층 사이는 가는 선, 그림자 없음</li><li>채움색은 paper-2에서 흰색으로 변화</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Why only five</h3></div>
-        <p>Six-plus layers become a legend, not a diagram. Five holds the whole thing on one screen — every band readable without squinting, every note a scan away.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>왜 5개인가</h3></div>
+        <p>6개 이상이면 그림이 아니라 범례. 5개면 한 화면에 전부 담기고 모든 띠와 설명이 한눈에 읽힘.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>ai app stack · layer hierarchy</span>
-      <span>example · schematic skill</span>
+      <span>사내 AI 결재 도우미 · 계층 구조</span>
+      <span>예제 · mega-diagram</span>
     </div>
   </div>
 </body>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article lifecycle · state machine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>결재 문서 상태 전이</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">State machine · mega-diagram</p>
-      <h1>Article lifecycle</h1>
-      <p class="subtitle">The four states a post passes through from draft to archive, with the rejection loop made explicit. Published is the state the team optimizes for — hence coral.</p>
+      <h1>결재 문서 상태 전이</h1>
+      <p class="subtitle">결재 문서가 기안부터 보존까지 거치는 네 가지 상태와 반려 루프. 조직이 목표로 하는 상태는 승인 완료라서 강조색으로 표시한다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="state-full-title state-full-desc">
-        <title id="state-full-title">Article lifecycle</title>
-        <desc id="state-full-desc">State machine showing an article moving from Draft through In Review and Published to Archived, including rejection and revision.</desc>
+        <title id="state-full-title">결재 문서 상태 전이</title>
+        <desc id="state-full-desc">사내 결재 문서가 기안, 결재 중, 승인 완료를 거쳐 보존으로 넘어가는 상태 전이와 반려 후 수정 경로를 보여 주는 상태 다이어그램.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -66,24 +69,24 @@
         <path d="M 420 160 C 420 96, 200 96, 200 160" fill="none" stroke="#68657b" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
 
         <!-- Transition labels -->
-        <rect x="172" y="184" width="48" height="12" rx="2" fill="#ffffff"/>
-        <text x="196" y="194" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CREATE</text>
+        <rect x="180" y="180" width="32" height="16" rx="2" fill="#ffffff"/>
+        <text x="196" y="192" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">작성</text>
 
-        <rect x="288" y="184" width="48" height="12" rx="2" fill="#ffffff"/>
-        <text x="312" y="194" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SUBMIT</text>
+        <rect x="296" y="180" width="32" height="16" rx="2" fill="#ffffff"/>
+        <text x="312" y="192" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">상신</text>
 
-        <rect x="500" y="184" width="60" height="12" rx="2" fill="#ffffff"/>
-        <text x="530" y="194" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APPROVE</text>
+        <rect x="514" y="180" width="32" height="16" rx="2" fill="#ffffff"/>
+        <text x="530" y="192" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">승인</text>
 
-        <rect x="612" y="264" width="56" height="12" rx="2" fill="#ffffff"/>
-        <text x="640" y="274" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXPIRE</text>
+        <rect x="608" y="262" width="64" height="16" rx="2" fill="#ffffff"/>
+        <text x="640" y="274" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">시행 종료</text>
 
-        <rect x="620" y="416" width="40" height="12" rx="2" fill="#ffffff"/>
-        <text x="640" y="426" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PURGE</text>
+        <rect x="624" y="414" width="32" height="16" rx="2" fill="#ffffff"/>
+        <text x="640" y="426" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">폐기</text>
 
         <!-- Reject label on curved path -->
-        <rect x="276" y="92" width="80" height="12" rx="2" fill="#ffffff"/>
-        <text x="316" y="102" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">REJECT · REVISE</text>
+        <rect x="276" y="90" width="80" height="16" rx="2" fill="#ffffff"/>
+        <text x="316" y="102" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">반려 · 수정</text>
 
         <!-- Start dot (filled ink) -->
         <circle cx="60" cy="200" r="6" fill="#17152b"/>
@@ -92,30 +95,30 @@
         <rect x="120" y="160" width="160" height="80" rx="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="128" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="148" y="177" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
-        <text x="200" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Draft</text>
-        <text x="200" y="224" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">unpublished</text>
+        <text x="200" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기안</text>
+        <text x="200" y="224" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">상신 전</text>
 
         <!-- State: In Review -->
         <rect x="340" y="160" width="160" height="80" rx="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="348" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="368" y="177" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
-        <text x="420" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">In Review</text>
-        <text x="420" y="224" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">awaiting approval</text>
+        <text x="420" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">결재 중</text>
+        <text x="420" y="224" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">결재권자 검토</text>
 
         <!-- State: Published (focal coral) -->
         <rect x="560" y="160" width="160" height="80" rx="8" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
         <rect x="568" y="168" width="40" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.50)" stroke-width="0.8"/>
         <text x="588" y="177" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
-        <text x="640" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Published</text>
-        <text x="640" y="224" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">live on site</text>
+        <text x="640" y="208" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">승인 완료</text>
+        <text x="640" y="224" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">시행 · 공람</text>
 
         <!-- State: Archived -->
         <rect x="560" y="300" width="160" height="100" rx="8" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
         <rect x="568" y="308" width="40" height="12" rx="2" fill="transparent" stroke="rgba(104,101,123,0.50)" stroke-width="0.8"/>
         <text x="588" y="317" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STATE</text>
-        <text x="640" y="348" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Archived</text>
-        <text x="640" y="364" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">noindex · hidden</text>
-        <text x="640" y="382" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">redirect retained</text>
+        <text x="640" y="348" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">보존</text>
+        <text x="640" y="364" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">열람 제한</text>
+        <text x="640" y="382" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">문서번호 유지</text>
 
         <!-- End ring dot -->
         <circle cx="640" cy="440" r="8" fill="none" stroke="#17152b" stroke-width="1"/>
@@ -126,22 +129,22 @@
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Published is the win state</h3></div>
-        <p>Everything flows toward Published. The rejection loop is dashed because it's a detour, not a failure — the article is still in-progress.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>목표 상태는 승인 완료</h3></div>
+        <p>모든 흐름은 승인 완료로 향한다. 반려 루프는 실패가 아니라 우회라서 점선으로 그린다 — 문서는 여전히 진행 중이다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Reject is a loop, not a dead-end</h3></div>
-        <ul><li>Dashed to signal detour</li><li>Returns to Draft, not a new state</li><li>Review feedback is the action</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>반려는 막다른 길이 아닌 루프</h3></div>
+        <ul><li>점선 · 우회 경로</li><li>새 상태가 아니라 기안으로 복귀</li><li>검토 의견이 전이 조건</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Archive keeps the URL</h3></div>
-        <p>Archived preserves the redirect map so inbound links survive. Only Purge removes the record entirely.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>보존 문서는 번호 유지</h3></div>
+        <p>보존 상태에서도 문서번호가 유지되어 참조 문서의 링크가 끊기지 않는다. 기록을 완전히 지우는 것은 폐기뿐이다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>article lifecycle · state machine</span>
-      <span>example · schematic skill</span>
+      <span>결재 문서 · 상태 다이어그램</span>
+      <span>예제 · 사내 결재</span>
     </div>
   </div>
 </body>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request demand by UTC window · Polar chart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>UTC 시간대별 요청 수요 · 극좌표 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     html, body, div, main, header, footer, section, article, p, h1, h2, h3, h4, h5, h6 { box-sizing:border-box; margin:0; padding:0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family:var(--font-sans); background:var(--color-paper); color:var(--color-ink); min-height:100vh; padding:3rem 2rem; }
     .container { max-width:1200px; margin:0 auto; }
     .header { margin-bottom:2.5rem; }
@@ -25,14 +26,16 @@
     .card h3 { font-size:0.875rem; font-weight:600; color:var(--color-ink); }
     .card p { color:var(--color-muted); font-size:0.8125rem; line-height:1.55; }
     .footer { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(23,21,43,0.10); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em; color:var(--color-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Polar · mega-diagram</p>
-      <h1>Request demand by UTC window</h1>
-      <p class="subtitle">One normalized workload series across eight UTC windows, with radius showing percent of the daily peak.</p>
+      <h1>UTC 시간대별 요청 수요</h1>
+      <p class="subtitle">공공 API 게이트웨이 요청량을 8개 UTC 구간으로 나눈 단일 정규화 계열. 반지름은 일 최대 대비 비율(%).</p>
     </div>
 
     <div class="diagram-container">
@@ -42,11 +45,11 @@
          data-polar-radius="160" data-polar-min="0" data-polar-max="100"
          data-polar-start-angle="-90" data-polar-clockwise="true"
          data-polar-radius-encoding="linear" data-polar-inner-radius="0">
-      <title id="polar-full-title">Request demand by UTC window</title>
-      <desc id="polar-full-desc">Polar chart on a 0–100% scale identifying 12–15 UTC as the 100% peak, with the other seven UTC windows proceeding clockwise.</desc>
+      <title id="polar-full-title">UTC 시간대별 요청 수요</title>
+      <desc id="polar-full-desc">0~100% 척도에서 12–15 UTC 구간을 100% 최대치로 표시하고 나머지 7개 UTC 구간을 시계 방향으로 배치한 극좌표 차트.</desc>
 
       <rect data-polar-background width="100%" height="100%" fill="#ffffff"/>
-      <text x="40" y="28" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">% OF DAILY PEAK · 0–100</text>
+      <text x="40" y="28" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">일 최대 대비(%) · 0–100</text>
 
       <circle data-polar-ring cx="500" cy="230" r="32" fill="none" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
       <circle data-polar-ring cx="500" cy="230" r="64" fill="none" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
@@ -119,28 +122,28 @@
         <text data-polar-value-label x="355.75" y="85.75" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">45</text>
       </g>
       <line data-polar-rule x1="40" y1="468" x2="960" y2="468" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="488" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.08em">Illustrative normalized workload profile</text>
+      <text x="40" y="488" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">예시용 정규화 부하 패턴</text>
       </svg>
     </div>
 
     <div class="cards">
       <article class="card">
-        <div class="card-header"><span class="card-dot coral"></span><h3>Peak · 12–15 UTC · 100%</h3></div>
-        <p>The focal ray reaches the shared 100% outer ring.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>최대 · 12–15 UTC · 100%</h3></div>
+        <p>초점 막대가 100% 바깥 원에 닿는다.</p>
       </article>
       <article class="card">
-        <div class="card-header"><span class="card-dot"></span><h3>Quietest · 03–06 UTC · 18%</h3></div>
-        <p>The shortest ray remains visibly proportional to the zero baseline.</p>
+        <div class="card-header"><span class="card-dot"></span><h3>최저 · 03–06 UTC · 18%</h3></div>
+        <p>가장 짧은 막대도 0 기준선에 비례해 식별된다.</p>
       </article>
       <article class="card">
-        <div class="card-header"><span class="card-dot"></span><h3>Evening tail · 18–21 UTC · 76%</h3></div>
-        <p>Demand stays elevated into the final quarter of the clockwise cycle.</p>
+        <div class="card-header"><span class="card-dot"></span><h3>저녁 여운 · 18–21 UTC · 76%</h3></div>
+        <p>시계 방향 주기의 마지막 4분의 1까지 수요가 높게 유지된다.</p>
       </article>
     </div>
 
     <div class="footer">
-      <span>Illustrative data · normalized to daily peak</span>
-      <span>Polar chart · static SVG</span>
+      <span>예시 데이터 · 일 최대 기준 정규화</span>
+      <span>예제 · UTC 시간대별 요청 수요</span>
     </div>
   </div>
 </body>

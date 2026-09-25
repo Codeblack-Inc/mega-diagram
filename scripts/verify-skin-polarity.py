@@ -171,6 +171,23 @@ LOOSE_CLAIM_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Korean keys state the relation as "<tone>수록 <magnitude>" ("대비가 강할수록 큼").
+# ponytail: forward form only; add a mirror ("클수록 진함") and a Korean loose
+# backstop when a shipped key is phrased that way.
+# 진하다/옅다 name ink density (like stronger/fainter), not lightness, so they sit
+# on the contrast axis; only 어둡다/밝다 are luminance words that flip with the skin.
+KO_TONE_TERMS = (
+    (r"대비가\s*(?:강할|높을|클)|진할|짙을", CONTRAST, +1),
+    (r"대비가\s*(?:약할|낮을|작을)|연할|옅을", CONTRAST, -1),
+    (r"어두울", LUMINANCE, -1),
+    (r"밝을", LUMINANCE, +1),
+)
+KO_MAGNITUDE_TERMS = ((r"큼|크다|큰|많음|많다", +1), (r"작음|작다|작은|적음|적다", -1))
+KO_CLAIM_RE = re.compile(
+    r"(?P<tone>" + "|".join(term[0] for term in KO_TONE_TERMS) + r")수록\s*"
+    r"(?P<magnitude>" + "|".join(term[0] for term in KO_MAGNITUDE_TERMS) + r")"
+)
+
 EXCERPT_CHARS = 76
 MIN_RAMP_MEMBERS = 3
 # Two composites this close read as one step; treating them as ordered would let
@@ -454,14 +471,14 @@ def direction(values, epsilon):
 
 
 def classify_tone(word):
-    for term, axis, sign in TONE_TERMS:
+    for term, axis, sign in TONE_TERMS + KO_TONE_TERMS:
         if re.fullmatch(term, word, re.IGNORECASE):
             return axis, sign
     return None
 
 
 def classify_magnitude(word):
-    for term, sign in MAGNITUDE_TERMS:
+    for term, sign in MAGNITUDE_TERMS + KO_MAGNITUDE_TERMS:
         if re.fullmatch(term, word, re.IGNORECASE):
             return sign
     return None
@@ -474,7 +491,7 @@ def parse_claims(source):
         if not copy:
             continue
         seen = set()
-        for pattern in (CLAIM_RE, MIRROR_RE):
+        for pattern in (CLAIM_RE, MIRROR_RE, KO_CLAIM_RE):
             for hit in pattern.finditer(copy):
                 tone = classify_tone(hit.group("tone"))
                 magnitude = classify_magnitude(hit.group("magnitude"))

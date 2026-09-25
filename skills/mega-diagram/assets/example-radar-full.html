@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storage backends · Capability radar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>스토리지 후보 · 역량 레이더</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --series-1:#7c8f6f; --series-2:#5e7a9b; --series-3:#b8915a; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --series-1:#7c8f6f; --series-2:#5e7a9b; --series-3:#b8915a; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -30,20 +31,22 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Radar · mega-diagram</p>
-      <h1>Storage backends · Capability radar</h1>
-      <p class="subtitle">Four object-storage candidates scored 0–10 across five workload dimensions. The chart is a decision tool — the recommended option carries the only colored fill; everything else sits in the muted comparison palette.</p>
+      <h1>스토리지 후보 · 역량 레이더</h1>
+      <p class="subtitle">사내 데이터 플랫폼용 오브젝트 스토리지 후보 4종을 5개 업무 기준으로 0~10점 평가. 의사결정용 차트로, 추천안만 색을 쓰고 나머지는 차분한 비교 색으로 둔다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="radar-full-title radar-full-desc">
-        <title id="radar-full-title">Storage backends · Capability radar</title>
-        <desc id="radar-full-desc">Radar chart comparing MinIO, Amazon S3, Ceph, and Google Cloud Storage across five storage capabilities.</desc>
+        <title id="radar-full-title">스토리지 후보 · 역량 레이더</title>
+        <desc id="radar-full-desc">사내 데이터 플랫폼용 오브젝트 스토리지 후보 MinIO, Amazon S3, Ceph, Google Cloud Storage를 5개 역량으로 비교한 레이더 차트.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -63,11 +66,11 @@
         <line x1="500" y1="240" x2="406" y2="369" stroke="rgba(23,21,43,0.20)" stroke-width="1"/>
         <line x1="500" y1="240" x2="348" y2="191" stroke="rgba(23,21,43,0.20)" stroke-width="1"/>
 
-        <text x="500" y="62" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Small-file handling</text>
-        <text x="669" y="189" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Large-object reads</text>
-        <text x="605" y="400" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Write throughput</text>
-        <text x="395" y="400" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Operational simplicity</text>
-        <text x="331" y="189" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Iceberg integration</text>
+        <text x="500" y="62" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">소형 파일 처리</text>
+        <text x="669" y="189" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">대용량 객체 읽기</text>
+        <text x="605" y="400" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">쓰기 처리량</text>
+        <text x="395" y="400" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">운영 단순성</text>
+        <text x="331" y="189" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">Iceberg 연동</text>
 
         <text x="494" y="82" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">10</text>
         <text x="494" y="114" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="end">8</text>
@@ -88,45 +91,45 @@
         <circle cx="363" cy="196" r="4" fill="#2f6fdb"/>
 
         <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="472" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="472" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="40"  y="484" width="16" height="8" fill="rgba(47,111,219,0.18)" stroke="#2f6fdb" stroke-width="1.5"/>
-        <text x="64"  y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">MinIO · recommended</text>
+        <text x="64"  y="492" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">MinIO · 추천</text>
 
         <rect x="220" y="484" width="16" height="8" fill="rgba(124,143,111,0.18)" stroke="#7c8f6f" stroke-width="1.5"/>
-        <text x="244" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Amazon S3</text>
+        <text x="244" y="492" fill="#68657b" font-size="12" font-family="'Geist', sans-serif" font-weight="500">Amazon S3</text>
 
         <rect x="344" y="484" width="16" height="8" fill="rgba(94,122,155,0.18)" stroke="#5e7a9b" stroke-width="1.5"/>
-        <text x="368" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Ceph</text>
+        <text x="368" y="492" fill="#68657b" font-size="12" font-family="'Geist', sans-serif" font-weight="500">Ceph</text>
 
         <rect x="424" y="484" width="16" height="8" fill="rgba(184,145,90,0.18)" stroke="#b8915a" stroke-width="1.5"/>
-        <text x="448" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Google Cloud Storage</text>
+        <text x="448" y="492" fill="#68657b" font-size="12" font-family="'Geist', sans-serif" font-weight="500">Google Cloud Storage</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">RECOMMENDED</p>
+        <p class="eyebrow">추천</p>
         <div class="card-header"><span class="card-dot coral"></span><h3>MinIO</h3></div>
-        <p>9 across the board, weakest only on large-object reads. The clear pick when small-file performance and Iceberg integration matter and you can run the operator yourself.</p>
+        <p>대부분 9점, 대용량 객체 읽기만 상대적으로 약함. 소형 파일 성능과 Iceberg 연동이 중요하고 직접 운영할 수 있다면 확실한 선택.</p>
       </div>
       <div class="card">
         <div class="card-header"><span class="card-dot sage"></span><h3>Amazon S3</h3></div>
-        <p>The reference implementation: top-class on large-object reads and write throughput, but a hard step down on operational simplicity once you factor in IAM, lifecycle, and bucket policy sprawl.</p>
+        <p>기준 구현. 대용량 객체 읽기와 쓰기 처리량은 최상위지만, IAM·수명 주기·버킷 정책이 늘어나면 운영 단순성이 크게 떨어진다.</p>
       </div>
       <div class="card">
         <div class="card-header"><span class="card-dot dusty"></span><h3>Ceph</h3></div>
-        <p>Capable across the board, but the lowest score on operational simplicity. Pick it when you already run Ceph or need block + object + file from one cluster — not for a fresh greenfield.</p>
+        <p>전반적으로 무난하나 운영 단순성은 최저점. 이미 Ceph를 운영 중이거나 한 클러스터에서 블록·객체·파일이 모두 필요할 때 선택. 신규 구축에는 부적합.</p>
       </div>
       <div class="card">
         <div class="card-header"><span class="card-dot mustard"></span><h3>Google Cloud Storage</h3></div>
-        <p>Solid middle path. No standout dimension — which is itself an answer when the team optimises for "boring, managed, fine."</p>
+        <p>안정적인 중간안. 두드러진 강점은 없지만, 팀이 '무난한 관리형'을 원한다면 그 자체로 답이다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>storage backends · capability radar</span>
-      <span>example · diagram design</span>
+      <span>스토리지 후보 · 역량 레이더</span>
+      <span>예제 · 스토리지 후보 비교</span>
     </div>
   </div>
 </body>

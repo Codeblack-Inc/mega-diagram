@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Per-request latency, one dot per request · Beeswarm · dark</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>요청별 응답 시간, 요청 1건 = 점 1개 · 비스웜 · 다크</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:    #f6f5fa;
       --color-muted:  #d4d2de;
       --color-accent: #6e9bea;
-      --font-sans:    'Geist', system-ui, sans-serif;
+      --font-sans:    'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:   'Instrument Serif', serif;
       --font-mono:    'Geist Mono', ui-monospace, monospace;
     }
@@ -21,12 +22,14 @@
     .eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.5rem; }
     h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.5rem; }
     svg { width: 100%; min-width: 760px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Beeswarm · mega-diagram</p>
-    <h1>The median hides the tail</h1>
+    <h1>중앙값은 꼬리를 가린다</h1>
 
     <!-- Value axis: 0-440ms over 880px, x = 80 + 2*ms, linear from zero.
          The vertical (swarm) axis carries NO meaning: each dot's y offset is
@@ -37,8 +40,8 @@
          disagrees with its peers, any overlapping pair, and any second dot
          radius or non-focal fill. -->
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="beeswarm-dark-title beeswarm-dark-desc">
-      <title id="beeswarm-dark-title">The median hides the tail</title>
-      <desc id="beeswarm-dark-desc">Beeswarm of 138 per-request latency samples for one checkout endpoint on a shared linear value axis from zero; vertical spread is packing only and carries no value, and three requests past 380 ms form the p99 tail.</desc>
+      <title id="beeswarm-dark-title">중앙값은 꼬리를 가린다</title>
+      <desc id="beeswarm-dark-desc">결제 API 한 곳의 요청 138건 응답 시간을 0부터 시작하는 선형 축에 찍은 비스웜으로, 세로 퍼짐은 배치일 뿐 값이 없고 380ms를 넘는 요청 3건이 p99 꼬리를 이룬다.</desc>
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.9" fill="rgba(246,245,250,0.10)"/>
@@ -47,7 +50,7 @@
 
 
       <!-- Axis caption -->
-      <text x="520" y="492" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">PER-REQUEST LATENCY, MS</text>
+      <text x="520" y="457" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">요청별 응답 시간(ms)</text>
 
       <!-- Vertical gridlines only: the swarm axis has no scale to grid.
            A horizontal rule through the band would invite reading the
@@ -369,13 +372,13 @@
 
       <!-- Legend -->
       <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(246,245,250,0.10)" stroke-width="0.8"/>
-      <text x="40" y="478" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
-      <text x="960" y="478" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="end">ONE DOT = ONE REQUEST · VALUE AXIS 0–440 MS, LINEAR FROM ZERO · VERTICAL SPREAD IS PACKING, NOT A VALUE · ILLUSTRATIVE FIGURES, NOT MEASURED TRAFFIC</text>
+      <text x="40" y="478" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
+      <text x="960" y="478" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">점 1개 = 요청 1건 · 값 축 0–440ms 선형 · 세로 퍼짐은 배치일 뿐 값 아님 · 예시 수치</text>
 
       <circle cx="52" cy="490" r="4" fill="rgba(110,155,234,0.55)" stroke="#6e9bea" stroke-width="1.2"/>
-      <text x="68" y="494" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">req-4c1f · focal, the slowest request in the window</text>
+      <text x="68" y="494" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">req-4c1f · 주목 대상, 구간 내 가장 느린 요청</text>
       <circle cx="660" cy="490" r="4" fill="rgba(246,245,250,0.55)" stroke="#d4d2de" stroke-width="0.75"/>
-      <text x="676" y="494" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">request · vertical offset is packing only</text>
+      <text x="676" y="494" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">요청 · 세로 위치는 배치일 뿐</text>
     </svg>
   </div>
 </body>

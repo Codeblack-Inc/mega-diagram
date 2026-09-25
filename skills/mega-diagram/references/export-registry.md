@@ -25,19 +25,19 @@ Applies only to diagrams using the Traceable block decomposition pattern (Tree n
   "blocks": [
     {
       "id": "PAY-001",
-      "name": "Payment Gateway",
-      "output": "Settled transaction record",
-      "constraint": "Every transaction reaches exactly one terminal state",
+      "name": "결제 게이트웨이",
+      "output": "정산 완료 거래 기록",
+      "constraint": "모든 거래는 정확히 하나의 최종 상태로 종료",
       "impl": "src/payments/gateway/"
     },
     {
       "id": "PAY-001-01",
       "parent": "PAY-001",
-      "name": "Card Authorization",
-      "input": "Raw card details from checkout",
-      "output": "Authorization token or decline",
-      "constraint": "Never persists a raw card number",
-      "assumption": "Runs behind the PCI-scoped boundary",
+      "name": "카드 승인",
+      "input": "결제 화면에서 받은 카드 원본 정보",
+      "output": "승인 토큰 또는 거절",
+      "constraint": "카드 번호 원문 저장 금지",
+      "assumption": "PCI DSS 적용 구간 안에서 실행",
       "impl": "src/payments/authorization/"
     }
   ]

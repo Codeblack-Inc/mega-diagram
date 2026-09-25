@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekly signups · Line chart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>주간 신규 가입자 · 꺾은선 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --series-1:#7c8f6f; --series-2:#5e7a9b; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --series-1:#7c8f6f; --series-2:#5e7a9b; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -26,21 +27,23 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Line · mega-diagram</p>
-      <h1>Weekly signups · Organic leads the growth</h1>
-      <p class="subtitle">Signup volume by acquisition channel over eight weeks. Organic search is both the largest and fastest-growing channel; Direct is the stable baseline.</p>
+      <h1>주간 신규 가입자 · 검색 유입이 성장 주도</h1>
+      <p class="subtitle">8주간 유입 채널별 신규 가입자 수. 검색 유입이 규모와 성장 속도 모두 1위이며, 직접 유입은 안정적인 기반이다.</p>
     </div>
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="line-full-title line-full-desc">
-        <title id="line-full-title">Weekly signups · Organic leads the growth</title>
-        <desc id="line-full-desc">Line chart showing weekly signups from organic, direct, and referral channels across weeks W1 through W8.</desc>
+        <title id="line-full-title">주간 신규 가입자 · 검색 유입이 성장 주도</title>
+        <desc id="line-full-desc">검색·직접·제휴 유입 채널별 주간 신규 가입자 수를 1주부터 8주까지 보여 주는 꺾은선 차트.</desc>
         <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/></pattern></defs>
-        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SIGNUPS / WEEK</text>
+        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">주간 가입자(명)</text>
         <line x1="80" y1="357" x2="960" y2="357" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="293" x2="960" y2="293" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="230" x2="960" y2="230" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
@@ -61,42 +64,42 @@
         <polyline points="80,230 200,206 320,186 440,164 560,175 680,138 800,111 920,88" fill="none" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/>
         <circle cx="80" cy="230" r="4" fill="#2f6fdb"/><circle cx="200" cy="206" r="4" fill="#2f6fdb"/><circle cx="320" cy="186" r="4" fill="#2f6fdb"/><circle cx="440" cy="164" r="4" fill="#2f6fdb"/>
         <circle cx="560" cy="175" r="4" fill="#2f6fdb"/><circle cx="680" cy="138" r="4" fill="#2f6fdb"/><circle cx="800" cy="111" r="4" fill="#2f6fdb"/><circle cx="920" cy="88" r="4" fill="#2f6fdb"/>
-        <text x="80" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W1</text>
-        <text x="200" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W2</text>
-        <text x="320" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W3</text>
-        <text x="440" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W4</text>
-        <text x="560" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W5</text>
-        <text x="680" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W6</text>
-        <text x="800" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W7</text>
-        <text x="920" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W8</text>
+        <text x="80" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">1주</text>
+        <text x="200" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">2주</text>
+        <text x="320" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">3주</text>
+        <text x="440" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">4주</text>
+        <text x="560" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">5주</text>
+        <text x="680" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">6주</text>
+        <text x="800" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">7주</text>
+        <text x="920" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">8주</text>
         <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
         <line x1="40" y1="492" x2="64" y2="492" stroke="#2f6fdb" stroke-width="1.8"/><circle cx="52" cy="492" r="4" fill="#2f6fdb"/>
-        <text x="72" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Organic · focal</text>
+        <text x="72" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">검색 유입 · 초점</text>
         <line x1="200" y1="492" x2="224" y2="492" stroke="#7c8f6f" stroke-width="1.2"/>
-        <text x="232" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Direct</text>
+        <text x="232" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">직접 유입</text>
         <line x1="316" y1="492" x2="340" y2="492" stroke="#5e7a9b" stroke-width="1.2"/>
-        <text x="348" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Referral</text>
+        <text x="348" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">제휴 유입</text>
       </svg>
     </div>
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">FOCAL · ORGANIC</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Organic search driving 55% of new signups</h3></div>
-        <p>75% week-over-week growth over 8 weeks — from 120 to 210 signups. Two long-form guides published in W4 account for the step change. The W5 dip is a weekday holiday effect.</p>
+        <p class="eyebrow">초점 · 검색 유입</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>신규 가입의 55%를 검색 유입이 견인</h3></div>
+        <p>8주간 120명에서 210명으로 75% 증가. 4주 차에 게시한 이용 가이드 2편이 계단식 상승의 원인. 5주 차 하락은 평일 공휴일 영향.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot sage"></span><h3>Direct: stable core</h3></div>
-        <p>22% growth (80→98) — this is mostly returning users and brand-aware discovery. The near-flat slope is a healthy baseline, not stagnation. It means the product retains its direct audience while organic expands.</p>
+        <div class="card-header"><span class="card-dot sage"></span><h3>직접 유입: 안정적 기반</h3></div>
+        <p>22% 증가(80→98명). 대부분 재방문 이용자와 브랜드 인지 유입. 완만한 기울기는 정체가 아니라 건강한 기반으로, 검색 유입이 늘어도 직접 유입층이 유지됨을 뜻한다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot dusty"></span><h3>Referral: early signal</h3></div>
-        <p>67% growth (45→75), driven by one integration partner. Volatile week-to-week but directionally positive. Worth a dedicated channel review before investing further in partner programmes.</p>
+        <div class="card-header"><span class="card-dot dusty"></span><h3>제휴 유입: 초기 신호</h3></div>
+        <p>67% 증가(45→75명). 제휴사 1곳이 주도. 주별 변동은 크지만 방향은 긍정적. 제휴 프로그램 추가 투자 전 채널 점검 필요.</p>
       </div>
     </div>
     <div class="footer">
-      <span>weekly signups · acquisition channels</span>
-      <span>example · diagram design</span>
+      <span>주간 신규 가입자 · 유입 채널</span>
+      <span>예제 · 주간 신규 가입자</span>
     </div>
   </div>
 </body>

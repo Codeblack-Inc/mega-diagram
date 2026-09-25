@@ -172,7 +172,7 @@ def main() -> int:
         #    then internally consistent and still lying.
         case(
             failures, directory, "mislabelled",
-            source.replace(">9,400 min<", ">7,400 min<"),
+            source.replace(">9,400분<", ">7,400분<"),
             source, "off the scale",
             "a node labelled with a value its height does not draw",
         )
@@ -344,7 +344,7 @@ def main() -> int:
         #     stopped every value from parsing without a single test noticing.
         case(
             failures, directory, "novalue",
-            source.replace(">12,000 min<", ">the whole budget<", 1),
+            source.replace(">12,000분<", ">the whole budget<", 1),
             source, "no readable value beside it",
             "a node bar whose printed value cannot be read",
         )
@@ -939,7 +939,7 @@ def main() -> int:
                 # than bound, this would pass exactly as it did before.
                 ("label-px-bound",
                  source.replace(LABEL, '<text x="908px" y="252"', 1)
-                       .replace(">9,400 min<", ">7,400 min<", 1), True,
+                       .replace(">9,400분<", ">7,400분<", 1), True,
                  "a falsified value on a label whose x carries a unit"),
             ):
                 if mutated == source:

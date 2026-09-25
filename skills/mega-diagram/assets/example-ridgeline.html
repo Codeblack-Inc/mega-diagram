@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request latency by service · Ridgeline</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>서비스별 요청 지연 분포 · 릿지라인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:    #17152b;
       --color-muted:  #68657b;
       --color-accent: #2f6fdb;
-      --font-sans:    'Geist', system-ui, sans-serif;
+      --font-sans:    'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:   'Instrument Serif', serif;
       --font-mono:    'Geist Mono', ui-monospace, monospace;
     }
@@ -21,16 +22,18 @@
     .eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.5rem; }
     h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.5rem; }
     svg { width: 100%; min-width: 760px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Ridgeline · mega-diagram</p>
-    <h1>Checkout is slow in two different ways</h1>
+    <h1>결제 API는 두 가지 방식으로 느리다</h1>
 
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ridgeline-title ridgeline-desc">
-      <title id="ridgeline-title">Checkout is slow in two different ways</title>
-      <desc id="ridgeline-desc">Ridgeline chart of request-latency distributions for five services over one week; each ridge is the share of that service's requests falling in 40-millisecond bins, drawn on one shared amplitude scale, and checkout-api carries a second peak past 300 milliseconds that none of the other four show.</desc>
+      <title id="ridgeline-title">결제 API는 두 가지 방식으로 느리다</title>
+      <desc id="ridgeline-desc">다섯 서비스의 1주일간 요청 지연 분포를 40ms 구간별 요청 비중으로 그리고 모든 능선에 같은 높이 척도를 쓴 릿지라인 차트로, checkout-api만 300ms 이후에 두 번째 봉우리가 있다.</desc>
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -43,7 +46,7 @@
            as a tight one, which is the single lie this type is built to tell.
            scripts/verify-ridgeline.py derives the amplitude from the figure and then
            holds every vertex of every ridge to it. -->
-      <text transform="rotate(-90 24 264)" x="24" y="264" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SHARE OF REQUESTS · 1% = 2.4PX ON EVERY RIDGE</text>
+      <text transform="rotate(-90 24 264)" x="24" y="264" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">요청 비중 · 1% = 2.4px, 전 능선 동일</text>
 
       <!-- One baseline per ridge, 56px pitch. The baseline is where a bin of zero
            requests sits, so it can never be moved to give a ridge more room. -->
@@ -83,19 +86,19 @@
       <text data-tick="2" data-bin="240" x="500" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">240</text>
       <text data-tick="3" data-bin="360" x="590" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">360</text>
       <text data-tick="4" data-bin="480" x="680" y="400" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">480</text>
-      <text x="500" y="424" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.18em" text-anchor="middle">REQUEST LATENCY (MS), BIN LOWER EDGE</text>
+      <text x="500" y="424" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">요청 지연 시간(ms), 구간 하한</text>
 
       <!-- Legend -->
       <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
-      <text x="960" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="end">SHARE OF EACH SERVICE'S OWN REQUESTS PER 40 MS BIN · 1% = 2.4PX ON EVERY RIDGE · UNSMOOTHED · ILLUSTRATIVE FIGURES</text>
+      <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
+      <text x="960" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">서비스별 자체 요청 대비 40ms 구간 비중 · 평활화 없음 · 예시 수치</text>
 
       <rect x="40" y="486" width="24" height="10" fill="rgba(47,111,219,0.16)"/>
       <line x1="40" y1="486" x2="64" y2="486" stroke="#2f6fdb" stroke-width="2.4"/>
-      <text x="72" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">checkout-api · focal, second peak past 300 ms</text>
+      <text x="72" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">checkout-api · 초점, 300ms 뒤 2차 봉우리</text>
       <rect x="360" y="486" width="24" height="10" fill="rgba(23,21,43,0.12)"/>
       <line x1="360" y1="486" x2="384" y2="486" stroke="rgba(23,21,43,0.80)" stroke-width="1.2"/>
-      <text x="392" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Other services · strongest tone is the fastest median</text>
+      <text x="392" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">기타 서비스 · 진할수록 중앙값 빠름</text>
     </svg>
   </div>
 </body>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CI minutes by pipeline and runner · Marimekko</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>파이프라인·러너별 CI 사용 시간 · 마리메코 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -26,19 +27,21 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Marimekko · mega-diagram</p>
-      <h1>One pipeline on one runner is a fifth of all CI time</h1>
-      <p class="subtitle">10,000 CI minutes over 30 days, five pipelines wide and up to three runner operating systems tall. The mobile pipeline is a quarter of the bill, and 83% of it runs on macOS — one segment that is a fifth of everything.</p>
+      <h1>파이프라인 하나, 러너 하나가 전체 CI 시간의 5분의 1</h1>
+      <p class="subtitle">사내 CI 30일 사용 시간 10,000분. 가로는 파이프라인 5개, 세로는 러너 OS 최대 3종. mobile 파이프라인이 전체의 4분의 1이고 그중 83%가 macOS에서 돌아, 구간 하나가 전체의 5분의 1을 차지한다.</p>
     </div>
     <div class="diagram-container">
         <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="marimekko-full-title marimekko-full-desc">
-          <title id="marimekko-full-title">One pipeline on one runner is a fifth of all CI time</title>
-          <desc id="marimekko-full-desc">Marimekko chart of 10,000 CI minutes over 30 days, split five pipelines wide and up to three runner operating systems tall; column width is each pipeline's share of all minutes, segment height is each runner's share within its pipeline, and the mobile pipeline's macOS runners alone account for about 20 percent of the total.</desc>
+          <title id="marimekko-full-title">파이프라인 하나, 러너 하나가 전체 CI 시간의 5분의 1</title>
+          <desc id="marimekko-full-desc">사내 CI 30일 사용 시간 10,000분을 가로 파이프라인 5개, 세로 러너 OS 최대 3종으로 나눈 마리메코 차트로, 열 너비는 파이프라인별 비중, 구간 높이는 파이프라인 내 러너 비중이며 mobile 파이프라인의 macOS 러너만으로 전체의 약 20%를 차지한다.</desc>
           <defs>
             <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
               <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -61,52 +64,52 @@
           <rect x="40" y="40" width="280" height="259" rx="2" fill="#ffffff"/>
           <rect x="40" y="40" width="280" height="259" rx="2" data-column="web" data-segment="Linux" data-amount="2140" fill="rgba(23,21,43,0.16)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="Linux" data-role="label" x="56" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Linux</text>
-          <text data-column="web" data-segment="Linux" data-role="label" x="56" y="86" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">2,140 min · 68%</text>
+          <text data-column="web" data-segment="Linux" data-role="label" x="56" y="86" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">2,140분 · 68%</text>
 
           <rect x="40" y="299" width="280" height="46" rx="2" fill="#ffffff"/>
           <rect x="40" y="299" width="280" height="46" rx="2" data-column="web" data-segment="macOS" data-amount="380" fill="rgba(23,21,43,0.10)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="macOS" data-role="label" x="56" y="316" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif">macOS</text>
-          <text data-column="web" data-segment="macOS" data-role="label" x="56" y="331" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">380 min · 12%</text>
+          <text data-column="web" data-segment="macOS" data-role="label" x="56" y="331" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">380분 · 12%</text>
 
           <rect x="40" y="345" width="280" height="75" rx="2" fill="#ffffff"/>
           <rect x="40" y="345" width="280" height="75" rx="2" data-column="web" data-segment="Windows" data-amount="620" fill="rgba(23,21,43,0.05)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="web" data-segment="Windows" data-role="label" x="56" y="373" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Windows</text>
-          <text data-column="web" data-segment="Windows" data-role="label" x="56" y="391" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">620 min · 20%</text>
+          <text data-column="web" data-segment="Windows" data-role="label" x="56" y="391" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">620분 · 20%</text>
 
           <!-- api · 2,800 min · 28.0% · x 324 w 252 · no macOS runners, so no macOS
                segment: a series absent from a column is omitted, never drawn at zero -->
           <rect x="324" y="40" width="252" height="334" rx="2" fill="#ffffff"/>
           <rect x="324" y="40" width="252" height="334" rx="2" data-column="api" data-segment="Linux" data-amount="2460" fill="rgba(23,21,43,0.16)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="api" data-segment="Linux" data-role="label" x="340" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Linux</text>
-          <text data-column="api" data-segment="Linux" data-role="label" x="340" y="86" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">2,460 min · 88%</text>
+          <text data-column="api" data-segment="Linux" data-role="label" x="340" y="86" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">2,460분 · 88%</text>
 
           <rect x="324" y="374" width="252" height="46" rx="2" fill="#ffffff"/>
           <rect x="324" y="374" width="252" height="46" rx="2" data-column="api" data-segment="Windows" data-amount="340" fill="rgba(23,21,43,0.05)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="api" data-segment="Windows" data-role="label" x="340" y="391" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif">Windows</text>
-          <text data-column="api" data-segment="Windows" data-role="label" x="340" y="406" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">340 min · 12%</text>
+          <text data-column="api" data-segment="Windows" data-role="label" x="340" y="406" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">340분 · 12%</text>
 
           <!-- mobile · 2,400 min · 24.0% · x 580 w 216 -->
           <rect x="580" y="40" width="216" height="66" rx="2" fill="#ffffff"/>
           <rect x="580" y="40" width="216" height="66" rx="2" data-column="mobile" data-segment="Linux" data-amount="420" fill="rgba(23,21,43,0.16)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Linux</text>
-          <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="86" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">420 min · 18%</text>
+          <text data-column="mobile" data-segment="Linux" data-role="label" x="596" y="86" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">420분 · 18%</text>
 
           <!-- mobile × macOS FOCAL: the one segment the figure is about -->
           <rect x="580" y="106" width="216" height="314" rx="2" fill="#ffffff"/>
           <rect x="580" y="106" width="216" height="314" rx="2" data-column="mobile" data-segment="macOS" data-amount="1980" fill="rgba(47,111,219,0.16)" stroke="#2f6fdb" stroke-width="1.5"/>
           <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="134" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif">macOS</text>
-          <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="152" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">1,980 min · 83% of mobile</text>
+          <text data-column="mobile" data-segment="macOS" data-role="label" x="596" y="152" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">1,980분 · mobile 내 83%</text>
 
           <!-- infra · 1,400 min · 14.0% · x 800 w 128 -->
           <rect x="800" y="40" width="128" height="304" rx="2" fill="#ffffff"/>
           <rect x="800" y="40" width="128" height="304" rx="2" data-column="infra" data-segment="Linux" data-amount="1120" fill="rgba(23,21,43,0.16)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Linux</text>
-          <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="86" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">1,120 min · 80%</text>
+          <text data-column="infra" data-segment="Linux" data-role="label" x="816" y="86" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">1,120분 · 80%</text>
 
           <rect x="800" y="344" width="128" height="76" rx="2" fill="#ffffff"/>
           <rect x="800" y="344" width="128" height="76" rx="2" data-column="infra" data-segment="Windows" data-amount="280" fill="rgba(23,21,43,0.05)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="372" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Windows</text>
-          <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="390" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">280 min · 20%</text>
+          <text data-column="infra" data-segment="Windows" data-role="label" x="816" y="390" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">280분 · 20%</text>
 
           <!-- docs · 260 min · 2.6% · x 932 w 24. Too narrow for a label, so it carries
                the info mark rather than sideways text and is named in the legend. The
@@ -127,11 +130,11 @@
 
           <!-- Legend -->
           <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-          <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
-          <text x="960" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em" text-anchor="end">WIDTH = PIPELINE SHARE · HEIGHT = RUNNER SHARE WITHIN PIPELINE · AREA = SHARE OF ALL CI MINUTES · 30 DAYS · 10,000 MIN · ILLUSTRATIVE FIGURES</text>
+          <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
+          <text x="960" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">너비 = 파이프라인 비중 · 높이 = 파이프라인 내 러너 비중 · 면적 = 전체 비중 · 30일 · 10,000분 · 예시 수치</text>
 
           <rect x="40" y="488" width="16" height="10" rx="2" fill="rgba(47,111,219,0.16)" stroke="#2f6fdb" stroke-width="1"/>
-          <text x="64" y="497" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">mobile × macOS · the focal segment</text>
+          <text x="64" y="497" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">mobile × macOS · 주목</text>
 
           <rect x="248" y="488" width="16" height="10" rx="2" fill="rgba(23,21,43,0.16)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
           <text data-segment="Linux" data-role="key" x="272" y="497" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Linux</text>
@@ -144,26 +147,26 @@
 
           <circle cx="500" cy="493" r="5" fill="#17152b"/>
           <text x="500" y="496" fill="#ffffff" font-size="7" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">i</text>
-          <text x="516" y="497" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">docs · 260 min on Linux, 2.6% — too narrow to label</text>
+          <text x="516" y="497" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">docs · Linux 260분, 2.6% · 좁아서 라벨 생략</text>
         </svg>
     </div>
     <div class="cards">
       <div class="card">
-        <div class="card-header"><span class="card-dot coral"></span><h3>One segment carries the story</h3></div>
-        <p>mobile × macOS is the focal segment because it is the finding, not because it sorts first. Width says mobile is 24% of all minutes; height says 83% of those are macOS; the area is the 20% of the whole those two numbers multiply to.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>구간 하나가 핵심</h3></div>
+        <p>mobile × macOS를 강조한 이유는 정렬 순서가 아니라 발견 사항이기 때문이다. 너비는 mobile이 전체의 24%, 높이는 그중 83%가 macOS임을 말하며, 면적은 두 수를 곱한 전체의 20%다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>How to read it</h3></div>
-        <p>Read across for the pipeline mix, down for the runner mix within a pipeline, and by area for the joint share. Every column is the full plot height, so a segment's height is always a share of its own column, never of the whole — that is what the area is for.</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>읽는 법</h3></div>
+        <p>가로로 파이프라인 구성, 세로로 파이프라인 내 러너 구성, 면적으로 결합 비중을 읽는다. 모든 열이 전체 높이를 채우므로 구간 높이는 늘 자기 열 안의 비중이며 전체 비중은 면적이 담당한다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>What the chart doesn't show</h3></div>
-        <p>Minutes, not cost or count. macOS runner minutes are billed at a multiple of Linux, so the macOS segments understate spend; and a wide column can be a few long jobs or many short ones. The figure shows where time goes, not why.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>차트에 없는 것</h3></div>
+        <p>비용이나 건수가 아닌 시간(분) 기준. macOS 러너는 Linux보다 몇 배 비싸게 과금되므로 macOS 구간은 실제 비용을 과소 표시한다. 넓은 열이 긴 작업 몇 건인지 짧은 작업 여러 건인지도 알 수 없다. 시간이 어디에 쓰였는지만 보여 줄 뿐 이유는 보여 주지 않는다.</p>
       </div>
     </div>
     <div class="footer">
-      <span>ci minutes · pipeline × runner os · 30 days · illustrative</span>
-      <span>example · diagram design</span>
+      <span>CI 사용 시간 · 파이프라인 × 러너 OS · 30일 · 예시 수치</span>
+      <span>예제 · 사내 CI 사용 시간</span>
     </div>
   </div>
 </body>

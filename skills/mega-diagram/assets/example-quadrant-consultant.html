@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workplace 2030 · Remote work × AI automation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>2030 근무 환경 · 원격 근무 × AI 자동화</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -15,7 +16,7 @@
       --color-soft:    #8a879c;
       --color-rule:    rgba(23,21,43,0.12);
       --color-accent:  #2f6fdb;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -46,20 +47,22 @@
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
 
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Quadrant · Consultant special</p>
-      <h1>Workplace 2030 · Remote × AI automation</h1>
-      <p class="subtitle">Four named futures, one matrix. Scenario planning in the consultant 2×2 form — two independent drivers, four equal-weight cells, one quadrant carrying the coral bet.</p>
+      <h1>2030 근무 환경 · 원격 근무 × AI 자동화</h1>
+      <p class="subtitle">이름 붙인 미래 네 가지를 한 매트릭스에 담았다. 서로 독립인 두 동인, 같은 무게의 네 칸, 강조색은 집중할 사분면 하나에만 쓴다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="quadrant-consultant-title quadrant-consultant-desc">
-        <title id="quadrant-consultant-title">Workplace 2030 · Remote × AI automation</title>
-        <desc id="quadrant-consultant-desc">Scenario matrix showing four workplace futures across remote-to-in-person and human-to-AI axes, with agent teams as the headline bet.</desc>
+        <title id="quadrant-consultant-title">2030 근무 환경 · 원격 근무 × AI 자동화</title>
+        <desc id="quadrant-consultant-desc">원격·대면 근무와 사람·AI 중심 두 축으로 2030년 근무 환경 시나리오 네 가지를 나누고, 에이전트 팀을 집중 시나리오로 표시한 매트릭스.</desc>
         <defs>
           <!-- Double-ended axis markers -->
           <marker id="axis-end" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
@@ -78,35 +81,35 @@
         <!-- Scenario cells — store treatment with hairline rule, slightly varied -->
         <!-- TL: Distributed humans -->
         <rect x="140" y="120" width="300" height="160" rx="6" fill="rgba(23,21,43,0.04)" stroke="rgba(104,101,123,0.28)" stroke-width="1"/>
-        <text x="156" y="144" fill="#68657b" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.18em">01 · REMOTE / HUMAN</text>
-        <text x="156" y="180" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Distributed humans</text>
-        <text x="156" y="216" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Async-first, global hiring,</text>
-        <text x="156" y="232" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Slack-heavy. Human-centric</text>
-        <text x="156" y="248" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">workflows, low AI leverage.</text>
+        <text x="156" y="144" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">01 · 원격 / 사람 중심</text>
+        <text x="156" y="180" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">분산형 인력</text>
+        <text x="156" y="216" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">비동기 협업, 전국 단위 채용.</text>
+        <text x="156" y="232" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">메신저 중심 소통.</text>
+        <text x="156" y="248" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">사람 중심 업무, AI 활용 낮음.</text>
 
         <!-- TR: Agent teams (FOCAL) -->
         <rect x="560" y="120" width="300" height="160" rx="6" fill="rgba(47,111,219,0.06)" stroke="#2f6fdb" stroke-width="1.2"/>
-        <text x="576" y="144" fill="#2f6fdb" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" letter-spacing="0.18em">02 · REMOTE / AI</text>
-        <text x="576" y="180" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Agent teams <tspan fill="#2f6fdb" font-size="13">●</tspan></text>
-        <text x="576" y="216" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Humans orchestrate; AI</text>
-        <text x="576" y="232" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">handles the routine layer.</text>
-        <text x="576" y="248" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Small, high-leverage teams.</text>
+        <text x="576" y="144" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">02 · 원격 / AI 중심</text>
+        <text x="576" y="180" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">에이전트 팀 <tspan fill="#2f6fdb" font-size="13">●</tspan></text>
+        <text x="576" y="216" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">사람은 지휘·조율 담당.</text>
+        <text x="576" y="232" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">반복 업무는 AI가 처리.</text>
+        <text x="576" y="248" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">소수 정예 고효율 조직.</text>
 
         <!-- BL: Office classic -->
         <rect x="140" y="320" width="300" height="160" rx="6" fill="rgba(23,21,43,0.04)" stroke="rgba(104,101,123,0.28)" stroke-width="1"/>
-        <text x="156" y="344" fill="#68657b" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.18em">03 · IN-PERSON / HUMAN</text>
-        <text x="156" y="380" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">Office classic</text>
-        <text x="156" y="416" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Return-to-office mandates,</text>
-        <text x="156" y="432" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">manual work. Techlash</text>
-        <text x="156" y="448" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">prolongs the status quo.</text>
+        <text x="156" y="344" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">03 · 대면 / 사람 중심</text>
+        <text x="156" y="380" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">사무실 중심</text>
+        <text x="156" y="416" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">출근 의무화, 수작업 위주.</text>
+        <text x="156" y="432" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">기술 도입 반발로</text>
+        <text x="156" y="448" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">현 체제 장기화.</text>
 
         <!-- BR: In-person + AI -->
         <rect x="560" y="320" width="300" height="160" rx="6" fill="rgba(23,21,43,0.04)" stroke="rgba(104,101,123,0.28)" stroke-width="1"/>
-        <text x="576" y="344" fill="#68657b" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.18em">04 · IN-PERSON / AI</text>
-        <text x="576" y="380" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', sans-serif">In-person + AI</text>
-        <text x="576" y="416" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">Smart offices, AI-augmented</text>
-        <text x="576" y="432" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">staff. Physical presence is</text>
-        <text x="576" y="448" fill="#68657b" font-size="11" font-family="'Geist', sans-serif">the moat, AI is the lever.</text>
+        <text x="576" y="344" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">04 · 대면 / AI 중심</text>
+        <text x="576" y="380" fill="#17152b" font-size="16" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">대면 + AI</text>
+        <text x="576" y="416" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">스마트 오피스, AI 보조 인력.</text>
+        <text x="576" y="432" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">대면 근무가 경쟁력,</text>
+        <text x="576" y="448" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="400">AI는 생산성 수단.</text>
 
         <!-- Axis cross — double-ended; horizontal shortened so the labels flank the tips cleanly -->
         <line x1="200" y1="300" x2="800" y2="300"
@@ -117,48 +120,48 @@
               marker-start="url(#axis-start)" marker-end="url(#axis-end)"/>
 
         <!-- Axis labels — one word at each arrow tip. No glyphs, no parentheticals. -->
-        <text x="500" y="48" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.18em">REMOTE</text>
+        <text x="500" y="48" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">원격 근무</text>
 
-        <text x="500" y="560" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.18em">IN-PERSON</text>
+        <text x="500" y="560" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">대면 근무</text>
 
-        <text x="188" y="300" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" dominant-baseline="middle" letter-spacing="0.18em">HUMAN</text>
+        <text x="188" y="300" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" dominant-baseline="middle" font-weight="500">사람 중심</text>
 
-        <text x="812" y="300" fill="#17152b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start" dominant-baseline="middle" letter-spacing="0.18em">AI</text>
+        <text x="812" y="300" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start" dominant-baseline="middle" font-weight="500">AI 중심</text>
 
         <!-- Legend — horizontal strip, placed BELOW the bottom axis labels (y=560/576) -->
         <line x1="40" y1="604" x2="960" y2="604" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
         <rect x="40" y="616" width="16" height="16" rx="3" fill="rgba(47,111,219,0.06)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="64" y="628" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Headline bet</text>
+        <text x="64" y="628" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">집중 시나리오</text>
         <rect x="160" y="616" width="16" height="16" rx="3" fill="rgba(23,21,43,0.04)" stroke="rgba(104,101,123,0.28)" stroke-width="1"/>
-        <text x="184" y="628" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Candidate future</text>
-        <text x="304" y="628" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Every cell is named. The axes carry the range; the coral quadrant carries the commitment.</text>
+        <text x="184" y="628" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">후보 시나리오</text>
+        <text x="304" y="628" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">모든 칸에 이름을 붙인다. 축은 범위를, 강조 사분면은 선택을 나타낸다.</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Name every future</h3></div>
-        <p>Scenario planning fails when three of the four cells are placeholders. Forcing a name on each future — even the "won't happen" ones — surfaces the assumptions hiding in the axes.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>모든 미래에 이름을</h3></div>
+        <p>네 칸 중 세 칸이 빈자리로 남으면 시나리오 기획은 실패한다. 오지 않을 것 같은 미래까지 이름을 붙여야 축에 숨은 가정이 드러난다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Variant rules</h3></div>
+        <div class="card-header"><span class="card-dot ink"></span><h3>변형 규칙</h3></div>
         <ul>
-          <li>Double-ended arrows on both axes (spectrum, not flow)</li>
-          <li>Named cells, not plotted items</li>
-          <li>Driver name + range on each arrow tip</li>
-          <li>Coral on one focal quadrant max</li>
+          <li>두 축 모두 양방향 화살표 (흐름이 아닌 범위)</li>
+          <li>점을 찍지 않고 칸에 이름 부여</li>
+          <li>화살표 끝마다 동인의 양 극단 표기</li>
+          <li>강조색은 사분면 하나까지</li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>When to use</h3></div>
-        <p>Reach for the consultant 2×2 for scenario planning, positioning frames, or strategy sessions where four named archetypes beat a plotted point cloud. If you're prioritising, use the standard quadrant instead.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>언제 쓰나</h3></div>
+        <p>시나리오 기획, 포지셔닝, 전략 워크숍처럼 점 분포보다 이름 붙인 네 유형이 더 잘 전달될 때 쓴다. 과제 우선순위를 정할 때는 기본 사분면을 쓴다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>workplace 2030 · remote × AI automation</span>
-      <span>example · consultant special</span>
+      <span>2030 근무 환경 · 원격 근무 × AI 자동화</span>
+      <span>예제 · 시나리오 매트릭스</span>
     </div>
   </div>
 </body>

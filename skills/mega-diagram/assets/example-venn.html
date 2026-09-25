@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good design · Desirable × Feasible × Viable</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>데이터 인재 요건 · 업무 × 분석 × 개발</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #17152b;
       --color-muted:   #68657b;
       --color-accent:  #2f6fdb;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,16 +52,18 @@
     }
 
     svg { width: 100%; min-width: 900px; display: block; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Venn · mega-diagram</p>
-    <h1>Good design · Desirable × Feasible × Viable</h1>
+    <h1>데이터 인재 요건 · 업무 × 분석 × 개발</h1>
 
     <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="venn-title venn-desc">
-      <title id="venn-title">Good design · Desirable × Feasible × Viable</title>
-      <desc id="venn-desc">Venn diagram showing desirable, feasible, and viable product qualities intersecting at shippable.</desc>
+      <title id="venn-title">데이터 인재 요건 · 업무 × 분석 × 개발</title>
+      <desc id="venn-desc">업무 이해, 분석 역량, 개발 역량 세 가지가 모두 겹치는 영역을 핵심 인재로 표시한 벤 다이어그램.</desc>
         <defs>
           <!-- Chained clips isolate the all-three intersection: clip to Desirable, then to Feasible, then fill via the third circle. -->
           <clipPath id="clip-desirable">
@@ -89,20 +92,20 @@
 
         <!-- Set labels — positioned INSIDE each circle's non-overlapping lobe, so the diagram reads like a classic Venn -->
         <!-- Desirable — top lobe (centered inside top of Desirable circle) -->
-        <text x="500" y="96" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Desirable</text>
-        <text x="500" y="112" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">PEOPLE WANT IT</text>
+        <text x="500" y="96" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">업무 이해</text>
+        <text x="500" y="112" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">행정 현장 경험</text>
 
         <!-- Feasible — bottom-left lobe -->
-        <text x="340" y="386" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Feasible</text>
-        <text x="340" y="402" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">WE CAN BUILD IT</text>
+        <text x="340" y="386" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">분석 역량</text>
+        <text x="340" y="402" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">통계·모델링</text>
 
         <!-- Viable — bottom-right lobe -->
-        <text x="660" y="386" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Viable</text>
-        <text x="660" y="402" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">BUSINESS SUSTAINS</text>
+        <text x="660" y="386" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">개발 역량</text>
+        <text x="660" y="402" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">시스템 구현</text>
 
         <!-- Focal label: white text on the dark intersection -->
-        <text x="500" y="268" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Shippable</text>
-        <text x="500" y="284" fill="rgba(246,245,250,0.75)" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">THE SWEET SPOT</text>
+        <text x="500" y="268" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">핵심 인재</text>
+        <text x="500" y="284" fill="rgba(246,245,250,0.75)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">채용 1순위</text>
       </svg>
   </div>
 </body>

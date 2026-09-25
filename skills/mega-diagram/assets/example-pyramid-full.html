@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content pyramid · what compounds</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>성과 지표 체계 · 전략 목표에서 개인 지표까지</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Pyramid · mega-diagram</p>
-      <h1>Content pyramid · what compounds</h1>
-      <p class="subtitle">Four layers of output, ordered by how rarely they ship and how far they travel. The base keeps you present. The apex defines the body of work — and it's the only layer anyone quotes back a decade later.</p>
+      <h1>성과 지표 체계 · 전략 목표에서 개인 지표까지</h1>
+      <p class="subtitle">기관 성과 지표를 개수와 점검 주기에 따라 네 층으로 쌓았다. 아래층은 매달 실행을 점검하고, 꼭대기는 3~5년 동안 기관이 가는 방향을 정한다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pyramid-full-title pyramid-full-desc">
-        <title id="pyramid-full-title">Content pyramid · what compounds</title>
-        <desc id="pyramid-full-desc">Content pyramid showing short posts, essays, long-form guides, and a flagship book ordered by shipping cadence and leverage.</desc>
+        <title id="pyramid-full-title">성과 지표 체계 · 전략 목표에서 개인 지표까지</title>
+        <desc id="pyramid-full-desc">개인 업무 지표, 부서 성과지표, 핵심 성과지표, 중장기 전략 목표를 개수와 점검 주기 순으로 쌓은 성과 지표 피라미드.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -52,68 +55,68 @@
         <!-- Left axis: direction of rarity -->
         <line x1="100" y1="40" x2="100" y2="320" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <polygon points="96,40 104,40 100,28" fill="rgba(23,21,43,0.45)"/>
-        <text x="80" y="216" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em" text-anchor="middle" transform="rotate(-90 80 216)">RARER · FEWER · COMPOUNDS ↑</text>
+        <text x="80" y="216" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" transform="rotate(-90 80 216)" font-weight="500">위로 갈수록 적고 오래 가는 지표</text>
 
         <!-- Base layer: Short posts -->
         <polygon points="244,280 756,280 820,344 180,344" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-        <text x="500" y="308" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Short posts</text>
-        <text x="500" y="324" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">daily · ~200 words</text>
-        <text x="836" y="316" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">~240/yr</text>
+        <text x="500" y="308" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">개인 업무 지표</text>
+        <text x="500" y="324" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">월 1회 점검 · 1인당 3~5개</text>
+        <text x="836" y="316" fill="#8a879c" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">~240개</text>
 
         <!-- L3: Essays -->
         <polygon points="308,216 692,216 756,280 244,280" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-        <text x="500" y="244" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Essays</text>
-        <text x="500" y="260" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">weekly · 800–1,500 words</text>
-        <text x="776" y="252" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">~48/yr</text>
+        <text x="500" y="244" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">부서 성과지표</text>
+        <text x="500" y="260" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">분기 1회 점검 · 부서당 4~6개</text>
+        <text x="776" y="252" fill="#8a879c" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">~48개</text>
 
         <!-- L2: Long-form guides -->
         <polygon points="372,152 628,152 692,216 308,216" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-        <text x="500" y="180" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Long-form guides</text>
-        <text x="500" y="196" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">quarterly · 4,000+ words</text>
-        <text x="716" y="188" fill="#8a879c" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">~4/yr</text>
+        <text x="500" y="180" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">핵심 성과지표</text>
+        <text x="500" y="196" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">반기 1회 점검 · 기관 공통</text>
+        <text x="716" y="188" fill="#8a879c" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">~4개</text>
 
         <!-- Apex: Flagship book — CORAL FOCAL (true pyramid peak — single triangle, consistent slope with layers below) -->
         <polygon points="500,24 628,152 372,152" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="500" y="120" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Flagship book</text>
-        <text x="500" y="136" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">every 3–5 years</text>
-        <text x="656" y="112" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.08em">the apex</text>
+        <text x="500" y="120" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">중장기 전략 목표</text>
+        <text x="500" y="136" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">3~5년 주기 수립</text>
+        <text x="656" y="112" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">최상위</text>
 
         <!-- Footnote under pyramid -->
-        <text x="500" y="384" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" text-anchor="middle" font-style="italic">The base funds the apex. The apex defines the base.</text>
+        <text x="500" y="384" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">하위 지표가 상위 목표를 받치고, 상위 목표가 하위 지표를 정한다.</text>
 
         <!-- Legend -->
         <line x1="40" y1="436" x2="960" y2="436" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="452" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="452" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="40" y="464" width="16" height="12" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="64" y="474" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Apex — rarest, highest leverage</text>
+        <text x="64" y="474" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">최상위 — 가장 적고 영향이 큰 목표</text>
 
-        <rect x="280" y="464" width="16" height="12" fill="#f6f5fa" stroke="rgba(23,21,43,0.25)" stroke-width="1"/>
-        <text x="304" y="474" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Supporting layer — the volume work</text>
+        <rect x="320" y="464" width="16" height="12" fill="#f6f5fa" stroke="rgba(23,21,43,0.25)" stroke-width="1"/>
+        <text x="344" y="474" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">하위 층 — 실행 단위 지표</text>
 
-        <text x="560" y="474" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Layer width is honest: narrower = rarer shipping cadence.</text>
+        <text x="560" y="474" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">층의 폭은 지표 수. 좁을수록 적고 점검 주기가 길다.</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>One coral layer, on purpose</h3></div>
-        <p>A five-colour pyramid is a children's diagram. Reserving coral for the apex makes the whole structure actually say something: this is the rarest thing you'll make, and it's the one the rest of the pyramid is feeding.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>강조색은 한 층에만</h3></div>
+        <p>층마다 색을 칠한 피라미드는 아무것도 말하지 않는다. 강조색을 꼭대기에만 두면 가장 드물게 세우는 목표이자 아래 지표 전체가 향하는 곳이 분명해진다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Width tells the truth</h3></div>
-        <ul><li>~240 short posts a year</li><li>~48 essays</li><li>~4 long-form guides</li><li>1 flagship every 3–5 years</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>폭이 곧 개수</h3></div>
+        <ul><li>개인 업무 지표 ~240개</li><li>부서 성과지표 ~48개</li><li>핵심 성과지표 ~4개</li><li>전략 목표 1개, 3~5년 주기</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Pyramids only work for hierarchy</h3></div>
-        <p>If your four categories don't have a rarity order — if a bullet list would communicate it — use bullets. Pyramids promise you're trading volume for value as you climb.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>위계가 있을 때만 피라미드</h3></div>
+        <p>네 항목에 위아래 순서가 없고 목록으로 충분하다면 목록을 쓴다. 피라미드는 올라갈수록 수는 줄고 무게는 커진다는 약속이다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>content pyramid · what compounds</span>
-      <span>example · schematic skill</span>
+      <span>성과 지표 체계 · 전략 목표에서 개인 지표까지</span>
+      <span>예제 · 성과 지표 체계</span>
     </div>
   </div>
 </body>

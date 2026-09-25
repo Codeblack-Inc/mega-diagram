@@ -43,7 +43,7 @@ LIGHT = ASSETS / "example-treemap.html"
 DARK = ASSETS / "example-treemap-dark.html"
 FULL = ASSETS / "example-treemap-full.html"
 
-SHIPPED_KEY = "Other continents · stronger contrast is larger"
+SHIPPED_KEY = "기타 대륙 · 대비가 강할수록 큼"
 
 NAMESPACE = runpy.run_path(str(CHECKER), run_name="verify_skin_polarity_test")
 COLLECT_MEMBERS = NAMESPACE["collect_members"]
@@ -268,6 +268,20 @@ def main():
             )
         else:
             print("OK: dark_ramp_called_lighter_is_larger_passes")
+
+        # 6a. The Korean key form binds too: 밝을수록 큼 (lighter is larger) is a
+        #     luminance claim, false on light paper and true on dark.
+        light_ko = light_source.replace(SHIPPED_KEY, "기타 대륙 · 밝을수록 큼", 1)
+        dark_ko = dark_source.replace(SHIPPED_KEY, "기타 대륙 · 밝을수록 큼", 1)
+        light_code, light_output = run(write(directory, "light-ko.html", light_ko))
+        dark_code, dark_output = run(write(directory, "dark-ko.html", dark_ko))
+        if light_code != 1 or "draws larger as darker" not in light_output or dark_code != 0:
+            failures.append(
+                "korean_lighter_is_larger_fails_on_light_and_passes_on_dark: light exit {}, "
+                "dark exit {} - {} {}".format(light_code, dark_code, light_output.strip(), dark_output.strip())
+            )
+        else:
+            print("OK: korean_lighter_is_larger_fails_on_light_and_passes_on_dark")
 
         # 7. The shipped contrast wording is not merely tolerated - it is checked
         #    against opacity, so inverting the ramp beneath it must fail on both

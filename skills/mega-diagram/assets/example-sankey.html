@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CI compute budget · Sankey</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>CI 실행 시간 예산 · 생키</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #17152b;
       --color-muted:   #68657b;
       --color-accent:  #2f6fdb;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,22 +52,24 @@
     }
 
     svg { width: 100%; min-width: 900px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Sankey · mega-diagram</p>
-    <h1>CI compute budget · a month of pipeline minutes</h1>
+    <h1>CI 실행 시간 예산 · 한 달 파이프라인 사용량</h1>
 
     <svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sankey-title sankey-desc">
-      <title id="sankey-title">CI compute budget · a month of pipeline minutes</title>
-      <desc id="sankey-desc">Sankey diagram showing 12,000 monthly CI minutes splitting into unit test, E2E, build, and lint stages, then merging into passed, failed, and flaked outcomes, with the flaky-rerun path highlighted as the one accent flow.</desc>
+      <title id="sankey-title">CI 실행 시간 예산 · 한 달 파이프라인 사용량</title>
+      <desc id="sankey-desc">월 12,000분의 CI 실행 시간이 단위 테스트·E2E·빌드·린트 단계로 나뉜 뒤 통과·실패·재실행 통과 결과로 합쳐지는 생키 다이어그램으로, 불안정 재실행 경로만 강조색으로 표시했다.</desc>
 
 
       <!-- Column headers -->
-      <text x="124" y="76" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">BUDGET</text>
-      <text x="504" y="76" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">TEST STAGE</text>
-      <text x="884" y="76" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">OUTCOME</text>
+      <text x="124" y="76" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">예산</text>
+      <text x="504" y="76" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">테스트 단계</text>
+      <text x="884" y="76" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">결과</text>
 
       <!-- Ribbons: col1 -> col2. Both control points sit on the midpoint x, so every band
            meets its node bar horizontally at each end rather than arriving at a slant. -->
@@ -101,48 +104,48 @@
       <rect x="880" y="344" width="12" height="32" fill="#17152b"/>
 
       <!-- Labels: column 1, outside, anchored end -->
-      <text x="104" y="236" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">CI minutes</text>
-      <text x="104" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">12,000 min</text>
+      <text x="104" y="236" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">CI 실행 시간</text>
+      <text x="104" y="252" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">12,000분</text>
 
       <!-- Labels: column 2, centred in the gutter above the bar, where the bands separate. -->
 
-      <text x="504" y="96" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Unit tests</text>
-      <text x="504" y="112" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">5,200 min</text>
+      <text x="504" y="96" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">단위 테스트</text>
+      <text x="504" y="112" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">5,200분</text>
 
       <text x="504" y="236" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">E2E</text>
-      <text x="504" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">4,000 min</text>
+      <text x="504" y="252" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">4,000분</text>
 
-      <text x="504" y="348" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Build</text>
-      <text x="504" y="364" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">2,000 min</text>
+      <text x="504" y="348" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">빌드</text>
+      <text x="504" y="364" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">2,000분</text>
 
-      <text x="504" y="420" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Lint</text>
-      <text x="504" y="436" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">800 min</text>
+      <text x="504" y="420" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">린트</text>
+      <text x="504" y="436" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">800분</text>
 
       <!-- Labels: column 3, outside, anchored start -->
 
-      <text x="908" y="124" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Flaked</text>
-      <text x="908" y="136" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">1,000 min</text>
+      <text x="908" y="120" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">재실행 통과</text>
+      <text x="908" y="136" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start" font-weight="500">1,000분</text>
 
-      <text x="908" y="236" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Passed</text>
-      <text x="908" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">9,400 min</text>
+      <text x="908" y="236" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">통과</text>
+      <text x="908" y="252" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start" font-weight="500">9,400분</text>
 
-      <text x="908" y="356" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Failed</text>
-      <text x="908" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">1,600 min</text>
+      <text x="908" y="356" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">실패</text>
+      <text x="908" y="372" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start" font-weight="500">1,600분</text>
 
       <!-- Legend -->
       <line x1="40" y1="492" x2="960" y2="492" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="508" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+      <text x="40" y="508" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
       <rect x="40" y="520" width="16" height="8" fill="rgba(104,101,123,0.18)" stroke="#68657b" stroke-width="1"/>
-      <text x="64" y="528" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Flow · stage routing</text>
+      <text x="64" y="528" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">흐름 · 단계 배분</text>
 
       <rect x="220" y="520" width="16" height="8" fill="rgba(47,111,219,0.28)" stroke="#2f6fdb" stroke-width="1"/>
-      <text x="244" y="528" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Flaked path · reruns</text>
+      <text x="244" y="528" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">재실행 경로</text>
 
       <rect x="420" y="520" width="16" height="8" fill="#17152b"/>
-      <text x="444" y="528" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Node · stage total</text>
+      <text x="444" y="528" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">노드 · 단계 합계</text>
 
-      <text x="600" y="528" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Two coral ribbons — flaky reruns burn ~8% of the monthly CI budget.</text>
+      <text x="600" y="528" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">강조 리본 2개 · 불안정 재실행이 월 CI 예산의 약 8% 소모</text>
     </svg>
   </div>
 </body>

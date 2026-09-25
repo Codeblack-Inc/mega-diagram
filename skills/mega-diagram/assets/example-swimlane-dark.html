@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publishing an article · Swimlane</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>신규 입사자 계정 발급</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #f6f5fa;
       --color-muted:   #d4d2de;
       --color-accent:  #6e9bea;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,16 +52,18 @@
     }
 
     svg { width: 100%; min-width: 900px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Swimlane · mega-diagram</p>
-    <h1>Publishing an article</h1>
+    <h1>신규 입사자 계정 발급</h1>
 
     <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="swimlane-dark-title swimlane-dark-desc">
-      <title id="swimlane-dark-title">Publishing an article</title>
-      <desc id="swimlane-dark-desc">Swimlane diagram showing an article moving from MDX draft through review, editing, approval, build, and Cloudflare Pages deployment.</desc>
+      <title id="swimlane-dark-title">신규 입사자 계정 발급</title>
+      <desc id="swimlane-dark-desc">신규 입사자 계정 발급이 인사팀, 팀장, 보안팀, 자동화 시스템을 거쳐 서류 접수부터 장비 등록까지 진행되는 과정을 담당별로 나눈 스윔레인 다이어그램.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(246,245,250,0.10)"/>
@@ -81,10 +84,10 @@
         <line x1="160" y1="80" x2="160" y2="400" stroke="rgba(246,245,250,0.22)" stroke-width="1"/>
 
         <!-- Lane labels -->
-        <text x="60" y="124" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">AUTHOR</text>
-        <text x="60" y="204" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">REVIEWER</text>
-        <text x="60" y="284" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">EDITOR</text>
-        <text x="60" y="364" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="0.18em">CI / CD</text>
+        <text x="60" y="124" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">인사팀</text>
+        <text x="60" y="204" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">팀장</text>
+        <text x="60" y="284" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">보안팀</text>
+        <text x="60" y="364" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">자동화</text>
 
         <!-- Arrows (drawn first) -->
         <!-- 1. Draft → Open PR (within Author) -->
@@ -101,69 +104,69 @@
         <line x1="760" y1="360" x2="800" y2="360" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
 
         <!-- Arrow labels -->
-        <rect x="478" y="140" width="60" height="12" rx="2" fill="#17152b"/>
-        <text x="508" y="150" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">HANDOFF</text>
+        <rect x="492" y="138" width="32" height="16" rx="2" fill="#17152b"/>
+        <text x="508" y="150" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">인계</text>
 
-        <rect x="548" y="228" width="52" height="12" rx="2" fill="#24223a"/>
-        <text x="574" y="238" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">REVISE</text>
+        <rect x="542" y="226" width="64" height="16" rx="2" fill="#24223a"/>
+        <text x="574" y="238" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">보완 요청</text>
 
-        <rect x="712" y="308" width="80" height="12" rx="2" fill="#17152b"/>
-        <text x="752" y="318" fill="#6e9bea" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">DEPLOY TRIGGER</text>
+        <rect x="720" y="308" width="64" height="16" rx="2" fill="#17152b"/>
+        <text x="752" y="320" fill="#6e9bea" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">생성 요청</text>
 
         <!-- Steps -->
         <!-- Author: Draft MDX -->
         <rect x="180" y="96" width="120" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="240" y="118" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Draft MDX</text>
-        <text x="240" y="132" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">src/content/…</text>
+        <text x="240" y="118" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">입사 서류 접수</text>
+        <text x="240" y="132" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">hr/intake</text>
 
         <!-- Author: Open PR -->
         <rect x="340" y="96" width="120" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="400" y="118" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Open PR</text>
-        <text x="400" y="132" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">gh pr create</text>
+        <text x="400" y="118" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">계정 요청</text>
+        <text x="400" y="132" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">ticket OB-214</text>
 
         <!-- Reviewer: Review content -->
         <rect x="500" y="176" width="140" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="570" y="198" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Review content</text>
-        <text x="570" y="212" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">fact-check · voice</text>
+        <text x="570" y="198" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">직무 배정 검토</text>
+        <text x="570" y="212" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">role · team</text>
 
         <!-- Editor: Polish copy -->
         <rect x="500" y="256" width="140" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="570" y="278" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Polish copy</text>
-        <text x="570" y="292" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">style · line edits</text>
+        <text x="570" y="278" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">권한 범위 조정</text>
+        <text x="570" y="292" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">scope · least-priv</text>
 
         <!-- Editor: Approve merge -->
         <rect x="680" y="256" width="140" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="750" y="278" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Approve merge</text>
-        <text x="750" y="292" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">squash · main</text>
+        <text x="750" y="278" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">권한 승인</text>
+        <text x="750" y="292" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">approve · audit</text>
 
         <!-- CI/CD: Build -->
         <rect x="680" y="336" width="80" height="48" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="720" y="358" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Build</text>
-        <text x="720" y="372" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">astro build</text>
+        <text x="720" y="358" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">계정 생성</text>
+        <text x="720" y="372" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">ldap sync</text>
 
         <!-- CI/CD: Deploy (coral focal) -->
         <rect x="800" y="336" width="120" height="48" rx="6" fill="rgba(110,155,234,0.08)" stroke="#6e9bea" stroke-width="1"/>
-        <text x="860" y="358" fill="#f6f5fa" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Deploy</text>
-        <text x="860" y="372" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">cloudflare pages</text>
+        <text x="860" y="358" fill="#f6f5fa" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">장비 등록</text>
+        <text x="860" y="372" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">mdm enroll</text>
 
         <!-- Legend -->
         <line x1="40" y1="428" x2="960" y2="428" stroke="rgba(246,245,250,0.10)" stroke-width="0.8"/>
-        <text x="40" y="444" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="444" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="40" y="460" width="14" height="10" rx="2" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
-        <text x="60" y="468" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Step</text>
+        <text x="60" y="468" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">단계</text>
 
         <rect x="132" y="460" width="14" height="10" rx="2" fill="rgba(110,155,234,0.08)" stroke="#6e9bea" stroke-width="1"/>
-        <text x="152" y="468" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Focal outcome</text>
+        <text x="152" y="468" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심 결과</text>
 
         <line x1="268" y1="466" x2="296" y2="466" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
-        <text x="304" y="468" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Within-lane step</text>
+        <text x="304" y="468" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">레인 내 이동</text>
 
         <line x1="444" y1="466" x2="472" y2="466" stroke="#d4d2de" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-        <text x="480" y="468" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Revision loop</text>
+        <text x="480" y="468" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">보완 루프</text>
 
         <line x1="608" y1="466" x2="636" y2="466" stroke="#6e9bea" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
-        <text x="644" y="468" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Critical handoff</text>
+        <text x="644" y="468" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심 인계</text>
       </svg>
   </div>
 </body>

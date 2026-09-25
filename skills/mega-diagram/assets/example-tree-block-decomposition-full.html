@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment gateway block decomposition · Tree</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>결제 게이트웨이 블록 분해</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1100px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,23 +29,23 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Semantic pattern · Traceable block decomposition</p>
-      <h1>Payment gateway block decomposition</h1>
-      <p class="subtitle">Three blocks, one root, each with a stable ID a reader can cite directly. The diagram shows only a badge, a name, and a short flow — inputs, outputs, constraints, and implementation paths live in the metadata, not the canvas.</p>
+      <h1>결제 게이트웨이 블록 분해</h1>
+      <p class="subtitle">루트 하나에 블록 셋, 각 블록에는 그대로 인용할 수 있는 고정 ID가 붙는다. 그림에는 배지·이름·짧은 흐름만 그리고, 입력·출력·제약·구현 경로는 캔버스가 아니라 메타데이터에 담는다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" role="img"
            aria-labelledby="tree-block-decomposition-full-title tree-block-decomposition-full-desc">
-        <title id="tree-block-decomposition-full-title">Payment gateway block decomposition</title>
-        <desc id="tree-block-decomposition-full-desc">Traceable block decomposition of a payment
-          gateway into card authorization, fraud screening, and settlement ledger, with a stable ID,
-          inputs, outputs, constraints, and an implementation path carried as metadata on each block.</desc>
+        <title id="tree-block-decomposition-full-title">결제 게이트웨이 블록 분해</title>
+        <desc id="tree-block-decomposition-full-desc">결제 게이트웨이를 카드 승인, 이상거래 탐지, 정산 원장으로 나누고 블록마다 고정 ID, 입력, 출력, 제약, 구현 경로를 메타데이터로 담은 추적 가능한 블록 분해도.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -64,64 +65,64 @@
         <!-- Root: PAY-001 Payment Gateway (coral focal) -->
         <rect x="420" y="40" width="160" height="52" rx="6" fill="#ffffff"/>
         <rect x="420" y="40" width="160" height="52" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"
-              data-block-id="PAY-001" data-block-name="Payment Gateway"
-              data-block-output="Settled transaction record"
-              data-block-constraint="Every transaction reaches exactly one terminal state"
+              data-block-id="PAY-001" data-block-name="결제 게이트웨이"
+              data-block-output="정산 완료 거래 기록"
+              data-block-constraint="모든 거래는 정확히 하나의 최종 상태로 종료"
               data-block-impl="src/payments/gateway/"/>
         <rect x="428" y="46" width="46" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.50)" stroke-width="0.8"/>
         <text x="451" y="55" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace"
               text-anchor="middle" letter-spacing="0.08em">PAY-001</text>
         <text x="500" y="70" fill="#17152b" font-size="12" font-weight="600"
-              font-family="'Geist', sans-serif" text-anchor="middle">Payment Gateway</text>
+              font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">결제 게이트웨이</text>
         <text x="500" y="86" fill="#68657b" font-size="9"
               font-family="'Geist Mono', monospace" text-anchor="middle">request → settlement</text>
 
         <!-- Child: PAY-001-01 Card Authorization -->
         <rect x="200" y="180" width="160" height="52" rx="6" fill="#ffffff"/>
         <rect x="200" y="180" width="160" height="52" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"
-              data-block-id="PAY-001-01" data-block-parent="PAY-001" data-block-name="Card Authorization"
-              data-block-input="Raw card details from checkout"
-              data-block-output="Authorization token or decline"
-              data-block-constraint="Never persists a raw card number"
-              data-block-assumption="Runs behind the PCI-scoped boundary"
+              data-block-id="PAY-001-01" data-block-parent="PAY-001" data-block-name="카드 승인"
+              data-block-input="결제 화면에서 받은 카드 원본 정보"
+              data-block-output="승인 토큰 또는 거절"
+              data-block-constraint="카드 번호 원문 저장 금지"
+              data-block-assumption="PCI DSS 적용 구간 안에서 실행"
               data-block-impl="src/payments/authorization/"/>
         <rect x="208" y="186" width="62" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="239" y="195" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace"
               text-anchor="middle" letter-spacing="0.08em">PAY-001-01</text>
         <text x="280" y="210" fill="#17152b" font-size="12" font-weight="600"
-              font-family="'Geist', sans-serif" text-anchor="middle">Card Authorization</text>
+              font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">카드 승인</text>
         <text x="280" y="226" fill="#68657b" font-size="9"
               font-family="'Geist Mono', monospace" text-anchor="middle">card → token</text>
 
         <!-- Child: PAY-001-02 Fraud Screening -->
         <rect x="420" y="180" width="160" height="52" rx="6" fill="#ffffff"/>
         <rect x="420" y="180" width="160" height="52" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"
-              data-block-id="PAY-001-02" data-block-parent="PAY-001" data-block-name="Fraud Screening"
-              data-block-input="Authorization token"
-              data-block-output="Risk score and hold/release decision"
-              data-block-constraint="Blocks release above the configured risk threshold"
+              data-block-id="PAY-001-02" data-block-parent="PAY-001" data-block-name="이상거래 탐지"
+              data-block-input="승인 토큰"
+              data-block-output="위험 점수와 보류·해제 판정"
+              data-block-constraint="설정 임계값 초과 시 해제 차단"
               data-block-impl="src/payments/fraud/"/>
         <rect x="428" y="186" width="62" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="459" y="195" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace"
               text-anchor="middle" letter-spacing="0.08em">PAY-001-02</text>
         <text x="500" y="210" fill="#17152b" font-size="12" font-weight="600"
-              font-family="'Geist', sans-serif" text-anchor="middle">Fraud Screening</text>
+              font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">이상거래 탐지</text>
         <text x="500" y="226" fill="#68657b" font-size="9"
               font-family="'Geist Mono', monospace" text-anchor="middle">token → score</text>
 
         <!-- Child: PAY-001-03 Settlement Ledger -->
         <rect x="640" y="180" width="160" height="52" rx="6" fill="#ffffff"/>
         <rect x="640" y="180" width="160" height="52" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"
-              data-block-id="PAY-001-03" data-block-parent="PAY-001" data-block-name="Settlement Ledger"
-              data-block-input="Released authorization"
-              data-block-output="Settled transaction record"
-              data-block-constraint="Append-only, no ledger row is ever mutated after write"
+              data-block-id="PAY-001-03" data-block-parent="PAY-001" data-block-name="정산 원장"
+              data-block-input="해제된 승인 건"
+              data-block-output="정산 완료 거래 기록"
+              data-block-constraint="추가 전용 · 기록 후 원장 행 수정 금지"
               data-block-impl="src/payments/ledger/"/>
         <rect x="648" y="186" width="62" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="679" y="195" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace"
               text-anchor="middle" letter-spacing="0.08em">PAY-001-03</text>
         <text x="720" y="210" fill="#17152b" font-size="12" font-weight="600"
-              font-family="'Geist', sans-serif" text-anchor="middle">Settlement Ledger</text>
+              font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">정산 원장</text>
         <text x="720" y="226" fill="#68657b" font-size="9"
               font-family="'Geist Mono', monospace" text-anchor="middle">release → ledger</text>
       </svg>
@@ -130,22 +131,22 @@
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Every block gets a stable ID</h3></div>
-        <p>The badge is the citable handle — "PAY-001-02" means one specific block, permanently. A reader, a review, or a compliance record can point at it directly instead of describing a box's position on a page.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>모든 블록에 고정 ID</h3></div>
+        <p>배지가 인용 핸들이다 — "PAY-001-02"는 언제나 특정 블록 하나를 가리킨다. 검토 의견이나 감사 기록이 페이지 속 상자 위치를 설명하는 대신 ID로 바로 지목한다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>The canvas shows the minimum</h3></div>
-        <ul><li>ID badge, name, and one short flow line</li><li>Inputs/outputs/constraints stay off-canvas</li><li>Carried in data-block-* attributes instead</li><li>Same node primitives, zero new SVG grammar</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>캔버스에는 최소한만</h3></div>
+        <ul><li>ID 배지, 이름, 짧은 흐름 한 줄</li><li>입력·출력·제약은 캔버스 밖에</li><li>대신 data-block-* 속성에 기록</li><li>기존 노드 그대로, 새 SVG 문법 없음</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Registry export on demand</h3></div>
-        <p>The full record — every attribute on every block — projects into a JSON sidecar on request. Regenerated from the diagram itself, never hand-maintained separately from it.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>요청 시 레지스트리 내보내기</h3></div>
+        <p>모든 블록의 모든 속성을 요청 시 JSON 사이드카로 내보낸다. 다이어그램에서 매번 다시 생성하며, 따로 손으로 관리하지 않는다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>payment gateway block decomposition</span>
-      <span>example · schematic system</span>
+      <span>블록 분해 · 결제 게이트웨이</span>
+      <span>예제 · 결제 시스템</span>
     </div>
   </div>
 </body>

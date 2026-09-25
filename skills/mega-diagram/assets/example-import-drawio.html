@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imported from draw.io — Order platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>draw.io 가져오기 — 주문 플랫폼 요청 경로</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,8 +13,8 @@
       --color-ink:     #17152b;   /* mega ink */
       --color-muted:   #68657b;   /* mega muted */
       --color-accent:  #2f6fdb;   /* mega-diagram blue */
-      --font-sans:     'Geist', system-ui, sans-serif;
-      --font-serif:    'Instrument Serif', serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
 
@@ -41,10 +42,10 @@
     }
 
     h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.15;
       color: var(--color-ink);
       margin-bottom: 1.5rem;
@@ -56,11 +57,11 @@
 <body>
   <div class="frame">
     <p class="eyebrow">Architecture · Imported from draw.io · doc-inline · balanced</p>
-    <h1>Order platform — request path</h1>
+    <h1>주문 플랫폼 요청 경로</h1>
 
     <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="import-drawio-title import-drawio-desc">
-      <title id="import-drawio-title">Order platform — request path</title>
-      <desc id="import-drawio-desc">Architecture diagram showing web and mobile clients entering through an API Gateway, then reaching authentication, orders, Postgres, object storage, and Redis.</desc>
+      <title id="import-drawio-title">주문 플랫폼 요청 경로</title>
+      <desc id="import-drawio-desc">웹·모바일 요청이 API 게이트웨이를 거쳐 인증 서비스와 주문 서비스로 가고, 주문 데이터가 Postgres·객체 저장소·Redis에 저장되는 구조도.</desc>
       <defs>
         <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
         <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2f6fdb"/></marker>
@@ -70,13 +71,13 @@
 
       <!-- Zones -->
       <rect x="40" y="96" width="200" height="224" rx="8" fill="none" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-      <text x="56" y="120" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">EDGE</text>
+      <text x="56" y="120" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">접점</text>
 
       <rect x="320" y="96" width="560" height="224" rx="8" fill="none" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-      <text x="336" y="120" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">CORE SERVICES</text>
+      <text x="336" y="120" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심 서비스</text>
 
       <rect x="320" y="368" width="560" height="112" rx="8" fill="none" stroke="rgba(23,21,43,0.12)" stroke-width="1"/>
-      <text x="336" y="392" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">DATA</text>
+      <text x="336" y="386" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">데이터</text>
 
       <!-- Connectors (drawn before boxes) -->
       <!-- Web App -> API Gateway -->
@@ -101,45 +102,41 @@
       <rect x="228" y="232" width="44" height="12" rx="2" fill="#ffffff"/>
       <text x="250" y="241" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">HTTPS</text>
 
-      <rect x="568" y="172" width="44" height="12" rx="2" fill="#ffffff"/>
-      <text x="590" y="181" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">VERIFY</text>
+      <rect x="574" y="170" width="32" height="16" rx="2" fill="#ffffff"/><text x="590" y="182" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">검증</text>
 
-      <rect x="568" y="212" width="44" height="12" rx="2" fill="#ffffff"/>
-      <text x="590" y="221" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">ROUTE</text>
+      <rect x="568" y="208" width="44" height="16" rx="2" fill="#ffffff"/><text x="590" y="220" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">라우팅</text>
 
       <rect x="536" y="308" width="32" height="12" rx="2" fill="#ffffff"/>
       <text x="552" y="317" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">SQL</text>
 
-      <rect x="768" y="326" width="56" height="12" rx="2" fill="#ffffff"/>
-      <text x="796" y="335" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">ARCHIVE</text>
+      <rect x="772" y="324" width="32" height="16" rx="2" fill="#ffffff"/><text x="788" y="336" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">보관</text>
 
-      <rect x="792" y="196" width="56" height="12" rx="2" fill="#ffffff"/>
-      <text x="820" y="205" fill="#8a879c" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">CACHE</text>
+      <rect x="816" y="194" width="32" height="16" rx="2" fill="#ffffff"/><text x="832" y="206" fill="#8a879c" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">캐시</text>
 
       <!-- Nodes: Edge -->
       <rect x="60" y="136" width="160" height="56" rx="6" fill="#ffffff"/>
       <rect x="60" y="136" width="160" height="56" rx="6" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
-      <text x="140" y="169" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Web App</text>
+      <text x="140" y="169" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">웹 앱</text>
 
       <rect x="60" y="224" width="160" height="56" rx="6" fill="#ffffff"/>
       <rect x="60" y="224" width="160" height="56" rx="6" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
-      <text x="140" y="257" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Mobile App</text>
+      <text x="140" y="257" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">모바일 앱</text>
 
       <!-- Nodes: Core -->
       <rect x="360" y="176" width="200" height="64" rx="6" fill="#ffffff"/>
       <rect x="360" y="176" width="200" height="64" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-      <text x="460" y="204" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">API Gateway</text>
-      <text x="460" y="220" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">single entry point</text>
+      <text x="460" y="204" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">API 게이트웨이</text>
+      <text x="460" y="220" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">/v1/*</text>
 
       <rect x="640" y="128" width="200" height="56" rx="6" fill="#ffffff"/>
       <rect x="640" y="128" width="200" height="56" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-      <text x="740" y="153" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Auth Service</text>
-      <text x="740" y="169" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">token check</text>
+      <text x="740" y="153" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">인증 서비스</text>
+      <text x="740" y="169" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">JWT verify</text>
 
       <rect x="640" y="224" width="200" height="56" rx="6" fill="#ffffff"/>
       <rect x="640" y="224" width="200" height="56" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-      <text x="740" y="249" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Orders Service</text>
-      <text x="740" y="265" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">order write</text>
+      <text x="740" y="249" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">주문 서비스</text>
+      <text x="740" y="265" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">POST /orders</text>
 
       <!-- Nodes: Data -->
       <rect x="344" y="392" width="160" height="64" rx="6" fill="#ffffff"/>
@@ -149,8 +146,8 @@
 
       <rect x="528" y="392" width="160" height="64" rx="6" fill="#ffffff"/>
       <rect x="528" y="392" width="160" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-      <text x="608" y="420" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Object Store</text>
-      <text x="608" y="436" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">archive</text>
+      <text x="608" y="420" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">객체 저장소</text>
+      <text x="608" y="436" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">s3://archive</text>
 
       <rect x="712" y="392" width="160" height="64" rx="6" fill="#ffffff"/>
       <rect x="712" y="392" width="160" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
@@ -159,25 +156,25 @@
 
       <!-- Legend -->
       <line x1="40" y1="512" x2="920" y2="512" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+      <text x="40" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
 
       <rect x="120" y="524" width="16" height="10" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-      <text x="144" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">FOCAL</text>
+      <text x="144" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">핵심</text>
 
       <rect x="240" y="524" width="16" height="10" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-      <text x="264" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">SERVICE</text>
+      <text x="264" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">서비스</text>
 
       <rect x="376" y="524" width="16" height="10" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-      <text x="400" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">STORE</text>
+      <text x="400" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">저장소</text>
 
       <rect x="496" y="524" width="16" height="10" rx="2" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
-      <text x="520" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">CLIENT</text>
+      <text x="520" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">클라이언트</text>
 
       <line x1="616" y1="529" x2="648" y2="529" stroke="#6043d5" stroke-width="1.2"/>
-      <text x="656" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">HTTP CALL</text>
+      <text x="656" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">HTTP 호출</text>
 
       <line x1="772" y1="529" x2="804" y2="529" stroke="#68657b" stroke-width="1.2" stroke-dasharray="5,4"/>
-      <text x="812" y="532" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">ASYNC</text>
+      <text x="812" y="533" fill="#68657b" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">비동기</text>
     </svg>
   </div>
 </body>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q2 product launch · Gantt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>1차년도 과제 일정 · 간트 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -26,26 +27,28 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Gantt · mega-diagram</p>
-      <h1>Q2 product launch · 12-week plan</h1>
-      <p class="subtitle">Three phases from research through launch. Design review in week 8 is the critical gate — development doesn't continue until sign-off.</p>
+      <h1>1차년도 과제 일정 · 12주</h1>
+      <p class="subtitle">분석·설계·개발 3단계로 나눈 1차년도 과제 일정. 8주 차 중간 보고가 핵심 관문이며, 전문기관 점검을 통과해야 본 개발을 이어 간다.</p>
     </div>
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gantt-full-title gantt-full-desc">
-        <title id="gantt-full-title">Q2 product launch · 12-week plan</title>
-        <desc id="gantt-full-desc">Gantt chart showing a twelve-week product launch from market research and interviews through design review, development, beta testing, and launch.</desc>
+        <title id="gantt-full-title">1차년도 과제 일정 · 12주</title>
+        <desc id="gantt-full-desc">과제 착수와 요구사항 분석부터 설계, 시제품 개발, 중간 보고, 본 개발, 시험·검증까지 1차년도 12주 과제 일정을 보여 주는 간트 차트.</desc>
         <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/></pattern></defs>
         <rect x="12" y="72" width="976" height="84" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
         <rect x="12" y="172" width="976" height="120" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
         <rect x="12" y="312" width="976" height="88" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="326" y="52" fill="#17152b" font-size="9" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">April</text>
-        <text x="578" y="52" fill="#17152b" font-size="9" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">May</text>
-        <text x="830" y="52" fill="#17152b" font-size="9" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">June</text>
+        <text x="326" y="52" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">4월</text>
+        <text x="578" y="52" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5월</text>
+        <text x="830" y="52" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6월</text>
         <line x1="452" y1="36" x2="452" y2="416" stroke="rgba(23,21,43,0.08)" stroke-width="0.8" stroke-dasharray="3,3"/>
         <line x1="704" y1="36" x2="704" y2="416" stroke="rgba(23,21,43,0.08)" stroke-width="0.8" stroke-dasharray="3,3"/>
         <line x1="263" y1="60" x2="263" y2="416" stroke="rgba(23,21,43,0.05)" stroke-width="0.6"/>
@@ -59,66 +62,66 @@
         <line x1="893" y1="60" x2="893" y2="416" stroke="rgba(23,21,43,0.05)" stroke-width="0.6"/>
         <line x1="200" y1="60" x2="956" y2="60" stroke="rgba(23,21,43,0.20)" stroke-width="0.8"/>
         <line x1="200" y1="36" x2="200" y2="416" stroke="rgba(23,21,43,0.20)" stroke-width="0.8"/>
-        <text x="20" y="85" fill="rgba(23,21,43,0.40)" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">DISCOVERY</text>
-        <text x="20" y="185" fill="rgba(23,21,43,0.40)" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">DESIGN</text>
-        <text x="20" y="325" fill="rgba(23,21,43,0.40)" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LAUNCH</text>
+        <text x="20" y="88" fill="rgba(23,21,43,0.40)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">1단계 · 분석</text>
+        <text x="20" y="188" fill="rgba(23,21,43,0.40)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">2단계 · 설계</text>
+        <text x="20" y="328" fill="rgba(23,21,43,0.40)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">3단계 · 개발</text>
         <rect x="20" y="92" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="108" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Market research</text>
+        <text x="20" y="108" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">과제 착수</text>
         <rect x="200" y="92" width="126" height="24" rx="4" fill="#ffffff"/>
         <rect x="200" y="92" width="126" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <rect x="20" y="132" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="148" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">User interviews</text>
+        <text x="20" y="148" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">요구사항 분석</text>
         <rect x="263" y="132" width="126" height="24" rx="4" fill="#ffffff"/>
         <rect x="263" y="132" width="126" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <rect x="20" y="192" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="208" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Wireframes</text>
+        <text x="20" y="208" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">기본 설계</text>
         <rect x="389" y="192" width="126" height="24" rx="4" fill="#ffffff"/>
         <rect x="389" y="192" width="126" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <rect x="20" y="232" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="248" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Prototype</text>
+        <text x="20" y="248" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">시제품 개발</text>
         <rect x="452" y="232" width="189" height="24" rx="4" fill="#ffffff"/>
         <rect x="452" y="232" width="189" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <rect x="20" y="272" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="288" fill="#2f6fdb" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Design review</text>
+        <text x="20" y="288" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">중간 보고</text>
         <rect x="641" y="272" width="63" height="24" rx="4" fill="#ffffff"/>
         <rect x="641" y="272" width="63" height="24" rx="4" fill="rgba(47,111,219,0.12)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="672" y="289" fill="#2f6fdb" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">GATE</text>
+        <text x="672" y="288" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">점검</text>
         <rect x="20" y="332" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="348" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Development</text>
+        <text x="20" y="348" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">본 개발</text>
         <rect x="578" y="332" width="252" height="24" rx="4" fill="#ffffff"/>
         <rect x="578" y="332" width="252" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <rect x="20" y="372" width="176" height="24" fill="#ffffff"/>
-        <text x="20" y="388" fill="#17152b" font-size="10" font-weight="600" font-family="'Geist', sans-serif">Beta testing</text>
+        <text x="20" y="388" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">시험·검증</text>
         <rect x="767" y="372" width="126" height="24" rx="4" fill="#ffffff"/>
         <rect x="767" y="372" width="126" height="24" rx="4" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
         <line x1="40" y1="430" x2="960" y2="430" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="446" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
         <rect x="40" y="456" width="20" height="12" rx="3" fill="rgba(47,111,219,0.12)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="68" y="466" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Design review · critical gate</text>
+        <text x="68" y="466" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">중간 보고 · 핵심 관문</text>
         <rect x="280" y="456" width="20" height="12" rx="3" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
-        <text x="308" y="466" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Task</text>
+        <text x="308" y="466" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">과업</text>
         <rect x="368" y="456" width="20" height="12" rx="3" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="396" y="466" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Phase</text>
+        <text x="396" y="466" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">단계</text>
       </svg>
     </div>
     <div class="cards">
       <div class="card">
         <p class="eyebrow">CRITICAL GATE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Design review — week 8</h3></div>
-        <p>Development begins in week 7 but the full build is contingent on design sign-off. Starting before the gate means dev can fix implementation issues early, not rebuild from scratch post-review.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>중간 보고 · 8주 차</h3></div>
+        <p>본 개발은 7주 차에 시작하지만 전면 착수는 중간 보고 승인 이후다. 관문 전에 먼저 시작해 두면 구현 문제를 일찍 고칠 수 있어 점검 후 처음부터 다시 만들 일이 없다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Discovery ↔ Design overlap</h3></div>
-        <p>User interviews (W2–W4) overlap with wireframes (W4–W6) by one week. This is intentional — the first round of interview findings feeds directly into iteration without a formal handoff ceremony.</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>분석·설계 중첩</h3></div>
+        <p>요구사항 분석(2~4주 차)과 기본 설계(4~6주 차)는 1주 겹친다. 의도한 배치다. 1차 분석 결과를 별도 인수인계 없이 바로 설계에 반영한다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Float in the schedule</h3></div>
-        <p>Beta testing (W10–W12) has two weeks of overlap with dev end (W11). If dev slips by one week, beta absorbs it. If dev slips two weeks, the launch date moves — there is no buffer beyond that.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>일정 여유</h3></div>
+        <p>시험·검증(10~12주 차)은 본 개발 종료(11주 차)와 2주 겹친다. 개발이 1주 늦어지면 검증 기간이 흡수하고, 2주 늦어지면 결과 보고일이 밀린다. 그 이상의 여유는 없다.</p>
       </div>
     </div>
     <div class="footer">
-      <span>Q2 product launch · 12-week plan</span>
-      <span>example · diagram design</span>
+      <span>간트 차트 · 1차년도 과제 일정</span>
+      <span>예제 · 연구과제</span>
     </div>
   </div>
 </body>

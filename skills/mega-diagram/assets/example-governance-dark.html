@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 공공데이터 플랫폼 과제 추진 체계도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #17152b;
+      --color-ink:     #f6f5fa;
+      --color-muted:   #d4d2de;
+      --color-accent:  #6e9bea;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; width: 100%; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 900px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Governance · mega-diagram</p>
+    <h1>AI 공공데이터 플랫폼 과제 추진 체계</h1>
+
+    <svg viewBox="0 0 1000 672" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="governance-dark-title governance-dark-desc">
+      <title id="governance-dark-title">AI 공공데이터 플랫폼 과제 추진 체계도</title>
+      <desc id="governance-dark-desc">과학기술정보통신부·정보통신기획평가원과 협약한 주관기관 (주)메가데이터가 참여기관 세 곳에 연구비를 배분하고, 가온시 도시정보과와 기술 이전·실증 데이터를 주고받으며 자문위원회의 자문을 받는 추진 체계.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#d4d2de"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6e9bea"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#9a86ec"/></marker>
+      </defs>
+
+      <!-- Relations first: they paint behind the organisation boxes. -->
+      <line x1="500" y1="96" x2="500" y2="136" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="476" y1="192" x2="476" y2="248" stroke="#6e9bea" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <line x1="524" y1="248" x2="524" y2="192" stroke="#d4d2de" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <line x1="240" y1="312" x2="360" y2="312" stroke="#d4d2de" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <line x1="640" y1="288" x2="760" y2="288" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <line x1="760" y1="336" x2="640" y2="336" stroke="#d4d2de" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <!-- 주관 → 참여: stem + bus + drops, r=8 corners -->
+      <line x1="500" y1="376" x2="500" y2="456" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 500,416 H 188 Q 180,416 180,424 V 456" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 500,416 H 812 Q 820,416 820,424 V 456" fill="none" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Relation labels: 16px masks, 8px clear of their stroke -->
+      <rect x="508" y="108" width="64" height="16" rx="2" fill="#17152b"/>
+      <text x="540" y="120" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">사업 위탁</text>
+      <rect x="392" y="212" width="76" height="16" rx="2" fill="#17152b"/>
+      <text x="430" y="224" fill="#6e9bea" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">협약·연구비</text>
+      <rect x="532" y="212" width="64" height="16" rx="2" fill="#17152b"/>
+      <text x="564" y="224" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">성과 보고</text>
+      <rect x="268" y="288" width="64" height="16" rx="2" fill="#17152b"/>
+      <text x="300" y="300" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기술 자문</text>
+      <rect x="668" y="264" width="64" height="16" rx="2" fill="#17152b"/>
+      <text x="700" y="276" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기술 이전</text>
+      <rect x="660" y="312" width="76" height="16" rx="2" fill="#17152b"/>
+      <text x="698" y="324" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">실증 데이터</text>
+      <rect x="508" y="384" width="76" height="16" rx="2" fill="#17152b"/>
+      <text x="546" y="396" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">연구비 배분</text>
+
+      <!-- Organisation boxes: paper mask, styled box, role caption, name, divider, role bullets -->
+      <!-- 발주기관 · 과학기술정보통신부 -->
+      <rect x="400" y="40" width="200" height="56" rx="6" fill="#17152b"/>
+      <rect x="400" y="40" width="200" height="56" rx="6" fill="rgba(246,245,250,0.03)" stroke="rgba(246,245,250,0.30)" stroke-width="1"/>
+      <text x="416" y="62" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">발주기관</text>
+      <text x="416" y="82" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">과학기술정보통신부</text>
+      <!-- 전담기관 · 정보통신기획평가원 -->
+      <rect x="400" y="136" width="200" height="56" rx="6" fill="#17152b"/>
+      <rect x="400" y="136" width="200" height="56" rx="6" fill="rgba(246,245,250,0.03)" stroke="rgba(246,245,250,0.30)" stroke-width="1"/>
+      <text x="416" y="158" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">전담기관</text>
+      <text x="416" y="178" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">정보통신기획평가원</text>
+      <!-- 자문위원회 · 산·학·연 전문가 7인 -->
+      <rect x="40" y="284" width="200" height="56" rx="6" fill="#17152b"/>
+      <rect x="40" y="284" width="200" height="56" rx="6" fill="rgba(246,245,250,0.02)" stroke="rgba(246,245,250,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="56" y="306" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자문위원회</text>
+      <text x="56" y="326" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">산·학·연 전문가 7인</text>
+      <!-- 주관기관 · (주)메가데이터 -->
+      <rect x="360" y="248" width="280" height="128" rx="6" fill="#17152b"/>
+      <rect x="360" y="248" width="280" height="128" rx="6" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1"/>
+      <text x="376" y="270" fill="#6e9bea" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">주관기관</text>
+      <text x="376" y="290" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">(주)메가데이터</text>
+      <line x1="376" y1="304" x2="624" y2="304" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <circle cx="380" cy="322" r="1.5" fill="#d4d2de"/>
+      <text x="388" y="326" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">과제 총괄·성과 관리</text>
+      <circle cx="380" cy="340" r="1.5" fill="#d4d2de"/>
+      <text x="388" y="344" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">플랫폼 아키텍처 설계</text>
+      <circle cx="380" cy="358" r="1.5" fill="#d4d2de"/>
+      <text x="388" y="362" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">참여기관 연구비 배분</text>
+      <!-- 수요·실증기관 · 가온시 도시정보과 -->
+      <rect x="760" y="248" width="200" height="128" rx="6" fill="#17152b"/>
+      <rect x="760" y="248" width="200" height="128" rx="6" fill="rgba(212,210,222,0.10)" stroke="#9d9ab0" stroke-width="1"/>
+      <text x="776" y="270" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수요·실증기관</text>
+      <text x="776" y="290" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">가온시 도시정보과</text>
+      <line x1="776" y1="304" x2="944" y2="304" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <circle cx="780" cy="322" r="1.5" fill="#d4d2de"/>
+      <text x="788" y="326" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">실증 현장 제공</text>
+      <circle cx="780" cy="340" r="1.5" fill="#d4d2de"/>
+      <text x="788" y="344" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현장 요구사항 정의</text>
+      <circle cx="780" cy="358" r="1.5" fill="#d4d2de"/>
+      <text x="788" y="362" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">운영 데이터 공유</text>
+      <!-- 공동연구기관 · 한빛대학교 산학협력단 -->
+      <rect x="40" y="456" width="280" height="112" rx="6" fill="#17152b"/>
+      <rect x="40" y="456" width="280" height="112" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
+      <text x="56" y="478" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">공동연구기관</text>
+      <text x="56" y="498" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">한빛대학교 산학협력단</text>
+      <line x1="56" y1="512" x2="304" y2="512" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <circle cx="60" cy="530" r="1.5" fill="#d4d2de"/>
+      <text x="68" y="534" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">AI 분석 모델 연구</text>
+      <circle cx="60" cy="548" r="1.5" fill="#d4d2de"/>
+      <text x="68" y="552" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">데이터 품질 검증</text>
+      <!-- 참여기관 · (주)누리소프트 -->
+      <rect x="360" y="456" width="280" height="112" rx="6" fill="#17152b"/>
+      <rect x="360" y="456" width="280" height="112" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
+      <text x="376" y="478" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">참여기관</text>
+      <text x="376" y="498" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">(주)누리소프트</text>
+      <line x1="376" y1="512" x2="624" y2="512" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <circle cx="380" cy="530" r="1.5" fill="#d4d2de"/>
+      <text x="388" y="534" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수집 모듈 개발</text>
+      <circle cx="380" cy="548" r="1.5" fill="#d4d2de"/>
+      <text x="388" y="552" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">현장 시스템 연동</text>
+      <!-- 참여기관 · (재)미래표준연구원 -->
+      <rect x="680" y="456" width="280" height="112" rx="6" fill="#17152b"/>
+      <rect x="680" y="456" width="280" height="112" rx="6" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
+      <text x="696" y="478" fill="#9d9ab0" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">참여기관</text>
+      <text x="696" y="498" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">(재)미래표준연구원</text>
+      <line x1="696" y1="512" x2="944" y2="512" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <circle cx="700" cy="530" r="1.5" fill="#d4d2de"/>
+      <text x="708" y="534" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표준·인증 대응</text>
+      <circle cx="700" cy="548" r="1.5" fill="#d4d2de"/>
+      <text x="708" y="552" fill="#d4d2de" font-size="12" font-weight="400" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">성능 시험 평가</text>
+
+      <!-- Legend: horizontal strip below every box -->
+      <line x1="40" y1="608" x2="960" y2="608" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
+      <text x="40" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
+      <rect x="88" y="628" width="16" height="12" rx="2" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1"/>
+      <text x="112" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">주관기관</text>
+      <rect x="184" y="628" width="16" height="12" rx="2" fill="rgba(246,245,250,0.03)" stroke="rgba(246,245,250,0.30)" stroke-width="1"/>
+      <text x="208" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">발주·전담기관</text>
+      <rect x="312" y="628" width="16" height="12" rx="2" fill="#24223a" stroke="#f6f5fa" stroke-width="1"/>
+      <text x="336" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">참여기관</text>
+      <rect x="408" y="628" width="16" height="12" rx="2" fill="rgba(212,210,222,0.10)" stroke="#9d9ab0" stroke-width="1"/>
+      <text x="432" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수요·실증기관</text>
+      <rect x="536" y="628" width="16" height="12" rx="2" fill="rgba(246,245,250,0.02)" stroke="rgba(246,245,250,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="560" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자문(선택)</text>
+      <line x1="648" y1="634" x2="664" y2="634" stroke="#6e9bea" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+      <text x="672" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">협약·재원</text>
+      <line x1="752" y1="634" x2="768" y2="634" stroke="#d4d2de" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="776" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">수행·지원</text>
+      <line x1="856" y1="634" x2="872" y2="634" stroke="#d4d2de" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <text x="880" y="640" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">보고·환류</text>
+    </svg>
+  </div>
+</body>
+</html>

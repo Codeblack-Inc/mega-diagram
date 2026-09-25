@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude Code skill taxonomy · Tree</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>공공 데이터 플랫폼 기능 분류</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Tree · mega-diagram</p>
-      <h1>Claude Code skill taxonomy</h1>
-      <p class="subtitle">Three tiers, one root. The full skill library fans out from a single idea — and every leaf descends through exactly one category. Orthogonal connectors, one coral accent, nothing else.</p>
+      <h1>공공 데이터 플랫폼 기능 분류</h1>
+      <p class="subtitle">3단계, 하나의 루트. 플랫폼 기능 전체가 한 가지 목적에서 갈라지고, 모든 세부 기능은 정확히 하나의 대분류를 거쳐 내려온다. 직교 연결선과 강조색 하나 외에는 쓰지 않는다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tree-full-title tree-full-desc">
-        <title id="tree-full-title">Claude Code skill taxonomy</title>
-        <desc id="tree-full-desc">Tree diagram showing a Skills root branching into Design, Engineering, and Research categories and their leaf skills.</desc>
+        <title id="tree-full-title">공공 데이터 플랫폼 기능 분류</title>
+        <desc id="tree-full-desc">공공 데이터 플랫폼을 데이터 수집, 데이터 관리, 데이터 개방 세 대분류와 그 아래 세부 기능으로 나눈 트리.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -76,98 +79,98 @@
         <rect x="420" y="80" width="160" height="48" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
         <rect x="428" y="88" width="32" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.50)" stroke-width="0.8"/>
         <text x="444" y="97" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ROOT</text>
-        <text x="500" y="118" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Skills</text>
+        <text x="500" y="118" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공공 데이터 플랫폼</text>
 
         <!-- Tier 1: Design -->
         <rect x="140" y="208" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="140" y="208" width="160" height="48" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="148" y="216" width="28" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="162" y="225" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CAT</text>
-        <text x="220" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Design</text>
-        <text x="220" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">ui · visual · ux</text>
+        <text x="220" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 수집</text>
+        <text x="220" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">ingest · ETL · CDC</text>
 
         <!-- Tier 1: Engineering -->
         <rect x="420" y="208" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="420" y="208" width="160" height="48" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="428" y="216" width="28" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="442" y="225" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CAT</text>
-        <text x="500" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Engineering</text>
-        <text x="500" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">ship · review · test</text>
+        <text x="500" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 관리</text>
+        <text x="500" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">quality · meta · audit</text>
 
         <!-- Tier 1: Research -->
         <rect x="700" y="208" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="700" y="208" width="160" height="48" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="708" y="216" width="28" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="722" y="225" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CAT</text>
-        <text x="780" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Research</text>
-        <text x="780" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">investigate · analyze</text>
+        <text x="780" y="240" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 개방</text>
+        <text x="780" y="252" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">portal · Open API</text>
 
         <!-- Tier 2: polish -->
         <rect x="60" y="336" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="60" y="336" width="160" height="48" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="140" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">polish</text>
-        <text x="140" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">align · space · rhythm</text>
+        <text x="140" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기관 연계</text>
+        <text x="140" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">REST · SFTP · batch</text>
 
         <!-- Tier 2: critique -->
         <rect x="220" y="336" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="220" y="336" width="160" height="48" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="300" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">critique</text>
-        <text x="300" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">hierarchy · density</text>
+        <text x="300" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">파일 등록</text>
+        <text x="300" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">CSV · XLSX · JSON</text>
 
         <!-- Tier 2: review -->
         <rect x="400" y="336" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="400" y="336" width="160" height="48" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="480" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">review</text>
-        <text x="480" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">pre-land diff · sql</text>
+        <text x="480" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">품질 검증</text>
+        <text x="480" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">rules · schema · log</text>
 
         <!-- Tier 2: ship -->
         <rect x="580" y="336" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="580" y="336" width="160" height="48" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="660" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">ship</text>
-        <text x="660" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">merge · deploy · verify</text>
+        <text x="660" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">메타데이터</text>
+        <text x="660" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">DCAT · catalog</text>
 
         <!-- Tier 2: investigate -->
         <rect x="760" y="336" width="160" height="48" rx="6" fill="#ffffff"/>
         <rect x="760" y="336" width="160" height="48" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="840" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">investigate</text>
-        <text x="840" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">root cause · evidence</text>
+        <text x="840" y="360" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">API 서비스</text>
+        <text x="840" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">REST · key · quota</text>
 
         <!-- Legend strip -->
         <line x1="40" y1="412" x2="960" y2="412" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="428" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="428" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="40" y="444" width="14" height="10" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="60" y="452" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Root · focal</text>
+        <text x="60" y="452" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">플랫폼 · 초점</text>
 
         <rect x="180" y="444" width="14" height="10" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="200" y="452" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Category branch</text>
+        <text x="200" y="452" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">대분류</text>
 
         <rect x="340" y="444" width="14" height="10" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="360" y="452" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Leaf skill</text>
+        <text x="360" y="452" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">세부 기능</text>
 
-        <text x="500" y="452" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Orthogonal connectors only. Coral marks the root — every branch descends from one idea.</text>
+        <text x="500" y="452" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">직교 연결선만 사용 · 강조색은 루트에만</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>One root, one coral dot</h3></div>
-        <p>A taxonomy is a promise: every child has exactly one parent. Coral lives on the root because that's the only node the tree is actually about — everything else is a descent.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>루트 하나, 강조색 하나</h3></div>
+        <p>분류 체계는 약속이다. 모든 하위 항목은 상위 항목을 정확히 하나만 가진다. 강조색은 이 트리가 실제로 다루는 대상인 루트에만 쓴다 — 나머지는 모두 거기서 내려온 가지다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Connectors are orthogonal</h3></div>
-        <ul><li>Parent drops vertical</li><li>Horizontal bus connects siblings</li><li>Each child drops into its top edge</li><li>No diagonals, no curves</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>연결선은 직교로</h3></div>
+        <ul><li>상위 노드에서 수직으로 내림</li><li>수평 버스로 형제 노드 연결</li><li>각 하위 노드의 윗변으로 진입</li><li>사선·곡선 사용 안 함</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Uneven breadth is honest</h3></div>
-        <p>Design and Engineering fan to two leaves; Research drops to one. The layout reflects the real shape of the library, not a forced symmetry.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>고르지 않은 폭이 정직하다</h3></div>
+        <p>수집과 관리는 세부 기능 둘로, 개방은 하나로 갈라진다. 억지 대칭이 아니라 실제 기능 구성을 그대로 보여 준다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>claude code skill taxonomy</span>
-      <span>example · schematic skill</span>
+      <span>트리 · 공공 데이터 플랫폼 기능 분류</span>
+      <span>예제 · 공공 데이터</span>
     </div>
   </div>
 </body>

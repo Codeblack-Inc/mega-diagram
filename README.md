@@ -4,11 +4,11 @@
 
 한국어 문서에 바로 넣는 다이어그램을 만드는 Claude Code / Codex 플러그인.
 
-mega-diagram은 [Cathryn Lavery](https://github.com/cathrynlavery)의 [diagram-design](https://github.com/cathrynlavery/diagram-design)(MIT)을 기반으로 한 한국형 포크다. 편집 원칙, 41가지 형식, 연결선 규칙, 검증 스크립트는 원본을 그대로 쓰고, 색·한글·배경을 한국 문서에 맞게 바꿨다. 자세한 출처는 [아래](#출처와-라이선스)에 있다.
+mega-diagram은 [Cathryn Lavery](https://github.com/cathrynlavery)의 [diagram-design](https://github.com/cathrynlavery/diagram-design)(MIT)을 기반으로 한 한국형 포크다. 편집 원칙, 41가지 형식, 연결선 규칙, 검증 스크립트는 원본을 그대로 쓰고, 색·한글·배경을 한국 문서에 맞게 바꿨다. 여기에 한국 보고서 전용 형식 3가지(전략 체계도·추진 체계도·추진 로드맵)를 더해 44가지가 되었고, 모든 예시는 한국어다. 자세한 출처는 [아래](#출처와-라이선스)에 있다.
 
-[![한국어 구성도 예시](docs/ko/architecture.webp)](docs/ko/architecture.png)
+[![전략 체계도 예시](docs/screenshots/thumbs/strategy-house.webp)](docs/screenshots/strategy-house.png)
 
-*[docs/ko/architecture.html](docs/ko/architecture.html) — 한글 라벨은 Pretendard, 기술 부제는 Geist Mono, 강조는 mega-diagram 블루 한 곳.*
+*전략 체계도 — 한국 보고서용으로 새로 만든 형식. 한글 라벨은 Pretendard, 강조는 mega-diagram 블루 두 곳까지. [갤러리에서 44가지 형식 보기 →](https://codeblack-inc.github.io/mega-diagram/)*
 
 ## 원본과 다른 점
 
@@ -19,15 +19,23 @@ mega-diagram은 [Cathryn Lavery](https://github.com/cathrynlavery)의 [diagram-d
 | **배경** | SVG 안에 종이색 사각형 | **배경 없음** — 내보낸 SVG/PNG가 투명해서 HWP·Word·PPT 위에 그대로 얹힌다 |
 | **종이색** | 따뜻한 회색 `#F5F5F5` | 흰색 `#FFFFFF` — 라벨 마스크가 흰 문서에서 보이지 않는다 |
 | **문서 프리셋** | 블로그·슬라이드 크기 | A4 본문, 흑백 인쇄, mega-ppt 패널 프리셋과 배율 |
+| **형식** | 41가지 | **44가지** — 전략 체계도·추진 체계도·추진 로드맵 추가 |
+| **예시** | 영어 | 모든 예시 한국어 (민원·결재·공공 데이터·사업계획서 상황) |
+| **갤러리** | 원본 디자인 | [mega-ui](https://github.com/Codeblack-Inc/mega-ui)로 새로 만든 한국어 갤러리 |
 | **연동** | — | mega-ppt `image` 패널, HWP·Word 삽입 방법 |
 
 규칙은 [`skills/mega-diagram/references/mega.md`](skills/mega-diagram/references/mega.md)에 모았다.
 
 ## 만드는 것
 
-41가지 형식, 형식마다 밝은·어두운·에디토리얼 세 가지 변형. 갤러리는 [`skills/mega-diagram/assets/index.html`](skills/mega-diagram/assets/index.html)을 브라우저로 열면 된다.
+44가지 형식, 형식마다 밝게·어둡게·에디토리얼 세 가지 변형. [온라인 갤러리](https://codeblack-inc.github.io/mega-diagram/)에서 보거나 [`skills/mega-diagram/assets/index.html`](skills/mega-diagram/assets/index.html)을 브라우저로 연다.
 
 <table>
+<tr>
+  <td align="center" width="33%"><a href="docs/screenshots/strategy-house.png"><img src="docs/screenshots/thumbs/strategy-house.webp" alt="전략 체계도"></a><br><b>전략 체계도</b> <sub>Strategy house</sub> <sub>🆕</sub><br><sub>비전 → 목표 → 전략 → 과제</sub></td>
+  <td align="center" width="33%"><a href="docs/screenshots/governance.png"><img src="docs/screenshots/thumbs/governance.webp" alt="추진 체계도"></a><br><b>추진 체계도</b> <sub>Governance</sub> <sub>🆕</sub><br><sub>기관별 역할과 관계</sub></td>
+  <td align="center" width="33%"><a href="docs/screenshots/roadmap.png"><img src="docs/screenshots/thumbs/roadmap.webp" alt="추진 로드맵"></a><br><b>추진 로드맵</b> <sub>Roadmap</sub> <sub>🆕</sub><br><sub>단계 × 과제·성과·마일스톤</sub></td>
+</tr>
 <tr>
   <td align="center" width="33%"><a href="docs/screenshots/architecture.png"><img src="docs/screenshots/thumbs/architecture.webp" alt="구성도"></a><br><b>구성도</b> <sub>Architecture</sub><br><sub>구성 요소와 연결</sub></td>
   <td align="center" width="33%"><a href="docs/screenshots/it-state.png"><img src="docs/screenshots/thumbs/it-state.webp" alt="IT 현황도"></a><br><b>IT 현황도</b> <sub>IT current-state</sub><br><sub>레거시 현황과 전환</sub></td>
@@ -265,7 +273,6 @@ mega-diagram/
 │       ├── sample-whiteboard.excalidraw
 │       └── sample-adversarial.excalidraw
 ├── docs/brand/                      — mega-diagram 로고·심벌·소셜 이미지
-├── docs/ko/                         — 한국어 예시 (architecture.html)
 ├── docs/cookbook.md                 — operator recipes for editable installs and common tasks
 ├── docs/adr/                        — short records of settled design decisions
 ├── docs/screenshots/                — full-resolution images + source-digest manifest.json
@@ -300,6 +307,9 @@ mega-diagram은 **[diagram-design](https://github.com/cathrynlavery/diagram-desi
 - 한글을 Pretendard로 그리도록 템플릿과 안전 검사(`self_check.py`, `lint-skin.py`)에 고정 URL 하나를 허용
 - 한국어 문서 규칙 [`references/mega.md`](skills/mega-diagram/references/mega.md) 추가
 - 매니페스트·README·로고를 mega 제품군 형식으로 교체
+- 모든 예시를 한국어 상황으로 다시 쓰고, 한국 보고서 형식 3가지(전략 체계도·추진 체계도·추진 로드맵)를 새로 추가
+- 갤러리를 mega-ui 컴포넌트로 새로 만듦
+- 검증 스크립트가 한글 라벨(16px 마스크, 한국어 범례 문구)과 Pretendard를 이해하도록 확장
 
 원본의 편집 철학, 형식별 참조 문서, 검증 스크립트, ADR은 원저작자의 작업이다. 두 저작권 표시는 [LICENSE](LICENSE)에, 번들된 아이콘·서체 라이선스는 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)에 있다.
 

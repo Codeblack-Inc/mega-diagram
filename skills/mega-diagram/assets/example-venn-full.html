@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good design · Desirable × Feasible × Viable</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>데이터 인재 요건 · 업무 × 분석 × 개발</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --color-link:#6043d5; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -28,20 +29,22 @@
     .card li { margin-bottom: 0.3rem; padding-left: 0.875rem; position: relative; }
     .card li::before { content: '—'; position: absolute; left: 0; color: rgba(23,21,43,0.25); font-size: 0.75rem; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Venn · mega-diagram</p>
-      <h1>Good design · Desirable × Feasible × Viable</h1>
-      <p class="subtitle">Three tests every product has to pass before it earns the word "shippable." Miss one and you get a prototype, a vaporware demo, or an internal tool nobody asked for. Coral marks the intersection worth the work.</p>
+      <h1>데이터 인재 요건 · 업무 × 분석 × 개발</h1>
+      <p class="subtitle">공공 데이터 조직이 채용할 때 보는 세 가지 역량. 하나라도 빠지면 업무 분석가, 현업 개발자, 기술 전문가에 머문다. 강조색은 채용할 교집합에만 쓴다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="venn-full-title venn-full-desc">
-        <title id="venn-full-title">Good design · Desirable × Feasible × Viable</title>
-        <desc id="venn-full-desc">Venn diagram showing desirable, feasible, and viable product qualities intersecting at shippable.</desc>
+        <title id="venn-full-title">데이터 인재 요건 · 업무 × 분석 × 개발</title>
+        <desc id="venn-full-desc">업무 이해, 분석 역량, 개발 역량 세 가지가 모두 겹치는 영역을 핵심 인재로 표시한 벤 다이어그램.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -71,62 +74,62 @@
         </g>
 
         <!-- Set labels -->
-        <text x="500" y="20" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Desirable</text>
-        <text x="500" y="36" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">PEOPLE WANT IT</text>
+        <text x="500" y="20" fill="#17152b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">업무 이해</text>
+        <text x="500" y="36" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">행정 현장 경험</text>
 
-        <text x="152" y="400" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="start">Feasible</text>
-        <text x="152" y="416" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start" letter-spacing="0.14em">WE CAN BUILD IT</text>
+        <text x="152" y="400" fill="#68657b" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start">분석 역량</text>
+        <text x="152" y="416" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="start" font-weight="500">통계·모델링</text>
 
-        <text x="848" y="400" fill="#8a879c" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="end">Viable</text>
-        <text x="848" y="416" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end" letter-spacing="0.14em">BUSINESS SUSTAINS</text>
+        <text x="848" y="400" fill="#8a879c" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end">개발 역량</text>
+        <text x="848" y="416" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="500">시스템 구현</text>
 
         <!-- Pairwise intersection labels -->
-        <text x="360" y="232" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Prototype</text>
-        <text x="360" y="248" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">no business model</text>
+        <text x="416" y="232" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">업무 분석가</text>
+        <text x="416" y="248" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">자동화 불가</text>
 
-        <text x="640" y="232" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Vaporware</text>
-        <text x="640" y="248" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">can't build it</text>
+        <text x="584" y="232" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">현업 개발자</text>
+        <text x="584" y="248" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">근거 부족</text>
 
-        <text x="500" y="368" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Internal tool</text>
-        <text x="500" y="384" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">nobody wants it</text>
+        <text x="500" y="368" fill="#68657b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">기술 전문가</text>
+        <text x="500" y="384" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="400">현장 이해 부족</text>
 
         <!-- Focal: all-three center -->
-        <text x="500" y="260" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Shippable</text>
-        <text x="500" y="276" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">THE SWEET SPOT</text>
+        <text x="500" y="260" fill="#2f6fdb" font-size="14" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">핵심 인재</text>
+        <text x="500" y="276" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">채용 1순위</text>
 
         <!-- Legend strip -->
         <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="472" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="472" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <circle cx="52" cy="488" r="6" fill="none" stroke="#2f6fdb" stroke-width="1.2"/>
-        <text x="68" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">All three — ship it</text>
+        <text x="68" y="492" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">세 역량 모두 갖춤</text>
 
         <circle cx="192" cy="488" r="6" fill="none" stroke="#68657b" stroke-width="1"/>
-        <text x="208" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Two of three — incomplete</text>
+        <text x="208" y="492" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">두 역량만 갖춤</text>
 
-        <text x="380" y="492" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Coral marks the intersection that earns the work. The others name the traps.</text>
+        <text x="380" y="492" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">강조색은 채용할 교집합에만 쓰고, 나머지 칸은 보완할 공백을 표시한다.</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">THE HEADLINE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>One sweet spot, in coral</h3></div>
-        <p>Three overlapping circles create seven regions. Six of them are diagnostic — they name the failure mode. Only the center earns the coral. If every region is colored, the diagram stops prioritizing anything.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>강조색은 교집합 하나에만</h3></div>
+        <p>원 세 개가 겹치면 영역이 일곱 개 생긴다. 여섯 개는 무엇이 모자란지 진단하고, 가운데만 강조색을 받는다. 모든 영역을 칠하면 그림이 아무것도 고르지 못한다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>The three tests</h3></div>
-        <ul><li>Desirable — someone pulls for it</li><li>Feasible — the team can actually build it</li><li>Viable — the economics hold up over time</li><li>All three, or you don't ship</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h3>세 가지 역량</h3></div>
+        <ul><li>업무 이해 — 행정 현장을 안다</li><li>분석 역량 — 통계로 근거를 만든다</li><li>개발 역량 — 시스템으로 구현한다</li><li>셋 다 갖춰야 핵심 인재</li></ul>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>The named traps</h3></div>
-        <p>Prototype (loved, buildable, no model). Vaporware (loved, profitable, un-buildable). Internal tool (buildable, profitable, unloved). Labeling each one makes the map more useful than the center alone.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>이름 붙인 공백</h3></div>
+        <p>업무 분석가(업무·분석, 자동화 불가), 현업 개발자(업무·개발, 근거 부족), 기술 전문가(분석·개발, 현장 이해 부족). 공백마다 이름을 붙이면 교육 계획까지 세울 수 있다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>good design · desirable × feasible × viable</span>
-      <span>example · schematic skill</span>
+      <span>데이터 인재 요건 · 업무 × 분석 × 개발</span>
+      <span>예제 · 역량 교집합</span>
     </div>
   </div>
 </body>

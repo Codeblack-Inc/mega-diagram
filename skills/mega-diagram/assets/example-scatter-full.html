@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deploy frequency vs lead time · Scatter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>배포 빈도와 리드 타임 · 산점도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -26,22 +27,24 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Scatter · mega-diagram</p>
-      <h1>Deploy frequency vs. lead time · 12 teams</h1>
-      <p class="subtitle">Each point is an engineering team. Moving right means deploying more often; moving down means shipping faster. The Platform team occupies the lower-right — the ideal quadrant.</p>
+      <h1>배포 빈도와 리드 타임 · 개발팀 12곳</h1>
+      <p class="subtitle">점 하나가 개발팀 하나. 오른쪽일수록 자주 배포하고, 아래쪽일수록 빨리 반영한다. 플랫폼팀이 이상적인 오른쪽 아래 사분면에 있다.</p>
     </div>
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="scatter-full-title scatter-full-desc">
-        <title id="scatter-full-title">Deploy frequency vs. lead time · 12 teams</title>
-        <desc id="scatter-full-desc">Scatter plot showing twelve engineering teams by deploy frequency and lead time, with Platform in the best-performing quadrant.</desc>
+        <title id="scatter-full-title">배포 빈도와 리드 타임 · 개발팀 12곳</title>
+        <desc id="scatter-full-desc">개발팀 12곳의 주간 배포 횟수와 리드 타임을 보여 주며 플랫폼팀이 최우수 사분면에 위치한 산점도.</desc>
         <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/></pattern></defs>
-        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">LEAD TIME (DAYS)</text>
-        <text x="520" y="492" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">DEPLOYS PER WEEK</text>
+        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">리드 타임(일)</text>
+        <text x="520" y="456" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">주간 배포(회)</text>
         <line x1="80" y1="325" x2="960" y2="325" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="230" x2="960" y2="230" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="135" x2="960" y2="135" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
@@ -76,38 +79,38 @@
         <circle cx="784" cy="357" r="5" fill="#ffffff"/><circle cx="784" cy="357" r="5" fill="rgba(104,101,123,0.20)" stroke="#68657b" stroke-width="1"/>
         <circle cx="960" cy="388" r="5" fill="#ffffff"/><circle cx="960" cy="388" r="5" fill="rgba(104,101,123,0.20)" stroke="#68657b" stroke-width="1"/>
         <circle cx="872" cy="372" r="6" fill="#ffffff"/><circle cx="872" cy="372" r="6" fill="rgba(47,111,219,0.15)" stroke="#2f6fdb" stroke-width="1.2"/>
-        <rect x="798" y="348" width="64" height="12" rx="2" fill="#ffffff"/>
-        <text x="830" y="357" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PLATFORM</text>
-        <text x="88" y="56"  fill="rgba(23,21,43,0.25)" font-size="8" font-family="'Geist Mono', monospace">HIGH LEAD TIME</text>
-        <text x="88" y="412" fill="rgba(23,21,43,0.25)" font-size="8" font-family="'Geist Mono', monospace">LOW LEAD TIME</text>
+        <rect x="802" y="344" width="56" height="16" rx="2" fill="#ffffff"/>
+        <text x="830" y="356" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">플랫폼팀</text>
+        <text x="88" y="56"  fill="rgba(23,21,43,0.25)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">리드 타임 김</text>
+        <text x="88" y="412" fill="rgba(23,21,43,0.25)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">리드 타임 짧음</text>
         <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
         <circle cx="52" cy="490" r="6" fill="rgba(47,111,219,0.15)" stroke="#2f6fdb" stroke-width="1.2"/>
-        <text x="68" y="494" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Platform team · best performer</text>
+        <text x="68" y="494" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">플랫폼팀 · 최우수</text>
         <circle cx="256" cy="490" r="5" fill="rgba(104,101,123,0.20)" stroke="#68657b" stroke-width="1"/>
-        <text x="272" y="494" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Engineering team</text>
+        <text x="272" y="494" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">개발팀</text>
         <line x1="416" y1="490" x2="440" y2="490" stroke="rgba(23,21,43,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
-        <text x="448" y="494" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Trend</text>
+        <text x="448" y="494" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">추세</text>
       </svg>
     </div>
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">BEST PERFORMER</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Platform team · (18, 3)</h3></div>
-        <p>18 deploys/week with a 3-day lead time. This combination is achievable because they own the full stack — no cross-team approval gates, and their CI pipeline runs under 4 minutes.</p>
+        <p class="eyebrow">최우수 팀</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>플랫폼팀 · (18, 3)</h3></div>
+        <p>주 18회 배포, 리드 타임 3일. 전 구간을 직접 운영해 팀 간 결재 단계가 없고 CI 파이프라인이 4분 안에 끝나기에 가능한 조합.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Correlation is clear</h3></div>
-        <p>Every team to the right of the median deploy frequency (8/week) is also below the median lead time (12 days). The relationship isn't causal — both are symptoms of the same underlying practice: small, frequent, reversible changes.</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>뚜렷한 상관관계</h3></div>
+        <p>배포 빈도 중앙값(주 8회)보다 오른쪽 팀은 모두 리드 타임 중앙값(12일)보다 아래. 인과관계는 아니며, 작고 잦고 되돌릴 수 있는 변경이라는 같은 관행의 두 결과.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Two outliers worth examining</h3></div>
-        <p>The team at (2,20) ships rarely and slowly — high coupling, long approval chains. The team at (12,10) deploys frequently but with higher-than-expected lead time — likely a large monorepo with slow integration tests.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>살펴볼 이상치 2곳</h3></div>
+        <p>(2, 20) 팀은 드물고 느리게 배포 — 높은 결합도와 긴 결재 단계. (12, 10) 팀은 자주 배포하지만 리드 타임이 예상보다 김 — 통합 테스트가 느린 대형 모노레포로 추정.</p>
       </div>
     </div>
     <div class="footer">
-      <span>deploy frequency vs. lead time · 12 teams</span>
-      <span>example · diagram design</span>
+      <span>배포 빈도와 리드 타임 · 개발팀 12곳</span>
+      <span>예제 · 배포 빈도와 리드 타임</span>
     </div>
   </div>
 </body>

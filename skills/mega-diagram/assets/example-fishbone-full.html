@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout p99 latency · Root-cause fishbone</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>민원 처리 지연 · 원인 분석</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1320px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -29,27 +30,28 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Fishbone · mega-diagram</p>
-      <h1>Checkout p99 latency · Root-cause fishbone</h1>
-      <p class="subtitle">Five candidate cause categories investigated after a 90-minute checkout latency incident. The confirmed root cause carries the diagram's only accent — everything else stays in the neutral ink/muted palette so the reader's eye lands on the answer, not the investigation.</p>
+      <h1>민원 처리 지연 · 원인 분석</h1>
+      <p class="subtitle">민원 처리 시간이 90일간 4배로 늘어난 뒤 다섯 원인 범주를 조사했다. 확인된 근본 원인에만 강조색을 쓰고 나머지는 무채색으로 둬서, 읽는 사람의 눈이 조사 과정이 아닌 답에 먼저 닿게 한다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="-40 0 1480 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fishbone-full-title fishbone-full-desc">
-        <title id="fishbone-full-title">Checkout p99 latency · Root-cause fishbone</title>
-        <desc id="fishbone-full-desc">Fishbone diagram tracing a checkout latency incident to five candidate cause categories, with a missing database index under Data confirmed as the root cause.</desc>
+        <title id="fishbone-full-title">민원 처리 지연 · 원인 분석</title>
+        <desc id="fishbone-full-desc">민원 처리 지연의 원인을 다섯 범주로 나눠 추적하고, 시스템 범주의 자동 배정 규칙 누락을 근본 원인으로 확인한 피시본 다이어그램.</desc>
         <defs>
           <marker id="fishbone-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
             <polygon points="0 0, 8 3, 0 6" fill="#17152b"/>
           </marker>
         </defs>
 
-        <rect x="-40" y="0" width="1480" height="600" fill="#ffffff"/>
 
         <line x1="120" y1="320" x2="1200" y2="320" stroke="#17152b" stroke-width="1.2" marker-end="url(#fishbone-arrow)"/>
 
@@ -60,86 +62,86 @@
         <line x1="240" y1="320" x2="144" y2="152" stroke="#17152b" stroke-width="1.2"/>
 
         <line x1="848" y1="264" x2="816" y2="264" stroke="#68657b" stroke-width="1"/>
-        <text x="812" y="260" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">canary skipped</text>
+        <text x="812" y="260" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">사전 검토 생략</text>
         <line x1="816" y1="208" x2="784" y2="208" stroke="#68657b" stroke-width="1"/>
-        <text x="780" y="204" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">config drift</text>
+        <text x="780" y="204" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">부서별 지침 상이</text>
 
         <line x1="688" y1="376" x2="656" y2="376" stroke="#68657b" stroke-width="1"/>
-        <text x="652" y="388" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">index missing on orders.created_at</text>
+        <text x="652" y="392" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">민원 자동 배정 규칙 누락</text>
         <line x1="656" y1="432" x2="624" y2="432" stroke="#68657b" stroke-width="1"/>
-        <text x="620" y="444" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">table 3x forecast</text>
+        <text x="620" y="448" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">접수량 예측 대비 3배</text>
 
         <line x1="528" y1="264" x2="496" y2="264" stroke="#68657b" stroke-width="1"/>
-        <text x="492" y="260" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">connection pool cap 20</text>
+        <text x="492" y="260" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">담당자 1인당 20건 상한</text>
         <line x1="496" y1="208" x2="464" y2="208" stroke="#68657b" stroke-width="1"/>
-        <text x="460" y="204" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">GC pauses</text>
+        <text x="460" y="204" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">결재 대기 적체</text>
 
         <line x1="368" y1="376" x2="336" y2="376" stroke="#68657b" stroke-width="1"/>
-        <text x="332" y="388" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">no p99 alert</text>
+        <text x="332" y="392" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">기한 초과 알림 없음</text>
         <line x1="336" y1="432" x2="304" y2="432" stroke="#68657b" stroke-width="1"/>
-        <text x="300" y="444" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">dashboard sampled at 5m</text>
+        <text x="300" y="448" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">현황판 5일 단위 집계</text>
 
         <line x1="192" y1="236" x2="160" y2="236" stroke="#68657b" stroke-width="1"/>
-        <text x="156" y="232" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="end">on-call handover mid-incident</text>
+        <text x="156" y="232" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="end" font-weight="400">처리 중 담당자 교체</text>
 
         <rect x="724" y="116" width="120" height="28" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="784" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">DEPLOY</text>
+        <text x="784" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">제도·절차</text>
 
         <rect x="564" y="496" width="120" height="28" rx="4" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="0.8"/>
-        <text x="624" y="514" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">DATA</text>
+        <text x="624" y="514" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">시스템</text>
 
         <rect x="404" y="116" width="120" height="28" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="464" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">RUNTIME</text>
+        <text x="464" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">처리 용량</text>
 
         <rect x="244" y="496" width="120" height="28" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="304" y="514" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">OBSERVABILITY</text>
+        <text x="304" y="514" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">모니터링</text>
 
         <rect x="84" y="116" width="120" height="28" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="144" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">PEOPLE</text>
+        <text x="144" y="134" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">인력</text>
 
         <rect x="1200" y="272" width="200" height="96" rx="6" fill="#ffffff"/>
         <rect x="1200" y="272" width="200" height="96" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <rect x="1208" y="280" width="48" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.40)" stroke-width="0.8"/>
-        <text x="1232" y="289" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EFFECT</text>
-        <text x="1300" y="324" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Checkout p99 latency</text>
-        <text x="1300" y="340" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">4x for 90 minutes</text>
+        <rect x="1208" y="280" width="36" height="16" rx="2" fill="transparent" stroke="rgba(47,111,219,0.40)" stroke-width="0.8"/>
+        <text x="1226" y="292" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">결과</text>
+        <text x="1300" y="324" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">민원 처리 지연</text>
+        <text x="1300" y="340" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">처리 시간 4배 · 90일간</text>
 
         <line x1="40" y1="560" x2="1400" y2="560" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="576" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="576" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <line x1="40" y1="588" x2="56" y2="588" stroke="#17152b" stroke-width="1.2"/>
-        <text x="64" y="592" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Category (bone)</text>
+        <text x="64" y="592" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">원인 범주 (가지)</text>
 
         <line x1="260" y1="588" x2="276" y2="588" stroke="#2f6fdb" stroke-width="1.2"/>
-        <text x="284" y="592" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Confirmed root cause</text>
+        <text x="284" y="592" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">확인된 근본 원인</text>
 
         <line x1="480" y1="588" x2="496" y2="588" stroke="#68657b" stroke-width="1"/>
-        <text x="504" y="592" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Sub-cause</text>
+        <text x="504" y="592" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">세부 원인</text>
 
         <rect x="700" y="584" width="16" height="8" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="724" y="592" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Observed effect</text>
+        <text x="724" y="592" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">관측된 결과</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">ROOT CAUSE</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Data — missing index</h3></div>
-        <p>No index on <code>orders.created_at</code>; the query planner fell back to a sequential scan once the table crossed 3x its forecast size. The single confirmed cause — every other category was ruled out.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>시스템 — 자동 배정 규칙 누락</h3></div>
+        <p>신규 민원 유형에 자동 배정 규칙이 없어, 접수량이 예측의 3배를 넘자 수작업 배정으로 밀렸다. 유일하게 확인된 원인이며 다른 범주는 모두 배제했다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Contributing categories</h3></div>
-        <p>Deploy (canary skipped, config drift), Runtime (pool cap 20, GC pauses), and Observability (no p99 alert, 5-minute dashboard sampling) all slowed detection but didn't cause the regression themselves.</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>기여 요인</h3></div>
+        <p>제도·절차(사전 검토 생략, 부서별 지침 상이), 처리 용량(1인당 20건 상한, 결재 대기 적체), 모니터링(기한 초과 알림 없음, 5일 단위 집계)은 발견을 늦췄지만 지연 자체의 원인은 아니다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot soft"></span><h3>People</h3></div>
-        <p>A mid-incident on-call handover cost roughly ten minutes of context — worth fixing, not the root cause.</p>
+        <div class="card-header"><span class="card-dot soft"></span><h3>인력</h3></div>
+        <p>처리 도중 담당자가 바뀌어 인수인계에 약 10일이 들었다. 개선할 만하지만 근본 원인은 아니다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>checkout p99 latency · root-cause fishbone</span>
-      <span>example · diagram design</span>
+      <span>민원 처리 지연 · 원인 분석</span>
+      <span>예제 · 원인 분석</span>
     </div>
   </div>
 </body>

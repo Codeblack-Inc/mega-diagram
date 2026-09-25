@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open data lake · Architecture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>공공 데이터 레이크 · 아키텍처</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:    #17152b;
       --color-muted:  #68657b;
       --color-accent: #2f6fdb;
-      --font-sans:    'Geist', system-ui, sans-serif;
+      --font-sans:    'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:   'Instrument Serif', serif;
       --font-mono:    'Geist Mono', ui-monospace, monospace;
     }
@@ -37,10 +38,10 @@
       margin-bottom: 0.5rem;
     }
     h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.15;
       margin-bottom: 1.5rem;
     }
@@ -50,11 +51,11 @@
 <body>
   <div class="frame">
     <p class="eyebrow">Architecture · mega-diagram</p>
-    <h1>Open data lake · End-to-end stack</h1>
+    <h1>공공 데이터 레이크 · 전체 구성</h1>
 
     <svg viewBox="0 0 1000 488" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="datalake-title datalake-desc">
-      <title id="datalake-title">Open data lake · End-to-end stack</title>
-      <desc id="datalake-desc">Data lake architecture showing app servers and databases flowing through Apache NiFi into MinIO, then Trino, StarRocks, Superset, JupyterLab, and Python.</desc>
+      <title id="datalake-title">공공 데이터 레이크 · 전체 구성</title>
+      <desc id="datalake-desc">민원 포털 서버와 행정 DB의 데이터가 NiFi·Airflow로 수집되어 MinIO에 적재되고, Trino·StarRocks를 거쳐 Superset·JupyterLab·Python에서 활용되는 공공 데이터 레이크 구성.</desc>
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -77,11 +78,11 @@
       <rect x="804" y="32" width="164" height="280" rx="8" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
 
       <!-- Zone labels -->
-      <text x="84"  y="44" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.16em" text-anchor="middle">SOURCES</text>
-      <text x="256" y="44" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.16em" text-anchor="middle">INGEST</text>
-      <text x="472" y="44" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.16em" text-anchor="middle">DATA LAKE</text>
-      <text x="688" y="44" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.16em" text-anchor="middle">QUERY</text>
-      <text x="876" y="44" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.16em" text-anchor="middle">CONSUME</text>
+      <text x="84"  y="48" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">원천</text>
+      <text x="256" y="48" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">수집</text>
+      <text x="472" y="48" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">데이터 레이크</text>
+      <text x="688" y="48" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">조회</text>
+      <text x="876" y="48" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">활용</text>
 
       <!-- ═══════════════════════════════════════════
            ARROWS — drawn before boxes (z-order rule)
@@ -117,8 +118,8 @@
 
       <!-- Python → MinIO (write-back, dashed — orthogonal via bottom gutter at y=320) -->
       <path d="M 884,300 V 312 Q 884,320 876,320 H 480 Q 472,320 472,312 V 180" fill="none" stroke="rgba(23,21,43,0.30)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-      <rect x="660" y="314" width="36" height="12" rx="2" fill="#ffffff"/>
-      <text x="678" y="323" fill="#8a879c" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">WRITE</text>
+      <rect x="644" y="312" width="68" height="16" rx="2" fill="#ffffff"/>
+      <text x="678" y="324" fill="#8a879c" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">결과 적재</text>
 
       <!-- ═══════════════════════════════════════════
            NODES
@@ -134,7 +135,7 @@
         <path d="M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2"/>
         <path d="M7 8l0 .01"/><path d="M7 16l0 .01"/>
       </svg>
-      <text x="84" y="102" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">App servers</text>
+      <text x="84" y="102" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">민원 포털 서버</text>
       <text x="84" y="114" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">Events · logs</text>
 
       <!-- ── Databases ── -->
@@ -147,7 +148,7 @@
         <path d="M4 6v6a8 3 0 0 0 16 0v-6"/>
         <path d="M4 12v6a8 3 0 0 0 16 0v-6"/>
       </svg>
-      <text x="84" y="206" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Databases</text>
+      <text x="84" y="206" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">행정 DB</text>
       <text x="84" y="218" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">CDC · exports</text>
 
       <!-- ── Apache NiFi ── -->
@@ -245,22 +246,22 @@
            LEGEND
            ═══════════════════════════════════ -->
       <line x1="40" y1="432" x2="960" y2="432" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="448" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+      <text x="40" y="448" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
       <rect x="40" y="460" width="20" height="12" rx="3" fill="rgba(47,111,219,0.10)" stroke="#2f6fdb" stroke-width="1.2"/>
-      <text x="68" y="471" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">MinIO data lake (focal)</text>
+      <text x="68" y="470" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">MinIO 데이터 레이크(핵심)</text>
 
-      <rect x="220" y="460" width="20" height="12" rx="3" fill="white" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
-      <text x="248" y="471" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Ingest · query tools</text>
+      <rect x="256" y="460" width="20" height="12" rx="3" fill="white" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+      <text x="284" y="470" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">수집·조회 도구</text>
 
-      <rect x="400" y="460" width="20" height="12" rx="3" fill="white" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
-      <text x="428" y="471" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">BI · notebooks · pipelines</text>
+      <rect x="396" y="460" width="20" height="12" rx="3" fill="white" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+      <text x="424" y="470" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">BI·노트북·파이프라인</text>
 
-      <line x1="648" y1="462" x2="668" y2="462" stroke="rgba(23,21,43,0.30)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="676" y="468" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Write-back path (batch)</text>
+      <line x1="576" y1="466" x2="596" y2="466" stroke="rgba(23,21,43,0.30)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="604" y="470" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">결과 적재 경로(배치)</text>
 
-      <line x1="820" y1="462" x2="840" y2="462" stroke="#2f6fdb" stroke-width="1.2"/>
-      <text x="848" y="468" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Primary query path</text>
+      <line x1="756" y1="466" x2="776" y2="466" stroke="#2f6fdb" stroke-width="1.2"/>
+      <text x="784" y="470" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">주요 조회 경로</text>
     </svg>
   </div>
 </body>

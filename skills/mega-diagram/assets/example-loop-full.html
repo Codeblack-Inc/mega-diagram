@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The self-improving loop · Full</title>
+  <title>스스로 개선하는 운영 루프</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,7 +11,7 @@
       --paper: #ffffff; --paper-2: #f6f5fa; --ink: #17152b; --muted: #68657b;
       --soft: #8a879c; --rule: rgba(23,21,43,0.12); --accent: #2f6fdb;
       --accent-tint: rgba(47,111,219,0.08); --link: #6043d5;
-      --sans: 'Geist', system-ui, sans-serif; --serif: 'Instrument Serif', serif;
+      --sans: 'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --serif: 'Instrument Serif', serif;
       --mono: 'Geist Mono', ui-monospace, monospace;
     }
     body { min-height: 100vh; padding: 3rem 2rem; background: var(--paper); color: var(--ink); font-family: var(--sans); }
@@ -45,20 +45,25 @@
     .card li::before { position: absolute; left: 0; color: rgba(23,21,43,0.25); content: '—'; }
     .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-top: 2rem; padding-top: 1.5rem; color: var(--soft); border-top: 1px solid rgba(23,21,43,0.10); font: 400 0.72rem var(--mono); letter-spacing: 0.06em; }
     @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--sans); font-weight: 700; letter-spacing: -0.03em; }
+      /* mega: Korean sublabels and arrow labels at 12px sans */
+    .sublabel, .hub-sub { font: 400 12px var(--sans); }
+    .arrow-label { font: 500 12px var(--sans); letter-spacing: 0; }
   </style>
 </head>
 <body>
   <main class="container">
     <header class="header">
       <p class="eyebrow">Loop · mega-diagram</p>
-      <h1>The self-improving loop</h1>
-      <p class="subtitle">A company operating rhythm where work moves clockwise, every pass writes back to one shared record, and a human stays accountable for the decision.</p>
+      <h1>스스로 개선하는 운영 루프</h1>
+      <p class="subtitle">업무가 시계 방향으로 돌고, 한 바퀴마다 하나의 공유 기록에 결과를 남기며, 결정의 책임은 사람이 지는 조직 운영 리듬.</p>
     </header>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1040 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="loop-full-title loop-full-desc">
-        <title id="loop-full-title">The self-improving loop</title>
-        <desc id="loop-full-desc">Six stations flow clockwise from Capture through Learn and back to Capture. Each station writes shared state into one central memory hub, with Decide highlighted as the human approval gate.</desc>
+        <title id="loop-full-title">스스로 개선하는 운영 루프</title>
+        <desc id="loop-full-desc">수집부터 학습까지 여섯 단계가 시계 방향으로 돌아 다시 수집으로 이어지고, 각 단계가 가운데 공유 기록에 결과를 남기며 결정 단계가 담당자 승인 관문임을 보여 주는 순환도.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/></pattern>
           <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#68657b"/></marker>
@@ -84,51 +89,51 @@
         <path class="spoke" d="M368 252 L424 284" marker-end="url(#arrow-soft)"/>
 
         <!-- Curated spoke labels sit beside the line with an 8px visible gap. -->
-        <rect x="532" y="200" width="48" height="16" rx="4" fill="#ffffff"/>
-        <text x="556" y="212" class="arrow-label">SIGNALS</text>
-        <rect x="460" y="464" width="52" height="16" rx="4" fill="#ffffff"/>
-        <text x="486" y="476" class="arrow-label">OUTCOMES</text>
+        <rect x="540" y="200" width="32" height="16" rx="4" fill="#ffffff"/>
+        <text x="556" y="212" class="arrow-label" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">신호</text>
+        <rect x="470" y="464" width="32" height="16" rx="4" fill="#ffffff"/>
+        <text x="486" y="476" class="arrow-label" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">성과</text>
 
         <!-- Stations -->
         <rect class="station" x="440" y="68" width="160" height="64" rx="6"/>
-        <text x="520" y="96" class="node-name">Capture</text><text x="520" y="116" class="sublabel">signals in / intake</text>
+        <text x="520" y="96" class="node-name">수집</text><text x="520" y="116" class="sublabel">신호 · 요청 접수</text>
         <rect class="station" x="648" y="188" width="160" height="64" rx="6"/>
-        <text x="728" y="216" class="node-name">Research</text><text x="728" y="236" class="sublabel">evidence pulled</text>
+        <text x="728" y="216" class="node-name">조사</text><text x="728" y="236" class="sublabel">근거 확보</text>
         <rect class="station focal" x="648" y="428" width="160" height="64" rx="6"/>
-        <text x="728" y="456" class="node-name focal-name">Decide</text><text x="728" y="476" class="sublabel">human approves</text>
+        <text x="728" y="456" class="node-name focal-name">결정</text><text x="728" y="476" class="sublabel">담당자 승인</text>
         <rect class="station" x="440" y="548" width="160" height="64" rx="6"/>
-        <text x="520" y="576" class="node-name">Act</text><text x="520" y="596" class="sublabel">work ships</text>
+        <text x="520" y="576" class="node-name">실행</text><text x="520" y="596" class="sublabel">업무 반영</text>
         <rect class="station" x="232" y="428" width="160" height="64" rx="6"/>
-        <text x="312" y="456" class="node-name">Measure</text><text x="312" y="476" class="sublabel">outcomes logged</text>
+        <text x="312" y="456" class="node-name">측정</text><text x="312" y="476" class="sublabel">성과 기록</text>
         <rect class="station" x="232" y="188" width="160" height="64" rx="6"/>
-        <text x="312" y="216" class="node-name">Learn</text><text x="312" y="236" class="sublabel">playbook updated</text>
+        <text x="312" y="216" class="node-name">학습</text><text x="312" y="236" class="sublabel">업무 지침 갱신</text>
 
         <!-- The one shared-state hub. -->
         <rect class="hub" x="420" y="288" width="200" height="104" rx="8"/>
-        <text x="520" y="336" class="hub-name">Shared memory</text>
-        <text x="520" y="360" class="hub-sub">one record, every loop</text>
+        <text x="520" y="336" class="hub-name">공유 기록</text>
+        <text x="520" y="360" class="hub-sub">매 순환 하나의 기록</text>
       </svg>
     </div>
 
     <section class="cards" aria-label="Loop summary">
       <article class="card">
         <p class="card-eyebrow">THE LOOP SIGNAL</p>
-        <div class="card-header"><span class="card-dot coral"></span><h2>The dashed lines are the product</h2></div>
-        <p>Shipping work matters once. Writing the result back makes the next pass faster, safer, and better informed.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h2>점선이 곧 성과다</h2></div>
+        <p>업무 반영은 한 번으로 끝나지만, 결과를 기록해 두면 다음 순환이 더 빠르고 안전하며 근거가 탄탄해진다.</p>
       </article>
       <article class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h2>Memory compounds</h2></div>
-        <ul><li>Evidence survives the handoff</li><li>Outcomes update the playbook</li><li>One record stays shared</li></ul>
+        <div class="card-header"><span class="card-dot ink"></span><h2>기록은 쌓인다</h2></div>
+        <ul><li>인계 후에도 근거 유지</li><li>성과로 업무 지침 갱신</li><li>기록은 하나로 공유</li></ul>
       </article>
       <article class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h2>One human gate</h2></div>
-        <p>Decide is the only focal station because accountability should remain visible inside an improving system.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h2>사람이 지키는 관문 하나</h2></div>
+        <p>결정만 강조 단계로 두는 이유 — 스스로 개선하는 체계 안에서도 책임 소재는 보여야 한다.</p>
       </article>
     </section>
 
     <footer class="footer">
-      <span>company operations · reinforcing loop</span>
-      <span>example · schematic skill</span>
+      <span>조직 운영 · 강화 루프</span>
+      <span>예제 · 운영 루프</span>
     </footer>
   </main>
 </body>

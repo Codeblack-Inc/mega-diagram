@@ -306,9 +306,9 @@ def main() -> int:
 
         # N12: duplicate axis declarations must not quietly shrink the declared grid.
         duplicate_axis = original.replace(
-            'data-row-label="auth" x="148" y="96" fill="#17152b" font-size="9" font-family="\'Geist Mono\', monospace" text-anchor="end">auth</text>',
-            'data-row-label="auth" x="148" y="96" fill="#17152b" font-size="9" font-family="\'Geist Mono\', monospace" text-anchor="end">auth</text>\n'
-            '      <text data-row-label="auth" x="148" y="110" fill="#17152b" font-size="9" font-family="\'Geist Mono\', monospace" text-anchor="end">auth</text>',
+            'data-row-label="auth" x="148" y="96" fill="#17152b" font-size="12" font-family="\'Geist\', \'Pretendard\', \'Noto Sans KR\', sans-serif" text-anchor="end" font-weight="500">인증</text>',
+            'data-row-label="auth" x="148" y="96" fill="#17152b" font-size="12" font-family="\'Geist\', \'Pretendard\', \'Noto Sans KR\', sans-serif" text-anchor="end" font-weight="500">인증</text>\n'
+            '      <text data-row-label="auth" x="148" y="110" fill="#17152b" font-size="12" font-family="\'Geist\', \'Pretendard\', \'Noto Sans KR\', sans-serif" text-anchor="end" font-weight="500">인증</text>',
             1,
         )
         case(

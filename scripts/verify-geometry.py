@@ -17,7 +17,7 @@ Paint order is what makes this a defect rather than a stylistic choice:
 Shape heuristics follow the shipped templates:
 
 * A node is a `<rect>` at least 60x40 - large enough for a title and sublabel.
-* A label mask is a `<rect>` 20-200 wide and 8-14 tall - the masking plate that
+* A label mask is a `<rect>` 20-200 wide and 8-16 tall (16 for Hangul) - the masking plate that
   SKILL.md prescribes for arrow labels and zone eyebrows. The width cap covers
   the long mono plates shipped in example-sequence-oauth.html (128px) and the
   wider plates CJK labels need at the same glyph count.
@@ -54,6 +54,10 @@ MASK_MIN_W = 20.0
 MASK_MAX_W = 200.0
 MASK_MIN_H = 8.0
 MASK_MAX_H = 14.0
+# mega: Korean labels use 16px-tall masks (style-guide § Korean labels). A 15-16px
+# rect is a mask only when label-sized; wider ones are container header bars.
+HANGUL_MASK_MAX_H = 16.0
+HANGUL_MASK_MAX_W = 160.0
 EPSILON = 0.5
 
 
@@ -115,7 +119,9 @@ def check(path: Path) -> list[str]:
     masks = [
         r
         for r in rects
-        if MASK_MIN_W <= r.w <= MASK_MAX_W and MASK_MIN_H <= r.h <= MASK_MAX_H
+        if (MASK_MIN_W <= r.w <= MASK_MAX_W and MASK_MIN_H <= r.h <= MASK_MAX_H) or (
+            MASK_MIN_W <= r.w <= HANGUL_MASK_MAX_W and MASK_MAX_H < r.h <= HANGUL_MASK_MAX_H
+        )
     ]
 
     findings: list[str] = []

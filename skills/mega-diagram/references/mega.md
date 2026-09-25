@@ -1,10 +1,22 @@
 # mega — 한국어 문서용 규칙
 
-mega-diagram은 [diagram-design](https://github.com/cathrynlavery/diagram-design)(Cathryn Lavery, MIT)의 편집 원칙과 41종 레이아웃을 그대로 쓰고, 다음 세 가지를 바꾼다.
+mega-diagram은 [diagram-design](https://github.com/cathrynlavery/diagram-design)(Cathryn Lavery, MIT)의 편집 원칙과 41종 레이아웃을 그대로 쓰고, 한국 보고서 형식 3종을 더해 44종이 되었다. 원본에서 바꾼 것은 세 가지다.
 
 1. **색** — [mega BI](https://github.com/Codeblack-Inc/mega-bi) 팔레트. 강조색은 mega-diagram 블루 `#2F6FDB` 하나.
 2. **한글** — 사용자가 한국어로 요청하면 라벨도 한국어가 기본이다. Hangul은 Pretendard로 그린다.
 3. **배경** — SVG에 배경 사각형을 그리지 않는다. 내보낸 SVG/PNG는 투명해서 HWP·Word·PPT 본문에 그대로 얹힌다.
+
+### 한국 보고서 전용 형식
+
+원본에 없는 형식 세 가지를 더했다. 사업계획서·연구과제 계획서·공공 보고서에서 가장 자주 쓰는 도식이다.
+
+| 형식 | 쓰는 곳 | 참조 |
+|---|---|---|
+| **전략 체계도** (Strategy house) | 비전 → 목표 → 추진 전략 → 추진 과제, 하단 기반 | [type-strategy-house.md](type-strategy-house.md) |
+| **추진 체계도** (Governance) | 발주·전담기관, 주관기관, 참여·수요기관의 역할과 관계 | [type-governance.md](type-governance.md) |
+| **추진 로드맵** (Roadmap) | 단계(연차) × 추진 과제·산출물·성과 지표, 마일스톤 | [type-roadmap.md](type-roadmap.md) |
+
+"보고서에 넣을 그림"을 요청받으면 이 세 가지와 조직도·간트·타임라인을 먼저 후보로 둔다.
 
 이 문서는 SKILL.md와 [style-guide.md](style-guide.md)를 덮어쓰지 않고 보탠다. 충돌하면 연결선 규칙(SKILL.md §6)과 복잡도 예산(§7)이 이긴다.
 

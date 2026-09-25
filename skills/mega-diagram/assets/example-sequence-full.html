@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article Request · Sequence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>기사 조회 · 캐시 미스</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,7 +20,7 @@
       --color-accent:      #2f6fdb;
       --color-accent-tint: rgba(47,111,219,0.08);
       --color-link:        #6043d5;
-      --font-sans:   'Geist', system-ui, sans-serif;
+      --font-sans:   'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:  'Instrument Serif', 'Times New Roman', serif;
       --font-mono:   'Geist Mono', ui-monospace, Menlo, monospace;
     }
@@ -169,6 +170,8 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
@@ -176,16 +179,16 @@
 
     <!-- Header -->
     <div class="header">
-      <p class="header-eyebrow">Sequence · mega-diagram</p>
-      <h1>Article request, cold cache</h1>
-      <p class="subtitle">How a content site serves a reader when the requested slug isn't already sitting in Cloudflare's edge cache — origin render, beacon, and back in one round trip.</p>
+      <p class="header-eyebrow">Sequence · Cold cache</p>
+      <h1>기사 조회, 캐시 미스</h1>
+      <p class="subtitle">요청한 기사가 Cloudflare 엣지 캐시에 없을 때 뉴스 포털이 이용자에게 응답하는 과정 — 원본 렌더링, 조회 기록, 응답까지 한 번의 왕복.</p>
     </div>
 
     <!-- Sequence Diagram -->
     <div class="diagram-container">
       <svg viewBox="0 0 1000 584" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sequence-full-title sequence-full-desc">
-        <title id="sequence-full-title">Article request, cold cache</title>
-        <desc id="sequence-full-desc">Sequence diagram showing a cold-cache article request moving from reader and browser through Cloudflare to an Astro origin and analytics beacon.</desc>
+        <title id="sequence-full-title">기사 조회, 캐시 미스</title>
+        <desc id="sequence-full-desc">캐시에 없는 기사를 요청했을 때 이용자 브라우저에서 Cloudflare, 원본 서버, 이용 통계 수집기까지 오가는 메시지를 보여 주는 시퀀스 다이어그램.</desc>
         <defs>
           <!-- Dot grid background -->
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
@@ -256,12 +259,12 @@
         <text x="240" y="170" fill="#6043d5" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">GET /ARTICLES/SLUG</text>
 
         <!-- M2 label -->
-        <rect x="416" y="216" width="100" height="12" rx="2" fill="#ffffff"/>
-        <text x="466" y="226" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CACHE MISS · ORIGIN</text>
+        <rect x="396" y="214" width="140" height="16" rx="2" fill="#ffffff"/>
+        <text x="466" y="226" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">캐시 미스 · 원본 요청</text>
 
         <!-- M3 label (to the right of the self-loop) -->
-        <rect x="632" y="292" width="72" height="12" rx="2" fill="#ffffff"/>
-        <text x="668" y="302" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">RENDER MDX</text>
+        <rect x="630" y="290" width="76" height="16" rx="2" fill="#ffffff"/>
+        <text x="668" y="302" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">MDX 렌더링</text>
 
         <!-- M4 label -->
         <rect x="420" y="336" width="96" height="12" rx="2" fill="#ffffff"/>
@@ -272,8 +275,8 @@
         <text x="240" y="402" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">200 · EDGE-CACHED</text>
 
         <!-- M6 label (placed between Astro and Analytics lifelines, a clear gap) -->
-        <rect x="648" y="448" width="96" height="12" rx="2" fill="#ffffff"/>
-        <text x="696" y="458" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PAGEVIEW BEACON</text>
+        <rect x="648" y="446" width="96" height="16" rx="2" fill="#ffffff"/>
+        <text x="696" y="458" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">조회 기록 전송</text>
 
         <!-- =================================================================
              ACTOR BOXES — drawn after arrows/labels.
@@ -285,7 +288,7 @@
         <rect x="56" y="72" width="144" height="56" rx="6" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
         <rect x="64" y="80" width="28" height="12" rx="2" fill="transparent" stroke="rgba(138,135,156,0.40)" stroke-width="0.8"/>
         <text x="78" y="89" fill="#8a879c" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXT</text>
-        <text x="128" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Reader</text>
+        <text x="128" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">이용자</text>
         <text x="128" y="119" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Browser</text>
 
         <!-- Actor 2: Cloudflare (cloud / muted) -->
@@ -301,7 +304,7 @@
         <rect x="504" y="72" width="160" height="56" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
         <rect x="512" y="80" width="32" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.50)" stroke-width="0.8"/>
         <text x="528" y="89" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ORIG</text>
-        <text x="584" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Astro Origin</text>
+        <text x="584" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">원본 서버</text>
         <text x="584" y="119" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">SSR + MDX</text>
 
         <!-- Actor 4: Analytics (optional / dashed) -->
@@ -309,7 +312,7 @@
         <rect x="728" y="72" width="144" height="56" rx="6" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.22)" stroke-width="1" stroke-dasharray="4,3"/>
         <rect x="736" y="80" width="28" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.22)" stroke-width="0.8"/>
         <text x="750" y="89" fill="#8a879c" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ASY</text>
-        <text x="800" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Analytics</text>
+        <text x="800" y="104" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">이용 통계</text>
         <text x="800" y="119" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Beacon · async</text>
 
         <!-- =================================================================
@@ -317,27 +320,27 @@
              Separator at y=504, eyebrow at y=520, items at y=540–548.
              ================================================================= -->
         <line x1="56" y1="504" x2="944" y2="504" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="56" y="520" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="56" y="520" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <!-- Item 1: Actor swatch (coral focal) -->
         <rect x="56" y="540" width="14" height="10" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="76" y="548" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Focal actor</text>
+        <text x="76" y="548" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심 참여자</text>
 
         <!-- Item 2: Activation bar swatch -->
         <rect x="188" y="536" width="4" height="18" fill="rgba(23,21,43,0.06)" stroke="#68657b" stroke-width="0.8"/>
-        <text x="200" y="548" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Activation</text>
+        <text x="200" y="548" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">활성 구간</text>
 
         <!-- Item 3: Request arrow (link-blue) -->
         <line x1="308" y1="546" x2="336" y2="546" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
-        <text x="344" y="548" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">HTTP request</text>
+        <text x="344" y="548" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">HTTP 요청</text>
 
         <!-- Item 4: Return / async (muted dashed) -->
         <line x1="476" y1="546" x2="504" y2="546" stroke="#68657b" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-        <text x="512" y="548" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Return / async</text>
+        <text x="512" y="548" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">응답·비동기</text>
 
         <!-- Item 5: Primary response (coral) -->
         <line x1="652" y1="546" x2="680" y2="546" stroke="#2f6fdb" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
-        <text x="688" y="548" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Primary response</text>
+        <text x="688" y="548" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">주 응답</text>
 
       </svg>
     </div>
@@ -348,37 +351,37 @@
         <p class="eyebrow">THE HEADLINE</p>
         <div class="card-header">
           <span class="card-dot coral"></span>
-          <h3>Edge handles the hot path</h3>
+          <h3>자주 찾는 기사는 엣지가 처리</h3>
         </div>
-        <p>On subsequent reads the whole exchange collapses to M1 → M5. Cloudflare serves the cached HTML without waking the origin. The coral arrow is the only one the reader ever perceives.</p>
+        <p>두 번째 조회부터는 M1과 M5만 남는다. Cloudflare가 캐시된 HTML을 바로 내려 주고 원본 서버는 호출하지 않는다. 이용자가 체감하는 것은 강조색 화살표 하나뿐이다.</p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="card-dot ink"></span>
-          <h3>Origin render on miss</h3>
+          <h3>캐시 미스 시 원본 렌더링</h3>
         </div>
         <ul>
-          <li>Astro SSRs MDX on cold cache</li>
-          <li>Returns HTML + cache headers</li>
-          <li>Edge stores the result</li>
-          <li>Next reader skips the origin trip</li>
+          <li>원본 서버가 MDX를 SSR로 렌더링</li>
+          <li>HTML과 캐시 헤더 반환</li>
+          <li>엣지에 결과 저장</li>
+          <li>다음 이용자는 원본 호출 생략</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="card-dot muted"></span>
-          <h3>Analytics is fire-and-forget</h3>
+          <h3>조회 통계는 비동기 전송</h3>
         </div>
-        <p>The pageview beacon is dashed for a reason: the reader never waits on it, and a failed beacon never breaks the page.</p>
+        <p>조회 기록 전송을 점선으로 그린 이유 — 이용자는 이 응답을 기다리지 않고, 전송이 실패해도 화면은 깨지지 않는다.</p>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <span>content site · article request sequence</span>
-      <span>example · schematic skill</span>
+      <span>뉴스 포털 · 기사 조회 시퀀스</span>
+      <span>예제 · 캐시 미스 흐름</span>
     </div>
 
   </div>

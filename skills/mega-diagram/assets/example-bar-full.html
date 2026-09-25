@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sprint velocity · Bar chart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>월별 온라인 매출 · 막대 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -26,21 +27,23 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">Bar · mega-diagram</p>
-      <h1>Sprint velocity · 8-sprint view</h1>
-      <p class="subtitle">Story points delivered per two-week sprint over one product cycle. Sprint 5 is the standout — a focused scope and no mid-sprint scope additions.</p>
+      <h1>월별 온라인 매출 · 1~8월</h1>
+      <p class="subtitle">2026년 1~8월 자사 온라인 몰의 월 매출(억 원). 가정의 달 기획전이 겹친 5월이 두드러진다.</p>
     </div>
     <div class="diagram-container">
       <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bar-full-title bar-full-desc">
-        <title id="bar-full-title">Sprint velocity · 8-sprint view</title>
-        <desc id="bar-full-desc">Bar chart showing story points delivered across sprints S1 through S8, with Sprint 5 as the record high.</desc>
+        <title id="bar-full-title">월별 온라인 매출 · 1~8월</title>
+        <desc id="bar-full-desc">2026년 1~8월 온라인 몰 월 매출을 억 원 단위로 보여 주며 5월이 최고 실적인 막대 차트.</desc>
         <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/></pattern></defs>
-        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">STORY POINTS</text>
+        <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">매출(억 원)</text>
         <line x1="80" y1="357" x2="960" y2="357" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="293" x2="960" y2="293" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
         <line x1="80" y1="230" x2="960" y2="230" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
@@ -63,40 +66,40 @@
         <rect x="649" y="96"  width="72" height="324" fill="#ffffff"/><rect x="649" y="96"  width="72" height="324" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/><text x="685" y="88"  fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">102</text>
         <rect x="759" y="152" width="72" height="268" fill="#ffffff"/><rect x="759" y="152" width="72" height="268" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/><text x="795" y="144" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">85</text>
         <rect x="869" y="124" width="72" height="296" fill="#ffffff"/><rect x="869" y="124" width="72" height="296" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/><text x="905" y="116" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">93</text>
-        <text x="135" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S1</text>
-        <text x="245" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S2</text>
-        <text x="355" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S3</text>
-        <text x="465" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S4</text>
-        <text x="575" y="440" fill="#2f6fdb" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S5</text>
-        <text x="685" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S6</text>
-        <text x="795" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S7</text>
-        <text x="905" y="440" fill="#17152b" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">S8</text>
+        <text x="135" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">1월</text>
+        <text x="245" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">2월</text>
+        <text x="355" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">3월</text>
+        <text x="465" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">4월</text>
+        <text x="575" y="440" fill="#2f6fdb" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">5월</text>
+        <text x="685" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">6월</text>
+        <text x="795" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">7월</text>
+        <text x="905" y="440" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">8월</text>
         <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
         <rect x="40" y="488" width="16" height="10" rx="2" fill="rgba(47,111,219,0.12)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="64" y="497" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Sprint 5 · record high</text>
+        <text x="64" y="497" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">5월 · 최고 실적</text>
         <rect x="220" y="488" width="16" height="10" rx="2" fill="rgba(104,101,123,0.15)" stroke="#68657b" stroke-width="1"/>
-        <text x="244" y="497" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Other sprints</text>
+        <text x="244" y="497" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">기타 월</text>
       </svg>
     </div>
     <div class="cards">
       <div class="card">
-        <p class="eyebrow">RECORD SPRINT</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>Sprint 5 · 110 points</h3></div>
-        <p>No mid-sprint additions, zero carry-over from S4, and the team's highest-complexity stories were completed two days early. The bar is not the goal — the conditions are.</p>
+        <p class="eyebrow">최고 실적</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>5월 · 110억 원</h3></div>
+        <p>가정의 달 기획전, 무료 배송 확대, 재고 소진 없는 운영이 한 달에 겹쳤다. 막대 높이보다 그 조건이 재현 대상이다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Trend: rising with one dip</h3></div>
-        <p>Average across 8 sprints: 89 points. S4 dipped to 78 — a dependency on an external API that shipped late. Excluding S4, the underlying trajectory is +4 pts/sprint.</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>추세: 상승, 한 번 하락</h3></div>
+        <p>8개월 평균 89억 원. 4월은 물류센터 이전으로 78억 원까지 하락. 4월을 빼면 월평균 4억 원씩 증가.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>What the chart doesn't show</h3></div>
-        <p>Story points measure scope delivered, not value shipped. S3 at 95 points included three stories that were deprioritised before the sprint ended — they don't appear in the count.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>차트에 없는 것</h3></div>
+        <p>매출은 주문 금액 기준이며 반품·취소를 빼지 않았다. 3월 95억 원에는 월말 대량 반품 건이 포함돼 있어 순매출은 더 낮다.</p>
       </div>
     </div>
     <div class="footer">
-      <span>sprint velocity · 8-sprint view</span>
-      <span>example · diagram design</span>
+      <span>월별 온라인 매출 · 1~8월</span>
+      <span>예제 · 온라인 매출</span>
     </div>
   </div>
 </body>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporting, first release · User story map</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>보고서 도구 1차 출시 · 사용자 스토리 맵</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-paper-2:#f6f5fa; --color-ink:#17152b; --color-muted:#68657b; --color-soft:#8a879c; --color-rule:rgba(23,21,43,0.12); --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); min-height: 100vh; padding: 3rem 2rem; color: var(--color-ink); }
     .container { max-width: 1200px; margin: 0 auto; }
     .header { margin-bottom: 2.5rem; }
@@ -29,20 +30,22 @@
     .card h3 { font-size: 0.875rem; font-weight: 600; }
     .card p { color: var(--color-muted); font-size: 0.8125rem; line-height: 1.55; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(23,21,43,0.10); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--color-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <p class="header-eyebrow">User story map · mega-diagram</p>
-      <h1>Reporting, first release</h1>
-      <p class="subtitle">Narrative order runs left to right — find the data, build the report, share it, trust it — while priority runs top to bottom. The release-cut line under MVP is the editorial point: everything above it ships first, and the riskiest bet, row-level permissions, lands in Release 2.</p>
+      <h1>보고서 도구 1차 출시</h1>
+      <p class="subtitle">업무 순서는 왼쪽에서 오른쪽 — 데이터 찾기, 보고서 작성, 공유, 신뢰 확인 — 이고, 우선순위는 위에서 아래로 내려간다. 핵심은 MVP 아래의 출시선이다. 선 위는 먼저 출시하고, 가장 위험한 과제인 행 단위 권한은 2차 출시로 간다.</p>
     </div>
 
     <div class="diagram-container">
       <svg viewBox="0 0 1032 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="story-map-full-title story-map-full-desc">
-        <title id="story-map-full-title">Reporting, first release · User story map</title>
-        <desc id="story-map-full-desc">User story map for a reporting tool's first release: four narrative activities from finding data to trusting it, walking-skeleton steps beneath each, and three release slices sliced by an MVP release-cut line, with the row-level-permissions story flagged as the riskiest bet in Release 2.</desc>
+        <title id="story-map-full-title">보고서 도구 1차 출시 · 사용자 스토리 맵</title>
+        <desc id="story-map-full-desc">사내 보고서 도구 1차 출시를 위한 사용자 스토리 맵으로, 데이터 찾기부터 신뢰 확인까지 네 가지 활동과 그 아래 단계, MVP·2차 출시·이후의 세 구간을 보여 준다.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -54,9 +57,9 @@
         <rect x="32" y="216" width="968" height="80" fill="rgba(23,21,43,0.02)"/>
         <rect x="32" y="376" width="968" height="80" fill="rgba(23,21,43,0.02)"/>
 
-        <text x="48" y="260" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">MVP</text>
-        <text x="48" y="340" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">RELEASE 2</text>
-        <text x="48" y="420" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LATER</text>
+        <text x="48" y="260" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">MVP</text>
+        <text x="48" y="340" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">2차 출시</text>
+        <text x="48" y="420" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">이후</text>
 
         <!-- Column separators: tie each card row to its activity column -->
         <line x1="116" y1="108" x2="116" y2="456" stroke="rgba(23,21,43,0.10)" stroke-width="0.8" stroke-dasharray="4,4"/>
@@ -67,119 +70,119 @@
 
         <!-- Backbone: 4 activities, narrative left-to-right order -->
         <rect x="128" y="40" width="200" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-        <text x="228" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Find the data</text>
-        <text x="228" y="88" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">ACTIVITY 1</text>
+        <text x="228" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 찾기</text>
+        <text x="228" y="88" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">활동 1</text>
 
         <rect x="352" y="40" width="200" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-        <text x="452" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Build the report</text>
-        <text x="452" y="88" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">ACTIVITY 2</text>
+        <text x="452" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">보고서 작성</text>
+        <text x="452" y="88" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">활동 2</text>
 
         <rect x="576" y="40" width="200" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-        <text x="676" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Share it</text>
-        <text x="676" y="88" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">ACTIVITY 3</text>
+        <text x="676" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공유</text>
+        <text x="676" y="88" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">활동 3</text>
 
         <rect x="800" y="40" width="200" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-        <text x="900" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Trust it</text>
-        <text x="900" y="88" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">ACTIVITY 4</text>
+        <text x="900" y="68" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">신뢰 확인</text>
+        <text x="900" y="88" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">활동 4</text>
 
         <!-- Walking skeleton: user steps under each activity -->
         <rect x="144" y="120" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="156" y="140" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Search datasets</text>
+        <text x="156" y="140" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">데이터셋 검색</text>
         <rect x="144" y="160" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="156" y="180" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Preview rows</text>
+        <text x="156" y="180" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">행 미리보기</text>
 
         <rect x="368" y="120" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="380" y="140" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Pick columns</text>
+        <text x="380" y="140" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">열 선택</text>
         <rect x="368" y="160" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="380" y="180" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Add a chart</text>
+        <text x="380" y="180" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">차트 추가</text>
 
         <rect x="592" y="120" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="604" y="140" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Send a link</text>
+        <text x="604" y="140" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">링크 전송</text>
 
         <rect x="816" y="120" width="168" height="32" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="0.8"/>
-        <text x="828" y="140" fill="#17152b" font-size="12" font-family="'Geist', sans-serif">Check freshness</text>
+        <text x="828" y="140" fill="#17152b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">갱신 시점 확인</text>
 
         <!-- MVP row story cards -->
         <rect x="144" y="232" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="156" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Keyword search</text>
+        <text x="156" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">키워드 검색</text>
         <text x="156" y="266" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-101 · 3pt</text>
 
         <rect x="368" y="232" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="380" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Table + one chart</text>
+        <text x="380" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">표 + 차트 1개</text>
         <text x="380" y="266" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-102 · 5pt</text>
 
         <rect x="592" y="232" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="604" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Public link</text>
+        <text x="604" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">공개 링크</text>
         <text x="604" y="266" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-103 · 2pt</text>
 
         <rect x="816" y="232" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="828" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Last-updated stamp</text>
+        <text x="828" y="250" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">최종 갱신 표시</text>
         <text x="828" y="266" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-104 · 1pt</text>
 
         <!-- Release cut line — accent element 1 -->
         <line x1="32" y1="296" x2="1000" y2="296" stroke="#2f6fdb" stroke-width="1.5"/>
-        <rect x="736" y="280" width="104" height="8" rx="2" fill="#ffffff"/>
-        <text x="788" y="285" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">RELEASE CUT</text>
+        <rect x="766" y="276" width="44" height="16" rx="2" fill="#ffffff"/>
+        <text x="788" y="288" fill="#2f6fdb" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">출시선</text>
 
         <!-- Release 2 row story cards -->
         <rect x="144" y="312" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="156" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Saved filters</text>
+        <text x="156" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">필터 저장</text>
         <text x="156" y="346" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-110 · 3pt</text>
 
         <rect x="592" y="312" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="604" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Scheduled email</text>
+        <text x="604" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">정기 메일 발송</text>
         <text x="604" y="346" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-112 · 5pt</text>
 
         <!-- Riskiest story — accent element 2 -->
         <rect x="816" y="312" width="168" height="48" rx="4" fill="rgba(47,111,219,0.05)" stroke="#2f6fdb" stroke-width="1" stroke-dasharray="4,4"/>
-        <text x="828" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Row-level permissions</text>
+        <text x="828" y="330" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">행 단위 권한</text>
         <text x="828" y="346" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-114 · 3pt</text>
         <rect x="936" y="336" width="40" height="12" rx="2" fill="transparent" stroke="#2f6fdb" stroke-width="0.8"/>
         <text x="956" y="345" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">RISK</text>
 
         <!-- Later row story cards -->
         <rect x="144" y="392" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="156" y="410" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Natural-language query</text>
+        <text x="156" y="410" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">자연어 질의</text>
         <text x="156" y="426" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-120 · 8pt</text>
 
         <rect x="816" y="392" width="168" height="48" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="828" y="410" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif">Alerting on anomalies</text>
+        <text x="828" y="410" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">이상치 알림</text>
         <text x="828" y="426" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace">RPT-121 · 5pt</text>
 
         <!-- Legend -->
         <line x1="32" y1="480" x2="1000" y2="480" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="32" y="496" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="32" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="32" y="508" width="16" height="8" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="56" y="516" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Story card</text>
+        <text x="56" y="516" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">스토리 카드</text>
 
         <rect x="232" y="508" width="16" height="8" fill="rgba(47,111,219,0.05)" stroke="#2f6fdb" stroke-width="1" stroke-dasharray="4,4"/>
-        <text x="256" y="516" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Highest risk</text>
+        <text x="256" y="516" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">최고 위험</text>
 
         <line x1="432" y1="512" x2="464" y2="512" stroke="#2f6fdb" stroke-width="1.5"/>
-        <text x="480" y="516" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Release cut</text>
+        <text x="480" y="516" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">출시선</text>
       </svg>
     </div>
 
     <div class="cards">
       <div class="card">
         <p class="eyebrow">RELEASE CUT</p>
-        <div class="card-header"><span class="card-dot coral"></span><h3>MVP · 4 stories</h3></div>
-        <p>Keyword search, a table with one chart, a public link, and a last-updated stamp — enough to answer "what is the whole story" without shipping every activity's full depth. Everything below the cut line waits.</p>
+        <div class="card-header"><span class="card-dot coral"></span><h3>MVP · 스토리 4개</h3></div>
+        <p>키워드 검색, 표와 차트 1개, 공개 링크, 최종 갱신 표시 — 모든 활동을 깊이 만들지 않고도 "전체 흐름이 무엇인가"에 답할 만큼. 출시선 아래는 기다린다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot ink"></span><h3>Release 2 · 3 stories</h3></div>
-        <p>Saved filters and scheduled email round out the workflow, but row-level permissions is the riskiest bet in the map — untested access-control logic sitting right after the cut, not buried in "Later".</p>
+        <div class="card-header"><span class="card-dot ink"></span><h3>2차 출시 · 스토리 3개</h3></div>
+        <p>필터 저장과 정기 메일 발송이 업무 흐름을 완성하지만, 행 단위 권한이 이 맵에서 가장 위험한 과제다 — 검증되지 않은 접근 제어 로직을 "이후"에 묻지 않고 출시선 바로 다음에 둔다.</p>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-dot muted"></span><h3>Later · 2 stories</h3></div>
-        <p>Natural-language query and anomaly alerting are named and ordered, not promised — three slices is the ceiling before nobody believes the sequencing anymore.</p>
+        <div class="card-header"><span class="card-dot muted"></span><h3>이후 · 스토리 2개</h3></div>
+        <p>자연어 질의와 이상치 알림은 이름과 순서만 정했을 뿐 약속은 아니다 — 구간을 세 개보다 늘리면 아무도 순서를 믿지 않는다.</p>
       </div>
     </div>
 
     <div class="footer">
-      <span>reporting, first release · user story map</span>
-      <span>example · diagram design</span>
+      <span>보고서 도구 1차 출시 · 사용자 스토리 맵</span>
+      <span>예제 · 사내 보고서 도구</span>
     </div>
   </div>
 </body>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bearer call with refresh · Sequence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Bearer 토큰 호출과 갱신</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #f6f5fa;
       --color-muted:   #d4d2de;
       --color-accent:  #6e9bea;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,16 +52,18 @@
     }
 
     svg { width: 100%; min-width: 840px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Sequence · mega-diagram · Special</p>
-    <h1>Bearer call with refresh</h1>
+    <h1>Bearer 토큰 호출과 갱신</h1>
 
     <svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sequence-oauth-dark-title sequence-oauth-dark-desc">
-      <title id="sequence-oauth-dark-title">Bearer call with refresh</title>
-      <desc id="sequence-oauth-dark-desc">Client calls API with a bearer token. An ALT fragment shows either a valid 200 response or a 401 path that refreshes via Auth and retries.</desc>
+      <title id="sequence-oauth-dark-title">Bearer 토큰 호출과 갱신</title>
+      <desc id="sequence-oauth-dark-desc">클라이언트가 Bearer 토큰으로 API를 호출하고, ALT 구간에서 토큰이 유효하면 200을 받고 401이면 인증 서버에서 토큰을 갱신한 뒤 재호출하는 시퀀스 다이어그램.</desc>
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.9" fill="rgba(246,245,250,0.10)"/>
@@ -135,51 +138,51 @@
       <text x="300" y="538" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">200 · BODY</text>
 
       <line x1="164" y1="600" x2="796" y2="600" stroke="#d4d2de" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
-      <rect x="424" y="584" width="96" height="12" rx="2" fill="#17152b"/>
-      <text x="472" y="594" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">AUDIT · ASYNC</text>
+      <rect x="410" y="582" width="124" height="16" rx="2" fill="#17152b"/>
+      <text x="472" y="594" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">감사 로그 · 비동기</text>
 
       <rect x="88" y="72" width="144" height="56" rx="6" fill="#17152b"/>
       <rect x="88" y="72" width="144" height="56" rx="6" fill="rgba(212,210,222,0.10)" stroke="#9d9ab0" stroke-width="1"/>
       <rect x="96" y="80" width="32" height="12" rx="2" fill="transparent" stroke="rgba(157,154,176,0.40)" stroke-width="0.8"/>
       <text x="112" y="89" fill="#9d9ab0" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
-      <text x="160" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Client</text>
+      <text x="160" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">결재 앱</text>
       <text x="160" y="119" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">SPA · SDK</text>
 
       <rect x="408" y="72" width="144" height="56" rx="6" fill="#17152b"/>
       <rect x="408" y="72" width="144" height="56" rx="6" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1"/>
       <rect x="416" y="80" width="32" height="12" rx="2" fill="transparent" stroke="rgba(110,155,234,0.50)" stroke-width="0.8"/>
       <text x="432" y="89" fill="#6e9bea" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">API</text>
-      <text x="480" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Resource API</text>
+      <text x="480" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">리소스 API</text>
       <text x="480" y="119" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Bearer gate</text>
 
       <rect x="728" y="72" width="144" height="56" rx="6" fill="#17152b"/>
       <rect x="728" y="72" width="144" height="56" rx="6" fill="rgba(246,245,250,0.04)" stroke="#f6f5fa" stroke-width="1"/>
       <rect x="736" y="80" width="36" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.30)" stroke-width="0.8"/>
       <text x="754" y="89" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">AUTH</text>
-      <text x="800" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Auth</text>
+      <text x="800" y="104" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">인증 서버</text>
       <text x="800" y="119" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">token · refresh</text>
 
       <line x1="56" y1="648" x2="904" y2="648" stroke="rgba(246,245,250,0.12)" stroke-width="0.8"/>
-      <text x="56" y="664" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+      <text x="56" y="664" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
       <rect x="56" y="680" width="14" height="10" rx="2" fill="rgba(110,155,234,0.10)" stroke="#6e9bea" stroke-width="1"/>
-      <text x="76" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Focal / success</text>
+      <text x="76" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심·성공</text>
 
       <rect x="200" y="676" width="28" height="18" rx="2" fill="rgba(246,245,250,0.04)" stroke="rgba(246,245,250,0.22)" stroke-width="1"/>
       <text x="208" y="688" fill="#d4d2de" font-size="7" font-family="'Geist Mono', monospace">ALT</text>
-      <text x="236" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Fragment</text>
+      <text x="236" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">조건 구간</text>
 
       <line x1="320" y1="684" x2="348" y2="684" stroke="#9a86ec" stroke-width="1.2" marker-end="url(#arrow-link)"/>
-      <text x="356" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">HTTP call</text>
+      <text x="356" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">HTTP 호출</text>
 
       <line x1="448" y1="684" x2="476" y2="684" stroke="#d4d2de" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-      <text x="484" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Return</text>
+      <text x="484" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">응답</text>
 
       <line x1="560" y1="684" x2="588" y2="684" stroke="#d4d2de" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
-      <text x="596" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Async open</text>
+      <text x="596" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">비동기</text>
 
       <line x1="696" y1="684" x2="724" y2="684" stroke="#6e9bea" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
-      <text x="732" y="688" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Headline</text>
+      <text x="732" y="688" fill="#d4d2de" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">대표 경로</text>
     </svg>
   </div>
 </body>

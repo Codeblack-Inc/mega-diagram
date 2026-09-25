@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where policy traces diverge</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>정책 평가 경로가 갈리는 지점</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -17,7 +18,7 @@
       --rule-strong: rgba(23,21,43,0.30);
       --accent: #2f6fdb;
       --accent-tint: rgba(47,111,219,0.08);
-      --sans: 'Geist', system-ui, sans-serif;
+      --sans: 'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --serif: 'Instrument Serif', serif;
       --mono: 'Geist Mono', ui-monospace, monospace;
       --motion-fast: 160ms;
@@ -174,6 +175,8 @@
       [data-motion-status] { min-width: 200px; }
       .keyboard-help { display: none; }
     }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
@@ -183,55 +186,55 @@
     <header class="page-header">
       <div>
         <p class="eyebrow">Semantic pattern · Paired policy-evaluation traces</p>
-        <h1>Where policy traces diverge</h1>
+        <h1>정책 평가 경로가 갈리는 지점</h1>
       </div>
-      <p class="lede">Two requests traverse the same ordered rules. Explicit states distinguish a rule that does not apply from one the evaluator never reaches.</p>
+      <p class="lede">두 요청이 같은 순서의 규칙을 차례로 지난다. 상태 표기로 적용되지 않은 규칙과 평가가 아예 도달하지 않은 규칙을 구분한다.</p>
     </header>
 
     <div class="diagram-wrap">
       <svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img"
            aria-labelledby="policy-trace-animated-title policy-trace-animated-desc"
            data-motion-primitive="policy-evaluation">
-        <title id="policy-trace-animated-title">Where two policy evaluations first diverge</title>
-        <desc id="policy-trace-animated-desc">Two requests pass identity and audience checks. At the data-class rule, the read-only request passes while the sensitive-write request fails; later rules are skipped or not reached, producing permitted and denied outcomes.</desc>
+        <title id="policy-trace-animated-title">두 정책 평가가 처음 갈리는 지점</title>
+        <desc id="policy-trace-animated-desc">두 요청이 신원 확인과 내부 사용자 규칙을 모두 통과한 뒤 데이터 등급 규칙에서 읽기 전용 요청은 통과하고 민감 정보 쓰기 요청은 거부되며, 이후 규칙은 건너뛰거나 도달하지 않아 허용과 거부로 끝나는 과정.</desc>
 
         <!-- Persistent trace paths are meaningful in every frame. -->
         <line x1="620" y1="104" x2="620" y2="576" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
         <line data-trace-connector="trace-b" x1="936" y1="104" x2="936" y2="336" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
 
         <!-- Shared rule column and trace headers. -->
-        <text x="72" y="76" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.6">ORDERED POLICY</text>
+        <text x="72" y="76" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">정책 적용 순서</text>
         <rect x="500" y="44" width="240" height="60" rx="6" fill="#ffffff" stroke="#17152b"/>
-        <text x="620" y="72" text-anchor="middle" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Trace A · read-only</text>
-        <text x="620" y="92" text-anchor="middle" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">internal metrics request</text>
+        <text x="620" y="72" text-anchor="middle" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">경로 A · 읽기 전용</text>
+        <text x="620" y="92" text-anchor="middle" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">사내 지표 조회 요청</text>
         <rect x="816" y="44" width="240" height="60" rx="6" fill="#ffffff" stroke="#17152b"/>
-        <text x="936" y="72" text-anchor="middle" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Trace B · sensitive write</text>
-        <text x="936" y="92" text-anchor="middle" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">restricted records request</text>
+        <text x="936" y="72" text-anchor="middle" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">경로 B · 민감 정보 쓰기</text>
+        <text x="936" y="92" text-anchor="middle" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">제한 기록 수정 요청</text>
 
-        <g data-motion-item data-step="1" aria-label="Rule 1: Identity bound passes for both traces">
+        <g data-motion-item data-step="1" aria-label="규칙 1 신원 확인 · 두 경로 모두 통과">
           <rect class="row-focus" x="48" y="124" width="1080" height="68" rx="4"/>
-          <text x="72" y="152" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">1 · Identity bound</text>
-          <text x="72" y="172" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">named principal required</text>
+          <text x="72" y="152" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">1 · 신원 확인</text>
+          <text x="72" y="172" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">실명 계정 필수</text>
           <rect x="532" y="132" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="620" y="164" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
           <rect x="848" y="132" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="936" y="164" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
         </g>
 
-        <g data-motion-item data-step="2" aria-label="Rule 2: Internal audience passes for both traces">
+        <g data-motion-item data-step="2" aria-label="규칙 2 내부 사용자 · 두 경로 모두 통과">
           <rect class="row-focus" x="48" y="200" width="1080" height="68" rx="4"/>
-          <text x="72" y="228" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">2 · Internal audience</text>
-          <text x="72" y="248" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">employees only</text>
+          <text x="72" y="228" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">2 · 내부 사용자</text>
+          <text x="72" y="248" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">임직원 한정</text>
           <rect x="532" y="208" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="620" y="240" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
           <rect x="848" y="208" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="936" y="240" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
         </g>
 
-        <g data-motion-item data-step="3" aria-label="Rule 3 is the first divergence: Trace A passes and Trace B fails">
+        <g data-motion-item data-step="3" aria-label="규칙 3 최초 분기 · 경로 A 통과, 경로 B 거부">
           <rect class="row-focus" x="48" y="276" width="1080" height="80" rx="4"/>
-          <text x="72" y="304" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">3 · Data class</text>
-          <text x="72" y="324" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">restricted writes denied</text>
+          <text x="72" y="304" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">3 · 데이터 등급</text>
+          <text x="72" y="324" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">제한 등급 쓰기 거부</text>
           <rect x="532" y="284" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="620" y="316" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
           <rect data-trace-b-terminal="fail" x="848" y="284" width="176" height="52" rx="4" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.2"/>
@@ -241,52 +244,52 @@
           <text x="778" y="351" text-anchor="middle" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="12" font-weight="600" letter-spacing=".8">FIRST DIVERGENCE</text>
         </g>
 
-        <g data-motion-item data-step="4" aria-label="Rule 4 is skipped for Trace A and not reached for Trace B">
+        <g data-motion-item data-step="4" aria-label="규칙 4 · 경로 A 건너뜀, 경로 B 미도달">
           <rect class="row-focus" x="48" y="364" width="1080" height="68" rx="4"/>
-          <text x="72" y="392" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">4 · Human approval</text>
-          <text x="72" y="412" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">required only for writes</text>
+          <text x="72" y="392" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">4 · 담당자 승인</text>
+          <text x="72" y="412" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">쓰기 요청만 해당</text>
           <rect x="532" y="372" width="176" height="52" rx="4" fill="#ffffff" stroke="#8a879c" stroke-dasharray="4 4"/>
           <text x="620" y="404" text-anchor="middle" fill="#68657b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">— SKIPPED</text>
           <rect data-trace-b-state="not-reached" x="848" y="372" width="176" height="52" rx="4" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.30)" stroke-dasharray="4 4"/>
           <text x="936" y="404" text-anchor="middle" fill="#8a879c" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">○ NOT REACHED</text>
         </g>
 
-        <g data-motion-item data-step="5" aria-label="Rule 5 passes for Trace A and is not reached for Trace B; outcomes are permitted and denied">
+        <g data-motion-item data-step="5" aria-label="규칙 5 · 경로 A 통과, 경로 B 미도달 · 결과는 허용과 거부">
           <rect class="row-focus" x="48" y="440" width="1080" height="152" rx="4"/>
-          <text x="72" y="468" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">5 · Deploy gate</text>
-          <text x="72" y="488" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">all reached rules must pass</text>
+          <text x="72" y="468" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">5 · 반영 관문</text>
+          <text x="72" y="488" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">도달한 규칙 모두 통과</text>
           <rect x="532" y="448" width="176" height="52" rx="4" fill="rgba(23,21,43,0.05)" stroke="#68657b"/>
           <text x="620" y="480" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
           <rect data-trace-b-state="not-reached" x="848" y="448" width="176" height="52" rx="4" fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.30)" stroke-dasharray="4 4"/>
           <text x="936" y="480" text-anchor="middle" fill="#8a879c" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">○ NOT REACHED</text>
 
           <rect x="500" y="528" width="240" height="56" rx="6" fill="#17152b" stroke="#17152b"/>
-          <text x="620" y="552" text-anchor="middle" fill="#ffffff" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.2">OUTCOME</text>
-          <text x="620" y="572" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Permitted</text>
+          <text x="620" y="552" text-anchor="middle" fill="#ffffff" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">결과</text>
+          <text x="620" y="572" text-anchor="middle" fill="#ffffff" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">허용</text>
           <rect data-trace-b-outcome="denied" x="816" y="528" width="240" height="56" rx="6" fill="#ffffff"/>
           <rect x="816" y="528" width="240" height="56" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.2"/>
-          <text x="936" y="552" text-anchor="middle" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.2">OUTCOME</text>
-          <text x="936" y="572" text-anchor="middle" fill="#17152b" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Denied · review</text>
+          <text x="936" y="552" text-anchor="middle" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">결과</text>
+          <text x="936" y="572" text-anchor="middle" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">거부 · 검토</text>
         </g>
 
         <line x1="72" y1="620" x2="1128" y2="620" stroke="rgba(23,21,43,0.12)"/>
         <text x="72" y="640" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">✓ PASS</text>
         <text x="176" y="640" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="12">× FAIL</text>
-        <text x="272" y="640" fill="#68657b" font-family="'Geist Mono', monospace" font-size="12">— SKIPPED · rule intentionally bypassed</text>
-        <text x="564" y="640" fill="#8a879c" font-family="'Geist Mono', monospace" font-size="12">○ NOT REACHED · earlier terminal result</text>
+        <text x="272" y="640" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">— SKIPPED · 의도적으로 규칙 생략</text>
+        <text x="564" y="640" fill="#8a879c" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">○ NOT REACHED · 앞 규칙에서 종료</text>
       </svg>
     </div>
 
-    <div data-motion-controls role="group" aria-label="Policy trace playback controls">
-      <button type="button" data-motion-action="prev">Previous</button>
-      <button type="button" data-motion-action="play" aria-pressed="false">Play</button>
-      <button type="button" data-motion-action="pause" aria-pressed="true">Pause</button>
-      <button type="button" data-motion-action="next">Next</button>
-      <button type="button" data-motion-action="replay">Replay</button>
-      <span class="keyboard-help">←/→ step · Space play/pause · R replay · Home/End jump</span>
+    <div data-motion-controls role="group" aria-label="정책 평가 재생 조작">
+      <button type="button" data-motion-action="prev">이전</button>
+      <button type="button" data-motion-action="play" aria-pressed="false">재생</button>
+      <button type="button" data-motion-action="pause" aria-pressed="true">일시정지</button>
+      <button type="button" data-motion-action="next">다음</button>
+      <button type="button" data-motion-action="replay">다시 재생</button>
+      <span class="keyboard-help">←/→ 단계 이동 · Space 재생/일시정지 · R 다시 재생 · Home/End 처음/끝</span>
     </div>
-    <span data-motion-status role="status" aria-live="polite" aria-atomic="true">Static frame · all 5 rules visible</span>
-    <noscript><p>Animation controls require JavaScript. The complete final policy trace is shown above.</p></noscript>
+    <span data-motion-status role="status" aria-live="polite" aria-atomic="true">정지 화면 · 규칙 5개 모두 표시</span>
+    <noscript><p>애니메이션 조작에는 JavaScript가 필요하다. 위에 최종 정책 평가 전체가 표시되어 있다.</p></noscript>
   </main>
 
   <script data-diagram-controls>

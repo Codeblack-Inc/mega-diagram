@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secure Paved Road Architecture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>보안 표준 배포 경로 구조</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -17,7 +18,7 @@
       --rule-strong: rgba(23,21,43,0.30);
       --accent: #2f6fdb;
       --accent-tint: rgba(47,111,219,0.08);
-      --sans: 'Geist', system-ui, sans-serif;
+      --sans: 'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --serif: 'Instrument Serif', serif;
       --mono: 'Geist Mono', ui-monospace, monospace;
       --motion-fast: 160ms;
@@ -174,6 +175,8 @@
       white-space: nowrap;
       border: 0;
     }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
@@ -181,17 +184,17 @@
     <header class="page-header">
       <div>
         <p class="eyebrow">Semantic pattern · Secure paved road</p>
-        <h1>Secure Paved Road Architecture</h1>
+        <h1>보안 표준 배포 경로 구조</h1>
       </div>
       <p class="lede">
-        Authorized deployments follow a paved road with verified identity gates, while unauthorized bypass attempts are blocked at the trust boundary.
+        인가된 배포는 신원 확인 관문을 거치는 표준 경로를 따르고, 비인가 우회 시도는 신뢰 경계에서 차단된다.
       </p>
     </header>
 
     <div class="diagram-wrap">
       <svg role="img" aria-labelledby="paved-road-animated-title paved-road-animated-desc" viewBox="0 0 1160 620" xmlns="http://www.w3.org/2000/svg" data-motion-primitive="secure-paved-road">
-        <title id="paved-road-animated-title">Secure Paved Road Architecture</title>
-        <desc id="paved-road-animated-desc">Interactive step-by-step demonstration of authorized paved-road deployment versus blocked unauthorized bypass attempts at trust boundaries.</desc>
+        <title id="paved-road-animated-title">보안 표준 배포 경로 구조</title>
+        <desc id="paved-road-animated-desc">인가된 배포는 신원 확인 관문을 거치는 표준 경로로 운영 환경에 들어가고, 비인가 우회 시도는 신뢰 경계의 방화벽에서 차단되며 두 사건 모두 감사 로그에 남는 과정을 단계별로 보여 준다.</desc>
         <defs>
           <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 1 L 10 5 L 0 9 z" fill="#17152b" />
@@ -203,77 +206,77 @@
 
         <!-- Base Layout: Trust Zone 1 - Public Ingress -->
         <rect x="40" y="40" width="240" height="490" rx="8" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1" />
-        <text x="60" y="72" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11" letter-spacing="1.6">PUBLIC INGRESS ZONE</text>
+        <text x="60" y="72" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">외부 접속 구역</text>
 
         <!-- Node: Developer Client -->
         <rect x="60" y="96" width="200" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="76" y="128" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Developer Workstation</text>
-        <text x="76" y="148" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Identity: dev_alice (mTLS)</text>
+        <text x="76" y="128" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">개발자 PC</text>
+        <text x="76" y="148" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">신원 · dev_kim (mTLS)</text>
 
         <!-- Node: Unauthorized Attacker -->
         <rect x="60" y="325" width="200" height="72" rx="6" fill="#ffffff" stroke="#2f6fdb" stroke-width="1.5" />
-        <text x="76" y="357" fill="#2f6fdb" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Unauthorized Attacker</text>
-        <text x="76" y="377" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="11">Bypass Attempt (No Key)</text>
+        <text x="76" y="357" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">비인가 공격자</text>
+        <text x="76" y="377" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">우회 시도 · 키 없음</text>
 
         <!-- Base Layout: Trust Zone 2 - Corporate CI/CD & Governance -->
         <rect x="330" y="40" width="380" height="490" rx="8" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1" />
-        <text x="350" y="72" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11" letter-spacing="1.6">CORPORATE GOVERNANCE ZONE</text>
+        <text x="350" y="72" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">사내 통제 구역</text>
 
         <!-- Node: CI/CD Pipeline -->
         <rect x="350" y="96" width="340" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="370" y="128" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">CI/CD Paved Road Pipeline</text>
-        <text x="370" y="148" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Build: Signed Artifact &amp; Policy Check</text>
+        <text x="370" y="128" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">CI/CD 표준 배포 파이프라인</text>
+        <text x="370" y="148" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">빌드 · 서명 산출물과 정책 검사</text>
 
         <!-- Node: Privileged Security Gate -->
         <rect x="350" y="210" width="340" height="76" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="370" y="238" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Privileged Security Gate</text>
-        <text x="370" y="258" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Policy: OPA Signature &amp; Vulnerability Scan</text>
+        <text x="370" y="238" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">보안 승인 관문</text>
+        <text x="370" y="258" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">정책 · OPA 서명 검증과 취약점 점검</text>
 
         <!-- Node: Boundary Firewall & WAF (Left side x=350..560) -->
         <rect x="350" y="325" width="210" height="72" rx="6" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.5" />
-        <text x="366" y="355" fill="#2f6fdb" font-family="'Geist', sans-serif" font-size="13" font-weight="600">Boundary Firewall &amp; WAF</text>
-        <text x="366" y="375" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="10.5" font-weight="600">Status: × BLOCKED</text>
+        <text x="366" y="355" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" font-weight="600">경계 방화벽 · WAF</text>
+        <text x="366" y="375" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">상태 · × 차단</text>
 
         <!-- Node: Audit Log Service -->
         <rect x="350" y="435" width="340" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="370" y="465" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Centralized Audit Log Service</text>
-        <text x="370" y="485" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Storage: Immutable SIEM Audit Trail</text>
+        <text x="370" y="465" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">통합 감사 로그</text>
+        <text x="370" y="485" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">저장 · 변경 불가 SIEM 감사 기록</text>
 
         <!-- Base Layout: Trust Zone 3 - Isolated Production Runtime -->
         <rect x="760" y="40" width="360" height="490" rx="8" fill="#f6f5fa" stroke="rgba(23,21,43,0.12)" stroke-width="1" />
-        <text x="780" y="72" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11" letter-spacing="1.6">ISOLATED PRODUCTION RUNTIME</text>
+        <text x="780" y="72" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="500">격리 운영 환경</text>
 
         <!-- Node: Production API Gateway -->
         <rect x="780" y="96" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="800" y="128" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Production API Gateway</text>
-        <text x="800" y="148" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Status: ADMITTED [TLS 1.3 Strict]</text>
+        <text x="800" y="128" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">운영 API 게이트웨이</text>
+        <text x="800" y="148" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">상태 · 허용 [TLS 1.3 Strict]</text>
 
         <!-- Node: Production Database -->
         <rect x="780" y="210" width="320" height="76" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="800" y="238" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Isolated Core Database</text>
-        <text x="800" y="258" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Access: Paved Road Only (KMS Encrypted)</text>
+        <text x="800" y="238" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">격리 핵심 DB</text>
+        <text x="800" y="258" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">접근 · 표준 경로만 허용 (KMS 암호화)</text>
 
         <!-- Node: Security Operations Center -->
         <rect x="780" y="435" width="320" height="72" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-        <text x="800" y="465" fill="#17152b" font-family="'Geist', sans-serif" font-size="14" font-weight="600">Security Operations Center</text>
-        <text x="800" y="485" fill="#68657b" font-family="'Geist Mono', monospace" font-size="11">Monitoring: Real-time Alerting Active</text>
+        <text x="800" y="465" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="14" font-weight="600">보안관제센터</text>
+        <text x="800" y="485" fill="#68657b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">관제 · 실시간 경보 작동</text>
 
         <!-- STEP 1: Authorized Developer Code Ingress -->
-        <g data-motion-item data-step="1" aria-label="Step 1: Developer workstation pushes signed code commit into CI/CD Paved Road pipeline">
+        <g data-motion-item data-step="1" aria-label="1단계 · 개발자 PC가 서명된 커밋을 CI/CD 표준 배포 파이프라인에 푸시">
           <path d="M 260 132 L 350 132" fill="none" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
           <rect x="275" y="104" width="60" height="18" rx="3" fill="#ffffff" stroke="#17152b" stroke-width="1" />
           <text x="305" y="117" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9" font-weight="600">GIT PUSH</text>
         </g>
 
         <!-- STEP 2: CI/CD Build & Cryptographic Signing -->
-        <g data-motion-item data-step="2" aria-label="Step 2: CI/CD pipeline builds binary and generates cryptographic provenance signature">
+        <g data-motion-item data-step="2" aria-label="2단계 · CI/CD 파이프라인이 빌드하고 출처 증명 서명을 생성">
           <path d="M 520 168 L 520 210" fill="none" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
           <rect x="440" y="178" width="160" height="20" rx="4" fill="#ffffff" stroke="#17152b" stroke-width="1" />
           <text x="520" y="192" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9" font-weight="600">PROVENANCE [SIGNED]</text>
         </g>
 
         <!-- STEP 3: Security Gate Approval → Production Gateway → Database Deployment -->
-        <g data-motion-item data-step="3" aria-label="Step 3: Security gate verifies OPA policy, approves artifact, and deploys via Production API Gateway to Isolated Core Database">
+        <g data-motion-item data-step="3" aria-label="3단계 · 보안 승인 관문이 OPA 정책을 검증하고 운영 API 게이트웨이를 거쳐 격리 핵심 DB에 배포">
           <!-- Gate ✓ PASS → Production API Gateway (diagonal: gate right edge to gateway left edge) -->
           <path d="M 690 230 L 780 132" fill="none" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
           <rect x="700" y="166" width="65" height="18" rx="3" fill="#ffffff" stroke="#17152b" stroke-width="1" />
@@ -283,14 +286,14 @@
         </g>
 
         <!-- STEP 4: Unauthorized Bypass Attempt Blocked at Boundary Firewall -->
-        <g data-motion-item data-step="4" aria-label="Step 4: Unauthorized attacker connection attempt is blocked at trust boundary firewall">
+        <g data-motion-item data-step="4" aria-label="4단계 · 비인가 공격자의 접속 시도를 신뢰 경계 방화벽에서 차단">
           <path d="M 260 361 L 350 361" fill="none" stroke="#2f6fdb" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-accent)" />
           <rect x="272" y="345" width="65" height="18" rx="3" fill="#ffffff" stroke="#2f6fdb" stroke-width="1" />
-          <text x="304" y="358" text-anchor="middle" fill="#2f6fdb" font-family="'Geist Mono', monospace" font-size="8.5" font-weight="600">BYPASS</text>
+          <text x="304" y="358" text-anchor="middle" fill="#2f6fdb" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">우회</text>
         </g>
 
         <!-- STEP 5: Audit Log & SIEM Security Monitoring Record -->
-        <g data-motion-item data-step="5" aria-label="Step 5: Immutable SIEM audit log records both authorized deployment and blocked attack attempt">
+        <g data-motion-item data-step="5" aria-label="5단계 · 변경 불가 SIEM 감사 로그에 인가 배포와 차단된 공격 시도를 모두 기록">
           <!-- Gate Audit Trail (Runs cleanly down the right side x=620, clear of Firewall node x=350..560!) -->
           <path d="M 620 286 L 620 435" fill="none" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
           <!-- WAF Audit Trail (Runs directly down x=455 into Audit Log) -->
@@ -299,50 +302,50 @@
           <path d="M 690 471 L 780 471" fill="none" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
           <!-- Audit Badge Chip -->
           <rect x="570" y="350" width="100" height="20" rx="3" fill="#ffffff" stroke="#17152b" stroke-width="1" />
-          <text x="620" y="364" text-anchor="middle" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9" font-weight="600">AUDIT LOGGED</text>
+          <text x="620" y="364" text-anchor="middle" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="600">감사 기록</text>
         </g>
 
         <!-- Precision SVG Legend Footer (Exact visual mini-arrows and mini-rects) -->
         <g data-motion-decorative aria-hidden="true">
           <!-- Flow Line 1: Authorized Paved Road -->
           <line x1="40" y1="584" x2="65" y2="584" stroke="#17152b" stroke-width="2" marker-end="url(#arrow-ink)" />
-          <text x="73" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Authorized Paved Road</text>
+          <text x="73" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">인가된 표준 경로</text>
 
           <!-- Flow Line 2: Blocked Bypass Attempt -->
           <line x1="225" y1="584" x2="250" y2="584" stroke="#2f6fdb" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow-accent)" />
-          <text x="258" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Blocked Bypass Attempt</text>
+          <text x="258" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">차단된 우회 시도</text>
 
           <!-- Box 1: Paved Road Node -->
           <rect x="425" y="577" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1.5" />
-          <text x="447" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Paved Road Node</text>
+          <text x="447" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">표준 경로 노드</text>
 
           <!-- Box 2: Attacker Node (White Fill + Orange Border) -->
           <rect x="565" y="577" width="16" height="12" rx="2" fill="#ffffff" stroke="#2f6fdb" stroke-width="1.5" />
-          <text x="587" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Attacker Node</text>
+          <text x="587" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">공격자 노드</text>
 
           <!-- Box 3: Firewall Blocked Node (Orange Tint Fill + Orange Border) -->
           <rect x="690" y="577" width="16" height="12" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1.5" />
-          <text x="712" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Firewall Blocked</text>
+          <text x="712" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">방화벽 차단</text>
 
           <!-- Box 4: Action / Status Chip (White Chip + Solid Border) -->
           <rect x="830" y="577" width="16" height="12" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1" />
-          <text x="852" y="588" fill="#17152b" font-family="'Geist Mono', monospace" font-size="9.5">Action / Status Chip</text>
+          <text x="852" y="588" fill="#17152b" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" font-weight="400">동작·상태 칩</text>
         </g>
       </svg>
     </div>
 
     <!-- Pinned Motion Controls -->
-    <div data-motion-controls role="group" aria-label="Diagram playback controls">
-      <button type="button" data-motion-action="prev">Previous</button>
-      <button type="button" data-motion-action="play" aria-pressed="false">Play</button>
-      <button type="button" data-motion-action="pause" aria-pressed="true">Pause</button>
-      <button type="button" data-motion-action="next">Next</button>
-      <button type="button" data-motion-action="replay">Replay</button>
-      <span class="keyboard-help">←/→ step · Space play/pause · R replay · Home/End jump</span>
-      <span data-motion-status-visible aria-hidden="true">Step <span data-motion-step-label>5</span> of 5</span>
+    <div data-motion-controls role="group" aria-label="다이어그램 재생 조작">
+      <button type="button" data-motion-action="prev">이전</button>
+      <button type="button" data-motion-action="play" aria-pressed="false">재생</button>
+      <button type="button" data-motion-action="pause" aria-pressed="true">일시정지</button>
+      <button type="button" data-motion-action="next">다음</button>
+      <button type="button" data-motion-action="replay">다시 재생</button>
+      <span class="keyboard-help">←/→ 단계 이동 · Space 재생/일시정지 · R 다시 재생 · Home/End 처음/끝</span>
+      <span data-motion-status-visible aria-hidden="true"><span data-motion-step-label>5</span> / 5단계</span>
     </div>
     <p class="sr-only" data-motion-status role="status" aria-live="polite" aria-atomic="true"></p>
-    <noscript><p>Animation controls require JavaScript. The complete final diagram is shown above.</p></noscript>
+    <noscript><p>애니메이션 조작에는 JavaScript가 필요하다. 위에 최종 다이어그램 전체가 표시되어 있다.</p></noscript>
   </main>
 
   <script data-diagram-controls>

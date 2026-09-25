@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content site · Architecture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>공공기관 콘텐츠 포털 · 아키텍처</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #17152b;
       --color-muted:   #68657b;
       --color-accent:  #2f6fdb;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,16 +52,17 @@
     }
 
     svg { width: 100%; min-width: 900px; display: block; }
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Architecture · mega-diagram</p>
-    <h1>Content site in production</h1>
+    <h1>공공기관 콘텐츠 포털 운영 구조</h1>
 
     <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="architecture-title architecture-desc">
-      <title id="architecture-title">Content site in production</title>
-      <desc id="architecture-desc">Architecture diagram showing reader requests moving through Cloudflare to an Astro origin, MDX bundle, and content CMS.</desc>
+      <title id="architecture-title">공공기관 콘텐츠 포털 운영 구조</title>
+      <desc id="architecture-desc">시민 요청이 CDN 캐시와 포털 서버를 거쳐 콘텐츠 번들과 자료 CMS로 이어지는 운영 구조.</desc>
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -74,9 +76,9 @@
         <!-- Zone: Content services (drawn before arrows and nodes) -->
         <rect x="616" y="128" width="164" height="272" rx="8"
               fill="rgba(23,21,43,0.02)" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <rect x="672" y="132" width="52" height="12" rx="2" fill="#ffffff"/>
-        <text x="698" y="141" fill="rgba(23,21,43,0.40)" font-size="7" font-family="'Geist Mono', monospace"
-              text-anchor="middle" letter-spacing="0.14em">CONTENT</text>
+        <rect x="676" y="132" width="44" height="16" rx="2" fill="#ffffff"/>
+        <text x="698" y="144" fill="rgba(23,21,43,0.40)" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif"
+              text-anchor="middle" font-weight="500">콘텐츠</text>
 
         <!-- Arrows first (behind boxes) -->
         <line x1="168" y1="272" x2="220" y2="272" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
@@ -94,24 +96,24 @@
         <rect x="172" y="252" width="48" height="12" rx="2" fill="#ffffff"/>
         <text x="196" y="262" fill="#6043d5" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">HTTPS</text>
 
-        <rect x="172" y="278" width="32" height="12" rx="2" fill="#ffffff"/>
-        <text x="188" y="287" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">RESP</text>
+        <rect x="172" y="294" width="32" height="16" rx="2" fill="#ffffff"/>
+        <text x="188" y="306" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">응답</text>
 
         <rect x="368" y="252" width="48" height="12" rx="2" fill="#ffffff"/>
         <text x="392" y="262" fill="#2f6fdb" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SSR</text>
 
-        <rect x="632" y="246" width="60" height="12" rx="2" fill="#ffffff"/>
-        <text x="662" y="255" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">READ MDX</text>
+        <rect x="624" y="246" width="64" height="16" rx="2" fill="#ffffff"/>
+        <text x="656" y="258" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">본문 읽기</text>
 
-        <rect x="632" y="286" width="44" height="12" rx="2" fill="#ffffff"/>
-        <text x="654" y="295" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">QUERY</text>
+        <rect x="624" y="282" width="64" height="16" rx="2" fill="#ffffff"/>
+        <text x="656" y="294" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">자료 조회</text>
 
         <!-- Node: Reader -->
         <rect x="40" y="240" width="128" height="64" rx="6" fill="#ffffff"/>
         <rect x="40" y="240" width="128" height="64" rx="6" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
         <rect x="48" y="248" width="28" height="12" rx="2" fill="transparent" stroke="rgba(138,135,156,0.40)" stroke-width="0.8"/>
         <text x="62" y="257" fill="#8a879c" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXT</text>
-        <text x="104" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Reader</text>
+        <text x="104" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">시민</text>
         <text x="104" y="292" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Browser</text>
 
         <!-- Node: Cloudflare -->
@@ -120,8 +122,8 @@
         <rect x="228" y="248" width="32" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.22)" stroke-width="0.8"/>
         <text x="244" y="257" fill="#8a879c" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EDGE</text>
         <text x="356" y="300" fill="rgba(23,21,43,0.06)" font-size="32" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="end">01</text>
-        <text x="292" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Cloudflare</text>
-        <text x="292" y="292" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Pages · cache</text>
+        <text x="292" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">CDN 캐시</text>
+        <text x="292" y="292" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">edge · cache</text>
 
         <!-- Node: Astro (focal coral) -->
         <rect x="416" y="240" width="160" height="64" rx="6" fill="#ffffff"/>
@@ -129,7 +131,7 @@
         <rect x="424" y="248" width="32" height="12" rx="2" fill="transparent" stroke="rgba(47,111,219,0.50)" stroke-width="0.8"/>
         <text x="440" y="257" fill="#2f6fdb" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ORIG</text>
         <text x="568" y="300" fill="rgba(47,111,219,0.10)" font-size="32" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="end">02</text>
-        <text x="496" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Astro Origin</text>
+        <text x="496" y="276" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">포털 서버</text>
         <text x="496" y="292" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">SSR + MDX</text>
 
         <!-- Node: MDX Bundle -->
@@ -137,7 +139,7 @@
         <rect x="628" y="160" width="144" height="64" rx="6" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
         <rect x="636" y="168" width="32" height="12" rx="2" fill="transparent" stroke="rgba(23,21,43,0.40)" stroke-width="0.8"/>
         <text x="652" y="177" fill="#17152b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">BUN</text>
-        <text x="700" y="196" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">MDX Bundle</text>
+        <text x="700" y="196" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">콘텐츠 번들</text>
         <text x="700" y="212" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">src/content/*.mdx</text>
 
         <!-- Node: Content CMS -->
@@ -145,36 +147,36 @@
         <rect x="628" y="320" width="144" height="64" rx="6" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
         <rect x="636" y="328" width="28" height="12" rx="2" fill="transparent" stroke="rgba(104,101,123,0.50)" stroke-width="0.8"/>
         <text x="650" y="337" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CMS</text>
-        <text x="700" y="356" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Content CMS</text>
+        <text x="700" y="356" fill="#17152b" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">자료 CMS</text>
         <text x="700" y="372" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">assets · og images</text>
 
         <!-- Legend strip -->
         <line x1="40" y1="404" x2="960" y2="404" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-        <text x="40" y="420" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+        <text x="40" y="424" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
         <rect x="40" y="436" width="14" height="10" rx="2" fill="rgba(47,111,219,0.08)" stroke="#2f6fdb" stroke-width="1"/>
-        <text x="60" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Focal / origin</text>
+        <text x="60" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">핵심 서버</text>
 
-        <rect x="180" y="436" width="14" height="10" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
-        <text x="200" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Backend / bundle</text>
+        <rect x="148" y="436" width="14" height="10" rx="2" fill="#ffffff" stroke="#17152b" stroke-width="1"/>
+        <text x="168" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">콘텐츠 번들</text>
 
-        <rect x="340" y="436" width="14" height="10" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
-        <text x="360" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Store</text>
+        <rect x="268" y="436" width="14" height="10" rx="2" fill="rgba(23,21,43,0.05)" stroke="#68657b" stroke-width="1"/>
+        <text x="288" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">저장소</text>
 
-        <rect x="436" y="436" width="14" height="10" rx="2" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
-        <text x="456" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Cloud</text>
+        <rect x="356" y="436" width="14" height="10" rx="2" fill="rgba(23,21,43,0.03)" stroke="rgba(23,21,43,0.30)" stroke-width="1"/>
+        <text x="376" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">클라우드</text>
 
-        <rect x="528" y="436" width="14" height="10" rx="2" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
-        <text x="548" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">External</text>
+        <rect x="456" y="436" width="14" height="10" rx="2" fill="rgba(104,101,123,0.10)" stroke="#8a879c" stroke-width="1"/>
+        <text x="476" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">외부</text>
 
-        <line x1="636" y1="442" x2="664" y2="442" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
-        <text x="672" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">HTTP request</text>
+        <line x1="532" y1="442" x2="560" y2="442" stroke="#6043d5" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+        <text x="568" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">HTTP 요청</text>
 
-        <line x1="784" y1="442" x2="812" y2="442" stroke="#2f6fdb" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
-        <text x="820" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Primary flow</text>
+        <line x1="660" y1="442" x2="688" y2="442" stroke="#2f6fdb" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <text x="696" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">주요 흐름</text>
 
-        <line x1="900" y1="442" x2="928" y2="442" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-        <text x="936" y="444" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Return / async</text>
+        <line x1="784" y1="442" x2="812" y2="442" stroke="#68657b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+        <text x="820" y="446" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">응답·비동기</text>
       </svg>
   </div>
 </body>

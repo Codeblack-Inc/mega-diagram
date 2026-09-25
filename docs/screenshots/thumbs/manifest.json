@@ -9,380 +9,407 @@
     {
       "thumb": "architecture.webp",
       "source": "docs/screenshots/architecture.png",
-      "source_sha256": "2dcc3b89ccb4bd510031de90dc42643f3c506520ce769838876299347be03e2a",
+      "source_sha256": "5abc68d0483da2c5031f3e39fb5aa3360bd10cf3d87844b9a306a2cc52a03345",
       "width": 1400,
       "height": 673,
       "quality": 90,
-      "thumb_sha256": "cf85810a889eb10fb88a71e10c56412418e526afde483c1d88e1a3d8c30faf47"
+      "thumb_sha256": "bca2259922825f67fe13b6f5065b8b3806e80c934820877afab904958c56c13a"
     },
     {
       "thumb": "bar.webp",
       "source": "docs/screenshots/bar.png",
-      "source_sha256": "f192f773641bdf3bf8dd9ee2d4b539fe2b860608c2e0526aa53a93739846d9ac",
+      "source_sha256": "986cc5991b3ead5ec256715981da466cb582cc0c7ab888ea8a4ca8cec7ee3af5",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "8c0e18fb134568733446247cc3a3c7be19b10cd980caec8af29b2a83bd23c7d7"
+      "thumb_sha256": "46c4eb55a4a29f4be4565384bfd16bf2acb41405fa81455d73a89d9365f1e0b5"
     },
     {
       "thumb": "data-flow.webp",
       "source": "docs/screenshots/data-flow.png",
-      "source_sha256": "38186c7ffa2717e70ab38ad3ca0aa2e7c422620ea8164da53a493a420065c234",
+      "source_sha256": "e058f3cd1d2ef82dc0d2de91d383061f147dd7fedb50039e40d48e5f92ca6a67",
       "width": 600,
       "height": 294,
       "quality": 82,
-      "thumb_sha256": "153c35731439ae40f40101cb9a25506ed35164829893fc967359bbaf65be2c83"
+      "thumb_sha256": "0c62045d9cc3c873513b1aed780a70b4c79bbbe2527ed3e6a5880ba17be3bfd7"
     },
     {
       "thumb": "db-schema.webp",
       "source": "docs/screenshots/db-schema.png",
-      "source_sha256": "b6ed9c1be78b3d31d4b95864a04440eb25d65aa6e2f460e8eece2003d33b57a7",
+      "source_sha256": "6dc946b328654239289b2c5f20a7b99642c03aba34acc70dc3914bfaedfe5ab8",
       "width": 600,
       "height": 312,
       "quality": 82,
-      "thumb_sha256": "5e4783e779ad66c7470f60fa18c4d0076d1bf0ce8ba8af2adf1a7a903703282f"
+      "thumb_sha256": "4f733fe130d5632b975d77fa9c330bf32e789234b0792ac93eeb6d135a5dd540"
     },
     {
       "thumb": "dependency.webp",
       "source": "docs/screenshots/dependency.png",
-      "source_sha256": "2ad293c006000002cfad483fd8a1b6f22f6cf7b0179fbaa3aae75c177e0c4604",
+      "source_sha256": "332d468cf157ef5185173b11290ced9890b00e9b30f7adfdb1352356d1ea9a31",
       "width": 600,
       "height": 360,
       "quality": 82,
-      "thumb_sha256": "b106665f148b8119625838b1b3f134dbca2e54af860ed7bdc42fd9483f33b4a8"
+      "thumb_sha256": "1ffd2c176856d2f94da403e73256f89f2628111639d42c4dbaaebb901b492f38"
     },
     {
       "thumb": "deployment.webp",
       "source": "docs/screenshots/deployment.png",
-      "source_sha256": "c382a03b569351e4c41aef0301302308df401d65b3a87ecf0ffbf5486cf65f78",
+      "source_sha256": "b5ebc94ea6e61f2090d14b6cb357b034da2e9ea85cfcc408a179f3542e7f11d2",
       "width": 600,
       "height": 240,
       "quality": 82,
-      "thumb_sha256": "c1ed5825b6587fd79bd8af741069cd12ac963e3024071d592161ee5f683780f1"
+      "thumb_sha256": "b3cec56b64978b9a4aa5d21a8940fb595b7951e9452fd73b099c909868bb7fd5"
     },
     {
       "thumb": "dp-integration.webp",
       "source": "docs/screenshots/dp-integration.png",
-      "source_sha256": "2932668cfe8a53e2fc58758bd3e668211a50bc7241ee6d7838e47114740c654e",
+      "source_sha256": "2d72ed6a74020b08681893ed1de45ce83fead671200e1b9d2e21ab183671e03d",
       "width": 600,
       "height": 332,
       "quality": 82,
-      "thumb_sha256": "55089a61733aee02635f865e41da7cf2151f032788a762b61f2855ee97dc5f04"
+      "thumb_sha256": "08d3fd5a2b40ea61c666423dd424f7a1a933439fc8241009b7a60b5b79e8dc2f"
     },
     {
       "thumb": "dp-security-matrix.webp",
       "source": "docs/screenshots/dp-security-matrix.png",
-      "source_sha256": "ca0364edb655ab8680510aacb77ed9997a6a50d6c470f8deeaad10d68d29a1f3",
+      "source_sha256": "58c67b8f93aa0a137a87cf8b95ae34d376386c0f71b75fd6d69601c08d3e9b9e",
       "width": 600,
       "height": 222,
       "quality": 82,
-      "thumb_sha256": "9b84f61913eeffcf19a1c802580c470e046dfa0d1795ae694b1137e21f54452a"
+      "thumb_sha256": "0bc264872de1643d1814e2c1e35568c69bd2e30e53208a1752c8e544a67e3a6d"
     },
     {
       "thumb": "er.webp",
       "source": "docs/screenshots/er.png",
-      "source_sha256": "2463a840a9bf03903c49bb05fcd9f28a806222ab42f6bb106bc611c3eaef43ab",
+      "source_sha256": "7a257b142fa2247d3b4df2b3683d860bfe2c19b5b31a68ff511aa4c2a56addd4",
       "width": 600,
       "height": 288,
       "quality": 82,
-      "thumb_sha256": "807323378f3b8e3baf6b4f23618caa0be56a18c019d691bb335ee6835f94763f"
+      "thumb_sha256": "2f0d538c98681357c9047fe27fd967d847c2d9724d9b00de4342c5d17ae14f63"
     },
     {
       "thumb": "fishbone.webp",
       "source": "docs/screenshots/fishbone.png",
-      "source_sha256": "e72aeb8abc0d2dc0e100541286e3b64c9dfd019ab7b80f105cb574000e4c7dd7",
+      "source_sha256": "344a05cf21f5209ff142e4ef6b759e30dc899f185938720568184823b52f858b",
       "width": 600,
       "height": 244,
       "quality": 82,
-      "thumb_sha256": "21fcc02510d2da5d1e816411d6ac6e32020b8ee7bbc860e17521e76abdd66635"
+      "thumb_sha256": "cbbebd755c6741ddd291f45ef4ddf8f920a2b4c3d309ab5e1e4c3b3005574902"
     },
     {
       "thumb": "flowchart.webp",
       "source": "docs/screenshots/flowchart.png",
-      "source_sha256": "2e19d0d8f9536b07bc2cda4404305885b0f1a2062bf118603f38f39ceeecb3ff",
+      "source_sha256": "ef0c1d56ddc5bfee8682da517c36167ccbc94dcb08acb7ff460fbbee9f09e39b",
       "width": 600,
       "height": 360,
       "quality": 82,
-      "thumb_sha256": "66d7b77a2d796c5878bf6c09b9c0e9434ee30509fc401dfd3b28bc17e3f15802"
+      "thumb_sha256": "cc31f9d8ea7b5e4f7e4f5b046fc5b109edc75c79992a902c726750a23c6b5cd5"
     },
     {
       "thumb": "gantt.webp",
       "source": "docs/screenshots/gantt.png",
-      "source_sha256": "59e4c4f32c99ba7ea1a6c5d25415a45af202ed95ccad86f4ebd9f3b52f69b55f",
+      "source_sha256": "2da594a5ddc6b876d07125e0669f1fc7116d5c8a96e97fbeed1d7e5d9079fa4a",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "90c909b69eec3e258ca5a21af6a8e4ca3233f4e2f46d0d3d803d897569b5304a"
+      "thumb_sha256": "41e4f18400431e1f6ef436d530885c7a0b1802d55c5adecbce3f4045b3071f42"
+    },
+    {
+      "thumb": "governance.webp",
+      "source": "docs/screenshots/governance.png",
+      "source_sha256": "19b8445d8e8cb4223d987b1aa3655368a5330a238e175cda01ad7fc8acc50b4a",
+      "width": 600,
+      "height": 404,
+      "quality": 82,
+      "thumb_sha256": "4e1cf5ce977150b5b211367b990fd9610e1a949da090b0005d8d8be5fb96d4c3"
     },
     {
       "thumb": "heatmap.webp",
       "source": "docs/screenshots/heatmap.png",
-      "source_sha256": "655386ba1844a57e5add30e6d7f5a6c08813d0ca347ceb62c407046c9f9eff8d",
+      "source_sha256": "7524fd4a18739f16fe258f7c520d25acf2964d9c08f3d411549540a91cf41f0a",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "f4069911b4ee8244e449e0985a97b7dc3b5777142599e9b866d7094614540343"
+      "thumb_sha256": "2e2b4e4e757465f3ba7791e3367a4d67f72cdfb0cfa45924653ce19b55435eb8"
     },
     {
       "thumb": "high-level.webp",
       "source": "docs/screenshots/high-level.png",
-      "source_sha256": "1e54685e9d6bfaf58135aee9d1d1fe7293fbe089e5c2b2d77d6846c2bf20df93",
+      "source_sha256": "9253558b340efb066b0a3bf24838a0bcd68be4503d87dba14446e5917349bb1f",
       "width": 600,
       "height": 324,
       "quality": 82,
-      "thumb_sha256": "d58c404e770338ab76dbe2cb8d42d691ce13d64beea6da9af5f83850681c9a80"
+      "thumb_sha256": "bdd70e406295ee63975d2db0428d5651b1549d1fe35d082e1b7dce2940c38114"
     },
     {
       "thumb": "import-drawio.webp",
       "source": "docs/screenshots/import-drawio.png",
-      "source_sha256": "7b63af9df5cd1fadc29b37d6b0fbcc1405b8670d8a4be0a2c571f565f9c0ae58",
+      "source_sha256": "b7164c567f46b655ca0c080e598c42c40ffca5291b20c693c593d4999ede65a1",
       "width": 1400,
       "height": 876,
       "quality": 90,
-      "thumb_sha256": "d28652abcd2a410d6007dde44813fbc83ef31bc98568191b7a82cebccd215f09"
+      "thumb_sha256": "b738d4f498ff7f7730097f70c20b0f86448da695d9da22102defc129dc87b5b0"
     },
     {
       "thumb": "it-state.webp",
       "source": "docs/screenshots/it-state.png",
-      "source_sha256": "81e4162740aaab114dcd91db86ace607ff163c74f70f890a557997e57048956d",
+      "source_sha256": "808e6ac067619f8a971c1e3d79c05cd3f326ad863040f949c1303f4fa50e9474",
       "width": 600,
       "height": 313,
       "quality": 82,
-      "thumb_sha256": "b3aa221f715c7b3e7957ebcb132ba291b9b770b1b72d7f8a7187d9cb1082c0ab"
+      "thumb_sha256": "7c0ee74547ff60ced418d35c6c88644c813eed5323fccf62aaf5ef9500da0ef3"
     },
     {
       "thumb": "journey.webp",
       "source": "docs/screenshots/journey.png",
-      "source_sha256": "88fda8fd0ed307898d9402cf2991e7bbe18294710ce36db16f6fe25865bc6d06",
+      "source_sha256": "b484f57b5e544f3720771ed8925b84a1d46b521b8600489caba8fd0f276c42c4",
       "width": 600,
       "height": 260,
       "quality": 82,
-      "thumb_sha256": "15d43362f508064808441bc4df32481191dc0d4983d00b68746009a3e2b718c3"
+      "thumb_sha256": "4e329fbbcbcd14d66f5c6c6e5104860cdc7c4dd9dfad21762a472a2db49ee519"
     },
     {
       "thumb": "kanban.webp",
       "source": "docs/screenshots/kanban.png",
-      "source_sha256": "dd24149fcb751634963ebfea9f51ecb68846bbabe3939dd03912c033e3a865cc",
+      "source_sha256": "47bcf12cee9743b8b93010ddf010a41eb891a01cf36f26dbbc03ea3051a693b0",
       "width": 600,
       "height": 236,
       "quality": 82,
-      "thumb_sha256": "a26319b547d56458ae0e7312ed32b14fb8fe4aa7fece90c84493e2f9752f48b2"
+      "thumb_sha256": "228932d432b88405e27563dbfa3d3ea274635329f0959cc44b4aa80e15654c3f"
     },
     {
       "thumb": "layers.webp",
       "source": "docs/screenshots/layers.png",
-      "source_sha256": "4e2608feccb46ea8595083ddac72699a247dd573e74c0d438cda5b3b55f9da67",
+      "source_sha256": "82e58f9eb4cd9910e2c8af6434f4211f7bc7aa9b63ebcaea820508c9ec2e3246",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "a2f88aab692a19b70bc47fb3b702d050898b4ab58cf7003ca40fec2da7b47dc8"
+      "thumb_sha256": "171d3af7bfdb4fd6778e08719788a35336ea320c6bc4c121a5d14d1d0a1837c7"
     },
     {
       "thumb": "line.webp",
       "source": "docs/screenshots/line.png",
-      "source_sha256": "ac4cb0ea89fc81c2f17136918e120b16d4e21599d0404e98f40d4c6ce0fca8bf",
+      "source_sha256": "1fe74f3674454b25df177cb42acd10852c9f2689bc7729993c31947967687c37",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "23050db067fd04bb50063de751b68334c622d2ef9308e9ba0015b587c0451c9f"
+      "thumb_sha256": "023d54fa666845838c649c087fc347fd50cf6001b00aa24a66b0a89e3948e1f1"
     },
     {
       "thumb": "loop.webp",
       "source": "docs/screenshots/loop.png",
-      "source_sha256": "33b3de04b01052a8d1a8d57d67105e8645e6ff1614783a665db4871ef100a401",
+      "source_sha256": "8deafcf45aba2be483d7453fd4d19e7ebf92f8667d29f1103ff604a790043b28",
       "width": 1400,
       "height": 916,
       "quality": 90,
-      "thumb_sha256": "64777f6259ea52cd31469a91b61bb1c2ffd5413af65e5c6ee2e43eab93990040"
+      "thumb_sha256": "42fe79ed589de3de69a41eee923c4e9e4dbaccdff6ef624b42bfa82e7c79bc9e"
     },
     {
       "thumb": "medallion.webp",
       "source": "docs/screenshots/medallion.png",
-      "source_sha256": "92e602a7b031c3f01bb41ce6e8fb1efffb98b95956aa270749ffc7223c0f5c0c",
+      "source_sha256": "78c5a3443e93765075680d22205868d9262bca835cb98effca866533a9a662de",
       "width": 600,
       "height": 316,
       "quality": 82,
-      "thumb_sha256": "fda25b6229e9efbe6e6028ef384077ded62f9e8c05013e436aeef9f89437c07d"
+      "thumb_sha256": "e79c999078413dfcfeb434f629e91d7eae13ae60cb9e62273ac98401f6e3e5c8"
     },
     {
       "thumb": "nested.webp",
       "source": "docs/screenshots/nested.png",
-      "source_sha256": "969d998a72aada65cfabd1146bc1d260a54fb525638b7dd8de260774b4631a44",
+      "source_sha256": "59800dc5a17566368b53eba7da73fb7e8a5ac42e9beee1583b7fc947dc9ad28f",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "b63811a2e204c5988cb88d0412c1df3dba9ba6ed9b29ba4136a91db26bed2302"
+      "thumb_sha256": "a6b539f23f5e4cae101d0b6d69ee5000bc0e2ef146ab80feb116927842662d7f"
     },
     {
       "thumb": "org-chart.webp",
       "source": "docs/screenshots/org-chart.png",
-      "source_sha256": "509e63f00d723aeede11bdc270a7c08c2e057eca0d7791c760f555ed4adcf6bd",
+      "source_sha256": "a565f77e89204f32b1802b75b4554bf5d2362dd493181d96c44ff24e6022b776",
       "width": 600,
       "height": 358,
       "quality": 82,
-      "thumb_sha256": "1403188880a935723c25a4c1ef71355935609351326b8fa902a1b34713be28e6"
+      "thumb_sha256": "e8353a11b10db2c959791f604774da4caea0f8c6d6fe7b9f2d23931ebd12a549"
     },
     {
       "thumb": "polar.webp",
       "source": "docs/screenshots/polar.png",
-      "source_sha256": "e1e5d48f020b0db749a3012bd8de533434213ce76b3160b7e215fb1952ea0d2c",
+      "source_sha256": "7431b8bdc3d9538105bcf301de4105d7ebacc55bd2010f79369fe1f89f3c466f",
       "width": 600,
       "height": 312,
       "quality": 82,
-      "thumb_sha256": "577b82137c66074217415f65fd436e579f9ee51eeeb3f7c27559db7fd111c43a"
+      "thumb_sha256": "423588d376a43ec91290147e9648dd93c6c42c803aa10a532cd72116cbd5b7a9"
     },
     {
       "thumb": "process.webp",
       "source": "docs/screenshots/process.png",
-      "source_sha256": "336fee79efdedbdc1f8f304414b7fcc36d7fa49673185e85cc2a9d67b88ba368",
+      "source_sha256": "ebaf55f08fb672529d06a23c4fb042779c100fe1a3d6e4d3abf98e41f9a34862",
       "width": 600,
       "height": 246,
       "quality": 82,
-      "thumb_sha256": "b89e21613ebd2ca89eeb7475c76bb26c0fdc76dd0ad9d4865dd57bf9b6e27480"
+      "thumb_sha256": "4cd663cf4797f3c1d22f1ddcb90000392ea9d183b77f4b5ba7819ce72f702bb9"
     },
     {
       "thumb": "pyramid.webp",
       "source": "docs/screenshots/pyramid.png",
-      "source_sha256": "927960705985c8716b5e5d614ecce219d68deb5a6eefd4ac46e6863b7202183c",
+      "source_sha256": "e06ccfb1e904d9fba107ceacb37b126a1064d398a2f64267fab27ff76997230c",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "df2def94f2de249e6c920bbf239b4798bcd1d4e39a7334bf9f8280a38673f673"
+      "thumb_sha256": "45a63d341c85a5f9a4276259143323c1e108d191c88de20e3843be973cacc266"
     },
     {
       "thumb": "quadrant.webp",
       "source": "docs/screenshots/quadrant.png",
-      "source_sha256": "c7fa4a19c2f80e6a83978820c79a16df318c9c2ef7b650117854966e84bbcaae",
+      "source_sha256": "070a866f2bfb6c7bc8e9a3cb34902ed3b71351a2e05a9d34d3be8e80cc8369a5",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "94155911b7f7d2f0219d58b7943db203943334bff8ecb8438a1d6984b4b97ce8"
+      "thumb_sha256": "54c17f3a82525b3ddc5c2ee595b05181d23ca1d707de7a4a0e4fb1e6a6d6c8be"
     },
     {
       "thumb": "radar.webp",
       "source": "docs/screenshots/radar.png",
-      "source_sha256": "011f238ad2bfa265fac4b65055e3e7fcb2c7385cb9cb9d0d6d28117bd8a9fdc1",
+      "source_sha256": "74d2dbe4a87cf903723fd7fb707d908bceb01e1cdb83850f6003b197cd9a2b63",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "5ba6bbff1f26e5aa135b60b9e13679937fc9139d5ffbc74ade5f5be6a4ee5e11"
+      "thumb_sha256": "7dcd3358f4d5d444b9d51bec7efe62a0f2713ec3e6e2a2b3a4c9c34ad1676ec7"
+    },
+    {
+      "thumb": "roadmap.webp",
+      "source": "docs/screenshots/roadmap.png",
+      "source_sha256": "ee57c6447b110574305af11ad3e629d309cb7551889c864c4251abe492214dd5",
+      "width": 600,
+      "height": 290,
+      "quality": 82,
+      "thumb_sha256": "0d84953aecd923bc252878ed2a899e062df52feaccb2e7fdbb3d7c642a7148ed"
     },
     {
       "thumb": "sankey.webp",
       "source": "docs/screenshots/sankey.png",
-      "source_sha256": "014173b8d3587fa1c2b5e15895bf522dffcec88fe8397231f3c17155dc00dfe0",
+      "source_sha256": "dae77578542ef5b0c66607ee466694f808b9c33de4146a0914bde5f7c26cd110",
       "width": 600,
       "height": 336,
       "quality": 82,
-      "thumb_sha256": "26dd09ae6f52b41795350ca5ced000da097e5d2b1e31b4e5c114192222a7cc30"
+      "thumb_sha256": "1d304c2f2e584bc69120fdcc3efdd6ea38e7a57c8418f8f981377c74ecffda13"
     },
     {
       "thumb": "scatter.webp",
       "source": "docs/screenshots/scatter.png",
-      "source_sha256": "b623072b3d88a30e567d7d4bd940ca549f68a5ad0d759736e35e8674b6aa3329",
+      "source_sha256": "fdb2a75103654dcc8c0ec3102559f2116bf2079d1052dba5818a849f1aa377d6",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "7dec7e96bbf9797b23efc145b0652d5c29537301d43bec37e77d926b2363bd6a"
+      "thumb_sha256": "b200e2f4c40c6b110e313de1a8162f657b142bde3a9aed07f04f97b029e60346"
     },
     {
       "thumb": "sequence.webp",
       "source": "docs/screenshots/sequence.png",
-      "source_sha256": "dee96d333d1ae9083d61337d5b9cf382a0441b406bfb45dc5883f89fd3bb000b",
+      "source_sha256": "78c1232d98e16e5b256d58d2a35150bd11fb4658839ed651182a36f78a868d3c",
       "width": 600,
       "height": 350,
       "quality": 82,
-      "thumb_sha256": "baf3ccd4869e1122d5ffeb08cfba2fbff2de73475fe61dfd5e1d9c03404ef21a"
+      "thumb_sha256": "6346b383bbb9d7baa1a5245b76b13b2cd7769216dc5bf542dd83b7be193b0a92"
     },
     {
       "thumb": "state.webp",
       "source": "docs/screenshots/state.png",
-      "source_sha256": "e4d38bbb825f9a35435ee052d38d5ca0183ec42675bd0cdfa39cd76b9edb6ea8",
+      "source_sha256": "c5d07e449e7f744af6c7c1cb0784be04499f7965ddd308f6562110f7ae02f5f4",
       "width": 600,
       "height": 276,
       "quality": 82,
-      "thumb_sha256": "9181e57bb2fad030cd01573ab170906a6c9b8cb33e7113a95f895c7bc3142d4c"
+      "thumb_sha256": "de44fbb140166c0221fc5a5ff4778b1846972692b212669e22b74f8ab73f499d"
     },
     {
       "thumb": "story-map.webp",
       "source": "docs/screenshots/story-map.png",
-      "source_sha256": "e9d89af83d7d137fce890b6063d213ec9672ce7637596dae8840fe4a9a2149ba",
+      "source_sha256": "d6d0819f158269c75d0846c1f7df4d8d1e66caa0b345f5b3614666c74ba18a0e",
       "width": 600,
       "height": 314,
       "quality": 82,
-      "thumb_sha256": "839bc95f5da45b9c5606b835b66c03f8f9043974eebb9c70dcb71ccc9102b09d"
+      "thumb_sha256": "648dfd2b373febcfc0e9aceb1ed452362d441e5eb7beb0dae713dcc8b2db6a2e"
+    },
+    {
+      "thumb": "strategy-house.webp",
+      "source": "docs/screenshots/strategy-house.png",
+      "source_sha256": "60f694113d0c1e8bba7bff77ca6c50bf4c8e4705b7b2d6c7601ee7c26ddcb4ac",
+      "width": 600,
+      "height": 312,
+      "quality": 82,
+      "thumb_sha256": "e9ff15b1f6e29ce1709539c3244ece88b0be1248df4a7ae82ba01e331edb4de8"
     },
     {
       "thumb": "swimlane.webp",
       "source": "docs/screenshots/swimlane.png",
-      "source_sha256": "429fa9b1340bc03de505f4f85dc3da120fe6998e60e756f563cbc40e0f445f7a",
+      "source_sha256": "563997d8b8d458090774809158f2007a3518547f1cc51c92cb3cb2134f07de0e",
       "width": 600,
       "height": 288,
       "quality": 82,
-      "thumb_sha256": "ef5e36f7d64548e2207d725a63a6024379a7f05d9ee632e4f6b5337b4e225760"
+      "thumb_sha256": "e18a73d77a73767efffa09429433c76312913a5b1d23a20f2f815caad5741b3c"
     },
     {
       "thumb": "timeline.webp",
       "source": "docs/screenshots/timeline.png",
-      "source_sha256": "5d8860525f747792facd07130ed831a9902d9afa9a5311b14b44a9b312a67a20",
+      "source_sha256": "ea2d62bfdff3be1d0e1518859c20bbd5f4d6d73d5eef46b873d737b8c8c4d18d",
       "width": 600,
       "height": 252,
       "quality": 82,
-      "thumb_sha256": "c02a3d7ec250389631a60e26cd895f7cde4900c532d71e46b3eb58d60e015720"
+      "thumb_sha256": "6e82969dbe7f6ce1a496de1873cf6192d4450ba00a3e7c701314cde8deae26ff"
     },
     {
       "thumb": "tree.webp",
       "source": "docs/screenshots/tree.png",
-      "source_sha256": "b3a3f6f9084a1a5b196e5bfdbf4d88136ea69c5062b22bb7f9891fe4e1d8913c",
+      "source_sha256": "3c6538166f4f20740ed9f4a7ded82be6ba613d58f0d27cbd19aac594917f750e",
       "width": 600,
       "height": 288,
       "quality": 82,
-      "thumb_sha256": "3aec620039dbc97fc2a2dd210ef4cbcbca2b166057ad2042500bb9acacd6f8c8"
+      "thumb_sha256": "91b4e2f51712fd663135da6012bfc69fce5055e7275a81f3d699d452d03068b9"
     },
     {
       "thumb": "treemap.webp",
       "source": "docs/screenshots/treemap.png",
-      "source_sha256": "9334a766eca1a450cd9d2c09a1619ba9fc6dd940666c69c81eb16befee477483",
+      "source_sha256": "21e0cf906a7e37c4c9d01ae4287acc57fc7b2b08403839abbecb14e599d607c9",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "b206f504a0cea55c514983fc059d81511201a5d5d3f27eac2e9a5eba5aa111de"
+      "thumb_sha256": "2120bb317f9ea70154686350ecb0c449599db91d1bfb1b9ebbe57f7a46c8b026"
     },
     {
       "thumb": "uml-class.webp",
       "source": "docs/screenshots/uml-class.png",
-      "source_sha256": "e937be58e47b1a89fb02939811676403356507bad66af35aca4e2fc2f2d4138a",
+      "source_sha256": "2cb855b12e6506826a80d8d22ad0b5d58b91e45176e080c7378bd88a76986069",
       "width": 600,
       "height": 407,
       "quality": 82,
-      "thumb_sha256": "0614c973458e1b5cbe5ff48391e0e9828aaf8c6594579ef823f4303508592ec5"
+      "thumb_sha256": "6558344d59df8f08d4f0769bb633a20a86658b9497d71f9d61dced460261de7a"
     },
     {
       "thumb": "venn.webp",
       "source": "docs/screenshots/venn.png",
-      "source_sha256": "dd26b3357f85d130e7b86465d1c5e2209b0cbda1baa492d9f93532fdddf89e17",
+      "source_sha256": "8fe38a7214c97dffd5fae8b797785e61f7a10b38c117386d7a68ebe93b91e250",
       "width": 600,
       "height": 288,
       "quality": 82,
-      "thumb_sha256": "02c0f3a1dd963de9e256cb59a08f126f883e7e055ed83cfd32beafa626ef5334"
+      "thumb_sha256": "12e5d11c62ca0a15a59ab8d693171315f3e50860fc70e60667605b0eab9c9b3c"
     },
     {
       "thumb": "wardley.webp",
       "source": "docs/screenshots/wardley.png",
-      "source_sha256": "22c4f8e6ca508ef3eb998a4eaeee1d2cc892e7e369e5de6f0393ed7163d1f270",
+      "source_sha256": "22d1f858c1f5d8287ad9a6d1765506330efe89569065adeaf947affaf289bf9b",
       "width": 600,
       "height": 276,
       "quality": 82,
-      "thumb_sha256": "15bb6d960b69b13429afe619ed4d6c9d48d16ad5f21fc802de9bcd46db1287b9"
+      "thumb_sha256": "6421e5e62863a497e6ef73b58fd2474f0a86f0e4c85b3db5c3cecd4f6609a6bd"
     },
     {
       "thumb": "waterfall.webp",
       "source": "docs/screenshots/waterfall.png",
-      "source_sha256": "0c2372e9adfd28c2bcef284bf691747472a0cb30541684572383469cafeb0977",
+      "source_sha256": "f6e4edbb5f7bbebba6f90eb569352c1d43d6941e32fc1e8fe0c9c99b399b7b8a",
       "width": 600,
       "height": 300,
       "quality": 82,
-      "thumb_sha256": "1bda08704afd2d2d8e9839a934ca1059a854a5c6413ad022086ad622d3b65748"
+      "thumb_sha256": "7d5d10cb8f0e9bdaa5f2889913c5f26acf7aa0d3aa903ece2a0177c871620232"
     }
   ]
 }

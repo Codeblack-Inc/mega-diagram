@@ -1,6 +1,6 @@
 ---
 name: mega-diagram
-description: 한국어 문서용 다이어그램(구성도·흐름도·조직도·시퀀스·타임라인·간트·차트)을 투명 배경 SVG/PNG로 만든다. Create branded architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, heatmap, bar, waterfall, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, or database schema diagrams as HTML/SVG/PNG, with .drawio and .excalidraw import support, plus lifecycle phase maps and onboarding guidance.
+description: 한국어 문서용 다이어그램(전략 체계도·추진 체계도·로드맵·구성도·흐름도·조직도·간트·차트)을 투명 배경 SVG/PNG로 만든다. Create branded strategy house, governance, roadmap, architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, heatmap, bar, waterfall, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, or database schema diagrams as HTML/SVG/PNG, with .drawio and .excalidraw import support, plus lifecycle phase maps and onboarding guidance.
 license: MIT
 metadata:
   version: "0.1"
@@ -12,7 +12,7 @@ Create diagrams as self-contained HTML files with inline SVG and an editorial de
 
 **Read [`references/mega.md`](references/mega.md) before the first diagram:** Korean label rules, document size presets, and hand-off to mega-ppt, HWP, and Word.
 
-Forty-one visual types. Semantic patterns describe behavior; type references describe layout.
+Forty-four visual types. Semantic patterns describe behavior; type references describe layout.
 
 ---
 
@@ -41,7 +41,7 @@ Applied to schematics:
 
 ## 2. When to Use
 
-Use for any of the 41 visual types (§3) when a reader will learn more from a visual than from prose, a table, or a bulleted list.
+Use for any of the 44 visual types (§3) when a reader will learn more from a visual than from prose, a table, or a bulleted list.
 
 **Don't use for:**
 
@@ -72,10 +72,13 @@ When behavior, state, enforcement, or risk carries the meaning, first load [`ref
 
 The pattern owns semantic primitives and its tighter budget; the type owns layout grammar. Use [`references/animation.md`](references/animation.md) only when motion is requested or materially clarifies ordered change; static remains the default.
 
-### Visual-type guide (41)
+### Visual-type guide (44)
 
 | If you're showing… | Use | Reference |
 |---|---|---|
+| Vision → goals → strategy pillars → tasks (전략 체계도) | **Strategy house** | [type-strategy-house.md](references/type-strategy-house.md) |
+| Who leads, joins, funds, and adopts a project, with roles (추진 체계도) | **Governance** | [type-governance.md](references/type-governance.md) |
+| Phases × workstreams with milestones and outcomes (추진 로드맵) | **Roadmap** | [type-roadmap.md](references/type-roadmap.md) |
 | Components + connections in a system | **Architecture** | [type-architecture.md](references/type-architecture.md) |
 | Legacy IT landscape by phase or department; shows the *before* state | **IT current-state** | [type-it-state.md](references/type-it-state.md) |
 | Decision logic with branches | **Flowchart** | [type-flowchart.md](references/type-flowchart.md) |
@@ -373,6 +376,9 @@ Expand SVG `viewBox` height by ~60px.
 | Max components / links (wardley) | 9 / 12, 2 movement arrows |
 | Max columns / cards (kanban) | 5 / 12 total, 4 per column |
 | Max stages / rows (user journey) | 6 / 3, 2 pain markers |
+| Max goals / pillars / tasks each (strategy house) | 3 / 4 / 3 |
+| Max organisations / relations (governance) | 7 / 10 |
+| Max phases / bands / milestones (roadmap) | 4 / 4 / 4 |
 | Max zones / nodes / paths (deployment) | 3 / 6 / 8, 9 artifacts |
 | Max nodes / edges (dependency) | 9 / 14, 4 ranks, 1 cycle |
 | Max classes / relationships (UML class) | 7 / 8, 5 members per compartment |

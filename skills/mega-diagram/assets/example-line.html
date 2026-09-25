@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekly signups · Line chart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>주간 신규 가입자 · 꺾은선 차트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --color-paper:#ffffff; --color-ink:#17152b; --color-muted:#68657b; --color-accent:#2f6fdb; --font-sans:'Geist',system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    :root { --color-paper:#ffffff; --color-ink:#17152b; --color-muted:#68657b; --color-accent:#2f6fdb; --font-sans:'Geist', 'Pretendard', 'Noto Sans KR', system-ui,sans-serif; --font-serif:'Instrument Serif',serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
     body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
     .frame { max-width: 1200px; width: 100%; }
     .eyebrow { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.5rem; }
     h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.5rem; }
     svg { width: 100%; min-width: 760px; display: block; }
+      /* mega: Korean h1 is set in sans */
+    h1 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.03em; }
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Line · mega-diagram</p>
-    <h1>Weekly signups · Organic leads the growth</h1>
+    <h1>주간 신규 가입자 · 검색 유입이 성장 주도</h1>
 
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="line-title line-desc">
-      <title id="line-title">Weekly signups · Organic leads the growth</title>
-      <desc id="line-desc">Line chart showing weekly signups from organic, direct, and referral channels across weeks W1 through W8.</desc>
+      <title id="line-title">주간 신규 가입자 · 검색 유입이 성장 주도</title>
+      <desc id="line-desc">검색·직접·제휴 유입 채널별 주간 신규 가입자 수를 1주부터 8주까지 보여 주는 꺾은선 차트.</desc>
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.9" fill="rgba(23,21,43,0.10)"/>
@@ -31,7 +34,7 @@
 
 
       <!-- Y-axis rotated label -->
-      <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em" text-anchor="middle">SIGNUPS / WEEK</text>
+      <text transform="rotate(-90 24 230)" x="24" y="230" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">주간 가입자(명)</text>
 
       <!-- Gridlines -->
       <line x1="80" y1="357" x2="960" y2="357" stroke="rgba(23,21,43,0.08)" stroke-width="0.8"/>
@@ -81,28 +84,28 @@
       <circle cx="920" cy="88"  r="4" fill="#2f6fdb"/>
 
       <!-- X-axis labels -->
-      <text x="80"  y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W1</text>
-      <text x="200" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W2</text>
-      <text x="320" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W3</text>
-      <text x="440" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W4</text>
-      <text x="560" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W5</text>
-      <text x="680" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W6</text>
-      <text x="800" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W7</text>
-      <text x="920" y="440" fill="#68657b" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">W8</text>
+      <text x="80"  y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">1주</text>
+      <text x="200" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">2주</text>
+      <text x="320" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">3주</text>
+      <text x="440" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">4주</text>
+      <text x="560" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">5주</text>
+      <text x="680" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">6주</text>
+      <text x="800" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">7주</text>
+      <text x="920" y="440" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle" font-weight="500">8주</text>
 
       <!-- Legend -->
       <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(23,21,43,0.10)" stroke-width="0.8"/>
-      <text x="40" y="478" fill="#68657b" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+      <text x="40" y="478" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">범례</text>
 
       <line x1="40" y1="492" x2="64" y2="492" stroke="#2f6fdb" stroke-width="1.8"/>
       <circle cx="52" cy="492" r="4" fill="#2f6fdb"/>
-      <text x="72" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Organic · focal</text>
+      <text x="72" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">검색 유입 · 초점</text>
 
       <line x1="200" y1="492" x2="224" y2="492" stroke="#7c8f6f" stroke-width="1.2"/>
-      <text x="232" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Direct</text>
+      <text x="232" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">직접 유입</text>
 
       <line x1="316" y1="492" x2="340" y2="492" stroke="#5e7a9b" stroke-width="1.2"/>
-      <text x="348" y="496" fill="#68657b" font-size="8.5" font-family="'Geist', sans-serif">Referral</text>
+      <text x="348" y="496" fill="#68657b" font-size="12" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" font-weight="500">제휴 유입</text>
     </svg>
   </div>
 </body>

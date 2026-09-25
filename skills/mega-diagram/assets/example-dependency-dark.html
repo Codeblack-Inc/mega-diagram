@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TypeScript monorepo dependency graph · Dependency</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>사내 서비스 모듈 의존성</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -12,7 +13,7 @@
       --color-ink:     #f6f5fa;
       --color-muted:   #d4d2de;
       --color-accent:  #6e9bea;
-      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-sans:     'Geist', 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
       --font-serif:    'Instrument Serif', serif;
       --font-mono:     'Geist Mono', ui-monospace, monospace;
     }
@@ -51,16 +52,17 @@
     }
 
     svg { width: 100%; min-width: 900px; display: block; }
+    h1{font-family:var(--font-sans);font-weight:700;letter-spacing:-.03em}
   </style>
 </head>
 <body>
   <div class="frame">
     <p class="eyebrow">Dependency · mega-diagram</p>
-    <h1>TypeScript monorepo dependency graph</h1>
+    <h1>사내 서비스 모듈 의존성</h1>
 
     <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dependency-dark-title dependency-dark-desc">
-      <title id="dependency-dark-title">TypeScript monorepo dependency graph</title>
-      <desc id="dependency-dark-desc">Ranked dependency graph of a TypeScript monorepo showing shared-types as the highest fan-in package with four dependents, and one back-edge cycle from utils into shared-types.</desc>
+      <title id="dependency-dark-title">사내 서비스 모듈 의존성</title>
+      <desc id="dependency-dark-desc">사내 모노레포 모듈 9종을 의존 깊이별로 배치한 그래프로, 공통 타입이 피의존 4건으로 가장 많고 공통 유틸에서 공통 타입으로 되돌아가는 순환 참조 1건이 있음.</desc>
       <defs>
         <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
           <polygon points="0 0, 8 3, 0 6" fill="#d4d2de"/>
@@ -75,10 +77,10 @@
 
 
       <!-- Rank labels (left margin) -->
-      <text x="40" y="108" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">RANK 0</text>
-      <text x="40" y="228" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">RANK 1</text>
-      <text x="40" y="348" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">RANK 2</text>
-      <text x="40" y="468" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">RANK 3</text>
+      <text x="40" y="108" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">깊이 0</text>
+      <text x="40" y="228" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">깊이 1</text>
+      <text x="40" y="348" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">깊이 2</text>
+      <text x="40" y="468" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">깊이 3</text>
 
       <!-- Connectors drawn before boxes -->
       <!-- web -> api (straight, same column) -->
@@ -107,8 +109,8 @@
       <!-- Cycle back-edge: utils -> shared-types, routed below the tokens/utils row and above the legend hairline -->
       <!-- Hop on the accent (dashed, less-important) stroke where it crosses the ui-kit->tokens connector at (196,468) -->
       <path d="M 440,496 V 500 Q 440,508 432,508 H 204 Q 196,508 196,500 V 476 a 8,8 0 0,0 0,-16 V 356 Q 196,348 204,348 H 320" fill="none" stroke="#6e9bea" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-accent)"/>
-      <rect x="204" y="504" width="40" height="12" rx="2" fill="#17152b"/>
-      <text x="224" y="513" fill="#6e9bea" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">CYCLE</text>
+      <rect x="208" y="500" width="32" height="16" rx="2" fill="#17152b"/>
+      <text x="224" y="512" fill="#6e9bea" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">순환</text>
 
       <!-- web -->
       <rect x="320" y="80" width="160" height="56" rx="6" fill="#17152b"/>
@@ -117,8 +119,8 @@
       <text x="342" y="95" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
       <rect x="444" y="88" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="458" y="97" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">0 IN</text>
-      <text x="400" y="114" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">web</text>
-      <text x="400" y="130" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">apps/web</text>
+      <text x="400" y="114" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">임직원 포털</text>
+      <text x="400" y="130" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">apps/portal</text>
 
       <!-- admin -->
       <rect x="520" y="80" width="160" height="56" rx="6" fill="#17152b"/>
@@ -127,7 +129,7 @@
       <text x="542" y="95" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
       <rect x="644" y="88" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="658" y="97" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">0 IN</text>
-      <text x="600" y="114" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">admin</text>
+      <text x="600" y="114" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">관리자 콘솔</text>
       <text x="600" y="130" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">apps/admin</text>
 
       <!-- api -->
@@ -137,7 +139,7 @@
       <text x="342" y="215" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SVC</text>
       <rect x="444" y="208" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="458" y="217" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">2 IN</text>
-      <text x="400" y="234" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">api</text>
+      <text x="400" y="234" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">업무 API</text>
       <text x="400" y="250" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">services/api</text>
 
       <!-- ui-kit -->
@@ -147,7 +149,7 @@
       <text x="542" y="215" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
       <rect x="644" y="208" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="658" y="217" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">2 IN</text>
-      <text x="600" y="234" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">ui-kit</text>
+      <text x="600" y="234" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공통 UI</text>
       <text x="600" y="250" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">packages/ui-kit</text>
 
       <!-- shared-types (highest fan-in) -->
@@ -157,7 +159,7 @@
       <text x="342" y="335" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
       <rect x="444" y="328" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="458" y="337" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">4 IN</text>
-      <text x="400" y="354" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">shared-types</text>
+      <text x="400" y="354" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공통 타입</text>
       <text x="400" y="370" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">packages/shared-types</text>
 
       <!-- db -->
@@ -167,7 +169,7 @@
       <text x="542" y="335" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SVC</text>
       <rect x="644" y="328" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="658" y="337" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">1 IN</text>
-      <text x="600" y="354" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">db</text>
+      <text x="600" y="354" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">데이터 접근</text>
       <text x="600" y="370" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">services/db</text>
 
       <!-- tokens (leaf) -->
@@ -177,7 +179,7 @@
       <text x="242" y="455" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
       <rect x="344" y="448" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="358" y="457" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">1 IN</text>
-      <text x="300" y="474" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">tokens</text>
+      <text x="300" y="474" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">디자인 토큰</text>
       <text x="300" y="490" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">packages/tokens</text>
 
       <!-- utils (holds the outgoing cycle edge) -->
@@ -187,7 +189,7 @@
       <text x="442" y="455" fill="#f6f5fa" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PKG</text>
       <rect x="544" y="448" width="28" height="12" rx="2" fill="transparent" stroke="rgba(246,245,250,0.40)" stroke-width="0.8"/>
       <text x="558" y="457" fill="#f6f5fa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">1 IN</text>
-      <text x="500" y="474" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">utils</text>
+      <text x="500" y="474" fill="#f6f5fa" font-size="12" font-weight="600" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif" text-anchor="middle">공통 유틸</text>
       <text x="500" y="490" fill="#d4d2de" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">packages/utils</text>
 
       <!-- zod (external) -->
@@ -202,21 +204,21 @@
 
       <!-- Legend strip -->
       <line x1="40" y1="524" x2="960" y2="524" stroke="rgba(246,245,250,0.10)" stroke-width="0.8"/>
-      <text x="40" y="540" fill="#d4d2de" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+      <text x="40" y="541" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">범례</text>
 
       <rect x="40" y="556" width="16" height="12" rx="2" fill="rgba(246,245,250,0.04)" stroke="#f6f5fa" stroke-width="1"/>
-      <text x="64" y="565" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Internal package</text>
+      <text x="64" y="566" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">사내 모듈</text>
 
-      <rect x="192" y="556" width="16" height="12" rx="2" fill="rgba(246,245,250,0.03)" stroke="rgba(246,245,250,0.30)" stroke-width="1"/>
-      <text x="216" y="565" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">External / third-party</text>
+      <rect x="152" y="556" width="16" height="12" rx="2" fill="rgba(246,245,250,0.03)" stroke="rgba(246,245,250,0.30)" stroke-width="1"/>
+      <text x="176" y="566" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">외부 라이브러리</text>
 
-      <rect x="380" y="556" width="16" height="12" rx="2" fill="rgba(246,245,250,0.05)" stroke="#d4d2de" stroke-width="0.8"/>
-      <text x="404" y="565" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Leaf (no outgoing)</text>
+      <rect x="288" y="556" width="16" height="12" rx="2" fill="rgba(246,245,250,0.05)" stroke="#d4d2de" stroke-width="0.8"/>
+      <text x="312" y="566" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">말단 모듈</text>
 
-      <line x1="552" y1="562" x2="580" y2="562" stroke="#6e9bea" stroke-width="1.2" stroke-dasharray="5,4"/>
-      <text x="588" y="565" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif">Cycle (back-edge)</text>
+      <line x1="400" y1="562" x2="428" y2="562" stroke="#6e9bea" stroke-width="1.2" stroke-dasharray="5,4"/>
+      <text x="436" y="566" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">순환 참조</text>
 
-      <text x="700" y="565" fill="#d4d2de" font-size="8.5" font-family="'Geist', sans-serif" font-style="italic">Badges show fan-in — a tree can't express convergence.</text>
+      <text x="528" y="566" fill="#d4d2de" font-size="12" font-weight="500" font-family="'Geist', 'Pretendard', 'Noto Sans KR', sans-serif">배지: 피의존 수 · 트리로는 수렴 표현 불가</text>
     </svg>
   </div>
 </body>

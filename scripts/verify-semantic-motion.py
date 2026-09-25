@@ -21,7 +21,7 @@ PATTERNS = ROOT / "skills/mega-diagram/references/semantic-patterns.md"
 ANIMATION = ROOT / "skills/mega-diagram/references/animation.md"
 EXAMPLE = ROOT / "skills/mega-diagram/assets/example-policy-trace-animated.html"
 MAX_SKILL_BYTES = 40_000
-VISUAL_TYPE_COUNT = 41
+VISUAL_TYPE_COUNT = 44
 
 PATTERN_NAMES = (
     "Fan-in queue / bottleneck",
@@ -54,6 +54,8 @@ MOTION_PRIMITIVES = (
     "Audit append",
 )
 CONTROL_ACTIONS = {"play", "pause", "replay", "prev", "next"}
+# mega: the one approved non-Google stylesheet — Pretendard (same URL self_check.py accepts).
+PRETENDARD_STYLESHEET = "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
 
 
 def is_approved_google_fonts_stylesheet(value: str) -> bool:
@@ -134,7 +136,7 @@ class ContractParser(HTMLParser):
             except ValueError:
                 remote = True
             if value and remote:
-                allowed_font = tag == "link" and attr == "href" and is_approved_google_fonts_stylesheet(value)
+                allowed_font = tag == "link" and attr == "href" and (is_approved_google_fonts_stylesheet(value) or value == PRETENDARD_STYLESHEET)
                 if not allowed_font:
                     self.remote_assets.append((tag, value))
 

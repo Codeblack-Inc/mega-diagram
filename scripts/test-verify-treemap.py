@@ -147,8 +147,8 @@ def main() -> int:
 
         # 4. Overrun a label past its own cell.
         overflowing = source.replace(
-            ">South America</text>",
-            ">South America and the Caribbean Basin</text>",
+            ">남아메리카</text>",
+            ">남아메리카·카리브해 연안 전체</text>",
         )
         if overflowing == source:
             failures.append("could not build the overflowing-label fixture (anchor moved)")
@@ -168,7 +168,7 @@ def main() -> int:
         #     must fail closed without changing the Latin estimate.
         korean = source.replace(
             '<text x="804" y="324" fill="#17152b" font-size="12" font-weight="600" '
-            'font-family="\'Geist\', sans-serif">South America</text>',
+            'font-family="\'Geist\', \'Pretendard\', \'Noto Sans KR\', sans-serif">남아메리카</text>',
             '<text x="804" y="324" fill="#17152b" font-size="12" font-weight="600" '
             'font-family="\'Geist\', \'Apple SD Gothic Neo\', \'Noto Sans KR\', '
             f'\'Malgun Gothic\', sans-serif">{KOREAN_LABEL}</text>',
@@ -189,7 +189,7 @@ def main() -> int:
         #     old 0.60em estimate but overflows under the conservative contract.
         japanese = source.replace(
             '<text x="804" y="324" fill="#17152b" font-size="12" font-weight="600" '
-            'font-family="\'Geist\', sans-serif">South America</text>',
+            'font-family="\'Geist\', \'Pretendard\', \'Noto Sans KR\', sans-serif">남아메리카</text>',
             '<text x="804" y="324" fill="#17152b" font-size="12" font-weight="600" '
             'font-family="\'Geist\', \'Hiragino Sans\', \'Noto Sans JP\', '
             f'\'Yu Gothic\', sans-serif">{JAPANESE_LABEL}</text>',
@@ -263,7 +263,7 @@ def main() -> int:
         #     132px), but counting every acute accent as a character would
         #     incorrectly double the estimate and reject the label.
         decomposed = ("e\N{COMBINING ACUTE ACCENT}" * 18)
-        combining = source.replace(">South America</text>", f">{decomposed}</text>")
+        combining = source.replace(">남아메리카</text>", f">{decomposed}</text>")
         if combining == source:
             failures.append("could not build the combining-mark fixture (anchor moved)")
         else:
@@ -332,7 +332,7 @@ def main() -> int:
                 print("OK: a cell with no declared share fails closed")
 
         # 8. A label that disagrees with the metadata it sits on.
-        divergent = source.replace("4.78B · 59% of world", "4.78B · 42% of world")
+        divergent = source.replace("47.8억 명 · 세계의 59%", "47.8억 명 · 세계의 42%")
         if divergent == source:
             failures.append("could not build the label-divergence fixture (anchor moved)")
         else:
@@ -473,8 +473,8 @@ def main() -> int:
         #     the first match accepted a later contradiction when 59% appeared
         #     before 42% in the same cell.
         conflicting_labels = source.replace(
-            "4.78B · 59% of world",
-            "4.78B · 59% of world · alternate claim 42%",
+            "47.8억 명 · 세계의 59%",
+            "47.8억 명 · 세계의 59% · 다른 주장 42%",
             1,
         )
         code, output = run(write(directory, "conflicting-label-claims.html", conflicting_labels))
