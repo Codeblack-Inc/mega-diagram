@@ -1,0 +1,47 @@
+{
+  "name": "mega-diagram",
+  "description": "한국어 문서용 다이어그램: architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart, loop, nested, tree, org chart, layer stack, Venn, pyramid/funnel, bar, waterfall, treemap, heatmap, line, Gantt, scatter, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema, lifecycle phase maps.",
+  "version": "0.1.0",
+  "author": {
+    "name": "dr-coton",
+    "url": "https://github.com/dr-coton"
+  },
+  "homepage": "https://github.com/Codeblack-Inc/mega-diagram",
+  "repository": "https://github.com/Codeblack-Inc/mega-diagram",
+  "license": "MIT",
+  "keywords": [
+    "diagrams",
+    "svg",
+    "korean",
+    "hangul",
+    "architecture",
+    "flowchart",
+    "visualization",
+    "editorial",
+    "drawio",
+    "mermaid",
+    "import",
+    "animation",
+    "semantic-patterns",
+    "mega"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "mega-diagram",
+    "shortDescription": "한국어 문서용 편집 다이어그램을 투명 배경 HTML/SVG/PNG로 만듭니다.",
+    "longDescription": "한국어 문서에 바로 넣는 다이어그램을 만듭니다. mega 색상, Pretendard 한글, 투명 배경 SVG/PNG. Create branded architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, heatmap, bar, waterfall, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, or database schema diagrams as standalone HTML/SVG/PNG. Redraw .drawio/.drawio.png/.drawio.svg, Mermaid .mmd, or Excalidraw .excalidraw sources at a chosen size/detail; onboard brand tokens from a website; add lifecycle phase maps, semantic patterns, callouts, accessible motion, or sketchy/hand-drawn styling.",
+    "developerName": "dr-coton",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Codeblack-Inc/mega-diagram",
+    "defaultPrompt": [
+      "우리 서비스 구성도를 그려줘.",
+      "이 결재 절차를 흐름도로 만들어서 HWP 보고서에 넣을 PNG로 줘.",
+      "이 Mermaid 다이어그램을 한글 라벨로 다시 그려줘."
+    ],
+    "brandColor": "#2F6FDB"
+  }
+}

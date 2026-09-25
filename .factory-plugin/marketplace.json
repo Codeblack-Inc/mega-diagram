@@ -1,0 +1,9 @@
+{
+  "name": "mega-diagram",
+  "plugins": [
+    {
+      "name": "mega-diagram",
+      "source": "./"
+    }
+  ]
+}

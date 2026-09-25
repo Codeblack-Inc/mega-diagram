@@ -1,0 +1,28 @@
+{
+  "name": "mega-diagram",
+  "description": "한국어 문서용 다이어그램: architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart, loop, nested, tree, org chart, layer stack, Venn, pyramid/funnel, bar, waterfall, treemap, heatmap, line, Gantt, scatter, high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema, lifecycle phase maps.",
+  "version": "0.1.0",
+  "author": {
+    "name": "dr-coton",
+    "url": "https://github.com/dr-coton"
+  },
+  "homepage": "https://github.com/Codeblack-Inc/mega-diagram",
+  "repository": "https://github.com/Codeblack-Inc/mega-diagram",
+  "license": "MIT",
+  "keywords": [
+    "diagrams",
+    "svg",
+    "korean",
+    "hangul",
+    "architecture",
+    "flowchart",
+    "visualization",
+    "editorial",
+    "drawio",
+    "mermaid",
+    "import",
+    "animation",
+    "semantic-patterns",
+    "mega"
+  ]
+}

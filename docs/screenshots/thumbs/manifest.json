@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "renderer": {
+    "format": "WEBP",
+    "method": 6,
+    "resample": "LANCZOS"
+  },
+  "entries": [
+    {
+      "thumb": "architecture.webp",
+      "source": "docs/screenshots/architecture.png",
+      "source_sha256": "2dcc3b89ccb4bd510031de90dc42643f3c506520ce769838876299347be03e2a",
+      "width": 1400,
+      "height": 673,
+      "quality": 90,
+      "thumb_sha256": "cf85810a889eb10fb88a71e10c56412418e526afde483c1d88e1a3d8c30faf47"
+    },
+    {
+      "thumb": "bar.webp",
+      "source": "docs/screenshots/bar.png",
+      "source_sha256": "f192f773641bdf3bf8dd9ee2d4b539fe2b860608c2e0526aa53a93739846d9ac",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "8c0e18fb134568733446247cc3a3c7be19b10cd980caec8af29b2a83bd23c7d7"
+    },
+    {
+      "thumb": "data-flow.webp",
+      "source": "docs/screenshots/data-flow.png",
+      "source_sha256": "38186c7ffa2717e70ab38ad3ca0aa2e7c422620ea8164da53a493a420065c234",
+      "width": 600,
+      "height": 294,
+      "quality": 82,
+      "thumb_sha256": "153c35731439ae40f40101cb9a25506ed35164829893fc967359bbaf65be2c83"
+    },
+    {
+      "thumb": "db-schema.webp",
+      "source": "docs/screenshots/db-schema.png",
+      "source_sha256": "b6ed9c1be78b3d31d4b95864a04440eb25d65aa6e2f460e8eece2003d33b57a7",
+      "width": 600,
+      "height": 312,
+      "quality": 82,
+      "thumb_sha256": "5e4783e779ad66c7470f60fa18c4d0076d1bf0ce8ba8af2adf1a7a903703282f"
+    },
+    {
+      "thumb": "dependency.webp",
+      "source": "docs/screenshots/dependency.png",
+      "source_sha256": "2ad293c006000002cfad483fd8a1b6f22f6cf7b0179fbaa3aae75c177e0c4604",
+      "width": 600,
+      "height": 360,
+      "quality": 82,
+      "thumb_sha256": "b106665f148b8119625838b1b3f134dbca2e54af860ed7bdc42fd9483f33b4a8"
+    },
+    {
+      "thumb": "deployment.webp",
+      "source": "docs/screenshots/deployment.png",
+      "source_sha256": "c382a03b569351e4c41aef0301302308df401d65b3a87ecf0ffbf5486cf65f78",
+      "width": 600,
+      "height": 240,
+      "quality": 82,
+      "thumb_sha256": "c1ed5825b6587fd79bd8af741069cd12ac963e3024071d592161ee5f683780f1"
+    },
+    {
+      "thumb": "dp-integration.webp",
+      "source": "docs/screenshots/dp-integration.png",
+      "source_sha256": "2932668cfe8a53e2fc58758bd3e668211a50bc7241ee6d7838e47114740c654e",
+      "width": 600,
+      "height": 332,
+      "quality": 82,
+      "thumb_sha256": "55089a61733aee02635f865e41da7cf2151f032788a762b61f2855ee97dc5f04"
+    },
+    {
+      "thumb": "dp-security-matrix.webp",
+      "source": "docs/screenshots/dp-security-matrix.png",
+      "source_sha256": "ca0364edb655ab8680510aacb77ed9997a6a50d6c470f8deeaad10d68d29a1f3",
+      "width": 600,
+      "height": 222,
+      "quality": 82,
+      "thumb_sha256": "9b84f61913eeffcf19a1c802580c470e046dfa0d1795ae694b1137e21f54452a"
+    },
+    {
+      "thumb": "er.webp",
+      "source": "docs/screenshots/er.png",
+      "source_sha256": "2463a840a9bf03903c49bb05fcd9f28a806222ab42f6bb106bc611c3eaef43ab",
+      "width": 600,
+      "height": 288,
+      "quality": 82,
+      "thumb_sha256": "807323378f3b8e3baf6b4f23618caa0be56a18c019d691bb335ee6835f94763f"
+    },
+    {
+      "thumb": "fishbone.webp",
+      "source": "docs/screenshots/fishbone.png",
+      "source_sha256": "e72aeb8abc0d2dc0e100541286e3b64c9dfd019ab7b80f105cb574000e4c7dd7",
+      "width": 600,
+      "height": 244,
+      "quality": 82,
+      "thumb_sha256": "21fcc02510d2da5d1e816411d6ac6e32020b8ee7bbc860e17521e76abdd66635"
+    },
+    {
+      "thumb": "flowchart.webp",
+      "source": "docs/screenshots/flowchart.png",
+      "source_sha256": "2e19d0d8f9536b07bc2cda4404305885b0f1a2062bf118603f38f39ceeecb3ff",
+      "width": 600,
+      "height": 360,
+      "quality": 82,
+      "thumb_sha256": "66d7b77a2d796c5878bf6c09b9c0e9434ee30509fc401dfd3b28bc17e3f15802"
+    },
+    {
+      "thumb": "gantt.webp",
+      "source": "docs/screenshots/gantt.png",
+      "source_sha256": "59e4c4f32c99ba7ea1a6c5d25415a45af202ed95ccad86f4ebd9f3b52f69b55f",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "90c909b69eec3e258ca5a21af6a8e4ca3233f4e2f46d0d3d803d897569b5304a"
+    },
+    {
+      "thumb": "heatmap.webp",
+      "source": "docs/screenshots/heatmap.png",
+      "source_sha256": "655386ba1844a57e5add30e6d7f5a6c08813d0ca347ceb62c407046c9f9eff8d",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "f4069911b4ee8244e449e0985a97b7dc3b5777142599e9b866d7094614540343"
+    },
+    {
+      "thumb": "high-level.webp",
+      "source": "docs/screenshots/high-level.png",
+      "source_sha256": "1e54685e9d6bfaf58135aee9d1d1fe7293fbe089e5c2b2d77d6846c2bf20df93",
+      "width": 600,
+      "height": 324,
+      "quality": 82,
+      "thumb_sha256": "d58c404e770338ab76dbe2cb8d42d691ce13d64beea6da9af5f83850681c9a80"
+    },
+    {
+      "thumb": "import-drawio.webp",
+      "source": "docs/screenshots/import-drawio.png",
+      "source_sha256": "7b63af9df5cd1fadc29b37d6b0fbcc1405b8670d8a4be0a2c571f565f9c0ae58",
+      "width": 1400,
+      "height": 876,
+      "quality": 90,
+      "thumb_sha256": "d28652abcd2a410d6007dde44813fbc83ef31bc98568191b7a82cebccd215f09"
+    },
+    {
+      "thumb": "it-state.webp",
+      "source": "docs/screenshots/it-state.png",
+      "source_sha256": "81e4162740aaab114dcd91db86ace607ff163c74f70f890a557997e57048956d",
+      "width": 600,
+      "height": 313,
+      "quality": 82,
+      "thumb_sha256": "b3aa221f715c7b3e7957ebcb132ba291b9b770b1b72d7f8a7187d9cb1082c0ab"
+    },
+    {
+      "thumb": "journey.webp",
+      "source": "docs/screenshots/journey.png",
+      "source_sha256": "88fda8fd0ed307898d9402cf2991e7bbe18294710ce36db16f6fe25865bc6d06",
+      "width": 600,
+      "height": 260,
+      "quality": 82,
+      "thumb_sha256": "15d43362f508064808441bc4df32481191dc0d4983d00b68746009a3e2b718c3"
+    },
+    {
+      "thumb": "kanban.webp",
+      "source": "docs/screenshots/kanban.png",
+      "source_sha256": "dd24149fcb751634963ebfea9f51ecb68846bbabe3939dd03912c033e3a865cc",
+      "width": 600,
+      "height": 236,
+      "quality": 82,
+      "thumb_sha256": "a26319b547d56458ae0e7312ed32b14fb8fe4aa7fece90c84493e2f9752f48b2"
+    },
+    {
+      "thumb": "layers.webp",
+      "source": "docs/screenshots/layers.png",
+      "source_sha256": "4e2608feccb46ea8595083ddac72699a247dd573e74c0d438cda5b3b55f9da67",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "a2f88aab692a19b70bc47fb3b702d050898b4ab58cf7003ca40fec2da7b47dc8"
+    },
+    {
+      "thumb": "line.webp",
+      "source": "docs/screenshots/line.png",
+      "source_sha256": "ac4cb0ea89fc81c2f17136918e120b16d4e21599d0404e98f40d4c6ce0fca8bf",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "23050db067fd04bb50063de751b68334c622d2ef9308e9ba0015b587c0451c9f"
+    },
+    {
+      "thumb": "loop.webp",
+      "source": "docs/screenshots/loop.png",
+      "source_sha256": "33b3de04b01052a8d1a8d57d67105e8645e6ff1614783a665db4871ef100a401",
+      "width": 1400,
+      "height": 916,
+      "quality": 90,
+      "thumb_sha256": "64777f6259ea52cd31469a91b61bb1c2ffd5413af65e5c6ee2e43eab93990040"
+    },
+    {
+      "thumb": "medallion.webp",
+      "source": "docs/screenshots/medallion.png",
+      "source_sha256": "92e602a7b031c3f01bb41ce6e8fb1efffb98b95956aa270749ffc7223c0f5c0c",
+      "width": 600,
+      "height": 316,
+      "quality": 82,
+      "thumb_sha256": "fda25b6229e9efbe6e6028ef384077ded62f9e8c05013e436aeef9f89437c07d"
+    },
+    {
+      "thumb": "nested.webp",
+      "source": "docs/screenshots/nested.png",
+      "source_sha256": "969d998a72aada65cfabd1146bc1d260a54fb525638b7dd8de260774b4631a44",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "b63811a2e204c5988cb88d0412c1df3dba9ba6ed9b29ba4136a91db26bed2302"
+    },
+    {
+      "thumb": "org-chart.webp",
+      "source": "docs/screenshots/org-chart.png",
+      "source_sha256": "509e63f00d723aeede11bdc270a7c08c2e057eca0d7791c760f555ed4adcf6bd",
+      "width": 600,
+      "height": 358,
+      "quality": 82,
+      "thumb_sha256": "1403188880a935723c25a4c1ef71355935609351326b8fa902a1b34713be28e6"
+    },
+    {
+      "thumb": "polar.webp",
+      "source": "docs/screenshots/polar.png",
+      "source_sha256": "e1e5d48f020b0db749a3012bd8de533434213ce76b3160b7e215fb1952ea0d2c",
+      "width": 600,
+      "height": 312,
+      "quality": 82,
+      "thumb_sha256": "577b82137c66074217415f65fd436e579f9ee51eeeb3f7c27559db7fd111c43a"
+    },
+    {
+      "thumb": "process.webp",
+      "source": "docs/screenshots/process.png",
+      "source_sha256": "336fee79efdedbdc1f8f304414b7fcc36d7fa49673185e85cc2a9d67b88ba368",
+      "width": 600,
+      "height": 246,
+      "quality": 82,
+      "thumb_sha256": "b89e21613ebd2ca89eeb7475c76bb26c0fdc76dd0ad9d4865dd57bf9b6e27480"
+    },
+    {
+      "thumb": "pyramid.webp",
+      "source": "docs/screenshots/pyramid.png",
+      "source_sha256": "927960705985c8716b5e5d614ecce219d68deb5a6eefd4ac46e6863b7202183c",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "df2def94f2de249e6c920bbf239b4798bcd1d4e39a7334bf9f8280a38673f673"
+    },
+    {
+      "thumb": "quadrant.webp",
+      "source": "docs/screenshots/quadrant.png",
+      "source_sha256": "c7fa4a19c2f80e6a83978820c79a16df318c9c2ef7b650117854966e84bbcaae",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "94155911b7f7d2f0219d58b7943db203943334bff8ecb8438a1d6984b4b97ce8"
+    },
+    {
+      "thumb": "radar.webp",
+      "source": "docs/screenshots/radar.png",
+      "source_sha256": "011f238ad2bfa265fac4b65055e3e7fcb2c7385cb9cb9d0d6d28117bd8a9fdc1",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "5ba6bbff1f26e5aa135b60b9e13679937fc9139d5ffbc74ade5f5be6a4ee5e11"
+    },
+    {
+      "thumb": "sankey.webp",
+      "source": "docs/screenshots/sankey.png",
+      "source_sha256": "014173b8d3587fa1c2b5e15895bf522dffcec88fe8397231f3c17155dc00dfe0",
+      "width": 600,
+      "height": 336,
+      "quality": 82,
+      "thumb_sha256": "26dd09ae6f52b41795350ca5ced000da097e5d2b1e31b4e5c114192222a7cc30"
+    },
+    {
+      "thumb": "scatter.webp",
+      "source": "docs/screenshots/scatter.png",
+      "source_sha256": "b623072b3d88a30e567d7d4bd940ca549f68a5ad0d759736e35e8674b6aa3329",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "7dec7e96bbf9797b23efc145b0652d5c29537301d43bec37e77d926b2363bd6a"
+    },
+    {
+      "thumb": "sequence.webp",
+      "source": "docs/screenshots/sequence.png",
+      "source_sha256": "dee96d333d1ae9083d61337d5b9cf382a0441b406bfb45dc5883f89fd3bb000b",
+      "width": 600,
+      "height": 350,
+      "quality": 82,
+      "thumb_sha256": "baf3ccd4869e1122d5ffeb08cfba2fbff2de73475fe61dfd5e1d9c03404ef21a"
+    },
+    {
+      "thumb": "state.webp",
+      "source": "docs/screenshots/state.png",
+      "source_sha256": "e4d38bbb825f9a35435ee052d38d5ca0183ec42675bd0cdfa39cd76b9edb6ea8",
+      "width": 600,
+      "height": 276,
+      "quality": 82,
+      "thumb_sha256": "9181e57bb2fad030cd01573ab170906a6c9b8cb33e7113a95f895c7bc3142d4c"
+    },
+    {
+      "thumb": "story-map.webp",
+      "source": "docs/screenshots/story-map.png",
+      "source_sha256": "e9d89af83d7d137fce890b6063d213ec9672ce7637596dae8840fe4a9a2149ba",
+      "width": 600,
+      "height": 314,
+      "quality": 82,
+      "thumb_sha256": "839bc95f5da45b9c5606b835b66c03f8f9043974eebb9c70dcb71ccc9102b09d"
+    },
+    {
+      "thumb": "swimlane.webp",
+      "source": "docs/screenshots/swimlane.png",
+      "source_sha256": "429fa9b1340bc03de505f4f85dc3da120fe6998e60e756f563cbc40e0f445f7a",
+      "width": 600,
+      "height": 288,
+      "quality": 82,
+      "thumb_sha256": "ef5e36f7d64548e2207d725a63a6024379a7f05d9ee632e4f6b5337b4e225760"
+    },
+    {
+      "thumb": "timeline.webp",
+      "source": "docs/screenshots/timeline.png",
+      "source_sha256": "5d8860525f747792facd07130ed831a9902d9afa9a5311b14b44a9b312a67a20",
+      "width": 600,
+      "height": 252,
+      "quality": 82,
+      "thumb_sha256": "c02a3d7ec250389631a60e26cd895f7cde4900c532d71e46b3eb58d60e015720"
+    },
+    {
+      "thumb": "tree.webp",
+      "source": "docs/screenshots/tree.png",
+      "source_sha256": "b3a3f6f9084a1a5b196e5bfdbf4d88136ea69c5062b22bb7f9891fe4e1d8913c",
+      "width": 600,
+      "height": 288,
+      "quality": 82,
+      "thumb_sha256": "3aec620039dbc97fc2a2dd210ef4cbcbca2b166057ad2042500bb9acacd6f8c8"
+    },
+    {
+      "thumb": "treemap.webp",
+      "source": "docs/screenshots/treemap.png",
+      "source_sha256": "9334a766eca1a450cd9d2c09a1619ba9fc6dd940666c69c81eb16befee477483",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "b206f504a0cea55c514983fc059d81511201a5d5d3f27eac2e9a5eba5aa111de"
+    },
+    {
+      "thumb": "uml-class.webp",
+      "source": "docs/screenshots/uml-class.png",
+      "source_sha256": "e937be58e47b1a89fb02939811676403356507bad66af35aca4e2fc2f2d4138a",
+      "width": 600,
+      "height": 407,
+      "quality": 82,
+      "thumb_sha256": "0614c973458e1b5cbe5ff48391e0e9828aaf8c6594579ef823f4303508592ec5"
+    },
+    {
+      "thumb": "venn.webp",
+      "source": "docs/screenshots/venn.png",
+      "source_sha256": "dd26b3357f85d130e7b86465d1c5e2209b0cbda1baa492d9f93532fdddf89e17",
+      "width": 600,
+      "height": 288,
+      "quality": 82,
+      "thumb_sha256": "02c0f3a1dd963de9e256cb59a08f126f883e7e055ed83cfd32beafa626ef5334"
+    },
+    {
+      "thumb": "wardley.webp",
+      "source": "docs/screenshots/wardley.png",
+      "source_sha256": "22c4f8e6ca508ef3eb998a4eaeee1d2cc892e7e369e5de6f0393ed7163d1f270",
+      "width": 600,
+      "height": 276,
+      "quality": 82,
+      "thumb_sha256": "15bb6d960b69b13429afe619ed4d6c9d48d16ad5f21fc802de9bcd46db1287b9"
+    },
+    {
+      "thumb": "waterfall.webp",
+      "source": "docs/screenshots/waterfall.png",
+      "source_sha256": "0c2372e9adfd28c2bcef284bf691747472a0cb30541684572383469cafeb0977",
+      "width": 600,
+      "height": 300,
+      "quality": 82,
+      "thumb_sha256": "1bda08704afd2d2d8e9839a934ca1059a854a5c6413ad022086ad622d3b65748"
+    }
+  ]
+}

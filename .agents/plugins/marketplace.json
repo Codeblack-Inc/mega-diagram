@@ -1,0 +1,20 @@
+{
+  "name": "mega-diagram",
+  "interface": {
+    "displayName": "mega-diagram"
+  },
+  "plugins": [
+    {
+      "name": "mega-diagram",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

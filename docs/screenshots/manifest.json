@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "renderer": {
+    "engine": "playwright-chromium",
+    "scale": 2.0,
+    "viewport": [
+      1440,
+      1000
+    ],
+    "capture": "first-svg",
+    "font_gate": "document.fonts.ready"
+  },
+  "entries": [
+    {
+      "slug": "architecture",
+      "source": "skills/mega-diagram/assets/example-architecture.html",
+      "screenshot": "docs/screenshots/architecture.png",
+      "source_sha256": "a262b649d77f29306a1608723b7e646c5f8e3553d209dc8ff02d9e27fb50e5b5",
+      "screenshot_sha256": "2dcc3b89ccb4bd510031de90dc42643f3c506520ce769838876299347be03e2a",
+      "width": 2400,
+      "height": 1154
+    },
+    {
+      "slug": "it-state",
+      "source": "skills/mega-diagram/assets/example-it-state.html",
+      "screenshot": "docs/screenshots/it-state.png",
+      "source_sha256": "9233e8055bb336d1609f15d1afc3783c57f8c7e31ff94e129802fda5cd4eef26",
+      "screenshot_sha256": "81e4162740aaab114dcd91db86ace607ff163c74f70f890a557997e57048956d",
+      "width": 2400,
+      "height": 1252
+    },
+    {
+      "slug": "flowchart",
+      "source": "skills/mega-diagram/assets/example-flowchart.html",
+      "screenshot": "docs/screenshots/flowchart.png",
+      "source_sha256": "45c96837b19cfc308160d9e719be401f0507008b8a58e271cf42646c57a7d836",
+      "screenshot_sha256": "2e19d0d8f9536b07bc2cda4404305885b0f1a2062bf118603f38f39ceeecb3ff",
+      "width": 2400,
+      "height": 1442
+    },
+    {
+      "slug": "sequence",
+      "source": "skills/mega-diagram/assets/example-sequence.html",
+      "screenshot": "docs/screenshots/sequence.png",
+      "source_sha256": "3518d8f73fa11f79a4c13ff71541c245382d229b8526cc95429e72785f10b575",
+      "screenshot_sha256": "dee96d333d1ae9083d61337d5b9cf382a0441b406bfb45dc5883f89fd3bb000b",
+      "width": 2400,
+      "height": 1402
+    },
+    {
+      "slug": "state",
+      "source": "skills/mega-diagram/assets/example-state.html",
+      "screenshot": "docs/screenshots/state.png",
+      "source_sha256": "b61a9140a1906476247af026ff1b949d8559dd5b64abe53befef75f357c8f87a",
+      "screenshot_sha256": "e4d38bbb825f9a35435ee052d38d5ca0183ec42675bd0cdfa39cd76b9edb6ea8",
+      "width": 2400,
+      "height": 1106
+    },
+    {
+      "slug": "er",
+      "source": "skills/mega-diagram/assets/example-er.html",
+      "screenshot": "docs/screenshots/er.png",
+      "source_sha256": "35e2b2a6709f721a98eed9b59550ea3d884c3bd93342c2977bc9d5d94eb7c9b4",
+      "screenshot_sha256": "2463a840a9bf03903c49bb05fcd9f28a806222ab42f6bb106bc611c3eaef43ab",
+      "width": 2400,
+      "height": 1154
+    },
+    {
+      "slug": "timeline",
+      "source": "skills/mega-diagram/assets/example-timeline.html",
+      "screenshot": "docs/screenshots/timeline.png",
+      "source_sha256": "4f2437642951fcc40f28177fcad37277afe0937c4dfb3798be75df3f1cfbe799",
+      "screenshot_sha256": "5d8860525f747792facd07130ed831a9902d9afa9a5311b14b44a9b312a67a20",
+      "width": 2400,
+      "height": 1010
+    },
+    {
+      "slug": "swimlane",
+      "source": "skills/mega-diagram/assets/example-swimlane.html",
+      "screenshot": "docs/screenshots/swimlane.png",
+      "source_sha256": "8bafb1cdbf92568fbf05aaf742a5d85ed32abf1b54d5a01eb4b678d40cd2dc3f",
+      "screenshot_sha256": "429fa9b1340bc03de505f4f85dc3da120fe6998e60e756f563cbc40e0f445f7a",
+      "width": 2400,
+      "height": 1154
+    },
+    {
+      "slug": "quadrant",
+      "source": "skills/mega-diagram/assets/example-quadrant.html",
+      "screenshot": "docs/screenshots/quadrant.png",
+      "source_sha256": "ec68f0b889c6c2e565f05a50db124e31144873199e03b8554e4e02e64bd1099d",
+      "screenshot_sha256": "c7fa4a19c2f80e6a83978820c79a16df318c9c2ef7b650117854966e84bbcaae",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "radar",
+      "source": "skills/mega-diagram/assets/example-radar.html",
+      "screenshot": "docs/screenshots/radar.png",
+      "source_sha256": "5e0901adc84b2d8ab8819ba65c9c1a0e67341043804d3980d8953af14233f733",
+      "screenshot_sha256": "011f238ad2bfa265fac4b65055e3e7fcb2c7385cb9cb9d0d6d28117bd8a9fdc1",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "polar",
+      "source": "skills/mega-diagram/assets/example-polar.html",
+      "screenshot": "docs/screenshots/polar.png",
+      "source_sha256": "5955fd22aef0318955ed906afcf8d1a95aa476dbe2362f144eff21363feb2dd7",
+      "screenshot_sha256": "e1e5d48f020b0db749a3012bd8de533434213ce76b3160b7e215fb1952ea0d2c",
+      "width": 2400,
+      "height": 1250
+    },
+    {
+      "slug": "loop",
+      "source": "skills/mega-diagram/assets/example-loop.html",
+      "screenshot": "docs/screenshots/loop.png",
+      "source_sha256": "8c3c3d8329319403e05bbb997b54fd16b5b46a589a68704cf627af7ff4d913f3",
+      "screenshot_sha256": "33b3de04b01052a8d1a8d57d67105e8645e6ff1614783a665db4871ef100a401",
+      "width": 2400,
+      "height": 1570
+    },
+    {
+      "slug": "nested",
+      "source": "skills/mega-diagram/assets/example-nested.html",
+      "screenshot": "docs/screenshots/nested.png",
+      "source_sha256": "9bdf50f8f86cb4022a562996a407dbde9a1611675bf16b20cb81024b18a4ae91",
+      "screenshot_sha256": "969d998a72aada65cfabd1146bc1d260a54fb525638b7dd8de260774b4631a44",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "tree",
+      "source": "skills/mega-diagram/assets/example-tree.html",
+      "screenshot": "docs/screenshots/tree.png",
+      "source_sha256": "df0130dc49d85d7be4a1cb2e000ac3b6d66c0f3005646e0542385f67a76a7a4f",
+      "screenshot_sha256": "b3a3f6f9084a1a5b196e5bfdbf4d88136ea69c5062b22bb7f9891fe4e1d8913c",
+      "width": 2400,
+      "height": 1154
+    },
+    {
+      "slug": "org-chart",
+      "source": "skills/mega-diagram/assets/example-org-chart.html",
+      "screenshot": "docs/screenshots/org-chart.png",
+      "source_sha256": "b0bf0ac4dc5643d16bfa0200b0e4f38d2ed5a0240ba0ca132fac8fd224bbb9b5",
+      "screenshot_sha256": "509e63f00d723aeede11bdc270a7c08c2e057eca0d7791c760f555ed4adcf6bd",
+      "width": 2360,
+      "height": 1408
+    },
+    {
+      "slug": "layers",
+      "source": "skills/mega-diagram/assets/example-layers.html",
+      "screenshot": "docs/screenshots/layers.png",
+      "source_sha256": "00870c853aabf39363b119f1b403901936953e3b7f2b7538ad3b82b2ecb0f66f",
+      "screenshot_sha256": "4e2608feccb46ea8595083ddac72699a247dd573e74c0d438cda5b3b55f9da67",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "venn",
+      "source": "skills/mega-diagram/assets/example-venn.html",
+      "screenshot": "docs/screenshots/venn.png",
+      "source_sha256": "331ec9a29756b81718c5d1c34ba3d5467d14a2d5330b060dc78847387c1a1a71",
+      "screenshot_sha256": "dd26b3357f85d130e7b86465d1c5e2209b0cbda1baa492d9f93532fdddf89e17",
+      "width": 2400,
+      "height": 1154
+    },
+    {
+      "slug": "pyramid",
+      "source": "skills/mega-diagram/assets/example-pyramid.html",
+      "screenshot": "docs/screenshots/pyramid.png",
+      "source_sha256": "df11fe0c24081aace73a389f3d3e7b916fa9c15ec063f7777c5df8a32b5f15d6",
+      "screenshot_sha256": "927960705985c8716b5e5d614ecce219d68deb5a6eefd4ac46e6863b7202183c",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "bar",
+      "source": "skills/mega-diagram/assets/example-bar.html",
+      "screenshot": "docs/screenshots/bar.png",
+      "source_sha256": "621d78899b0c04da7b10155d79a3f4aabc5a2c04d2e7a15021a1196bd09ccdf6",
+      "screenshot_sha256": "f192f773641bdf3bf8dd9ee2d4b539fe2b860608c2e0526aa53a93739846d9ac",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "waterfall",
+      "source": "skills/mega-diagram/assets/example-waterfall.html",
+      "screenshot": "docs/screenshots/waterfall.png",
+      "source_sha256": "dec6ba8f033ca0bd1e669e4b7457e1a70772beb2a122f03f2dd248251bb77cd3",
+      "screenshot_sha256": "0c2372e9adfd28c2bcef284bf691747472a0cb30541684572383469cafeb0977",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "treemap",
+      "source": "skills/mega-diagram/assets/example-treemap.html",
+      "screenshot": "docs/screenshots/treemap.png",
+      "source_sha256": "f5b453da5718ec55b2c44336e8ca762452078d4f3e844bce7e98733364037633",
+      "screenshot_sha256": "9334a766eca1a450cd9d2c09a1619ba9fc6dd940666c69c81eb16befee477483",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "heatmap",
+      "source": "skills/mega-diagram/assets/example-heatmap.html",
+      "screenshot": "docs/screenshots/heatmap.png",
+      "source_sha256": "7f64c8d22b659037e3e3a58041e292ed2a58bb60debaad563961289661141a8a",
+      "screenshot_sha256": "655386ba1844a57e5add30e6d7f5a6c08813d0ca347ceb62c407046c9f9eff8d",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "line",
+      "source": "skills/mega-diagram/assets/example-line.html",
+      "screenshot": "docs/screenshots/line.png",
+      "source_sha256": "cc57f8791ca88fbc669d8a0f3563cde2c18d19248854471f768284043a5c0165",
+      "screenshot_sha256": "ac4cb0ea89fc81c2f17136918e120b16d4e21599d0404e98f40d4c6ce0fca8bf",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "gantt",
+      "source": "skills/mega-diagram/assets/example-gantt.html",
+      "screenshot": "docs/screenshots/gantt.png",
+      "source_sha256": "87e06781adb43462eb9190ed7a774a9ca1b3ce6581cd4c0d079e45513f11bdcb",
+      "screenshot_sha256": "59e4c4f32c99ba7ea1a6c5d25415a45af202ed95ccad86f4ebd9f3b52f69b55f",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "scatter",
+      "source": "skills/mega-diagram/assets/example-scatter.html",
+      "screenshot": "docs/screenshots/scatter.png",
+      "source_sha256": "e40ca0b642e360e55b79d729a3b0cc58911d621bc4c6c0eccffb6f21ffc67adb",
+      "screenshot_sha256": "b623072b3d88a30e567d7d4bd940ca549f68a5ad0d759736e35e8674b6aa3329",
+      "width": 2400,
+      "height": 1202
+    },
+    {
+      "slug": "high-level",
+      "source": "skills/mega-diagram/assets/example-high-level.html",
+      "screenshot": "docs/screenshots/high-level.png",
+      "source_sha256": "18ea9b89bdf75cae5ad69d21276c3558e7bd4f73f56abcaed0d01f80da3c301c",
+      "screenshot_sha256": "1e54685e9d6bfaf58135aee9d1d1fe7293fbe089e5c2b2d77d6846c2bf20df93",
+      "width": 2400,
+      "height": 1298
+    },
+    {
+      "slug": "process",
+      "source": "skills/mega-diagram/assets/example-process.html",
+      "screenshot": "docs/screenshots/process.png",
+      "source_sha256": "4e3fe666be45ead2c824925ddf52b52df07d133af636f8de6c5cc8c453f76e1d",
+      "screenshot_sha256": "336fee79efdedbdc1f8f304414b7fcc36d7fa49673185e85cc2a9d67b88ba368",
+      "width": 2240,
+      "height": 920
+    },
+    {
+      "slug": "medallion",
+      "source": "skills/mega-diagram/assets/example-medallion.html",
+      "screenshot": "docs/screenshots/medallion.png",
+      "source_sha256": "13abae82280668945076ae3c35e26b13f92a245155256ae6a51c50219161bdde",
+      "screenshot_sha256": "92e602a7b031c3f01bb41ce6e8fb1efffb98b95956aa270749ffc7223c0f5c0c",
+      "width": 2400,
+      "height": 1266
+    },
+    {
+      "slug": "data-flow",
+      "source": "skills/mega-diagram/assets/example-data-flow.html",
+      "screenshot": "docs/screenshots/data-flow.png",
+      "source_sha256": "fdd76b6b7cdb224a572e571760f3c1a09e4059691955a4b3ecb0479b6a62f02f",
+      "screenshot_sha256": "38186c7ffa2717e70ab38ad3ca0aa2e7c422620ea8164da53a493a420065c234",
+      "width": 2400,
+      "height": 1176
+    },
+    {
+      "slug": "dp-integration",
+      "source": "skills/mega-diagram/assets/example-dp-integration.html",
+      "screenshot": "docs/screenshots/dp-integration.png",
+      "source_sha256": "7ffa8899f50f8a89e0d0746c575cd8fdf505c46ea5f9b3039e0b14ed7dc6b534",
+      "screenshot_sha256": "2932668cfe8a53e2fc58758bd3e668211a50bc7241ee6d7838e47114740c654e",
+      "width": 2400,
+      "height": 1330
+    },
+    {
+      "slug": "dp-security-matrix",
+      "source": "skills/mega-diagram/assets/example-dp-security-matrix.html",
+      "screenshot": "docs/screenshots/dp-security-matrix.png",
+      "source_sha256": "a401e2ae9a3118feeb22189f8bff0d8df1006d5ad40fddc6738acf739166d696",
+      "screenshot_sha256": "ca0364edb655ab8680510aacb77ed9997a6a50d6c470f8deeaad10d68d29a1f3",
+      "width": 2400,
+      "height": 888
+    },
+    {
+      "slug": "sankey",
+      "source": "skills/mega-diagram/assets/example-sankey.html",
+      "screenshot": "docs/screenshots/sankey.png",
+      "source_sha256": "e583340a257097739d548b2e1149c1369939fb5cf3c1634dc6d4831f352978f7",
+      "screenshot_sha256": "014173b8d3587fa1c2b5e15895bf522dffcec88fe8397231f3c17155dc00dfe0",
+      "width": 2400,
+      "height": 1346
+    },
+    {
+      "slug": "fishbone",
+      "source": "skills/mega-diagram/assets/example-fishbone.html",
+      "screenshot": "docs/screenshots/fishbone.png",
+      "source_sha256": "d925c619132f7b042c92fa334dceb6db33d67f9a9b847d98799cb13362bef3bf",
+      "screenshot_sha256": "e72aeb8abc0d2dc0e100541286e3b64c9dfd019ab7b80f105cb574000e4c7dd7",
+      "width": 2640,
+      "height": 1072
+    },
+    {
+      "slug": "wardley",
+      "source": "skills/mega-diagram/assets/example-wardley.html",
+      "screenshot": "docs/screenshots/wardley.png",
+      "source_sha256": "687e5badc7aaea9fbde4e8236d9b4b80d2438c949663cf3ddd76f7cbcbda786a",
+      "screenshot_sha256": "22c4f8e6ca508ef3eb998a4eaeee1d2cc892e7e369e5de6f0393ed7163d1f270",
+      "width": 2400,
+      "height": 1106
+    },
+    {
+      "slug": "kanban",
+      "source": "skills/mega-diagram/assets/example-kanban.html",
+      "screenshot": "docs/screenshots/kanban.png",
+      "source_sha256": "6f36a0fd40d34f225496c51973139bffc8353b670998e0b22b0e1380bf4cd16f",
+      "screenshot_sha256": "dd24149fcb751634963ebfea9f51ecb68846bbabe3939dd03912c033e3a865cc",
+      "width": 2400,
+      "height": 946
+    },
+    {
+      "slug": "journey",
+      "source": "skills/mega-diagram/assets/example-journey.html",
+      "screenshot": "docs/screenshots/journey.png",
+      "source_sha256": "279f38f0be9a9eb7d79e538ffbc41d23c7c034d1eded101dfe8046feb3ba5ec2",
+      "screenshot_sha256": "88fda8fd0ed307898d9402cf2991e7bbe18294710ce36db16f6fe25865bc6d06",
+      "width": 2560,
+      "height": 1110
+    },
+    {
+      "slug": "deployment",
+      "source": "skills/mega-diagram/assets/example-deployment.html",
+      "screenshot": "docs/screenshots/deployment.png",
+      "source_sha256": "a7590361c14a24be2e2944af7067cdb42901d25f473a0bbd60dc28c93942707d",
+      "screenshot_sha256": "c382a03b569351e4c41aef0301302308df401d65b3a87ecf0ffbf5486cf65f78",
+      "width": 2400,
+      "height": 962
+    },
+    {
+      "slug": "dependency",
+      "source": "skills/mega-diagram/assets/example-dependency.html",
+      "screenshot": "docs/screenshots/dependency.png",
+      "source_sha256": "23bcd64bf147e10b608a369151c73861b53a9627aa9295467f82bda3605394e1",
+      "screenshot_sha256": "2ad293c006000002cfad483fd8a1b6f22f6cf7b0179fbaa3aae75c177e0c4604",
+      "width": 2400,
+      "height": 1442
+    },
+    {
+      "slug": "uml-class",
+      "source": "skills/mega-diagram/assets/example-uml-class.html",
+      "screenshot": "docs/screenshots/uml-class.png",
+      "source_sha256": "76027302d43a2bd44874ca2a55601aab1f47b5f167dda006160bf1dc3f32c902",
+      "screenshot_sha256": "e937be58e47b1a89fb02939811676403356507bad66af35aca4e2fc2f2d4138a",
+      "width": 2480,
+      "height": 1682
+    },
+    {
+      "slug": "story-map",
+      "source": "skills/mega-diagram/assets/example-story-map.html",
+      "screenshot": "docs/screenshots/story-map.png",
+      "source_sha256": "673d5c3c251f381b824b872a984fbac03a901b82f038ceb8a1ab7e6f54e9c249",
+      "screenshot_sha256": "e9d89af83d7d137fce890b6063d213ec9672ce7637596dae8840fe4a9a2149ba",
+      "width": 2400,
+      "height": 1258
+    },
+    {
+      "slug": "db-schema",
+      "source": "skills/mega-diagram/assets/example-db-schema.html",
+      "screenshot": "docs/screenshots/db-schema.png",
+      "source_sha256": "a063d6f8ce755d880bf728ec2555f574ef28b1a28876e34ee0084c79f6a8639f",
+      "screenshot_sha256": "b6ed9c1be78b3d31d4b95864a04440eb25d65aa6e2f460e8eece2003d33b57a7",
+      "width": 2480,
+      "height": 1288
+    }
+  ]
+}
